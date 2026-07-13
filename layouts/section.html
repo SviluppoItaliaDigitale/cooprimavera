@@ -1,12 +1,12 @@
 {{ define "main" }}
 <div class="contenitore pagina">
-  <h1>{{ .Title }}</h1>
-  <div class="prosa intro">{{ .Content }}</div>
-  <div class="griglia griglia-3">
+  <h1 data-split="words">{{ .Title }}</h1>
+  <div class="prosa intro" data-anim="fade-up">{{ .Content }}</div>
+  <div class="griglia griglia-3" data-anim-group>
     {{ range .Pages.ByWeight }}
-    <article class="scheda">
+    <article class="scheda" data-tilt>
       <a href="{{ .RelPermalink }}">
-        {{ with .Params.immagine }}{{ partial "immagine.html" (dict "percorso" . "alt" "" "larghezza" 640) }}{{ end }}
+        {{ with .Params.immagine }}<span class="foto-zoom">{{ partial "immagine.html" (dict "percorso" . "alt" "" "larghezza" 640 "skeleton" true) }}</span>{{ end }}
         <h2 class="scheda-titolo">{{ .Title }}</h2>
       </a>
       <p>{{ .Description }}</p>

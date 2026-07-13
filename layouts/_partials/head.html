@@ -8,9 +8,19 @@
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" type="image/png" href="{{ "favicon.png" | absURL }}">
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
+<link rel="stylesheet" href="{{ "css/animazioni.css" | relURL }}">
 {{ with resources.Get "css/main.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
 {{ end }}
+<script>
+  (function () {
+    var r = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!r) {
+      document.documentElement.className += " anim-pronto";
+      setTimeout(function () { if (!window.__animOK) document.documentElement.classList.remove("anim-pronto"); }, 4000);
+    }
+  })();
+</script>
 <meta property="og:title" content="{{ $titolo }}">
 <meta property="og:description" content="{{ .Description | default site.Params.descrizione | plainify | truncate 200 }}">
 <meta property="og:type" content="website">

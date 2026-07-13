@@ -52,8 +52,14 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
 .brand img { width: 220px; height: auto; }
 .menu { margin-left: auto; }
 .menu ul { display: flex; gap: 1.4rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
-.menu a { text-decoration: none; font-weight: 600; }
-.menu a[aria-current="page"] { color: var(--verde-scuro); border-bottom: 3px solid var(--verde); }
+.menu a { text-decoration: none; font-weight: 600; position: relative; }
+.menu a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 3px;
+  background: var(--verde); transform: scaleX(0); transform-origin: left;
+  transition: transform .25s ease;
+}
+.menu a:hover::after, .menu a[aria-current="page"]::after { transform: scaleX(1); }
+.menu a[aria-current="page"] { color: var(--verde-scuro); }
 .menu-bottone { display: none; }
 
 @media (max-width: 760px) {
@@ -74,23 +80,83 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
   .menu a { display: block; padding: .6rem 0; }
 }
 
-/* Eroe */
-.eroe {
-  background: linear-gradient(135deg, var(--verde-scuro), #7ea232 55%, var(--verde));
-  color: #fff;
-  padding: clamp(3rem, 8vw, 5.5rem) 0;
+/* Ponte con il kit animazioni: le variabili --mise-* del kit
+   mappate sui colori Cooprimavera */
+:root {
+  --mise-giallo: var(--verde);
+  --mise-ciano: #c8e07e;
+  --mise-ciano-scuro: var(--verde-scuro);
+  --mise-navy: var(--inchiostro);
 }
+
+/* Gradiente vivo in verde (il kit ha un blu hardcoded al 52%).
+   Toni tenuti SCURI di proposito: sopra c'è sempre testo bianco,
+   e il contrasto deve reggere in ogni fase dell'animazione (WCAG AA) */
+.gradiente-vivo {
+  background: linear-gradient(125deg,
+              #4a5e1d 0%, var(--verde-scuro) 28%,
+              #38471a 52%, var(--verde-scuro) 74%, #4a5e1d 100%);
+  background-size: 320% 320%;
+}
+
+/* Parole rotanti nell'eroe: chip bianco con testo verde scuro,
+   leggibile su qualunque fase del gradiente */
+.eroe .parole-rotanti > span {
+  color: var(--verde-scuro);
+  background: #fff;
+  padding: 0 .28em;
+  border-radius: .18em;
+}
+
+/* Eroe (base senza animazioni: stessi toni scuri, testo bianco leggibile) */
+.eroe {
+  background: linear-gradient(135deg, #38471a, var(--verde-scuro) 55%, #4a5e1d);
+  color: #fff;
+  padding: clamp(3rem, 8vw, 5.5rem) 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.eroe .divisore { margin-top: clamp(2.5rem, 6vw, 4.5rem); }
+.eroe .contenitore { position: relative; z-index: 2; }
+#hero-particelle { position: absolute; inset: 0; z-index: 1; }
+#hero-particelle canvas { display: block; }
+
+/* Logo che galleggia nell'eroe */
+.emblema-logo {
+  position: absolute; right: 6%; top: 50%; z-index: 1;
+  transform: translateY(-50%);
+  animation: emblema-galleggia 6s ease-in-out infinite alternate;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, .25));
+  pointer-events: none;
+}
+.emblema-logo img { width: clamp(120px, 22vw, 300px); height: auto; }
+@keyframes emblema-galleggia {
+  from { transform: translateY(-54%) rotate(-2deg); }
+  to   { transform: translateY(-46%) rotate(2deg); }
+}
+@media (max-width: 900px) { .emblema-logo { display: none; } }
+@media (prefers-reduced-motion: reduce) { .emblema-logo { animation: none; } }
 .eroe h1 { color: #fff; margin: .3rem 0 1rem; }
 .eroe-occhiello { text-transform: uppercase; letter-spacing: .08em; font-size: .85rem; margin: 0; opacity: .92; }
 .eroe-testo { max-width: 46rem; font-size: 1.15rem; }
 .eroe-azioni { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.6rem; }
 
-/* Bottoni */
+/* Bottoni (con riflesso che scorre all'hover, come nel kit) */
 .bottone {
   display: inline-block; background: var(--inchiostro); color: #fff;
   padding: .7rem 1.4rem; border-radius: 999px; text-decoration: none; font-weight: 700;
+  position: relative; overflow: hidden;
+  transition: transform .2s ease;
 }
-.bottone:hover { background: #000; color: #fff; }
+.bottone::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: -60%;
+  width: 40%; transform: skewX(-20deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .35), transparent);
+  transition: left .6s ease;
+}
+.bottone:hover::before { left: 130%; }
+.bottone:hover { background: #000; color: #fff; transform: translateY(-2px); }
+.bottone:active { transform: translateY(0) scale(.97); }
 .bottone-secondario { background: rgba(255, 255, 255, .16); border: 2px solid #fff; }
 .bottone-chiaro { background: #fff; color: var(--verde-scuro); }
 .bottone-chiaro:hover { background: var(--verde-fondo); color: var(--verde-scuro); }
@@ -149,6 +215,43 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
   background: #fff4d6; border: 1px solid #e5c86a; border-radius: 8px;
   padding: .6rem 1rem; font-weight: 600; max-width: 48rem;
 }
+
+/* Settori serviti (etichette) */
+.settori {
+  list-style: none; margin: 1.6rem 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: .7rem; justify-content: center;
+}
+.settori li {
+  background: var(--verde-fondo); border: 1px solid var(--bordo);
+  color: var(--verde-scuro); font-weight: 700;
+  padding: .5rem 1.1rem; border-radius: 999px;
+  transition: transform .2s ease, background .2s ease;
+}
+.settori li:hover { transform: translateY(-3px); background: var(--verde-scuro); color: #fff; }
+
+/* Fascia numeri (contatori) */
+.fascia-numeri {
+  display: flex; gap: clamp(1.5rem, 6vw, 4rem); flex-wrap: wrap;
+  justify-content: center; text-align: center; margin-top: 2rem;
+}
+.fascia-numeri .voce-numero { min-width: 150px; }
+.fascia-numeri .numero {
+  font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; color: var(--verde-scuro);
+  line-height: 1;
+}
+.sezione-verde .fascia-numeri .numero { color: #fff; }
+.fascia-numeri .etichetta { color: var(--grigio); margin-top: .3rem; }
+.sezione-verde .fascia-numeri .etichetta { color: #e4efc7; }
+
+/* Marquee dei servizi */
+.fascia-marquee { padding: .9rem 0; }
+.fascia-marquee a { color: inherit; text-decoration: none; }
+
+/* Divisori a onda */
+.divisore svg path { fill: currentColor; }
+.divisore-bianco { color: var(--carta); }
+.divisore-crema { color: var(--verde-fondo); }
+.divisore-scuro { color: var(--inchiostro); }
 
 /* Piè di pagina */
 .pie { background: var(--inchiostro); color: #e8ebe2; margin-top: 3rem; }

@@ -1,48 +1,88 @@
 {{ define "main" }}
-<section class="eroe">
+<section class="eroe gradiente-vivo">
+  <div id="hero-particelle" aria-hidden="true"></div>
+  <div class="emblema-logo" aria-hidden="true">
+    {{ with resources.Get "img/fiore.png" }}{{ with .Resize "600x png" }}
+    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+    {{ end }}{{ end }}
+  </div>
   <div class="contenitore">
-    <p class="eroe-occhiello">Cooprimavera Società Cooperativa · Castelli Romani</p>
-    <h1>{{ site.Params.claim }}</h1>
-    <p class="eroe-testo">Chi sceglie noi, sceglie la nostra competenza e la capacità di risolvere i vostri problemi. Pulizie professionali, verde, portierato ed eventi, con una missione in più: dare lavoro a chi ne ha più bisogno.</p>
-    <p class="eroe-azioni">
+    <p class="eroe-occhiello" data-anim="fade-down">Cooprimavera Società Cooperativa · Castelli Romani</p>
+    <h1 data-anim="fade-up">Il miglior partner per
+      <span class="parole-rotanti">
+        <span>il tuo business</span>
+        <span>le tue pulizie</span>
+        <span>il tuo verde</span>
+        <span>i tuoi eventi</span>
+        <span>la tua sede</span>
+      </span>
+    </h1>
+    <p class="eroe-testo" data-anim="fade-up" data-anim-delay="0.15">Chi sceglie noi, sceglie la nostra competenza e la capacità di risolvere i vostri problemi. Pulizie professionali, verde, portierato ed eventi, con una missione in più: dare lavoro a chi ne ha più bisogno.</p>
+    <p class="eroe-azioni" data-anim="fade-up" data-anim-delay="0.3">
       <a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo gratuito</a>
       <a class="bottone bottone-secondario" href="{{ "servizi/" | relURL }}">Scopri i servizi</a>
     </p>
+  </div>
+  <div class="divisore divisore-bianco" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C240,58 480,4 720,26 C960,48 1200,12 1440,34 L1440,60 L0,60 Z"></path></svg>
   </div>
 </section>
 
 <section class="sezione">
   <div class="contenitore">
-    <h2>I nostri valori</h2>
-    <div class="griglia griglia-4 valori">
-      <div class="valore">
+    <h2 data-split="words">I nostri valori</h2>
+    <div class="griglia griglia-4 valori" data-anim-group>
+      <div class="valore" data-tilt>
         <h3>Formazione</h3>
         <p>Formazione continua e specializzata per il personale dipendente.</p>
       </div>
-      <div class="valore">
+      <div class="valore" data-tilt>
         <h3>Valorizzazione</h3>
         <p>Il socio lavoratore è al centro della cooperativa, per valorizzarlo.</p>
       </div>
-      <div class="valore">
+      <div class="valore" data-tilt>
         <h3>Sicurezza</h3>
         <p>Gli appalti di lavoro vengono eseguiti nella massima sicurezza.</p>
       </div>
-      <div class="valore">
+      <div class="valore" data-tilt>
         <h3>Certificazione</h3>
         <p>Certificazioni e abilitazioni sono il "must" per la cooperativa.</p>
+      </div>
+    </div>
+    <div class="fascia-numeri" data-anim="fade-up">
+      <div class="voce-numero">
+        <div class="numero"><span data-conta="{{ sub now.Year 2006 }}">0</span></div>
+        <div class="etichetta">anni di esperienza</div>
+      </div>
+      <div class="voce-numero">
+        <div class="numero"><span data-conta="{{ len (site.GetPage "/servizi").Pages }}">0</span></div>
+        <div class="etichetta">settori di servizio</div>
+      </div>
+      <div class="voce-numero">
+        <div class="numero"><span data-conta="23">0</span></div>
+        <div class="etichetta">servizi specialistici</div>
       </div>
     </div>
   </div>
 </section>
 
+<div class="fascia-marquee" aria-hidden="true">
+  <div class="marquee">
+    <div class="marquee__pista">
+      {{ $voci := slice "Pulizie professionali" "Sanificazioni" "Giardinaggio" "Portierato" "Allestimenti per eventi" "Disinfestazioni" "Preventivo gratuito" }}
+      {{ range (slice 1 2) }}{{ range $voci }}<span class="marquee__voce">{{ . }}</span>{{ end }}{{ end }}
+    </div>
+  </div>
+</div>
+
 <section class="sezione sezione-alterna">
   <div class="contenitore">
-    <h2>I nostri servizi</h2>
-    <div class="griglia griglia-3">
+    <h2 data-split="words">I nostri servizi</h2>
+    <div class="griglia griglia-3" data-anim-group>
       {{ range (site.GetPage "/servizi").Pages.ByWeight }}
-      <article class="scheda">
+      <article class="scheda" data-tilt>
         <a href="{{ .RelPermalink }}">
-          {{ with .Params.immagine }}{{ partial "immagine.html" (dict "percorso" . "alt" "" "larghezza" 640) }}{{ end }}
+          {{ with .Params.immagine }}<span class="foto-zoom">{{ partial "immagine.html" (dict "percorso" . "alt" "" "larghezza" 640 "skeleton" true) }}</span>{{ end }}
           <h3>{{ .Title }}</h3>
         </a>
         <p>{{ .Description }}</p>
@@ -53,23 +93,40 @@
 </section>
 
 <section class="sezione">
+  <div class="contenitore centro">
+    <h2 data-split="words">Per chi lavoriamo</h2>
+    <p data-anim="fade-up">Serviamo realtà di ogni tipo, a Roma e nei Castelli Romani.</p>
+    <ul class="settori" data-anim-group>
+      <li>Uffici e aziende</li>
+      <li>Condomìni</li>
+      <li>Scuole</li>
+      <li>Palestre e centri sportivi</li>
+      <li>Ospedali e case di cura</li>
+      <li>Aziende alimentari</li>
+      <li>Enti pubblici</li>
+      <li>Privati</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sezione">
   <div class="contenitore banda">
-    <div>
+    <div data-anim="fade-right">
       <h2>Lavora con noi</h2>
       <p>Siamo alla ricerca costante di nuovo personale da inserire nel nostro organico. Scopri le posizioni aperte e inviaci il tuo curriculum.</p>
-      <p><a class="bottone" href="{{ "lavora-con-noi/" | relURL }}">Posizioni aperte</a></p>
+      <p><a class="bottone bottone-chiaro" href="{{ "lavora-con-noi/" | relURL }}">Posizioni aperte</a></p>
     </div>
-    <div class="banda-immagine">
-      {{ partial "immagine.html" (dict "percorso" "img/lavora-con-noi.jpg" "alt" "" "larghezza" 720) }}
+    <div class="banda-immagine foto-zoom" data-anim="fade-left">
+      {{ partial "immagine.html" (dict "percorso" "img/lavora-con-noi.jpg" "alt" "" "larghezza" 720 "skeleton" true) }}
     </div>
   </div>
 </section>
 
-<section class="sezione sezione-verde">
+<section class="sezione sezione-verde gradiente-vivo">
   <div class="contenitore centro">
-    <h2>Hai un progetto in mente?</h2>
-    <p>Contattaci per un preventivo gratuito e senza impegno: ascoltiamo le tue esigenze e ti proponiamo la soluzione migliore.</p>
-    <p><a class="bottone bottone-chiaro" href="{{ "preventivo/" | relURL }}">Contattaci adesso</a></p>
+    <h2 data-split="words">Hai un progetto in mente?</h2>
+    <p data-anim="fade-up">Contattaci per un preventivo gratuito e senza impegno: ascoltiamo le tue esigenze e ti proponiamo la soluzione migliore.</p>
+    <p data-anim="fade-up" data-anim-delay="0.15"><a class="bottone bottone-chiaro" href="{{ "preventivo/" | relURL }}">Contattaci adesso</a></p>
   </div>
 </section>
 {{ end }}
