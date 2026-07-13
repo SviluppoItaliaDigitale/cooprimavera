@@ -20,11 +20,4 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          lftp -e "
-            set ftp:ssl-force true; set ssl:verify-certificate false; set net:timeout 30;
-            open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_HOST\";
-            cd www.cooprimavera.com;
-            rm -f servizi.html service-details.html portfolio-details.html chi-siamo.html assunzioni.html Readme.txt ver.php index_oldaruba.php;
-            rm -rf assets forms bootstrapstudio anteprima;
-            cls -l;
-            bye"
+          lftp -e "set ftp:ssl-force true; set ssl:verify-certificate false; set net:timeout 30; open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_HOST\"; cd www.cooprimavera.com; rm -f servizi.html service-details.html portfolio-details.html chi-siamo.html assunzioni.html Readme.txt ver.php index_oldaruba.php; rm -rf assets forms bootstrapstudio anteprima; cls -l; bye"
