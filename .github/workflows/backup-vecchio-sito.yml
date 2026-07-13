@@ -1,0 +1,32 @@
+name: Backup vecchio sito (una tantum)
+
+# Scarica una copia completa del vecchio sito dalla radice del dominio
+# (esclusa /anteprima/) e la salva come artifact per 90 giorni.
+# Da eseguire PRIMA del go-live del nuovo sito.
+on:
+  workflow_dispatch:
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Installa lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Scarica il vecchio sito
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -e "set ftp:ssl-force true; set ssl:verify-certificate false; set net:timeout 30; open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_HOST\"; mirror --exclude ^anteprima/ www.cooprimavera.com/ ./backup-vecchio-sito; bye"
+          echo "=== Contenuto del backup ==="
+          find backup-vecchio-sito -maxdepth 2 | head -50
+          du -sh backup-vecchio-sito
+
+      - name: Salva come artifact (90 giorni)
+        uses: actions/upload-artifact@v4
+        with:
+          name: backup-vecchio-sito-cooprimavera
+          path: backup-vecchio-sito/
+          retention-days: 90
