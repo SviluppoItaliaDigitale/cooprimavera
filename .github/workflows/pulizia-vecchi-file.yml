@@ -1,0 +1,30 @@
+name: Pulizia file del vecchio sito (una tantum)
+
+# Rimuove dalla radice i file del VECCHIO sito rimasti dopo il go-live
+# (pagine del template, assets, cartelle di lavoro) e la /anteprima/.
+# Tutto è già salvato nell'artifact "backup-vecchio-sito-cooprimavera".
+# Solo avvio manuale.
+on:
+  workflow_dispatch:
+
+jobs:
+  pulizia:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Installa lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Rimuovi i file del vecchio sito
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -e "
+            set ftp:ssl-force true; set ssl:verify-certificate false; set net:timeout 30;
+            open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_HOST\";
+            cd www.cooprimavera.com;
+            rm -f servizi.html service-details.html portfolio-details.html chi-siamo.html assunzioni.html Readme.txt ver.php index_oldaruba.php;
+            rm -rf assets forms bootstrapstudio anteprima;
+            cls -l;
+            bye"

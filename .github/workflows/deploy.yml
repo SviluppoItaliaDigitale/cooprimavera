@@ -1,10 +1,9 @@
-name: Pubblica ANTEPRIMA su Aruba
+name: Pubblica su Aruba (LIVE)
 
-# Fase ANTEPRIMA (2026-07-13): il sito viene compilato e pubblicato in
-# www.cooprimavera.com/anteprima/ con meta robots noindex, senza toccare
-# il sito attuale alla radice. Al go-live: baseURL alla radice, via il
-# noindex, server-dir su www.cooprimavera.com/ (stesso percorso fatto
-# per il sito della Misericordia di Ariccia).
+# GO-LIVE del 2026-07-13: il sito viene compilato e pubblicato alla RADICE
+# di www.cooprimavera.com a ogni push su main (niente più /anteprima/,
+# niente noindex). Backup del vecchio sito: artifact "backup-vecchio-sito-
+# cooprimavera" (90 giorni) + backup automatici Aruba + export locale.
 on:
   push:
     branches: [main]
@@ -27,10 +26,8 @@ jobs:
           hugo-version: "0.154.5"
           extended: true
 
-      - name: Compila il sito (anteprima, noindex)
-        run: hugo --minify -b https://www.cooprimavera.com/anteprima/
-        env:
-          HUGO_PARAMS_noindex: "true"
+      - name: Compila il sito
+        run: hugo --minify
 
       - name: Pubblica via FTPS su Aruba
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -43,4 +40,4 @@ jobs:
           # la verifica stretta del nome host fallirebbe
           security: loose
           local-dir: public/
-          server-dir: www.cooprimavera.com/anteprima/
+          server-dir: www.cooprimavera.com/
