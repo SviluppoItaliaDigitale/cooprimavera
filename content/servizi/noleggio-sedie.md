@@ -19,8 +19,8 @@ La nostra dotazione è composta da sedie **Selena**, un riferimento tra le sedut
 ## Certificazioni e conformità
 
 - Conforme al **D.Lgs. 81/2008** (sicurezza nei luoghi di lavoro)
-- **EN 16139** (resistenza e durabilità delle sedute per uso non domestico) — certificazione disponibile su richiesta
-- **Classe 1** di reazione al fuoco — certificazione disponibile su richiesta
+- **EN 16139** (resistenza e durabilità delle sedute per uso non domestico)
+- **Classe 1** di reazione al fuoco
 
 Le certificazioni sono l'ideale per eventi in strutture pubbliche, scuole e sale dove la documentazione di conformità è richiesta dagli enti.
 
