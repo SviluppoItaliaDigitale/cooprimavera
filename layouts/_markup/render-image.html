@@ -1,0 +1,10 @@
+{{- /* Le immagini nei contenuti che puntano a img/... di assets vengono
+     ridimensionate e convertite in WebP; le altre passano invariate */ -}}
+{{- $percorso := strings.TrimPrefix "/" .Destination -}}
+{{- $ris := resources.Get $percorso -}}
+{{- if $ris -}}
+  {{- $img := $ris.Resize "1000x webp q80" -}}
+  <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ .Text }}" loading="lazy" data-skeleton>
+{{- else -}}
+  <img src="{{ .Destination }}" alt="{{ .Text }}" loading="lazy">
+{{- end -}}

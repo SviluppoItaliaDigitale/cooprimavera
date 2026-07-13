@@ -1,0 +1,7 @@
+{{- /* I link interni scritti come assoluti (/pagina/) vengono adattati
+     alla baseURL corrente: così funzionano anche in /anteprima/ */ -}}
+{{- $dest := .Destination -}}
+{{- if and (strings.HasPrefix $dest "/") (not (strings.HasPrefix $dest "//")) -}}
+  {{- $dest = relURL (strings.TrimPrefix "/" $dest) -}}
+{{- end -}}
+<a href="{{ $dest }}"{{ if strings.HasPrefix .Destination "http" }} rel="noopener"{{ end }}>{{ .Text }}</a>

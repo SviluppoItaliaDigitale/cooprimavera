@@ -12,4 +12,6 @@ La sanificazione professionale va oltre la pulizia ordinaria: riduce in modo mir
 
 Gli interventi possono essere una tantum oppure programmati con la periodicità più adatta all'attività del cliente.
 
+**I prodotti che usiamo:** in tutti i nostri appalti impieghiamo prodotti professionali **Sanitec di Italchimica**, scelti perché certificati ed efficaci.
+
 <!-- BOZZA: elenco dettagliato dei trattamenti, dei prodotti/attrezzature (es. atomizzazione, ozono) e degli ambiti da validare con la cooperativa. -->

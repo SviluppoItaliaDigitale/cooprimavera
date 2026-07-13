@@ -11,6 +11,8 @@ Pulizia professionale per uffici, vetrate, enti pubblici e privati, palestre, sg
 
 **Per i servizi di pulizia il sopralluogo è obbligatorio:** il preventivo definitivo viene formulato solo dopo aver visto gli ambienti, così è preciso e senza sorprese.
 
+**I prodotti che usiamo:** in tutti i nostri appalti impieghiamo prodotti professionali **Sanitec di Italchimica**, scelti perché certificati ed efficaci.
+
 ## Pulizia uffici
 
 Cooprimavera Soc. Coop. offre un servizio di pulizia uffici meticoloso e personalizzato, comprendendo la sanificazione di scrivanie, postazioni di lavoro, aree comuni, servizi igienici e pavimenti. Utilizziamo prodotti professionali a basso impatto ambientale per garantire un ambiente di lavoro salubre, ordinato e stimolante, contribuendo al benessere dei dipendenti e migliorando l'immagine aziendale. La frequenza degli interventi può essere adattata alle specifiche esigenze del cliente, con soluzioni giornaliere, settimanali o periodiche.
