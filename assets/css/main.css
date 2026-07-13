@@ -184,7 +184,8 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
   overflow: hidden; box-shadow: var(--ombra); display: flex; flex-direction: column;
 }
 .scheda a { text-decoration: none; }
-.scheda img { aspect-ratio: 16 / 10; object-fit: cover; width: 100%; }
+.scheda img { aspect-ratio: 16 / 10; object-fit: cover; width: 100%; height: auto; }
+.scheda .foto-zoom { border-radius: 0; }
 .scheda h3, .scheda .scheda-titolo { font-size: 1.15rem; margin: .9rem 1.1rem .2rem; }
 .scheda p { margin: .3rem 1.1rem 1.1rem; color: var(--grigio); }
 
@@ -262,6 +263,32 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
 .divisore-bianco { color: var(--carta); }
 .divisore-crema { color: var(--verde-fondo); }
 .divisore-scuro { color: var(--inchiostro); }
+
+/* Posizioni aperte (lavora con noi) */
+.posizioni-contatore {
+  display: inline-block; background: var(--verde); color: var(--inchiostro);
+  font-weight: 700; padding: .45rem 1.1rem; border-radius: 999px; margin: .5rem 0 0;
+}
+.posizioni { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 54rem; }
+.posizione {
+  background: var(--carta); border: 1px solid var(--bordo); border-radius: var(--raggio);
+  overflow: hidden; box-shadow: var(--ombra); display: flex; flex-direction: column;
+  border-top: 5px solid var(--verde);
+}
+.posizione img { aspect-ratio: 16 / 9; object-fit: cover; width: 100%; height: auto; }
+.posizione-corpo { padding: 1.2rem 1.3rem 1.4rem; display: flex; flex-direction: column; gap: .5rem; }
+.posizione-corpo p { margin: 0; }
+.posizione-settore {
+  align-self: flex-start; background: var(--verde-fondo); color: var(--verde-scuro);
+  font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+  padding: .25rem .8rem; border-radius: 999px;
+}
+.posizione-titolo { margin: .2rem 0; font-size: 1.35rem; }
+.posizione-contratto {
+  background: var(--verde-fondo); border-left: 4px solid var(--verde);
+  padding: .5rem .8rem; border-radius: 0 8px 8px 0; font-size: .95rem;
+}
+.posizione-cta { margin-top: .4rem; }
 
 /* Modulo preventivo */
 .modulo-preventivo {

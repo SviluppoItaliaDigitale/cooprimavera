@@ -1,7 +1,6 @@
 ---
 title: "Cookie policy"
 description: "Informativa sull'uso dei cookie del sito cooprimavera.com."
-bozza_contenuti: true
 ---
 
 Questo sito **non utilizza cookie di profilazione né strumenti di tracciamento di terze parti** e non installa cookie tecnici lato server: è un sito statico di sola consultazione.

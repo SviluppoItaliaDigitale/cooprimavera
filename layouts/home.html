@@ -69,7 +69,9 @@
 <div class="fascia-marquee" aria-hidden="true">
   <div class="marquee">
     <div class="marquee__pista">
-      {{ $voci := slice "Pulizie professionali" "Sanificazioni" "Giardinaggio" "Portierato" "Allestimenti per eventi" "Disinfestazioni" "Preventivo gratuito" }}
+      {{ $voci := slice }}
+      {{ range (site.GetPage "/servizi").Pages.ByWeight }}{{ $voci = $voci | append .Title }}{{ end }}
+      {{ $voci = $voci | append "Preventivo gratuito" }}
       {{ range (slice 1 2) }}{{ range $voci }}<span class="marquee__voce">{{ . }}</span>{{ end }}{{ end }}
     </div>
   </div>
@@ -82,7 +84,7 @@
       {{ range (site.GetPage "/servizi").Pages.ByWeight }}
       <article class="scheda" data-tilt>
         <a href="{{ .RelPermalink }}">
-          {{ with .Params.immagine }}<span class="foto-zoom">{{ partial "immagine.html" (dict "percorso" . "alt" "" "larghezza" 640 "skeleton" true) }}</span>{{ end }}
+          {{ with .Params.immagine }}<span class="foto-zoom">{{ partial "immagine.html" (dict "percorso" . "alt" "" "ritaglio" "640x400" "skeleton" true) }}</span>{{ end }}
           <h3>{{ .Title }}</h3>
         </a>
         <p>{{ .Description }}</p>

@@ -15,6 +15,8 @@ Il tuo partner per un giardino da sogno: progettazione, realizzazione e manutenz
 
 Il nostro team è pronto ad ascoltare le tue idee e a trasformarle in un progetto unico e personalizzato. Analizziamo lo spazio disponibile tenendo conto delle caratteristiche del terreno, dell'esposizione solare e delle tue preferenze estetiche e funzionali. Creiamo layout armoniosi, selezionando con cura piante, arbusti, alberi e materiali di arredo, e ci occupiamo anche della realizzazione pratica, dalla preparazione del terreno all'impianto delle specie vegetali.
 
+![Taglio del prato con attrezzature professionali](img/tosaerba.jpg)
+
 ## Manutenzione ordinaria
 
 Per mantenere il giardino sempre in perfetta forma offriamo servizi di manutenzione programmati e personalizzati: cura del prato (taglio, concimazione, arieggiatura, rigenerazione), potatura di piante, arbusti e siepi, rimozione delle erbacce infestanti, pulizia di vialetti e aree esterne, controllo e gestione dell'irrigazione.

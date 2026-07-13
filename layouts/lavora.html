@@ -1,0 +1,30 @@
+{{ define "main" }}
+<div class="contenitore pagina">
+  {{ partial "briciole.html" . }}
+  <h1 data-split="words">{{ .Title }}</h1>
+  <div class="prosa intro" data-anim="fade-up">{{ .Content }}</div>
+
+  <p class="posizioni-contatore" data-anim="fade-up">
+    <strong>{{ len .Params.posizioni }}</strong> posizioni aperte in questo momento
+  </p>
+
+  <div class="griglia posizioni" data-anim-group>
+    {{ range .Params.posizioni }}
+    <article class="posizione" data-tilt>
+      <div class="foto-zoom">{{ partial "immagine.html" (dict "percorso" .immagine "alt" "" "ritaglio" "640x360" "skeleton" true) }}</div>
+      <div class="posizione-corpo">
+        <p class="posizione-settore">{{ .settore }}</p>
+        <h2 class="posizione-titolo">{{ .titolo }}</h2>
+        <p>{{ .descrizione }}</p>
+        <p class="posizione-contratto"><strong>Contratto:</strong> {{ .contratto }}</p>
+        <p class="posizione-cta"><a class="bottone" href="mailto:{{ site.Params.email }}?subject={{ printf "Candidatura — %s" .titolo }}">Candidati ora</a></p>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+
+  <div class="prosa" data-anim="fade-up">
+    <p><em>La candidatura comporta l'invio di dati personali: riceverai riscontro se il profilo è in linea con le ricerche attive. I curricula sono trattati nel rispetto della normativa privacy (vedi <a href="{{ "privacy/" | relURL }}">privacy policy</a>).</em></p>
+  </div>
+</div>
+{{ end }}

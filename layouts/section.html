@@ -7,7 +7,7 @@
     {{ range .Pages.ByWeight }}
     <article class="scheda" data-tilt>
       <a href="{{ .RelPermalink }}">
-        {{ with .Params.immagine }}<span class="foto-zoom">{{ partial "immagine.html" (dict "percorso" . "alt" "" "larghezza" 640 "skeleton" true) }}</span>{{ end }}
+        {{ with .Params.immagine }}<span class="foto-zoom">{{ partial "immagine.html" (dict "percorso" . "alt" "" "ritaglio" "640x400" "skeleton" true) }}</span>{{ end }}
         <h2 class="scheda-titolo">{{ .Title }}</h2>
       </a>
       <p>{{ .Description }}</p>

@@ -90,4 +90,8 @@ Hai un progetto in mente? Compila il modulo qui sotto: prepariamo il messaggio p
 - **Sede operativa (ufficio e magazzino):** Via Giuseppe Lugli 2/4 — 00072 Ariccia (RM)
 - **Sede legale:** Viale Don Morosini 100 — 00045 Genzano di Roma (RM)
 
+![Mappa della sede operativa di Via Giuseppe Lugli, Ariccia](img/mappa-sede.png)
+
+*Mappa © OpenStreetMap contributors — [apri il percorso in Google Maps](https://www.google.com/maps/dir//Via+Giuseppe+Lugli+2,+00072+Ariccia+RM)*
+
 **P.IVA:** 09176751007

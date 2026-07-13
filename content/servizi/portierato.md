@@ -9,6 +9,8 @@ Sicurezza e accoglienza professionale per la tua attività: soluzioni di portier
 
 > «La prima impressione è quella che conta.» — Oscar Wilde
 
+![Accoglienza professionale](img/accoglienza.jpg)
+
 ## Portierato e reception
 
 Il nostro personale svolge mansioni di accoglienza e informazione: gestisce il flusso dei visitatori, fornisce indicazioni, risponde alle richieste, gestisce posta e consegne. Un volto cordiale e professionale che crea una prima impressione positiva della tua attività.

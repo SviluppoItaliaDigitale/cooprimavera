@@ -11,7 +11,17 @@ Pulizia professionale per uffici, vetrate, enti pubblici e privati, palestre, sg
 
 **Per i servizi di pulizia il sopralluogo è obbligatorio:** il preventivo definitivo viene formulato solo dopo aver visto gli ambienti, così è preciso e senza sorprese.
 
-**I prodotti che usiamo:** in tutti i nostri appalti impieghiamo prodotti professionali **Sanitec di Italchimica**, scelti perché certificati ed efficaci.
+## I prodotti che usiamo
+
+In tutti i nostri appalti impieghiamo prodotti professionali **Sanitec di Italchimica**, scelti perché certificati ed efficaci. Per ogni contesto usiamo la linea specifica:
+
+- **detergenti per superfici e pavimenti** di ogni tipo, compresi disincrostanti per gli sporchi pesanti;
+- **sgrassanti e detergenti per cucine e ristorazione**, idonei alle procedure HACCP, e prodotti per il **lavaggio delle stoviglie**;
+- **disinfettanti e igienizzanti** professionali per bagni e superfici di contatto;
+- **prodotti per superfici lapidee e metalliche** (marmi, graniti, acciai): pulizia, disossidazione e protezione;
+- **detergenti per lavanderia** (tessuti, moquette, tendaggi);
+- **linee per la cura della persona** (saponi e mousse igienizzanti per i dispenser dei bagni);
+- linee **Ecolabel** e conformi ai **CAM** (Criteri Ambientali Minimi), richieste negli appalti pubblici.
 
 ## Pulizia uffici
 
@@ -40,6 +50,8 @@ Un ambiente scolastico pulito e igienizzato è importante per la salute e il ben
 ## Pulizia aziende alimentari
 
 Siamo specializzati nella pulizia e sanificazione di aziende del settore alimentare, operando nel pieno rispetto delle normative HACCP. I nostri protocolli comprendono la sanificazione di aree di produzione, magazzini, celle frigorifere, attrezzature e superfici di contatto con gli alimenti, con detergenti e disinfettanti specifici per il settore.
+
+![Operatore al lavoro sui pannelli fotovoltaici](img/pulizia-fotovoltaico.jpg)
 
 ## Pulizia pannelli fotovoltaici
 
