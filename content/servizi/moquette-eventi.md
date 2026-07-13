@@ -7,7 +7,7 @@ weight: 67
 
 Per eventi, spettacoli, sfilate, matrimoni e assemblee aziendali forniamo e posiamo la **moquette su misura**: la tagliamo sulle dimensioni richieste e la posizioniamo noi, pronta per l'evento. Ci viene richiesta anche per **rivestire il palco e dare colore alla scena**, e dalle **bande musicali che si esibiscono su strada**, che vogliono una copertura totale e ordinata delle loro postazioni.
 
-Grazie al catalogo del nostro fornitore specializzato, il cliente può scegliere tra moltissime tipologie e colori. Ecco le famiglie principali, per farsi un'idea.
+Il cliente può scegliere tra moltissime tipologie e colori. Ecco le famiglie principali, per farsi un'idea.
 
 ## Moquette liscia
 
@@ -41,4 +41,4 @@ Drenante, antiscivolo e resistente alle intemperie (anche con fibra anti-UV): id
 
 Contattaci indicando **tipo di evento, superficie da coprire e colore desiderato**: ti proponiamo la tipologia più adatta e ci occupiamo noi di taglio su misura, posa e rimozione a fine evento.
 
-*Le foto sono esempi dal catalogo del fornitore: disponibilità di colori e tipologie da confermare al momento della richiesta.*
+*Le foto sono esempi indicativi: disponibilità di colori e tipologie da confermare al momento della richiesta.*

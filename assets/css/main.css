@@ -198,6 +198,15 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
 .banda-immagine img { border-radius: var(--raggio); }
 @media (max-width: 760px) { .banda { grid-template-columns: 1fr; } }
 
+/* Briciole di pane */
+.briciole { font-size: .92rem; margin-bottom: 1.2rem; }
+.briciole ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .35rem; }
+.briciole li { display: flex; align-items: center; gap: .35rem; color: var(--grigio); }
+.briciole li + li::before { content: "›"; color: var(--verde-scuro); font-weight: 700; }
+.briciole a { color: var(--verde-scuro); text-decoration: none; }
+.briciole a:hover { text-decoration: underline; }
+.briciole [aria-current="page"] { font-weight: 700; color: var(--inchiostro); }
+
 /* Pagine interne */
 .pagina { padding: clamp(2rem, 5vw, 3.2rem) 1.25rem; }
 .pagina-immagine { margin: 1.2rem 0; }

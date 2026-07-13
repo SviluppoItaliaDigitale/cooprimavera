@@ -1,5 +1,6 @@
 {{ define "main" }}
 <div class="contenitore pagina">
+  {{ partial "briciole.html" . }}
   <h1 data-split="words">{{ .Title }}</h1>
   <div class="prosa intro" data-anim="fade-up">{{ .Content }}</div>
   <div class="griglia griglia-3" data-anim-group>

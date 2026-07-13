@@ -39,7 +39,7 @@ Hai un progetto in mente? Compila il modulo qui sotto: prepariamo il messaggio p
     <label for="mp-messaggio">Descrivi l'esigenza (ambienti, metratura, frequenza…) *</label>
     <textarea id="mp-messaggio" name="messaggio" rows="5" required></textarea>
   </div>
-  <p class="campo-nota">Inviando accetti il trattamento dei dati per rispondere alla richiesta ([privacy policy](/privacy/)).</p>
+  <p class="campo-nota">Inviando accetti il trattamento dei dati per rispondere alla richiesta (<a href="../privacy/">privacy policy</a>).</p>
   <div class="modulo-azioni">
     <button type="submit" class="bottone" data-canale="whatsapp">Invia su WhatsApp</button>
     <button type="submit" class="bottone bottone-chiaro" data-canale="email">Invia via email</button>

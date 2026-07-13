@@ -1,5 +1,6 @@
 {{ define "main" }}
 <div class="contenitore pagina">
+  {{ partial "briciole.html" . }}
   {{ if .Params.bozza_contenuti }}
   <p class="avviso-bozza">Pagina in bozza: testi da completare e validare con la cooperativa.</p>
   {{ end }}

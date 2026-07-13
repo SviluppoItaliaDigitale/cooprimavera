@@ -1,0 +1,18 @@
+{{- if not .IsHome -}}
+<nav class="briciole" aria-label="Percorso di navigazione">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    {{- $pos := 1 -}}
+    {{- range .Ancestors.Reverse }}
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="{{ .RelPermalink }}"><span itemprop="name">{{ if .IsHome }}Home{{ else }}{{ .Title }}{{ end }}</span></a>
+      <meta itemprop="position" content="{{ $pos }}">
+    </li>
+    {{- $pos = add $pos 1 -}}
+    {{- end }}
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+      <span itemprop="name">{{ .Title }}</span>
+      <meta itemprop="position" content="{{ $pos }}">
+    </li>
+  </ol>
+</nav>
+{{- end -}}
