@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {{ $titolo := .Title }}
-{{ if .IsHome }}{{ $titolo = site.Title }}{{ else }}{{ $titolo = printf "%s — %s" .Title site.Title }}{{ end }}
+{{ if .IsHome }}{{ $titolo = "Cooprimavera — Impresa di pulizie e multiservizi a Roma e Castelli Romani" }}{{ else }}{{ $titolo = printf "%s — %s" .Title site.Title }}{{ end }}
 <title>{{ $titolo }}</title>
 <meta name="description" content="{{ .Description | default .Summary | default site.Params.descrizione | plainify | truncate 160 }}">
 {{ if site.Params.noindex }}<meta name="robots" content="noindex, nofollow">{{ end }}
@@ -25,7 +25,8 @@
 <meta property="og:description" content="{{ .Description | default site.Params.descrizione | plainify | truncate 200 }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ .Permalink }}">
-{{ with resources.Get "img/logo.png" }}<meta property="og:image" content="{{ .Permalink }}">{{ end }}
+{{ $ogimg := resources.Get (.Params.immagine | default "img/logo.png") | default (resources.Get "img/logo.png") }}
+{{ with $ogimg }}{{ with .Resize "1200x webp q85" }}<meta property="og:image" content="{{ .Permalink }}">{{ end }}{{ end }}
 {{ if .IsHome }}
 <script type="application/ld+json">
 {
@@ -50,6 +51,23 @@
     "{{ site.Params.social.linkedin }}",
     "{{ site.Params.social.x }}"
   ]
+}
+</script>
+{{ end }}
+{{ if and .CurrentSection (eq .CurrentSection.Title "Servizi") (not .IsSection) }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": {{ .Title | jsonify }},
+  "description": {{ .Description | jsonify }},
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Cooprimavera Società Cooperativa",
+    "url": "https://www.cooprimavera.com/",
+    "telephone": "{{ site.Params.telefono_cell_link }}"
+  },
+  "areaServed": ["Castelli Romani", "Roma", "Ariccia", "Genzano di Roma"]
 }
 </script>
 {{ end }}
