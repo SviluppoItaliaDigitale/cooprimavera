@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="contenitore pagina">
+  {{ if .Params.bozza_contenuti }}
+  <p class="avviso-bozza">Pagina in bozza: testi da completare e validare con la cooperativa.</p>
+  {{ end }}
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.immagine }}
+  <div class="pagina-immagine">{{ partial "immagine.html" (dict "percorso" . "alt" "" "larghezza" 1100) }}</div>
+  {{ end }}
+  <div class="prosa">{{ .Content }}</div>
+  {{ if .CurrentSection }}{{ if eq .CurrentSection.Title "Servizi" }}
+  <p class="rimando"><a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo per questo servizio</a></p>
+  {{ end }}{{ end }}
+</div>
+{{ end }}

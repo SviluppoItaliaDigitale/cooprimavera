@@ -1,0 +1,45 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{ $titolo := .Title }}
+{{ if .IsHome }}{{ $titolo = site.Title }}{{ else }}{{ $titolo = printf "%s — %s" .Title site.Title }}{{ end }}
+<title>{{ $titolo }}</title>
+<meta name="description" content="{{ .Description | default .Summary | default site.Params.descrizione | plainify | truncate 160 }}">
+{{ if site.Params.noindex }}<meta name="robots" content="noindex, nofollow">{{ end }}
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" type="image/png" href="{{ "favicon.png" | absURL }}">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
+{{ with resources.Get "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{ end }}
+<meta property="og:title" content="{{ $titolo }}">
+<meta property="og:description" content="{{ .Description | default site.Params.descrizione | plainify | truncate 200 }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ with resources.Get "img/logo.png" }}<meta property="og:image" content="{{ .Permalink }}">{{ end }}
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Cooprimavera Società Cooperativa",
+  "url": "https://www.cooprimavera.com/",
+  "email": "{{ site.Params.email }}",
+  "telephone": "{{ site.Params.telefono_cell_link }}",
+  "vatID": "IT{{ site.Params.piva }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Giuseppe Lugli 2/4",
+    "postalCode": "00072",
+    "addressLocality": "Ariccia",
+    "addressRegion": "RM",
+    "addressCountry": "IT"
+  },
+  "sameAs": [
+    "{{ site.Params.social.facebook }}",
+    "{{ site.Params.social.instagram }}",
+    "{{ site.Params.social.linkedin }}",
+    "{{ site.Params.social.x }}"
+  ]
+}
+</script>
+{{ end }}

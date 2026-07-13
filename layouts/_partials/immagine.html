@@ -1,0 +1,8 @@
+{{- /* Rende un'immagine da assets/ ridimensionata in WebP.
+     Contesto: dict "percorso" "img/x.jpg" "alt" "..." "larghezza" 800 */ -}}
+{{- $ris := resources.Get .percorso -}}
+{{- if $ris -}}
+  {{- $w := .larghezza | default 800 -}}
+  {{- $img := $ris.Resize (printf "%dx webp q80" $w) -}}
+  <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ .alt }}" loading="lazy">
+{{- end -}}

@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div class="contenitore pagina">
+  <h1>{{ .Title }}</h1>
+  <div class="prosa intro">{{ .Content }}</div>
+  <div class="griglia griglia-3">
+    {{ range .Pages.ByWeight }}
+    <article class="scheda">
+      <a href="{{ .RelPermalink }}">
+        {{ with .Params.immagine }}{{ partial "immagine.html" (dict "percorso" . "alt" "" "larghezza" 640) }}{{ end }}
+        <h2 class="scheda-titolo">{{ .Title }}</h2>
+      </a>
+      <p>{{ .Description }}</p>
+    </article>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

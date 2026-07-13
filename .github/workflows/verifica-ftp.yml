@@ -1,0 +1,22 @@
+name: Verifica collegamento FTP
+
+# Test una tantum: si collega via FTPS ad Aruba con i secret del repo
+# ed elenca la radice, per confermare credenziali e nome della cartella
+# del dominio prima del primo deploy. Solo avvio manuale.
+on:
+  workflow_dispatch:
+
+jobs:
+  verifica:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Installa lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Connessione FTPS e listato della radice
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -e "set ftp:ssl-force true; set ssl:verify-certificate false; set net:timeout 20; set net:max-retries 2; open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_HOST\"; cls -l; bye"

@@ -1,0 +1,48 @@
+<footer class="pie">
+  <div class="contenitore pie-griglia">
+    <div>
+      <h2 class="pie-titolo">Cooprimavera Soc. Coop.</h2>
+      <p>Impresa multiservizi dei Castelli Romani, dal 2006.</p>
+      <p>P.IVA {{ site.Params.piva }}</p>
+    </div>
+    <div>
+      <h2 class="pie-titolo">Contatti</h2>
+      <p>Sede operativa: {{ site.Params.sede_operativa }}</p>
+      <p>Sede legale: {{ site.Params.sede_legale }}</p>
+      <p>
+        <a href="tel:{{ site.Params.telefono_cell_link }}">{{ site.Params.telefono_cell }}</a> ·
+        <a href="tel:{{ site.Params.telefono_uff_link }}">{{ site.Params.telefono_uff }}</a><br>
+        <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a><br>
+        PEC: <a href="mailto:{{ site.Params.pec }}">{{ site.Params.pec }}</a>
+      </p>
+    </div>
+    <div>
+      <h2 class="pie-titolo">Seguici</h2>
+      <ul class="pie-social">
+        <li><a href="{{ site.Params.social.facebook }}" rel="noopener">Facebook</a></li>
+        <li><a href="{{ site.Params.social.instagram }}" rel="noopener">Instagram</a></li>
+        <li><a href="{{ site.Params.social.linkedin }}" rel="noopener">LinkedIn</a></li>
+        <li><a href="{{ site.Params.social.x }}" rel="noopener">X</a></li>
+      </ul>
+      <ul class="pie-legale">
+        <li><a href="{{ "privacy/" | relURL }}">Privacy policy</a></li>
+        <li><a href="{{ "cookie/" | relURL }}">Cookie policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="contenitore pie-copy">
+    <p>© {{ now.Year }} Cooprimavera Società Cooperativa</p>
+  </div>
+</footer>
+<script>
+  (function () {
+    var b = document.querySelector('.menu-bottone');
+    var m = document.getElementById('menu-principale');
+    if (!b || !m) return;
+    b.addEventListener('click', function () {
+      var aperto = b.getAttribute('aria-expanded') === 'true';
+      b.setAttribute('aria-expanded', String(!aperto));
+      m.classList.toggle('aperto', !aperto);
+    });
+  })();
+</script>

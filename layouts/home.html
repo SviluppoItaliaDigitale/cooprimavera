@@ -1,0 +1,75 @@
+{{ define "main" }}
+<section class="eroe">
+  <div class="contenitore">
+    <p class="eroe-occhiello">Cooprimavera Società Cooperativa · Castelli Romani</p>
+    <h1>{{ site.Params.claim }}</h1>
+    <p class="eroe-testo">Chi sceglie noi, sceglie la nostra competenza e la capacità di risolvere i vostri problemi. Pulizie professionali, verde, portierato ed eventi, con una missione in più: dare lavoro a chi ne ha più bisogno.</p>
+    <p class="eroe-azioni">
+      <a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo gratuito</a>
+      <a class="bottone bottone-secondario" href="{{ "servizi/" | relURL }}">Scopri i servizi</a>
+    </p>
+  </div>
+</section>
+
+<section class="sezione">
+  <div class="contenitore">
+    <h2>I nostri valori</h2>
+    <div class="griglia griglia-4 valori">
+      <div class="valore">
+        <h3>Formazione</h3>
+        <p>Formazione continua e specializzata per il personale dipendente.</p>
+      </div>
+      <div class="valore">
+        <h3>Valorizzazione</h3>
+        <p>Il socio lavoratore è al centro della cooperativa, per valorizzarlo.</p>
+      </div>
+      <div class="valore">
+        <h3>Sicurezza</h3>
+        <p>Gli appalti di lavoro vengono eseguiti nella massima sicurezza.</p>
+      </div>
+      <div class="valore">
+        <h3>Certificazione</h3>
+        <p>Certificazioni e abilitazioni sono il "must" per la cooperativa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sezione sezione-alterna">
+  <div class="contenitore">
+    <h2>I nostri servizi</h2>
+    <div class="griglia griglia-3">
+      {{ range (site.GetPage "/servizi").Pages.ByWeight }}
+      <article class="scheda">
+        <a href="{{ .RelPermalink }}">
+          {{ with .Params.immagine }}{{ partial "immagine.html" (dict "percorso" . "alt" "" "larghezza" 640) }}{{ end }}
+          <h3>{{ .Title }}</h3>
+        </a>
+        <p>{{ .Description }}</p>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="sezione">
+  <div class="contenitore banda">
+    <div>
+      <h2>Lavora con noi</h2>
+      <p>Siamo alla ricerca costante di nuovo personale da inserire nel nostro organico. Scopri le posizioni aperte e inviaci il tuo curriculum.</p>
+      <p><a class="bottone" href="{{ "lavora-con-noi/" | relURL }}">Posizioni aperte</a></p>
+    </div>
+    <div class="banda-immagine">
+      {{ partial "immagine.html" (dict "percorso" "img/lavora-con-noi.jpg" "alt" "" "larghezza" 720) }}
+    </div>
+  </div>
+</section>
+
+<section class="sezione sezione-verde">
+  <div class="contenitore centro">
+    <h2>Hai un progetto in mente?</h2>
+    <p>Contattaci per un preventivo gratuito e senza impegno: ascoltiamo le tue esigenze e ti proponiamo la soluzione migliore.</p>
+    <p><a class="bottone bottone-chiaro" href="{{ "preventivo/" | relURL }}">Contattaci adesso</a></p>
+  </div>
+</section>
+{{ end }}

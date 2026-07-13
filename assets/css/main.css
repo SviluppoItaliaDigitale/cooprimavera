@@ -1,0 +1,165 @@
+/* Cooprimavera — foglio di stile principale
+   Colori del logo: verde #9FC63D, verde scuro #627C26 */
+
+:root {
+  --verde: #9fc63d;
+  --verde-scuro: #627c26;
+  --verde-fondo: #f4f8e8;
+  --inchiostro: #232a1c;
+  --grigio: #5c6357;
+  --carta: #ffffff;
+  --bordo: #e3e8d8;
+  --raggio: 12px;
+  --ombra: 0 2px 12px rgba(35, 42, 28, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.06rem;
+  line-height: 1.65;
+  color: var(--inchiostro);
+  background: var(--carta);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--verde-scuro); }
+a:hover { color: var(--inchiostro); }
+
+h1, h2, h3 { line-height: 1.2; color: var(--inchiostro); }
+h1 { font-size: clamp(1.9rem, 4.5vw, 2.8rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+
+.contenitore { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+
+.salta {
+  position: absolute; left: -999px; top: 0;
+  background: var(--verde-scuro); color: #fff; padding: .5rem 1rem;
+}
+.salta:focus { left: 0; z-index: 100; }
+
+.visivamente-nascosto {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* Testata */
+.testata { border-bottom: 1px solid var(--bordo); background: var(--carta); }
+.testata-riga { display: flex; align-items: center; gap: 1rem; padding-top: .8rem; padding-bottom: .8rem; flex-wrap: wrap; }
+.brand img { width: 220px; height: auto; }
+.menu { margin-left: auto; }
+.menu ul { display: flex; gap: 1.4rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+.menu a { text-decoration: none; font-weight: 600; }
+.menu a[aria-current="page"] { color: var(--verde-scuro); border-bottom: 3px solid var(--verde); }
+.menu-bottone { display: none; }
+
+@media (max-width: 760px) {
+  .menu-bottone {
+    display: block; margin-left: auto;
+    background: none; border: 2px solid var(--verde-scuro); border-radius: 8px;
+    padding: .45rem .6rem; cursor: pointer;
+  }
+  .menu-icona, .menu-icona::before, .menu-icona::after {
+    display: block; width: 22px; height: 2.5px; background: var(--verde-scuro); position: relative;
+  }
+  .menu-icona::before, .menu-icona::after { content: ""; position: absolute; }
+  .menu-icona::before { top: -7px; }
+  .menu-icona::after { top: 7px; }
+  .menu { display: none; width: 100%; }
+  .menu.aperto { display: block; }
+  .menu ul { flex-direction: column; gap: 0; padding: .5rem 0; }
+  .menu a { display: block; padding: .6rem 0; }
+}
+
+/* Eroe */
+.eroe {
+  background: linear-gradient(135deg, var(--verde-scuro), #7ea232 55%, var(--verde));
+  color: #fff;
+  padding: clamp(3rem, 8vw, 5.5rem) 0;
+}
+.eroe h1 { color: #fff; margin: .3rem 0 1rem; }
+.eroe-occhiello { text-transform: uppercase; letter-spacing: .08em; font-size: .85rem; margin: 0; opacity: .92; }
+.eroe-testo { max-width: 46rem; font-size: 1.15rem; }
+.eroe-azioni { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.6rem; }
+
+/* Bottoni */
+.bottone {
+  display: inline-block; background: var(--inchiostro); color: #fff;
+  padding: .7rem 1.4rem; border-radius: 999px; text-decoration: none; font-weight: 700;
+}
+.bottone:hover { background: #000; color: #fff; }
+.bottone-secondario { background: rgba(255, 255, 255, .16); border: 2px solid #fff; }
+.bottone-chiaro { background: #fff; color: var(--verde-scuro); }
+.bottone-chiaro:hover { background: var(--verde-fondo); color: var(--verde-scuro); }
+
+/* Sezioni e griglie */
+.sezione { padding: clamp(2.2rem, 6vw, 4rem) 0; }
+.sezione-alterna { background: var(--verde-fondo); }
+.sezione-verde { background: var(--verde-scuro); color: #fff; }
+.sezione-verde h2 { color: #fff; }
+.centro { text-align: center; }
+
+.griglia { display: grid; gap: 1.4rem; margin-top: 1.5rem; }
+.griglia-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.griglia-4 { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+
+.valore {
+  background: var(--carta); border: 1px solid var(--bordo); border-top: 4px solid var(--verde);
+  border-radius: var(--raggio); padding: 1.1rem 1.2rem; box-shadow: var(--ombra);
+}
+.valore h3 { margin: 0 0 .4rem; font-size: 1.1rem; }
+.valore p { margin: 0; color: var(--grigio); }
+
+.scheda {
+  background: var(--carta); border: 1px solid var(--bordo); border-radius: var(--raggio);
+  overflow: hidden; box-shadow: var(--ombra); display: flex; flex-direction: column;
+}
+.scheda a { text-decoration: none; }
+.scheda img { aspect-ratio: 16 / 10; object-fit: cover; width: 100%; }
+.scheda h3, .scheda .scheda-titolo { font-size: 1.15rem; margin: .9rem 1.1rem .2rem; }
+.scheda p { margin: .3rem 1.1rem 1.1rem; color: var(--grigio); }
+
+/* Banda "lavora con noi" */
+.banda {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: center;
+  background: var(--inchiostro); color: #fff; border-radius: var(--raggio);
+  padding: clamp(1.4rem, 4vw, 2.5rem); overflow: hidden;
+}
+.banda h2 { color: #fff; margin-top: 0; }
+.banda-immagine img { border-radius: var(--raggio); }
+@media (max-width: 760px) { .banda { grid-template-columns: 1fr; } }
+
+/* Pagine interne */
+.pagina { padding: clamp(2rem, 5vw, 3.2rem) 1.25rem; }
+.pagina-immagine { margin: 1.2rem 0; }
+.pagina-immagine img { border-radius: var(--raggio); }
+.prosa { max-width: 48rem; }
+.prosa h2 { margin-top: 2.2rem; }
+.prosa blockquote {
+  margin: 1.4rem 0; padding: .6rem 1.2rem; border-left: 4px solid var(--verde);
+  background: var(--verde-fondo); font-style: italic;
+}
+.intro { margin-bottom: .5rem; }
+.rimando { margin-top: 2.4rem; }
+
+.avviso-bozza {
+  background: #fff4d6; border: 1px solid #e5c86a; border-radius: 8px;
+  padding: .6rem 1rem; font-weight: 600; max-width: 48rem;
+}
+
+/* Piè di pagina */
+.pie { background: var(--inchiostro); color: #e8ebe2; margin-top: 3rem; }
+.pie a { color: var(--verde); }
+.pie-griglia {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2rem; padding-top: 2.5rem; padding-bottom: 1.5rem;
+}
+.pie-titolo { font-size: 1.05rem; color: #fff; margin: 0 0 .6rem; }
+.pie p { margin: .25rem 0; }
+.pie ul { list-style: none; margin: 0; padding: 0; }
+.pie-social { display: flex; gap: 1rem; flex-wrap: wrap; }
+.pie-legale { margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+.pie-copy { border-top: 1px solid rgba(255, 255, 255, .15); padding-top: .8rem; padding-bottom: .8rem; font-size: .9rem; }

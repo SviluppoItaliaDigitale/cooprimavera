@@ -1,0 +1,44 @@
+baseURL = "https://www.cooprimavera.com/"
+languageCode = "it-IT"
+title = "Cooprimavera Società Cooperativa"
+disableKinds = ["taxonomy", "term"]
+enableRobotsTXT = true
+
+[params]
+descrizione = "Cooprimavera Società Cooperativa — impresa multiservizi dei Castelli Romani: pulizie professionali, sanificazioni, disinfestazioni, giardinaggio, portierato e allestimenti per eventi."
+claim = "Il miglior partner per il tuo business"
+telefono_cell = "331 777 1888"
+telefono_cell_link = "+393317771888"
+telefono_uff = "06 63 46 70"
+telefono_uff_link = "+3906634670"
+email = "info@cooprimavera.com"
+pec = "cooprimavera@pec.it"
+piva = "09176751007"
+sede_operativa = "Via Giuseppe Lugli 2/4 — 00072 Ariccia (RM)"
+sede_legale = "Viale Don Morosini 100 — 00045 Genzano di Roma (RM)"
+
+[params.social]
+facebook = "https://www.facebook.com/Cooprimavera"
+instagram = "https://www.instagram.com/cooprimaverasoccoop/"
+linkedin = "https://it.linkedin.com/company/cooprimavera"
+x = "https://x.com/Cooprimavera"
+
+[[menus.main]]
+name = "Servizi"
+pageRef = "/servizi"
+weight = 10
+
+[[menus.main]]
+name = "Chi siamo"
+pageRef = "/chi-siamo"
+weight = 20
+
+[[menus.main]]
+name = "Lavora con noi"
+pageRef = "/lavora-con-noi"
+weight = 30
+
+[[menus.main]]
+name = "Preventivo e contatti"
+pageRef = "/preventivo"
+weight = 40
