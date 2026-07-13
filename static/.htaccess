@@ -5,11 +5,11 @@ ErrorDocument 404 /404.html
 
 # Redirect 301 dai vecchi URL (sito pre-2026) alle nuove pagine:
 # preservano i risultati già indicizzati da Google
-Redirect 301 /servizi.html /servizi/
-Redirect 301 /service-details.html /servizi/
-Redirect 301 /portfolio-details.html /servizi/
-Redirect 301 /chi-siamo.html /chi-siamo/
-Redirect 301 /assunzioni.html /lavora-con-noi/
+Redirect 301 /servizi.html https://www.cooprimavera.com/servizi/
+Redirect 301 /service-details.html https://www.cooprimavera.com/servizi/
+Redirect 301 /portfolio-details.html https://www.cooprimavera.com/servizi/
+Redirect 301 /chi-siamo.html https://www.cooprimavera.com/chi-siamo/
+Redirect 301 /assunzioni.html https://www.cooprimavera.com/lavora-con-noi/
 
 # Cache del browser per le risorse statiche
 <IfModule mod_expires.c>
