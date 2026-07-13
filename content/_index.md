@@ -1,4 +1,4 @@
 ---
 title: "Cooprimavera Società Cooperativa"
-description: "Cooprimavera Società Cooperativa — impresa multiservizi dei Castelli Romani: pulizie professionali, sanificazioni, disinfestazioni, giardinaggio, portierato e allestimenti per eventi."
+description: "Impresa multiservizi dei Castelli Romani: pulizie professionali, sanificazioni, disinfestazioni, giardinaggio, portierato ed eventi. Preventivo gratuito."
 ---

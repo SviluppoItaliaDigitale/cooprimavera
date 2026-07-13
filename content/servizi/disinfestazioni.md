@@ -1,11 +1,11 @@
 ---
 title: "Disinfestazioni"
-description: "Disinfestazioni e derattizzazioni professionali: blatte, cimici dei letti, zanzare, vespe e calabroni, formiche, topi e ratti. Sopralluogo, trattamento mirato e monitoraggio."
+description: "Disinfestazioni e derattizzazioni professionali: blatte, cimici dei letti, zanzare, vespe, formiche, topi e ratti. Sopralluogo e trattamento mirato."
 immagine: "img/disinfestazioni.jpg"
 weight: 50
 ---
 
-Eliminazione efficace e sicura di insetti e roditori per ambienti sani e protetti, in case, condomìni, attività commerciali, aziende e ambienti produttivi. Ogni intervento parte da un **sopralluogo** per identificare la specie infestante e definire il trattamento più efficace, nel rispetto delle persone, degli animali domestici e dell'ambiente.
+Eliminazione efficace e sicura di insetti e roditori per ambienti sani e protetti, in case, condomini, attività commerciali, aziende e ambienti produttivi. Ogni intervento parte da un **sopralluogo** per identificare la specie infestante e definire il trattamento più efficace, nel rispetto delle persone, degli animali domestici e dell'ambiente.
 
 **I prodotti che usiamo:** per le disinfestazioni impieghiamo prodotti professionali **Copyr**, scelti perché certificati ed efficaci.
 
@@ -19,7 +19,7 @@ Interventi contro **zanzare** (compresi i **trattamenti larvicidi** preventivi n
 
 ## Derattizzazione
 
-Difesa da **topi e ratti** con esche rodenticide collocate in **contenitori di sicurezza**, trappole collanti e meccaniche, e un piano di **monitoraggio periodico** delle postazioni: la soluzione adatta anche a condomìni, magazzini, mense e attività soggette ad autocontrollo HACCP.
+Difesa da **topi e ratti** con esche rodenticide collocate in **contenitori di sicurezza**, trappole collanti e meccaniche, e un piano di **monitoraggio periodico** delle postazioni: la soluzione adatta anche a condomini, magazzini, mense e attività soggette ad autocontrollo HACCP.
 
 ## Altri interventi
 

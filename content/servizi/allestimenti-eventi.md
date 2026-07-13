@@ -17,7 +17,7 @@ Offriamo anche il **[noleggio di sedie impilabili per comunità](/servizi/nolegg
 
 ![Palco modulare componibile per eventi e spettacoli](img/palco-modulare.jpg)
 
-Per spettacoli, concerti e manifestazioni offriamo un **palco modulare componibile**: le dimensioni si adattano allo spazio e al tipo di evento, e il montaggio e lo smontaggio sono curati dal nostro personale. **Su richiesta**, in base all'altezza richiesta, il palco viene fornito **con ringhiera e scaletta**. Il palco può inoltre essere rivestito con la [moquette su misura](/servizi/moquette-eventi/) per dare colore alla scena.
+Per spettacoli, concerti e manifestazioni offriamo un **palco modulare componibile**: le dimensioni si adattano allo spazio e al tipo di evento, e il montaggio e lo smontaggio sono curati dal nostro personale. **Su richiesta**, in base all'altezza desiderata, il palco viene fornito **con ringhiera e scaletta**. Il palco può inoltre essere rivestito con la [moquette su misura](/servizi/moquette-eventi/) per dare colore alla scena.
 
 ## Moquette per eventi
 

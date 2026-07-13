@@ -1,6 +1,6 @@
 ---
 title: "Servizi di portierato"
-description: "Portierato e reception, controllo accessi, videosorveglianza e gestione del centralino per condomini, uffici, aziende ed enti: sicurezza e accoglienza professionale."
+description: "Portierato e reception, controllo accessi, videosorveglianza e centralino per condomini, uffici, aziende ed enti: sicurezza e accoglienza."
 immagine: "img/portierato.jpg"
 weight: 30
 ---

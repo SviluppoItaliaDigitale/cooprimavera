@@ -8,7 +8,9 @@
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" type="image/png" href="{{ "favicon.png" | absURL }}">
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
-<link rel="stylesheet" href="{{ "css/animazioni.css" | relURL }}">
+{{ with resources.Get "css/animazioni.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{ end }}
 {{ with resources.Get "css/main.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
 {{ end }}
@@ -25,6 +27,8 @@
 <meta property="og:description" content="{{ .Description | default site.Params.descrizione | plainify | truncate 200 }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
 {{ $ogimg := resources.Get (.Params.immagine | default "img/logo.png") | default (resources.Get "img/logo.png") }}
 {{ with $ogimg }}{{ with .Resize "1200x webp q85" }}<meta property="og:image" content="{{ .Permalink }}">{{ end }}{{ end }}
 {{ if .IsHome }}

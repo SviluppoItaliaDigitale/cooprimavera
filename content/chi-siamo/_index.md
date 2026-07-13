@@ -1,6 +1,6 @@
 ---
 title: "Chi siamo"
-description: "Cooprimavera, nata nel 2006, unisce servizi di alta qualità alle imprese e inserimento lavorativo di persone svantaggiate: una realtà sociale dei Castelli Romani."
+description: "Cooprimavera, nata nel 2006, unisce servizi di qualità alle imprese e inserimento lavorativo di persone svantaggiate nei Castelli Romani."
 immagine: "img/chi-siamo.jpg"
 layout: "page"
 ---

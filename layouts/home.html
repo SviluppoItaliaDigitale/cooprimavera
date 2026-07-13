@@ -2,7 +2,7 @@
 <section class="eroe gradiente-vivo">
   <div id="hero-particelle" aria-hidden="true"></div>
   <div class="emblema-logo" aria-hidden="true">
-    {{ with resources.Get "img/fiore.png" }}{{ with .Resize "600x png" }}
+    {{ with resources.Get "img/fiore.png" }}{{ with .Resize "600x webp q90" }}
     <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
     {{ end }}{{ end }}
   </div>

@@ -1,6 +1,6 @@
 ---
 title: "Sanificazioni"
-description: "Sanificazione professionale con disinfettanti certificati: uffici, palestre, scuole, cucine e ristorazione, studi medici e industrie. Anche con prodotti Ecolabel e conformi CAM."
+description: "Sanificazione professionale con disinfettanti certificati: uffici, palestre, scuole, cucine, studi medici. Anche prodotti Ecolabel e conformi CAM."
 immagine: "img/sanificazioni.jpg"
 weight: 40
 ---

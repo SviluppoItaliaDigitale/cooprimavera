@@ -1,6 +1,6 @@
 ---
 title: "Pulizie professionali"
-description: "Igiene profonda e ambienti impeccabili per privati e aziende: uffici, vetrate, enti, post cantiere, palestre, scuole, aziende alimentari e pannelli fotovoltaici."
+description: "Pulizie professionali per privati e aziende: uffici, vetrate, post cantiere, palestre, scuole, aziende alimentari e pannelli fotovoltaici."
 immagine: "img/pulizie.jpg"
 weight: 10
 ---

@@ -1,0 +1,27 @@
+# Cooprimavera — regole Apache (hosting Aruba)
+
+# Pagina di errore personalizzata
+ErrorDocument 404 /404.html
+
+# Redirect 301 dai vecchi URL (sito pre-2026) alle nuove pagine:
+# preservano i risultati già indicizzati da Google
+Redirect 301 /servizi.html /servizi/
+Redirect 301 /service-details.html /servizi/
+Redirect 301 /portfolio-details.html /servizi/
+Redirect 301 /chi-siamo.html /chi-siamo/
+Redirect 301 /assunzioni.html /lavora-con-noi/
+
+# Cache del browser per le risorse statiche
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+
+# Compressione testo
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>

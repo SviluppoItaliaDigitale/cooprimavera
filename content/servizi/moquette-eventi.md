@@ -1,6 +1,6 @@
 ---
 title: "Moquette per eventi"
-description: "Fornitura e posa di moquette su misura per eventi, spettacoli, sfilate, matrimoni e assemblee: liscia, velluto, speciali glitter e da esterno, tagliata e posizionata dal nostro personale."
+description: "Moquette su misura per eventi, spettacoli, sfilate e matrimoni: liscia, velluto, glitter e da esterno. Taglio e posa a cura del nostro personale."
 immagine: "img/moquette-velluto.jpg"
 weight: 67
 ---
