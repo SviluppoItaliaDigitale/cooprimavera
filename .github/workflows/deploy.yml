@@ -1,0 +1,46 @@
+name: Pubblica ANTEPRIMA su Aruba
+
+# Fase ANTEPRIMA (2026-07-13): il sito viene compilato e pubblicato in
+# www.cooprimavera.com/anteprima/ con meta robots noindex, senza toccare
+# il sito attuale alla radice. Al go-live: baseURL alla radice, via il
+# noindex, server-dir su www.cooprimavera.com/ (stesso percorso fatto
+# per il sito della Misericordia di Ariccia).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-aruba
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Installa Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.154.5"
+          extended: true
+
+      - name: Compila il sito (anteprima, noindex)
+        run: hugo --minify -b https://www.cooprimavera.com/anteprima/
+        env:
+          HUGO_PARAMS_noindex: "true"
+
+      - name: Pubblica via FTPS su Aruba
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          # il certificato del server Aruba è intestato al nome macchina:
+          # la verifica stretta del nome host fallirebbe
+          security: loose
+          local-dir: public/
+          server-dir: www.cooprimavera.com/anteprima/
