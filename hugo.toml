@@ -4,6 +4,9 @@ title = "Cooprimavera Società Cooperativa"
 disableKinds = ["taxonomy", "term"]
 enableRobotsTXT = true
 
+[markup.goldmark.renderer]
+unsafe = true
+
 [params]
 descrizione = "Cooprimavera Società Cooperativa — impresa multiservizi dei Castelli Romani: pulizie professionali, sanificazioni, disinfestazioni, giardinaggio, portierato e allestimenti per eventi."
 claim = "Il miglior partner per il tuo business"

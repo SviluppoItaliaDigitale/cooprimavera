@@ -49,7 +49,7 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
 /* Testata */
 .testata { border-bottom: 1px solid var(--bordo); background: var(--carta); }
 .testata-riga { display: flex; align-items: center; gap: 1rem; padding-top: .8rem; padding-bottom: .8rem; flex-wrap: wrap; }
-.brand img { width: 220px; height: auto; }
+.brand img { width: 265px; height: auto; }
 .menu { margin-left: auto; }
 .menu ul { display: flex; gap: 1.4rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
 .menu a { text-decoration: none; font-weight: 600; position: relative; }
@@ -232,7 +232,8 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
 /* Fascia numeri (contatori) */
 .fascia-numeri {
   display: flex; gap: clamp(1.5rem, 6vw, 4rem); flex-wrap: wrap;
-  justify-content: center; text-align: center; margin-top: 2rem;
+  justify-content: center; text-align: center;
+  margin-top: clamp(3.5rem, 8vw, 5.5rem);
 }
 .fascia-numeri .voce-numero { min-width: 150px; }
 .fascia-numeri .numero {
@@ -252,6 +253,31 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
 .divisore-bianco { color: var(--carta); }
 .divisore-crema { color: var(--verde-fondo); }
 .divisore-scuro { color: var(--inchiostro); }
+
+/* Modulo preventivo */
+.modulo-preventivo {
+  max-width: 34rem; margin: 1.5rem 0 2.5rem;
+  background: var(--verde-fondo); border: 1px solid var(--bordo);
+  border-radius: var(--raggio); padding: 1.4rem; box-shadow: var(--ombra);
+}
+.modulo-preventivo .campo { margin-bottom: 1rem; }
+.modulo-preventivo label { display: block; font-weight: 700; margin-bottom: .3rem; }
+.modulo-preventivo input,
+.modulo-preventivo select,
+.modulo-preventivo textarea {
+  width: 100%; padding: .65rem .8rem; font: inherit;
+  border: 1px solid var(--bordo); border-radius: 8px; background: #fff;
+  color: var(--inchiostro);
+}
+.modulo-preventivo input:focus,
+.modulo-preventivo select:focus,
+.modulo-preventivo textarea:focus {
+  outline: 3px solid var(--verde); outline-offset: 1px; border-color: var(--verde-scuro);
+}
+.campo-nota { font-size: .92rem; color: var(--verde-scuro); margin: .4rem 0 0; }
+.modulo-azioni { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.2rem; }
+.modulo-azioni .bottone { border: 0; font: inherit; font-weight: 700; cursor: pointer; }
+.modulo-azioni .bottone-chiaro { border: 2px solid var(--verde-scuro); }
 
 /* Piè di pagina */
 .pie { background: var(--inchiostro); color: #e8ebe2; margin-top: 3rem; }

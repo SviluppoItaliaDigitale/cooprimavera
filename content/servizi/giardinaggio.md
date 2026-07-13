@@ -9,6 +9,8 @@ Il tuo partner per un giardino da sogno: progettazione, realizzazione e manutenz
 
 > «La natura crea bellezza senza sforzo. Il giardiniere la rivela con cura.» — Eraclito
 
+**Per i servizi di giardinaggio il sopralluogo è obbligatorio:** il preventivo definitivo viene formulato solo dopo aver visto le aree verdi, così è preciso e senza sorprese.
+
 ## Progettazione e realizzazione giardini
 
 Il nostro team è pronto ad ascoltare le tue idee e a trasformarle in un progetto unico e personalizzato. Analizziamo lo spazio disponibile tenendo conto delle caratteristiche del terreno, dell'esposizione solare e delle tue preferenze estetiche e funzionali. Creiamo layout armoniosi, selezionando con cura piante, arbusti, alberi e materiali di arredo, e ci occupiamo anche della realizzazione pratica, dalla preparazione del terreno all'impianto delle specie vegetali.
