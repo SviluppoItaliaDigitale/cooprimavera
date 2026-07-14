@@ -4,7 +4,7 @@ description: "Richiedi un preventivo gratuito e senza impegno a Cooprimavera: mo
 layout: "page"
 ---
 
-Hai un progetto in mente? Compila il modulo qui sotto: prepariamo il messaggio per te e lo invii con un tocco **su WhatsApp o via email**. In alternativa trovi tutti i recapiti diretti più in basso.
+Hai un progetto in mente? Compila il modulo qui sotto: prepariamo il messaggio per te e lo invii **via email con un tocco** — oppure **chiamaci direttamente**, i recapiti sono qui in basso.
 
 > **Nota bene:** per i servizi di **pulizie** e **giardinaggio** il sopralluogo è **obbligatorio** — il preventivo definitivo viene formulato dopo aver visto gli ambienti o le aree verdi.
 
@@ -41,8 +41,8 @@ Hai un progetto in mente? Compila il modulo qui sotto: prepariamo il messaggio p
   </div>
   <p class="campo-nota">Inviando accetti il trattamento dei dati per rispondere alla richiesta (<a href="../privacy/">privacy policy</a>).</p>
   <div class="modulo-azioni">
-    <button type="submit" class="bottone" data-canale="whatsapp">Invia su WhatsApp</button>
-    <button type="submit" class="bottone bottone-chiaro" data-canale="email">Invia via email</button>
+    <button type="submit" class="bottone">Invia via email</button>
+    <a class="bottone bottone-chiaro" href="tel:+393317771888">Oppure chiamaci: 331 777 1888</a>
   </div>
 </form>
 
@@ -56,10 +56,6 @@ Hai un progetto in mente? Compila il modulo qui sotto: prepariamo il messaggio p
     var v = servizio.value;
     nota.hidden = !(v === "Pulizie professionali" || v === "Giardinaggio");
   });
-  var canale = "whatsapp";
-  form.querySelectorAll("button[data-canale]").forEach(function (b) {
-    b.addEventListener("click", function () { canale = b.getAttribute("data-canale"); });
-  });
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var t = "Richiesta di preventivo dal sito cooprimavera.com\n"
@@ -68,19 +64,14 @@ Hai un progetto in mente? Compila il modulo qui sotto: prepariamo il messaggio p
       + "Comune: " + form.comune.value + "\n"
       + (form.recapito.value ? "Telefono: " + form.recapito.value + "\n" : "")
       + "Esigenza: " + form.messaggio.value;
-    if (canale === "whatsapp") {
-      window.open("https://wa.me/393317771888?text=" + encodeURIComponent(t), "_blank", "noopener");
-    } else {
-      location.href = "mailto:info@cooprimavera.com?subject=" + encodeURIComponent("Richiesta preventivo — " + form.servizio.value) + "&body=" + encodeURIComponent(t);
-    }
+    location.href = "mailto:info@cooprimavera.com?subject=" + encodeURIComponent("Richiesta preventivo — " + form.servizio.value) + "&body=" + encodeURIComponent(t);
   });
 })();
 </script>
 
 ## Recapiti diretti
 
-- **WhatsApp (il canale più rapido):** [scrivici al 331 777 1888](https://wa.me/393317771888)
-- **Cellulare:** [331 777 1888](tel:+393317771888)
+- **Cellulare (il canale più rapido):** [chiamaci al 331 777 1888](tel:+393317771888)
 - **Ufficio:** [06 63 46 70](tel:+3906634670)
 - **Email:** [info@cooprimavera.com](mailto:info@cooprimavera.com)
 - **PEC:** [cooprimavera@pec.it](mailto:cooprimavera@pec.it)
