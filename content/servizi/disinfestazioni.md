@@ -13,6 +13,8 @@ Eliminazione efficace e sicura di insetti e roditori per ambienti sani e protett
 
 Trattamenti mirati contro **blatte e scarafaggi, formiche, cimici** (comprese le **cimici dei letti**), **pulci, zecche, ragni, pesciolini d'argento e acari**: insetticidi professionali concentrati o pronti all'uso, gel ed esche, applicati nei punti critici individuati durante il sopralluogo.
 
+![Zanzara tigre in primo piano](img/zanzara-tigre.jpg)
+
 ## Insetti volanti
 
 Interventi contro **zanzare** (compresi i **trattamenti larvicidi** preventivi nei focolai: tombini, ristagni, aree verdi), **mosche, vespe e calabroni** (con rimozione dei nidi in sicurezza) e **tarme e insetti delle derrate alimentari**, questi ultimi particolarmente delicati per le attività del settore alimentare.

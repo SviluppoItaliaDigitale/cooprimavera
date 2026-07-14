@@ -19,9 +19,13 @@ Il nostro personale svolge mansioni di accoglienza e informazione: gestisce il f
 
 I nostri addetti sono formati per gestire i sistemi di controllo accessi, monitorare ingressi e uscite, verificare l'identità dei visitatori e rilasciare pass o badge temporanei. Una presenza costante che dissuade attività indesiderate e garantisce la sicurezza di ambienti e persone.
 
+![Telecamera di videosorveglianza](img/videosorveglianza.jpg)
+
 ## Videosorveglianza e monitoraggio
 
 Personale addestrato a monitorare i sistemi di videosorveglianza, rilevare anomalie o situazioni sospette e intervenire tempestivamente secondo le procedure stabilite. La combinazione tra presenza fisica e monitoraggio elettronico offre un livello di sicurezza elevato.
+
+![Addetta alla reception risponde al centralino](img/centralino.jpg)
 
 ## Gestione centralino e comunicazioni
 

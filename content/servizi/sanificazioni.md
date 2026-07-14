@@ -9,6 +9,8 @@ Eliminazione efficace di germi e batteri per ambienti sicuri e protetti: la sani
 
 **I prodotti che usiamo:** impieghiamo prodotti professionali **Sanitec di Italchimica**, scelti perché certificati ed efficaci — comprese le linee **Ecolabel** e conformi ai **CAM** (Criteri Ambientali Minimi), richieste negli appalti pubblici e negli eventi sostenibili.
 
+![Erogazione di disinfettante su una superficie](img/prodotti-disinfezione.jpg)
+
 ## Cosa sanifichiamo
 
 - **Uffici e postazioni di lavoro** — scrivanie, superfici di contatto, aree comuni;

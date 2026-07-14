@@ -13,6 +13,8 @@ Oltre alla pulizia, ci occupiamo della **fornitura del materiale igienico per i 
 
 Non si tratta dei formati domestici: forniamo **prodotti professionali in formati per dispenser**, pensati per ambienti ad alta frequentazione — più capienti, più igienici e più economici nell'uso quotidiano.
 
+![Dispenser di sapone e carta igienica in un bagno](img/dispenser-bagno.jpg)
+
 ## Il servizio
 
 La fornitura può essere **abbinata all'appalto di pulizia** o attivata da sola, con rifornimenti programmati: il cliente non deve più pensarci, ai bagni ci pensiamo noi.

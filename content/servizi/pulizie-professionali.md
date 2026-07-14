@@ -27,6 +27,8 @@ In tutti i nostri appalti impieghiamo prodotti professionali **Sanitec di Italch
 
 Cooprimavera Soc. Coop. offre un servizio di pulizia uffici meticoloso e personalizzato, comprendendo la sanificazione di scrivanie, postazioni di lavoro, aree comuni, servizi igienici e pavimenti. Utilizziamo prodotti professionali a basso impatto ambientale per garantire un ambiente di lavoro salubre, ordinato e stimolante, contribuendo al benessere dei dipendenti e migliorando l'immagine aziendale. La frequenza degli interventi può essere adattata alle specifiche esigenze del cliente, con soluzioni giornaliere, settimanali o periodiche.
 
+![Pulizia professionale delle vetrate](img/posizione-pulizie.jpg)
+
 ## Pulizia vetrate
 
 Il nostro servizio di pulizia vetrate è eseguito da personale esperto e qualificato, in grado di trattare vetri di ogni tipo e dimensione, incluse vetrine, facciate continue e finestre in altezza. Impieghiamo tecniche avanzate come l'utilizzo di acqua demineralizzata e sistemi a osmosi inversa per eliminare aloni e residui, garantendo una trasparenza cristallina e una maggiore luminosità degli ambienti interni. La sicurezza è una nostra priorità: utilizziamo attrezzature certificate e rispettiamo rigorose procedure operative.
