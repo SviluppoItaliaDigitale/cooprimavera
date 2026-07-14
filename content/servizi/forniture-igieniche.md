@@ -1,7 +1,7 @@
 ---
 title: "Forniture igieniche per i bagni"
 description: "Fornitura di carta mani, carta igienica e sapone mani in formati professionali per dispenser: il rifornimento continuo per i bagni di uffici, aziende ed enti."
-immagine: "img/forniture-igieniche.jpg"
+immagine: "img/dispenser-bagno.jpg"
 weight: 68
 ---
 
@@ -12,8 +12,6 @@ Oltre alla pulizia, ci occupiamo della **fornitura del materiale igienico per i 
 - **sapone mani**.
 
 Non si tratta dei formati domestici: forniamo **prodotti professionali in formati per dispenser**, pensati per ambienti ad alta frequentazione — più capienti, più igienici e più economici nell'uso quotidiano.
-
-![Dispenser di sapone e carta igienica in un bagno](img/dispenser-bagno.jpg)
 
 ## Il servizio
 
