@@ -5,9 +5,10 @@
   <div class="prosa intro" data-anim="fade-up">{{ .Content }}</div>
   <div class="griglia griglia-3" data-anim-group>
     {{ range .Pages.ByWeight }}
+    {{ $p := . }}
     <article class="scheda" data-tilt>
       <a href="{{ .RelPermalink }}">
-        {{ with .Params.immagine }}<span class="foto-zoom">{{ partial "immagine.html" (dict "percorso" . "alt" "" "ritaglio" "640x400" "skeleton" true) }}</span>{{ end }}
+        {{ with .Params.immagine }}<span class="foto-zoom">{{ partial "immagine.html" (dict "percorso" . "alt" "" "ritaglio" "640x400" "ancora" $p.Params.ritaglio_ancora "skeleton" true) }}</span>{{ end }}
         <h2 class="scheda-titolo">{{ .Title }}</h2>
       </a>
       <p>{{ .Description }}</p>

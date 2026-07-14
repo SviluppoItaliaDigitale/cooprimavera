@@ -8,7 +8,8 @@
   {{- $img := "" -}}
   {{- $mezza := "" -}}
   {{- if .ritaglio -}}
-    {{- $img = $ris.Fill (printf "%s webp q80" .ritaglio) -}}
+    {{- /* "ancora" sposta il punto di ritaglio (es. "Top" per non tagliare le teste) */ -}}
+    {{- $img = $ris.Fill (printf "%s %s webp q80" .ritaglio (.ancora | default "Smart")) -}}
     {{- $dim := split .ritaglio "x" -}}
     {{- $mezza = $ris.Fill (printf "%dx%d webp q80" (div (int (index $dim 0)) 2) (div (int (index $dim 1)) 2)) -}}
   {{- else -}}

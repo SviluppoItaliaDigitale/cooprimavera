@@ -1,6 +1,6 @@
 ---
 title: "Preventivo e contatti"
-description: "Richiedi un preventivo gratuito e senza impegno a Cooprimavera: modulo guidato, WhatsApp, telefono, email, PEC e sedi di Ariccia e Genzano di Roma."
+description: "Richiedi un preventivo gratuito e senza impegno a Cooprimavera: modulo guidato, telefono, email, PEC e sedi di Ariccia e Genzano di Roma."
 layout: "page"
 ---
 

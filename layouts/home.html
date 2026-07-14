@@ -82,9 +82,10 @@
     <h2 data-split="words">I nostri servizi</h2>
     <div class="griglia griglia-3" data-anim-group>
       {{ range (site.GetPage "/servizi").Pages.ByWeight }}
+      {{ $p := . }}
       <article class="scheda" data-tilt>
         <a href="{{ .RelPermalink }}">
-          {{ with .Params.immagine }}<span class="foto-zoom">{{ partial "immagine.html" (dict "percorso" . "alt" "" "ritaglio" "640x400" "skeleton" true) }}</span>{{ end }}
+          {{ with .Params.immagine }}<span class="foto-zoom">{{ partial "immagine.html" (dict "percorso" . "alt" "" "ritaglio" "640x400" "ancora" $p.Params.ritaglio_ancora "skeleton" true) }}</span>{{ end }}
           <h3>{{ .Title }}</h3>
         </a>
         <p>{{ .Description }}</p>

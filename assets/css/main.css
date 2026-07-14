@@ -179,7 +179,12 @@ p  { text-wrap: pretty; }
   from { transform: translateY(-54%) rotate(-2deg); }
   to   { transform: translateY(-46%) rotate(2deg); }
 }
-@media (max-width: 900px) { .emblema-logo { display: none; } }
+/* Su schermi piccoli il fiore resta, più piccolo e in alto a destra,
+   leggermente trasparente per non disturbare il testo */
+@media (max-width: 900px) {
+  .emblema-logo { top: 18%; right: 4%; opacity: .8; }
+  .emblema-logo img { width: clamp(84px, 24vw, 130px); }
+}
 @media (prefers-reduced-motion: reduce) { .emblema-logo { animation: none; } }
 
 .eroe h1 { color: #fff; margin: .3rem 0 1rem; }
