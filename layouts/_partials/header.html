@@ -3,7 +3,8 @@
     <a class="brand" href="{{ site.Home.RelPermalink }}">
       {{ with resources.Get "img/logo.png" }}
         {{ with .Resize "440x png" }}
-        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Cooprimavera Società Cooperativa — home">
+        {{- /* Il logo è sempre sopra la piega: priorità alta per l'LCP */ -}}
+        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Cooprimavera Società Cooperativa — home" fetchpriority="high" decoding="async">
         {{ end }}
       {{ end }}
     </a>

@@ -3,6 +3,8 @@ languageCode = "it-IT"
 title = "Cooprimavera Società Cooperativa"
 disableKinds = ["taxonomy", "term"]
 enableRobotsTXT = true
+# Niente meta generator nell'HTML: un tag in meno in ogni pagina
+disableHugoGeneratorInject = true
 
 [markup.goldmark.renderer]
 unsafe = true

@@ -6,7 +6,7 @@
   {{ end }}
   <h1 data-split="words">{{ .Title }}</h1>
   {{ with .Params.immagine }}
-  <div class="pagina-immagine foto-zoom" data-anim="zoom">{{ partial "immagine.html" (dict "percorso" . "alt" "" "larghezza" 1100 "skeleton" true) }}</div>
+  <div class="pagina-immagine foto-zoom" data-anim="zoom">{{ partial "immagine.html" (dict "percorso" . "alt" "" "larghezza" 1100 "sizes" "(min-width: 1140px) 1060px, 92vw" "skeleton" true) }}</div>
   {{ end }}
   <div class="prosa" data-anim="fade-up">{{ .Content }}</div>
   {{ if .CurrentSection }}{{ if eq .CurrentSection.Title "Servizi" }}

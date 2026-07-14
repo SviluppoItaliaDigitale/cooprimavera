@@ -1,10 +1,11 @@
 {{ define "main" }}
-<div class="contenitore pagina centro">
+<div class="contenitore pagina centro pagina-404">
+  <p class="codice-404" aria-hidden="true">404</p>
   <h1>Pagina non trovata</h1>
-  <p class="prosa" style="margin: 0 auto;">La pagina che cercavi non esiste o è stata spostata con il nuovo sito.</p>
-  <p class="eroe-azioni" style="justify-content: center; margin-top: 1.5rem;">
+  <p class="prosa">La pagina che cercavi non esiste o è stata spostata con il nuovo sito.</p>
+  <p class="eroe-azioni">
     <a class="bottone" href="{{ site.Home.RelPermalink }}">Torna alla home</a>
-    <a class="bottone bottone-chiaro" style="border: 2px solid var(--verde-scuro);" href="{{ "servizi/" | relURL }}">Vedi i servizi</a>
+    <a class="bottone bottone-chiaro" href="{{ "servizi/" | relURL }}">Vedi i servizi</a>
   </p>
 </div>
 {{ end }}

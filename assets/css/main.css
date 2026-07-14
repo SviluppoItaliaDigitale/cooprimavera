@@ -1,6 +1,7 @@
 /* Cooprimavera — foglio di stile principale
-   Colori del logo: verde #9FC63D, verde scuro #627C26 */
+   Colori del logo: verde #9FC63D, verde scuro #627C26, inchiostro #232A1C */
 
+/* ---- Impianto: variabili di design ---- */
 :root {
   --verde: #9fc63d;
   --verde-scuro: #627c26;
@@ -9,29 +10,63 @@
   --grigio: #5c6357;
   --carta: #ffffff;
   --bordo: #e3e8d8;
-  --raggio: 12px;
-  --ombra: 0 2px 12px rgba(35, 42, 28, 0.08);
+  --raggio: 14px;
+
+  /* Ombre a due livelli: morbide da ferme, più profonde all'hover */
+  --ombra: 0 1px 2px rgba(35, 42, 28, .05), 0 6px 16px rgba(35, 42, 28, .07);
+  --ombra-alta: 0 2px 4px rgba(35, 42, 28, .07), 0 14px 32px rgba(35, 42, 28, .14);
+
+  /* Scala tipografica fluida */
+  --titolo-1: clamp(2rem, 1.3rem + 3.6vw, 3rem);
+  --titolo-2: clamp(1.5rem, 1.15rem + 1.8vw, 2.05rem);
+  --titolo-3: 1.15rem;
+
+  /* Ritmo verticale delle sezioni */
+  --sezione-y: clamp(2.75rem, 1.5rem + 4vw, 5rem);
+
+  /* Ponte con il kit animazioni: le variabili --mise-* del kit
+     mappate sui colori Cooprimavera */
+  --mise-giallo: var(--verde);
+  --mise-ciano: #c8e07e;
+  --mise-ciano-scuro: var(--verde-scuro);
+  --mise-navy: var(--inchiostro);
 }
 
 * { box-sizing: border-box; }
 
+html {
+  /* Le àncore non finiscono sotto la testata fissa */
+  scroll-padding-top: 6rem;
+  /* Scrollbar nei colori del brand (solo dove supportata, degrado pulito) */
+  scrollbar-color: var(--verde-scuro) var(--verde-fondo);
+}
+
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 1.06rem;
   line-height: 1.65;
   color: var(--inchiostro);
   background: var(--carta);
+  accent-color: var(--verde-scuro);
 }
 
 img { max-width: 100%; height: auto; display: block; }
 
-a { color: var(--verde-scuro); }
+a { color: var(--verde-scuro); text-underline-offset: 3px; }
 a:hover { color: var(--inchiostro); }
 
-h1, h2, h3 { line-height: 1.2; color: var(--inchiostro); }
-h1 { font-size: clamp(1.9rem, 4.5vw, 2.8rem); }
-h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+/* Selezione del testo nei colori del brand */
+::selection { background: var(--verde); color: var(--inchiostro); }
+
+/* Focus visibile, elegante e coerente ovunque (tastiera) */
+:focus-visible { outline: 3px solid var(--verde); outline-offset: 3px; border-radius: 4px; }
+
+h1, h2, h3, h4 { line-height: 1.15; color: var(--inchiostro); font-weight: 800; text-wrap: balance; }
+h1 { font-size: var(--titolo-1); letter-spacing: -.02em; }
+h2 { font-size: var(--titolo-2); letter-spacing: -.012em; }
+h3 { font-size: var(--titolo-3); line-height: 1.3; }
+p  { text-wrap: pretty; }
 
 .contenitore { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
 
@@ -39,30 +74,46 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
   position: absolute; left: -999px; top: 0;
   background: var(--verde-scuro); color: #fff; padding: .5rem 1rem;
 }
-.salta:focus { left: 0; z-index: 100; }
+.salta:focus { left: 0; z-index: 300; }
 
 .visivamente-nascosto {
   position: absolute; width: 1px; height: 1px;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
 }
 
-/* Testata */
-.testata { border-bottom: 1px solid var(--bordo); background: var(--carta); }
-.testata-riga { display: flex; align-items: center; gap: 1rem; padding-top: .8rem; padding-bottom: .8rem; flex-wrap: wrap; }
-.brand img { width: 265px; height: auto; }
+/* Testata — fissa in alto, con velo traslucido sfocato */
+.testata {
+  position: sticky; top: 0; z-index: 150;
+  border-bottom: 1px solid var(--bordo);
+  background: rgba(255, 255, 255, .92);
+  -webkit-backdrop-filter: blur(10px) saturate(1.3);
+  backdrop-filter: blur(10px) saturate(1.3);
+}
+.testata-riga { display: flex; align-items: center; gap: 1.25rem; padding-top: .8rem; padding-bottom: .8rem; flex-wrap: wrap; }
+.brand { display: block; }
+.brand img { width: 245px; height: auto; }
 .menu { margin-left: auto; }
-.menu ul { display: flex; gap: 1.4rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
-.menu a { text-decoration: none; font-weight: 600; position: relative; }
+.menu ul { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+.menu a { text-decoration: none; font-weight: 600; font-size: .98rem; color: var(--inchiostro); position: relative; }
 .menu a::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 3px;
+  border-radius: 3px;
   background: var(--verde); transform: scaleX(0); transform-origin: left;
   transition: transform .25s ease;
 }
+.menu a:hover { color: var(--verde-scuro); }
 .menu a:hover::after, .menu a[aria-current="page"]::after { transform: scaleX(1); }
 .menu a[aria-current="page"] { color: var(--verde-scuro); }
 .menu-bottone { display: none; }
 
+/* Durante le transizioni di pagina (View Transitions) la testata resta ferma */
+@media (prefers-reduced-motion: no-preference) {
+  .testata { view-transition-name: testata; }
+}
+::view-transition-group(testata) { animation: none; }
+
 @media (max-width: 760px) {
+  .brand img { width: 205px; }
   .menu-bottone {
     display: block; margin-left: auto;
     background: none; border: 2px solid var(--verde-scuro); border-radius: 8px;
@@ -78,15 +129,6 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
   .menu.aperto { display: block; }
   .menu ul { flex-direction: column; gap: 0; padding: .5rem 0; }
   .menu a { display: block; padding: .6rem 0; }
-}
-
-/* Ponte con il kit animazioni: le variabili --mise-* del kit
-   mappate sui colori Cooprimavera */
-:root {
-  --mise-giallo: var(--verde);
-  --mise-ciano: #c8e07e;
-  --mise-ciano-scuro: var(--verde-scuro);
-  --mise-navy: var(--inchiostro);
 }
 
 /* Gradiente vivo in verde (il kit ha un blu hardcoded al 52%).
@@ -121,32 +163,45 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
 #hero-particelle { position: absolute; inset: 0; z-index: 1; }
 #hero-particelle canvas { display: block; }
 
-/* Logo che galleggia nell'eroe */
+/* Logo che galleggia nell'eroe.
+   NB: keyframes con nome proprio (-coop) per non collidere con
+   "emblema-galleggia" del kit; l'animazione del kit sull'<img>
+   viene neutralizzata (qui galleggia il contenitore, non l'immagine). */
 .emblema-logo {
   position: absolute; right: 6%; top: 50%; z-index: 1;
   transform: translateY(-50%);
-  animation: emblema-galleggia 6s ease-in-out infinite alternate;
+  animation: emblema-galleggia-coop 6s ease-in-out infinite alternate;
   filter: drop-shadow(0 18px 30px rgba(0, 0, 0, .25));
   pointer-events: none;
 }
-.emblema-logo img { width: clamp(120px, 22vw, 300px); height: auto; }
-@keyframes emblema-galleggia {
+.emblema-logo img { width: clamp(120px, 22vw, 300px); height: auto; animation: none; }
+@keyframes emblema-galleggia-coop {
   from { transform: translateY(-54%) rotate(-2deg); }
   to   { transform: translateY(-46%) rotate(2deg); }
 }
 @media (max-width: 900px) { .emblema-logo { display: none; } }
 @media (prefers-reduced-motion: reduce) { .emblema-logo { animation: none; } }
+
 .eroe h1 { color: #fff; margin: .3rem 0 1rem; }
-.eroe-occhiello { text-transform: uppercase; letter-spacing: .08em; font-size: .85rem; margin: 0; opacity: .92; }
-.eroe-testo { max-width: 46rem; font-size: 1.15rem; }
+.eroe-occhiello {
+  text-transform: uppercase; letter-spacing: .14em; font-weight: 600;
+  font-size: .85rem; margin: 0; color: #d9e8ac;
+}
+.eroe-occhiello::before {
+  content: ""; display: inline-block; vertical-align: middle;
+  width: 2rem; height: 2px; border-radius: 2px;
+  background: var(--verde); margin-right: .6rem;
+}
+.eroe-testo { max-width: 46rem; font-size: 1.15rem; line-height: 1.7; }
 .eroe-azioni { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.6rem; }
 
 /* Bottoni (con riflesso che scorre all'hover, come nel kit) */
 .bottone {
   display: inline-block; background: var(--inchiostro); color: #fff;
-  padding: .7rem 1.4rem; border-radius: 999px; text-decoration: none; font-weight: 700;
+  padding: .72rem 1.5rem; border-radius: 999px; text-decoration: none;
+  font-weight: 700; letter-spacing: .01em;
   position: relative; overflow: hidden;
-  transition: transform .2s ease;
+  transition: transform .2s ease, box-shadow .25s ease, background-color .2s ease;
 }
 .bottone::before {
   content: ""; position: absolute; top: 0; bottom: 0; left: -60%;
@@ -155,44 +210,64 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
   transition: left .6s ease;
 }
 .bottone:hover::before { left: 130%; }
-.bottone:hover { background: #000; color: #fff; transform: translateY(-2px); }
-.bottone:active { transform: translateY(0) scale(.97); }
+.bottone:hover { background: #000; color: #fff; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, .22); }
+.bottone:active { transform: translateY(0) scale(.97); box-shadow: none; }
 .bottone-secondario { background: rgba(255, 255, 255, .16); border: 2px solid #fff; }
 .bottone-chiaro { background: #fff; color: var(--verde-scuro); }
 .bottone-chiaro:hover { background: var(--verde-fondo); color: var(--verde-scuro); }
 
 /* Sezioni e griglie */
-.sezione { padding: clamp(2.2rem, 6vw, 4rem) 0; }
+.sezione { padding: var(--sezione-y) 0; }
+.sezione h2 { margin: 0 0 .5em; }
 .sezione-alterna { background: var(--verde-fondo); }
 .sezione-verde { background: var(--verde-scuro); color: #fff; }
 .sezione-verde h2 { color: #fff; }
 .centro { text-align: center; }
 
-.griglia { display: grid; gap: 1.4rem; margin-top: 1.5rem; }
+.griglia { display: grid; gap: 1.4rem; margin-top: 1.8rem; }
 .griglia-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
 .griglia-4 { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
 
-.valore {
-  background: var(--carta); border: 1px solid var(--bordo); border-top: 4px solid var(--verde);
-  border-radius: var(--raggio); padding: 1.1rem 1.2rem; box-shadow: var(--ombra);
-}
-.valore h3 { margin: 0 0 .4rem; font-size: 1.1rem; }
-.valore p { margin: 0; color: var(--grigio); }
-
-.scheda {
+/* Card: valori, servizi e posizioni condividono superficie, bordo e ombre.
+   All'hover reagiscono con ombra e bordo, MAI con transform: il tilt 3D
+   del kit scrive transform inline e non va contrastato. La transizione
+   ripete "transform .25s" del kit per non spegnerla sovrascrivendola. */
+.valore, .scheda, .posizione {
   background: var(--carta); border: 1px solid var(--bordo); border-radius: var(--raggio);
-  overflow: hidden; box-shadow: var(--ombra); display: flex; flex-direction: column;
+  box-shadow: var(--ombra);
+  transition: transform .25s ease, box-shadow .3s ease, border-color .3s ease;
 }
+.valore:hover, .scheda:hover, .posizione:hover {
+  box-shadow: var(--ombra-alta); border-color: #cbd6ae;
+}
+
+.valore { border-top: 4px solid var(--verde); padding: 1.3rem 1.35rem 1.4rem; }
+.valore h3 { margin: 0 0 .45rem; }
+.valore p { margin: 0; color: var(--grigio); font-size: .98rem; }
+
+.scheda { overflow: hidden; display: flex; flex-direction: column; }
 .scheda a { text-decoration: none; }
 .scheda img { aspect-ratio: 16 / 10; object-fit: cover; width: 100%; height: auto; }
 .scheda .foto-zoom { border-radius: 0; }
-.scheda h3, .scheda .scheda-titolo { font-size: 1.15rem; margin: .9rem 1.1rem .2rem; }
-.scheda p { margin: .3rem 1.1rem 1.1rem; color: var(--grigio); }
+.scheda h3, .scheda .scheda-titolo {
+  font-size: 1.15rem; letter-spacing: 0; margin: 1rem 1.2rem .2rem;
+  transition: color .2s ease;
+}
+.scheda a:hover h3, .scheda a:hover .scheda-titolo { color: var(--verde-scuro); }
+/* Freccia discreta accanto al titolo, si accende all'hover (niente scatti: lo spazio è riservato) */
+.scheda h3::after, .scheda .scheda-titolo::after {
+  content: "→"; display: inline-block; margin-left: .4em;
+  color: var(--verde-scuro); opacity: 0; transform: translateX(-4px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+.scheda a:hover h3::after, .scheda a:hover .scheda-titolo::after { opacity: 1; transform: translateX(0); }
+.scheda p { margin: .3rem 1.2rem 1.2rem; color: var(--grigio); font-size: .98rem; }
 
 /* Banda "lavora con noi" */
 .banda {
   display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: center;
-  background: var(--inchiostro); color: #fff; border-radius: var(--raggio);
+  background: linear-gradient(115deg, var(--inchiostro), #303a25); color: #fff;
+  border-radius: var(--raggio);
   padding: clamp(1.4rem, 4vw, 2.5rem); overflow: hidden;
 }
 .banda h2 { color: #fff; margin-top: 0; }
@@ -217,6 +292,7 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
 .prosa blockquote {
   margin: 1.4rem 0; padding: .6rem 1.2rem; border-left: 4px solid var(--verde);
   background: var(--verde-fondo); font-style: italic;
+  border-radius: 0 8px 8px 0;
 }
 .intro { margin-bottom: .5rem; }
 .rimando { margin-top: 2.4rem; }
@@ -225,6 +301,15 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
   background: #fff4d6; border: 1px solid #e5c86a; border-radius: 8px;
   padding: .6rem 1rem; font-weight: 600; max-width: 48rem;
 }
+
+/* Pagina 404 */
+.codice-404 {
+  font-size: clamp(4.5rem, 14vw, 8rem); font-weight: 800; line-height: 1;
+  color: var(--verde); opacity: .45; margin: 0 0 .1em; letter-spacing: -.03em;
+}
+.pagina-404 .prosa { margin-inline: auto; }
+.pagina-404 .eroe-azioni { justify-content: center; margin-top: 1.5rem; }
+.pagina-404 .bottone-chiaro { border: 2px solid var(--verde-scuro); }
 
 /* Settori serviti (etichette) */
 .settori {
@@ -235,9 +320,12 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
   background: var(--verde-fondo); border: 1px solid var(--bordo);
   color: var(--verde-scuro); font-weight: 700;
   padding: .5rem 1.1rem; border-radius: 999px;
-  transition: transform .2s ease, background .2s ease;
+  transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
 }
-.settori li:hover { transform: translateY(-3px); background: var(--verde-scuro); color: #fff; }
+.settori li:hover {
+  transform: translateY(-3px); background: var(--verde-scuro); color: #fff;
+  box-shadow: 0 6px 14px rgba(98, 124, 38, .3);
+}
 
 /* Fascia numeri (contatori) */
 .fascia-numeri {
@@ -248,14 +336,13 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
 .fascia-numeri .voce-numero { min-width: 150px; }
 .fascia-numeri .numero {
   font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; color: var(--verde-scuro);
-  line-height: 1;
+  letter-spacing: -.02em; line-height: 1;
 }
 .sezione-verde .fascia-numeri .numero { color: #fff; }
 .fascia-numeri .etichetta { color: var(--grigio); margin-top: .3rem; }
 .sezione-verde .fascia-numeri .etichetta { color: #e4efc7; }
 
 /* Marquee dei servizi */
-.fascia-marquee { padding: .9rem 0; }
 .fascia-marquee a { color: inherit; text-decoration: none; }
 
 /* Divisori a onda */
@@ -271,8 +358,7 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
 }
 .posizioni { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 54rem; }
 .posizione {
-  background: var(--carta); border: 1px solid var(--bordo); border-radius: var(--raggio);
-  overflow: hidden; box-shadow: var(--ombra); display: flex; flex-direction: column;
+  overflow: hidden; display: flex; flex-direction: column;
   border-top: 5px solid var(--verde);
 }
 .posizione img { aspect-ratio: 16 / 9; object-fit: cover; width: 100%; height: auto; }
@@ -335,18 +421,32 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
   transition: transform .2s ease;
 }
 #torna-su:hover { transform: translateY(-3px); }
+#torna-su[hidden] { display: none; }
 @media print { #whatsapp-fisso, #torna-su { display: none; } }
 
-/* Piè di pagina */
-.pie { background: var(--inchiostro); color: #e8ebe2; margin-top: 3rem; }
-.pie a { color: var(--verde); }
+/* Piè di pagina — filo verde in testa, fondo che scurisce verso il basso */
+.pie {
+  background: linear-gradient(180deg, var(--inchiostro), #191f13 80%);
+  border-top: 4px solid var(--verde);
+  color: #e8ebe2; margin-top: 4rem;
+}
+.pie a { color: #cfe08f; text-decoration-color: rgba(159, 198, 61, .45); }
+.pie a:hover { color: #fff; text-decoration-color: #fff; }
 .pie-griglia {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 2rem; padding-top: 2.5rem; padding-bottom: 1.5rem;
+  gap: 2rem; padding-top: 2.8rem; padding-bottom: 1.8rem;
 }
-.pie-titolo { font-size: 1.05rem; color: #fff; margin: 0 0 .6rem; }
+.pie-titolo {
+  font-size: .82rem; text-transform: uppercase; letter-spacing: .14em;
+  color: var(--verde); margin: 0 0 .8rem;
+}
+.pie-claim { font-weight: 600; color: #fff; }
 .pie p { margin: .25rem 0; }
 .pie ul { list-style: none; margin: 0; padding: 0; }
 .pie-social { display: flex; gap: 1rem; flex-wrap: wrap; }
 .pie-legale { margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; }
-.pie-copy { border-top: 1px solid rgba(255, 255, 255, .15); padding-top: .8rem; padding-bottom: .8rem; font-size: .9rem; }
+.pie-copy {
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  padding-top: .9rem; padding-bottom: .9rem;
+  font-size: .9rem; color: #b9c1ad;
+}

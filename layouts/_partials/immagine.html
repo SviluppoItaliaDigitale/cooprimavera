@@ -1,13 +1,22 @@
 {{- /* Rende un'immagine da assets/ in WebP.
      Contesto: dict "percorso" "img/x.jpg" "alt" "..." "larghezza" 800
-     Con "ritaglio" (es. "640x400") ritaglia a misura fissa: card tutte uguali. */ -}}
+     Con "ritaglio" (es. "640x400") ritaglia a misura fissa: card tutte uguali.
+     Con "sizes" si dichiara la larghezza resa: genera anche una variante
+     dimezzata (srcset) così i telefoni non scaricano pixel inutili. */ -}}
 {{- $ris := resources.Get .percorso -}}
 {{- if $ris -}}
   {{- $img := "" -}}
+  {{- $mezza := "" -}}
   {{- if .ritaglio -}}
     {{- $img = $ris.Fill (printf "%s webp q80" .ritaglio) -}}
+    {{- $dim := split .ritaglio "x" -}}
+    {{- $mezza = $ris.Fill (printf "%dx%d webp q80" (div (int (index $dim 0)) 2) (div (int (index $dim 1)) 2)) -}}
   {{- else -}}
     {{- $img = $ris.Resize (printf "%dx webp q80" (.larghezza | default 800)) -}}
+    {{- if gt $img.Width 500 -}}
+      {{- $mezza = $ris.Resize (printf "%dx webp q80" (div $img.Width 2)) -}}
+    {{- end -}}
   {{- end -}}
-  <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ .alt }}" loading="lazy"{{ if .skeleton }} data-skeleton{{ end }}>
+  <img src="{{ $img.RelPermalink }}"
+    {{- with $mezza }} srcset="{{ .RelPermalink }} {{ .Width }}w, {{ $img.RelPermalink }} {{ $img.Width }}w" sizes="{{ $.sizes | default "(min-width: 900px) 360px, 92vw" }}"{{ end }} width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ .alt }}" loading="lazy" decoding="async"{{ if .skeleton }} data-skeleton{{ end }}>
 {{- end -}}

@@ -11,7 +11,7 @@
   <div class="griglia posizioni" data-anim-group>
     {{ range .Params.posizioni }}
     <article class="posizione" data-tilt>
-      <div class="foto-zoom">{{ partial "immagine.html" (dict "percorso" .immagine "alt" "" "ritaglio" "640x360" "skeleton" true) }}</div>
+      <div class="foto-zoom">{{ partial "immagine.html" (dict "percorso" .immagine "alt" "" "ritaglio" "640x360" "sizes" "(min-width: 900px) 420px, 92vw" "skeleton" true) }}</div>
       <div class="posizione-corpo">
         <p class="posizione-settore">{{ .settore }}</p>
         <h2 class="posizione-titolo">{{ .titolo }}</h2>

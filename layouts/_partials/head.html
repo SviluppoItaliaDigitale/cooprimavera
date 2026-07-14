@@ -8,12 +8,11 @@
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" type="image/png" href="{{ "favicon.png" | absURL }}">
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
-{{ with resources.Get "css/animazioni.css" | minify | fingerprint }}
-<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
-{{ end }}
-{{ with resources.Get "css/main.css" | minify | fingerprint }}
-<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
-{{ end }}
+{{/* Un solo foglio di stile: kit animazioni + stile del sito concatenati
+     (l'ordine conta: main.css sovrascrive il kit dove serve) */}}
+{{ $css := slice (resources.Get "css/animazioni.css") (resources.Get "css/main.css") | resources.Concat "css/stile.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
 <script>
   (function () {
     var r = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;

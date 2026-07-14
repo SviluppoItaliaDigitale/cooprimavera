@@ -49,6 +49,8 @@ La pulizia e l'igienizzazione delle palestre sono fondamentali per prevenire la 
 
 Un ambiente scolastico pulito e igienizzato è importante per la salute e il benessere degli studenti e del personale docente. I nostri servizi comprendono la pulizia di aule, laboratori, palestre, mense, bagni e aree comuni, con prodotti sicuri e non tossici, nel rispetto delle normative vigenti in materia di igiene e sanificazione.
 
+![Cucina industriale in acciaio inox](img/cucina-industriale.jpg)
+
 ## Pulizia aziende alimentari
 
 Siamo specializzati nella pulizia e sanificazione di aziende del settore alimentare, operando nel pieno rispetto delle normative HACCP. I nostri protocolli comprendono la sanificazione di aree di produzione, magazzini, celle frigorifere, attrezzature e superfici di contatto con gli alimenti, con detergenti e disinfettanti specifici per il settore.
