@@ -40,6 +40,11 @@
   "email": "{{ site.Params.email }}",
   "telephone": "{{ site.Params.telefono_cell_link }}",
   "vatID": "IT{{ site.Params.piva }}",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "09:00", "closes": "14:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "18:00" }
+  ],
+  "areaServed": ["Roma", "Castelli Romani", "Ariccia", "Albano Laziale", "Genzano di Roma", "Castel Gandolfo", "Marino", "Ciampino", "Grottaferrata", "Frascati", "Rocca di Papa", "Nemi", "Lanuvio", "Velletri", "Lariano"],
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Via Giuseppe Lugli 2/4",
@@ -53,6 +58,21 @@
     "{{ site.Params.social.instagram }}",
     "{{ site.Params.social.linkedin }}",
     "{{ site.Params.social.x }}"
+  ]
+}
+</script>
+{{ end }}
+{{ with .Params.faq }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {{ range $i, $f := . }}{{ if $i }},{{ end }}{
+      "@type": "Question",
+      "name": {{ $f.domanda | jsonify }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ $f.risposta | markdownify | plainify | jsonify }} }
+    }{{ end }}
   ]
 }
 </script>
