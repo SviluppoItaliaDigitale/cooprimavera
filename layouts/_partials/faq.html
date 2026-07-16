@@ -1,0 +1,13 @@
+{{- /* Accordion "Domande frequenti" dalle voci `faq` del front matter
+       (domanda/risposta); lo schema FAQPage corrispondente è in head.html */ -}}
+{{ with .Params.faq }}
+<section class="faq" data-anim="fade-up">
+  <h2>Domande frequenti</h2>
+  {{ range . }}
+  <details>
+    <summary>{{ .domanda }}</summary>
+    <div class="faq-risposta">{{ .risposta | markdownify }}</div>
+  </details>
+  {{ end }}
+</section>
+{{ end }}

@@ -104,6 +104,14 @@ p  { text-wrap: pretty; }
 .menu a:hover { color: var(--verde-scuro); }
 .menu a:hover::after, .menu a[aria-current="page"]::after { transform: scaleX(1); }
 .menu a[aria-current="page"] { color: var(--verde-scuro); }
+/* Voce CTA del menu: il preventivo come pillola verde sempre in vista */
+.menu-cta a {
+  background: var(--verde); color: var(--inchiostro);
+  padding: .45rem .95rem; border-radius: 999px;
+}
+.menu-cta a::after { display: none; }
+.menu-cta a:hover { background: var(--verde-scuro); color: #fff; }
+.menu-cta a[aria-current="page"] { color: var(--inchiostro); }
 .menu-bottone { display: none; }
 
 /* Durante le transizioni di pagina (View Transitions) la testata resta ferma */
@@ -129,6 +137,7 @@ p  { text-wrap: pretty; }
   .menu.aperto { display: block; }
   .menu ul { flex-direction: column; gap: 0; padding: .5rem 0; }
   .menu a { display: block; padding: .6rem 0; }
+  .menu-cta a { display: inline-block; padding: .45rem .95rem; margin-top: .4rem; }
 }
 
 /* Gradiente vivo in verde (il kit ha un blu hardcoded al 52%).
@@ -402,6 +411,37 @@ p  { text-wrap: pretty; }
   outline: 3px solid var(--verde); outline-offset: 1px; border-color: var(--verde-scuro);
 }
 .campo-nota { font-size: .92rem; color: var(--verde-scuro); margin: .4rem 0 0; }
+
+/* Come funziona: passi numerati verso il preventivo */
+.passi {
+  list-style: none; margin: 1.6rem 0 2rem; padding: 0; counter-reset: passo;
+  display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.passi li {
+  counter-increment: passo;
+  background: var(--verde-fondo); border: 1px solid var(--bordo);
+  border-radius: 12px; padding: 1rem 1.1rem;
+}
+.passi li::before {
+  content: counter(passo);
+  display: inline-flex; width: 2rem; height: 2rem;
+  align-items: center; justify-content: center; border-radius: 50%;
+  background: var(--verde); color: var(--inchiostro);
+  font-weight: 800; margin-bottom: .5rem;
+}
+.passi strong { display: block; margin-bottom: .25rem; }
+
+/* Domande frequenti: accordion nativo details/summary */
+.faq { max-width: 48rem; margin-top: 3rem; }
+.faq details {
+  border: 1px solid var(--bordo); border-radius: 10px; background: #fff;
+  padding: .2rem 1rem; margin-top: .7rem;
+}
+.faq details[open] { border-color: var(--verde); box-shadow: 0 4px 14px rgba(0, 0, 0, .06); }
+.faq summary { cursor: pointer; font-weight: 700; padding: .6rem 0; }
+.faq summary:hover { color: var(--verde-scuro); }
+.faq-risposta { padding: .1rem .2rem .8rem; }
+.faq-risposta p { margin: .2rem 0 .6rem; }
 .modulo-azioni { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.2rem; }
 .modulo-azioni .bottone { border: 0; font: inherit; font-weight: 700; cursor: pointer; }
 .modulo-azioni .bottone-chiaro { border: 2px solid var(--verde-scuro); }

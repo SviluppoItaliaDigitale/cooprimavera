@@ -15,7 +15,8 @@
     <nav id="menu-principale" class="menu" aria-label="Navigazione principale">
       <ul>
         {{ range site.Menus.main }}
-        <li><a href="{{ .URL }}" {{ if $.IsMenuCurrent "main" . }}aria-current="page"{{ end }}>{{ .Name }}</a></li>
+        {{- /* L'ultima voce (preventivo) è la CTA principale: resa come pillola verde */ -}}
+        <li{{ if strings.HasSuffix .URL "/preventivo/" }} class="menu-cta"{{ end }}><a href="{{ .URL }}" {{ if $.IsMenuCurrent "main" . }}aria-current="page"{{ end }}>{{ .Name }}</a></li>
         {{ end }}
       </ul>
     </nav>
