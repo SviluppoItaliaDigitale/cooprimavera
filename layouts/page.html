@@ -1,17 +1,49 @@
 {{ define "main" }}
+{{- $servizio := and .CurrentSection (eq .CurrentSection.RelPermalink "/servizi/") }}
 <div class="contenitore pagina">
   {{ partial "briciole.html" . }}
   {{ if .Params.bozza_contenuti }}
   <p class="avviso-bozza">Pagina in bozza: testi da completare e validare con la cooperativa.</p>
   {{ end }}
-  <h1 data-split="words">{{ .Title }}</h1>
+  {{- /* Titolo e immagine sopra la piega: ingressi CSS, senza attendere GSAP */ -}}
+  <h1 class="entra entra-su">{{ .Title }}</h1>
+  {{ with .Params.sottotitolo }}<p class="sottotitolo entra entra-su entra-r1">{{ . }}</p>{{ end }}
   {{ with .Params.immagine }}
-  <div class="pagina-immagine foto-zoom" data-anim="zoom">{{ partial "immagine.html" (dict "percorso" . "alt" "" "larghezza" 1100 "sizes" "(min-width: 1140px) 1060px, 92vw" "skeleton" true) }}</div>
+  <div class="pagina-immagine foto-zoom entra entra-zoom entra-r1">{{ partial "immagine.html" (dict "percorso" . "alt" ($.Params.alt_immagine | default (printf "%s — Cooprimavera, Castelli Romani" $.Title)) "larghezza" 1100 "qualita" 76 "sizes" "(min-width: 1140px) 1060px, 92vw" "ancora" $.Params.ritaglio_ancora "prioritaria" true) }}</div>
   {{ end }}
-  <div class="prosa" data-anim="fade-up">{{ .Content }}</div>
+  <div class="prosa entra entra-su entra-r2">{{ .Content }}</div>
+  {{ if $servizio }}
+  {{- /* Approfondimenti: pagine secondarie collegate (es. pulizie uffici, condomini) */ -}}
+  {{- $figlie := where .CurrentSection.Pages "Params.genitore" .File.ContentBaseName }}
+  {{- with $figlie }}
+  <section class="approfondimenti" data-anim="fade-up">
+    <h2>Approfondimenti</h2>
+    <ul class="griglia griglia-3">
+      {{ range .ByWeight }}
+      <li class="scheda scheda-testo"><a href="{{ .RelPermalink }}"><h3 class="scheda-titolo">{{ .Title }}</h3></a><p>{{ .Description }}</p></li>
+      {{ end }}
+    </ul>
+  </section>
+  {{- end }}
+  {{ end }}
   {{ partial "faq.html" . }}
-  {{ if .CurrentSection }}{{ if eq .CurrentSection.Title "Servizi" }}
-  <p class="rimando" data-anim="fade-up"><a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo per questo servizio</a></p>
-  {{ end }}{{ end }}
+  {{ if $servizio }}
+  <div class="cta-finale" data-anim="fade-up">
+    <h2>Richiedi un preventivo per questo servizio</h2>
+    <p>Gratuito e senza impegno: raccontaci l'esigenza e, dove serve, fissiamo il sopralluogo. Interveniamo a Roma e in tutti i Castelli Romani.</p>
+    <p class="eroe-azioni"><a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo</a> <a class="bottone bottone-chiaro" href="tel:{{ site.Params.telefono_uff_link }}">Chiama {{ site.Params.telefono_uff }}</a></p>
+  </div>
+  {{- /* Collegamenti tra servizi: aiuta l'utente e la scansione del sito */ -}}
+  {{- $altri := where (where .CurrentSection.Pages.ByWeight "Params.secondaria" "!=" true) "RelPermalink" "!=" .RelPermalink }}
+  {{- with $altri }}
+  <nav class="altri-servizi" aria-label="Altri servizi">
+    <h2>Altri servizi</h2>
+    <ul class="settori">
+      {{ range first 6 . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
+      <li><a href="{{ "zone/" | relURL }}">Dove operiamo</a></li>
+    </ul>
+  </nav>
+  {{- end }}
+  {{ end }}
 </div>
 {{ end }}

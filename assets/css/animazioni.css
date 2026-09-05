@@ -1,8 +1,9 @@
 /* ============================================================
-   Misericordia di Ariccia ODV — Sistema di animazioni
+   Cooprimavera — Sistema di animazioni (kit condiviso)
    Motore: GSAP + ScrollTrigger + SplitText (auto-ospitati).
    Ispirato ai temi Salient e Hub, riscritto da zero nei colori
-   del brand (ciano/giallo/navy). Tutto rispetta prefers-reduced-motion.
+   del brand (le variabili --mise-* sono mappate sui verdi in main.css).
+   Tutto rispetta prefers-reduced-motion.
    ------------------------------------------------------------
    Regola d'oro anti-FOUC: gli elementi sono nascosti SOLO quando
    <html> ha la classe .anim-pronto, aggiunta dal JS prima del
@@ -29,35 +30,6 @@
 .anim-pronto [data-split] { opacity: 0; }
 .riga-maschera { overflow: hidden; }
 
-/* ============================================================
-   HERO — foto con Ken Burns, particelle, velo che respira
-   ============================================================ */
-.hero { position: relative; overflow: hidden; }
-
-/* La foto vive in un suo livello: così la posso scalare (Ken Burns)
-   e farle fare parallasse senza muovere il testo. */
-.hero-foto {
-  position: absolute; inset: -8% -4%;
-  background: url("../img/hero-piazza.jpg") center 38% / cover no-repeat;
-  z-index: 0;
-  transform: scale(1.06);
-  animation: kenburns 26s ease-in-out infinite alternate;
-}
-.hero-velo {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(100deg, rgba(10,30,60,.90) 0%, rgba(0,90,130,.62) 55%, rgba(0,90,130,.28) 100%);
-}
-.hero-particelle { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-.hero .container { position: relative; z-index: 3; }
-
-@keyframes kenburns {
-  from { transform: scale(1.04) translate(0, 0); }
-  to   { transform: scale(1.14) translate(-1.5%, -1.5%); }
-}
-
-/* La foto vera è ora nel livello .hero-foto: tolgo lo sfondo dal box .hero
-   (la regola del file principale viene così neutralizzata qui sotto in JS-on) */
-.hero { background: var(--mise-navy); }
 
 /* ---- Sottolineatura disegnata a mano sotto la parola chiave ---- */
 .tratto-mano { position: relative; display: inline-block; }
@@ -121,18 +93,6 @@
 /* Tilt 3D leggero sulle card (gestito via JS con [data-tilt]) */
 [data-tilt] { transform-style: preserve-3d; transition: transform .25s ease; }
 
-/* ============================================================
-   PULSANTI — riflesso che scorre + testo che "scatta"
-   ============================================================ */
-.btn-giallo, .btn-ciano { position: relative; overflow: hidden; }
-.btn-giallo::before, .btn-ciano::before {
-  content: ""; position: absolute; top: 0; left: -120%;
-  width: 60%; height: 100%; pointer-events: none;
-  background: linear-gradient(100deg, transparent, rgba(255,255,255,.55), transparent);
-  transform: skewX(-18deg);
-  transition: left .65s ease;
-}
-.btn-giallo:hover::before, .btn-ciano:hover::before { left: 130%; }
 
 /* ============================================================
    MARQUEE — striscia di testo che scorre all'infinito
@@ -167,7 +127,6 @@
    ============================================================ */
 .divisore { position: relative; line-height: 0; }
 .divisore svg { display: block; width: 100%; height: 52px; }
-.divisore--alto svg { height: 78px; }
 
 /* ============================================================
    FASCIA NUMERI — i numeri "salgono" mentre contano
@@ -184,25 +143,6 @@
   border-radius: inherit;
 }
 
-/* ============================================================
-   NAVBAR — sottolineatura gialla che cresce all'hover
-   ============================================================ */
-.navbar-mise .nav-link { position: relative; }
-.navbar-mise .nav-link::after {
-  content: ""; position: absolute; left: .5rem; right: .5rem; bottom: 2px; height: 2px;
-  background: var(--mise-giallo); transform: scaleX(0); transform-origin: left;
-  transition: transform .3s cubic-bezier(.16,.84,.34,1);
-}
-.navbar-mise .nav-link:hover::after,
-.navbar-mise .nav-link.active::after { transform: scaleX(1); }
-
-/* ============================================================
-   TESTATE PAGINE INTERNE — la fascia ciano "respira"
-   ============================================================ */
-.pagina-testata {
-  background-size: 220% 220%;
-  animation: gradiente-scorri 20s ease infinite;
-}
 
 /* ============================================================
    BARRA DI AVANZAMENTO LETTURA (scroll indicator)
@@ -241,20 +181,11 @@ img[data-skeleton] {
 }
 img[data-skeleton].caricata { opacity: 1; }
 
-/* ============================================================
-   MICRO-INTERAZIONI — feedback "premuto" sui pulsanti
-   (transform/opacity, durate brevi 120–240ms)
-   ============================================================ */
-.btn-giallo, .btn-ciano { transition: transform .16s ease, background-color .2s ease, color .2s ease; }
-.btn-giallo:active, .btn-ciano:active { transform: translateY(0) scale(.97); }
 
 /* ============================================================
    EMBLEMA NELL'HERO — usa il LOGO UFFICIALE, non simboli inventati
    Due modi (entrambi decorativi, nascosti su mobile e con moto ridotto):
-   · .emblema-logo  → il logo reale come immagine, galleggia con dolcezza
-                       (consigliato per enti: nitido e dignitoso).
-   · .emblema-3d    → contenitore 3D opt-in (Three.js): vi si applica come
-                       texture il logo indicato in data-logo (vedi animazioni-3d.js).
+   .emblema-logo → il logo reale come immagine, galleggia con dolcezza.
    ============================================================ */
 .emblema-logo {
   position: absolute; z-index: 2; pointer-events: none;
@@ -270,26 +201,7 @@ img[data-skeleton].caricata { opacity: 1; }
   50%      { transform: translateY(-10px) rotate(1.1deg); }
 }
 
-/* Versione piccola del fregio, nella navbar accanto a "Sostienici":
-   stesso logo ufficiale, galleggiamento appena accennato. */
-.fregio-navbar {
-  display: block; width: 42px; height: auto;
-  filter: drop-shadow(0 3px 8px rgba(0,0,0,.35));
-  animation: fregio-galleggia 6.5s ease-in-out infinite;
-}
-@keyframes fregio-galleggia {
-  0%, 100% { transform: translateY(0)    rotate(-1.1deg); }
-  50%      { transform: translateY(-3px) rotate(1.1deg); }
-}
-
-.emblema-3d {
-  position: absolute; z-index: 2; pointer-events: none;
-  width: min(34vw, 340px); aspect-ratio: 1 / 1;
-  right: 3%; top: 50%; transform: translateY(-50%);
-  opacity: .96; filter: drop-shadow(0 18px 40px rgba(0,0,0,.35));
-}
-.emblema-3d canvas { display: block; width: 100% !important; height: 100% !important; }
-@media (max-width: 991.98px) { .emblema-logo, .emblema-3d { display: none; } }
+@media (max-width: 991.98px) { .emblema-logo { display: none; } }
 
 /* ============================================================
    TRANSIZIONI DI PAGINA (View Transitions API, multi-pagina)
@@ -301,8 +213,6 @@ img[data-skeleton].caricata { opacity: 1; }
   @view-transition { navigation: auto; }
   ::view-transition-old(root) { animation: vt-esci .26s ease both; }
   ::view-transition-new(root) { animation: vt-entra .34s ease both; }
-  .navbar-mise { view-transition-name: navbar; }
-  ::view-transition-group(navbar) { animation: none; }
 }
 @keyframes vt-esci  { to   { opacity: 0; transform: translateY(-8px); } }
 @keyframes vt-entra { from { opacity: 0; transform: translateY(10px); } }
@@ -311,16 +221,13 @@ img[data-skeleton].caricata { opacity: 1; }
    ACCESSIBILITÀ — niente moto per chi lo chiede
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
-  .hero-foto { animation: none; transform: none; inset: 0; }
-  .gradiente-vivo, .pagina-testata { animation: none; }
+  .gradiente-vivo { animation: none; }
   .marquee__pista { animation: none; }
   .tratto-mano svg path { stroke-dashoffset: 0; animation: none; }
   .foto-zoom img { transition: none; }
   .skeleton::after { animation: none; }
   img[data-skeleton] { opacity: 1; transition: none; }
   .barra-lettura { display: none; }
-  .emblema-3d { display: none; }
   .emblema-logo img { animation: none; transform: none; }
-  .fregio-navbar { animation: none; transform: none; }
   [data-anim], [data-split] { opacity: 1 !important; transform: none !important; filter: none !important; }
 }

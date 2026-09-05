@@ -1,0 +1,176 @@
+{{- /* Dati strutturati schema.org in un unico @graph per pagina.
+     Costruiti come dizionari Hugo e serializzati con jsonify: JSON sempre
+     valido, niente virgole o virgolette da gestire a mano.
+     Contesto: dict "pagina" . "titolo" "..." "descrizione" "..." "og" (immagine|"") */ -}}
+{{- $p := .pagina }}
+{{- $titolo := .titolo }}
+{{- $descrizione := .descrizione }}
+{{- $og := .og }}
+{{- $base := site.BaseURL }}
+{{- $idOrg := printf "%s#organizzazione" $base }}
+{{- $idSito := printf "%s#sito" $base }}
+{{- $idPagina := printf "%s#pagina" $p.Permalink }}
+{{- $idBriciole := printf "%s#briciole" $p.Permalink }}
+
+{{- /* Comuni serviti: dalle pagine della sezione "zone" (fallback statico) */ -}}
+{{- $comuni := slice }}
+{{- with site.GetPage "/zone" }}{{ range .Pages }}{{ $comuni = $comuni | append .Title }}{{ end }}{{ end }}
+{{- if not $comuni }}{{ $comuni = slice "Roma" "Ariccia" "Albano Laziale" "Genzano di Roma" "Castel Gandolfo" "Marino" "Frascati" "Velletri" }}{{ end }}
+{{- $aree := slice (dict "@type" "AdministrativeArea" "name" "Castelli Romani") (dict "@type" "AdministrativeArea" "name" "Provincia di Roma") }}
+{{- range $comuni }}{{ $aree = $aree | append (dict "@type" "City" "name" .) }}{{ end }}
+
+{{- /* Logo per Organization (PNG, quadrato non necessario) */ -}}
+{{- $logo := "" }}
+{{- with resources.Get "img/logo.png" }}{{ with .Resize "600x png" }}{{ $logo = dict "@type" "ImageObject" "url" .Permalink "width" .Width "height" .Height }}{{ end }}{{ end }}
+
+{{- $org := dict
+  "@type" (slice "LocalBusiness" "Organization")
+  "@id" $idOrg
+  "name" "Cooprimavera Società Cooperativa"
+  "alternateName" (slice "Cooprimavera" "Cooprimavera Soc. Coop.")
+  "legalName" "Cooprimavera Società Cooperativa"
+  "description" site.Params.descrizione
+  "slogan" site.Params.claim
+  "url" $base
+  "email" site.Params.email
+  "telephone" site.Params.telefono_uff_link
+  "vatID" (printf "IT%s" site.Params.piva)
+  "taxID" site.Params.piva
+  "foundingDate" (printf "%d" (int site.Params.anno_fondazione))
+  "priceRange" "€€"
+  "currenciesAccepted" "EUR"
+  "paymentAccepted" "Bonifico bancario"
+  "knowsLanguage" "it"
+  "areaServed" $aree
+  "knowsAbout" (slice "Pulizie professionali" "Pulizie uffici" "Pulizie condomini" "Sanificazioni" "Disinfestazioni" "Derattizzazione" "Giardinaggio" "Manutenzione del verde" "Portierato" "Allestimenti per eventi" "Noleggio sedie" "Moquette per eventi" "Forniture igieniche")
+  "address" (dict "@type" "PostalAddress" "streetAddress" "Via Giuseppe Lugli 2/4" "postalCode" "00072" "addressLocality" "Ariccia" "addressRegion" "RM" "addressCountry" "IT")
+  "geo" (dict "@type" "GeoCoordinates" "latitude" site.Params.geo_lat "longitude" site.Params.geo_lon)
+  "hasMap" site.Params.mappa_link
+  "openingHoursSpecification" (slice
+    (dict "@type" "OpeningHoursSpecification" "dayOfWeek" (slice "Monday" "Tuesday" "Wednesday" "Thursday") "opens" "09:00" "closes" "14:00")
+    (dict "@type" "OpeningHoursSpecification" "dayOfWeek" "Friday" "opens" "09:00" "closes" "18:00"))
+  "contactPoint" (slice
+    (dict "@type" "ContactPoint" "contactType" "customer service" "telephone" site.Params.telefono_uff_link "email" site.Params.email "areaServed" "IT" "availableLanguage" "Italian")
+    (dict "@type" "ContactPoint" "contactType" "sales" "telephone" site.Params.telefono_cell_link "areaServed" "IT" "availableLanguage" "Italian"))
+  "sameAs" (slice site.Params.social.facebook site.Params.social.instagram site.Params.social.linkedin site.Params.social.x)
+}}
+{{- with $logo }}{{ $org = merge $org (dict "logo" . ) }}{{ end }}
+{{- with $og }}{{ $org = merge $org (dict "image" .Permalink) }}{{ end }}
+
+{{- $sito := dict
+  "@type" "WebSite"
+  "@id" $idSito
+  "url" $base
+  "name" "Cooprimavera"
+  "alternateName" site.Title
+  "description" site.Params.descrizione
+  "inLanguage" "it-IT"
+  "publisher" (dict "@id" $idOrg)
+}}
+
+{{- /* Tipo della pagina in base al contesto */ -}}
+{{- $tipoPagina := "WebPage" }}
+{{- if eq $p.RelPermalink "/preventivo/" }}{{ $tipoPagina = "ContactPage" }}
+{{- else if eq $p.RelPermalink "/chi-siamo/" }}{{ $tipoPagina = "AboutPage" }}
+{{- else if $p.IsSection }}{{ $tipoPagina = "CollectionPage" }}
+{{- else if $p.Params.faq }}{{ $tipoPagina = (slice "WebPage" "FAQPage") }}
+{{- end }}
+{{- $pagina := dict
+  "@type" $tipoPagina
+  "@id" $idPagina
+  "url" $p.Permalink
+  "name" $titolo
+  "description" $descrizione
+  "inLanguage" "it-IT"
+  "isPartOf" (dict "@id" $idSito)
+  "about" (dict "@id" $idOrg)
+  "dateModified" ($p.Lastmod.Format "2006-01-02")
+}}
+{{- if not $p.Date.IsZero }}{{ $pagina = merge $pagina (dict "datePublished" ($p.Date.Format "2006-01-02")) }}{{ end }}
+{{- with $og }}{{ $pagina = merge $pagina (dict "primaryImageOfPage" (dict "@type" "ImageObject" "url" .Permalink "width" .Width "height" .Height)) }}{{ end }}
+{{- if not $p.IsHome }}{{ $pagina = merge $pagina (dict "breadcrumb" (dict "@id" $idBriciole)) }}{{ end }}
+
+{{- /* Domande frequenti: mainEntity della pagina FAQPage */ -}}
+{{- with $p.Params.faq }}
+  {{- $domande := slice }}
+  {{- range . }}
+    {{- $domande = $domande | append (dict "@type" "Question" "name" .domanda "acceptedAnswer" (dict "@type" "Answer" "text" (.risposta | markdownify | plainify | htmlUnescape))) }}
+  {{- end }}
+  {{- $pagina = merge $pagina (dict "mainEntity" $domande) }}
+{{- end }}
+
+{{- $grafo := slice $org $sito $pagina }}
+
+{{- /* Briciole di pane (le stesse mostrate nel partial briciole.html) */ -}}
+{{- if not $p.IsHome }}
+  {{- $voci := slice }}
+  {{- $pos := 1 }}
+  {{- range $p.Ancestors.Reverse }}
+    {{- $voci = $voci | append (dict "@type" "ListItem" "position" $pos "name" (cond .IsHome "Home" .Title) "item" .Permalink) }}
+    {{- $pos = add $pos 1 }}
+  {{- end }}
+  {{- $voci = $voci | append (dict "@type" "ListItem" "position" $pos "name" $p.Title "item" $p.Permalink) }}
+  {{- $grafo = $grafo | append (dict "@type" "BreadcrumbList" "@id" $idBriciole "itemListElement" $voci) }}
+{{- end }}
+
+{{- /* Pagine servizio: entità Service con l'area servita */ -}}
+{{- if and $p.CurrentSection (eq $p.CurrentSection.RelPermalink "/servizi/") (not $p.IsSection) }}
+  {{- $servizio := dict
+    "@type" "Service"
+    "@id" (printf "%s#servizio" $p.Permalink)
+    "name" $p.Title
+    "serviceType" ($p.Params.tipo_servizio | default $p.Title)
+    "description" $descrizione
+    "url" $p.Permalink
+    "provider" (dict "@id" $idOrg)
+    "areaServed" $aree
+    "availableChannel" (dict "@type" "ServiceChannel" "serviceUrl" (absURL "preventivo/") "servicePhone" site.Params.telefono_uff_link "availableLanguage" "it")
+  }}
+  {{- with $og }}{{ $servizio = merge $servizio (dict "image" .Permalink) }}{{ end }}
+  {{- with $p.Params.offerte }}
+    {{- $off := slice }}
+    {{- range . }}{{ $off = $off | append (dict "@type" "Offer" "itemOffered" (dict "@type" "Service" "name" .)) }}{{ end }}
+    {{- $servizio = merge $servizio (dict "hasOfferCatalog" (dict "@type" "OfferCatalog" "name" $p.Title "itemListElement" $off)) }}
+  {{- end }}
+  {{- $grafo = $grafo | append $servizio }}
+{{- end }}
+
+{{- /* Pagine zona: il servizio multiservizi riferito a quel comune */ -}}
+{{- if and $p.CurrentSection (eq $p.CurrentSection.RelPermalink "/zone/") (not $p.IsSection) }}
+  {{- $grafo = $grafo | append (dict
+    "@type" "Service"
+    "@id" (printf "%s#servizio" $p.Permalink)
+    "name" (printf "Pulizie e multiservizi a %s" $p.Title)
+    "serviceType" "Pulizie professionali, sanificazioni, disinfestazioni, giardinaggio, portierato, allestimenti per eventi"
+    "description" $descrizione
+    "url" $p.Permalink
+    "provider" (dict "@id" $idOrg)
+    "areaServed" (dict "@type" "City" "name" $p.Title "containedInPlace" (dict "@type" "AdministrativeArea" "name" "Provincia di Roma"))
+  ) }}
+{{- end }}
+
+{{- /* Lavora con noi: un JobPosting per posizione (Google Lavoro) */ -}}
+{{- with $p.Params.posizioni }}
+  {{- $datore := dict "@type" "Organization" "@id" $idOrg "name" "Cooprimavera Società Cooperativa" "sameAs" $base }}
+  {{- with $logo }}{{ $datore = merge $datore (dict "logo" .url) }}{{ end }}
+  {{- range . }}
+    {{- $annuncio := dict
+      "@type" "JobPosting"
+      "title" .titolo
+      "description" (printf "<p>%s</p><p>Contratto: %s.</p><p>Sede di lavoro: appalti presso i clienti a Roma e nei Castelli Romani; sede operativa ad Ariccia (RM).</p>" .descrizione .contratto)
+      "datePosted" (.pubblicata | default ($p.Date.Format "2006-01-02"))
+      "employmentType" (.tipo_impiego | default (slice "TEMPORARY"))
+      "industry" .settore
+      "hiringOrganization" $datore
+      "jobLocation" (dict "@type" "Place" "address" (dict "@type" "PostalAddress" "streetAddress" "Via Giuseppe Lugli 2/4" "addressLocality" "Ariccia" "postalCode" "00072" "addressRegion" "RM" "addressCountry" "IT"))
+      "applicantLocationRequirements" (dict "@type" "Country" "name" "Italia")
+      "directApply" true
+      "identifier" (dict "@type" "PropertyValue" "name" "Cooprimavera" "value" (.titolo | urlize))
+      "url" $p.Permalink
+    }}
+    {{- with .scade }}{{ $annuncio = merge $annuncio (dict "validThrough" .) }}{{ end }}
+    {{- $grafo = $grafo | append $annuncio }}
+  {{- end }}
+{{- end }}
+
+<script type="application/ld+json">{{ (dict "@context" "https://schema.org" "@graph" $grafo) | jsonify | safeJS }}</script>

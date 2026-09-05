@@ -1,11 +1,26 @@
 ---
 title: "Pulizie professionali"
-description: "Pulizie professionali per privati e aziende: uffici, vetrate, post cantiere, palestre, scuole, aziende alimentari e pannelli fotovoltaici."
+description: "Impresa di pulizie a Roma e Castelli Romani: uffici, condomini, vetrate, post cantiere, palestre, scuole, aziende alimentari e fotovoltaico. Preventivo."
 immagine: "img/pulizie.jpg"
 weight: 10
+titolo_seo: "Impresa di pulizie a Roma e Castelli Romani | Cooprimavera"
+alt_immagine: "Impresa di pulizie professionali a Roma e Castelli Romani: operatore al lavoro"
+tipo_servizio: "Pulizie professionali"
+offerte: ["Pulizia uffici", "Pulizia vetrate", "Pulizia enti pubblici e privati", "Pulizia post cantiere", "Pulizia palestre", "Pulizia scuole", "Pulizia aziende alimentari", "Pulizia pannelli fotovoltaici", "Pulizie condominiali"]
+faq:
+  - domanda: "Quanto costa un'impresa di pulizie a Roma e nei Castelli Romani?"
+    risposta: "Il prezzo dipende da **metratura, frequenza e tipo di ambiente**: per questo il sopralluogo è obbligatorio e gratuito. Dopo averlo fatto ricevi un preventivo chiaro, a canone mensile per i contratti continuativi o a corpo per gli interventi singoli."
+  - domanda: "Lavorate anche per i privati o solo per le aziende?"
+    risposta: "Entrambi. Oltre a uffici, condomìni, scuole ed enti, eseguiamo per i **privati** pulizie straordinarie, sgrossi post cantiere, pulizia vetrate e sanificazioni."
+  - domanda: "Quali prodotti usate?"
+    risposta: "Prodotti professionali **Sanitec di Italchimica**, con linee **Ecolabel** e conformi ai **CAM**, e prodotti idonei alle procedure **HACCP** per le attività alimentari. Le schede tecniche e di sicurezza sono disponibili su richiesta."
+  - domanda: "Il personale è assicurato e formato?"
+    risposta: "Sì: i nostri soci e dipendenti sono regolarmente assunti, assicurati e formati su sicurezza, prodotti e procedure. Le squadre sono stabili e ogni appalto ha un referente."
+  - domanda: "In quanto tempo potete iniziare?"
+    risposta: "Per i contratti continuativi di norma **entro una o due settimane** dal sopralluogo; per interventi singoli e urgenze (post cantiere, sanificazioni) spesso entro pochi giorni, in base alla disponibilità delle squadre."
 ---
 
-Pulizia professionale per uffici, vetrate, enti pubblici e privati, palestre, sgrossi post cantiere, mobilifici, scuole, aziende alimentari, pannelli fotovoltaici e molto altro.
+Siamo un'**impresa di pulizie di Ariccia** che lavora ogni giorno a **Roma e in tutti i Castelli Romani**: pulizia professionale di [uffici](/servizi/pulizie-uffici/), [condomìni](/servizi/pulizie-condomini/), vetrate, enti pubblici e privati, palestre, sgrossi post cantiere, mobilifici, scuole, aziende alimentari, pannelli fotovoltaici e molto altro. Personale formato e stabile, prodotti certificati, un unico referente per ogni appalto.
 
 > «La pulizia è la chiave per la salute e il benessere.» — Mahatma Gandhi
 
@@ -25,13 +40,17 @@ In tutti i nostri appalti impieghiamo prodotti professionali **Sanitec di Italch
 
 ## Pulizia uffici
 
-Cooprimavera Soc. Coop. offre un servizio di pulizia uffici meticoloso e personalizzato, comprendendo la sanificazione di scrivanie, postazioni di lavoro, aree comuni, servizi igienici e pavimenti. Utilizziamo prodotti professionali a basso impatto ambientale per garantire un ambiente di lavoro salubre, ordinato e stimolante, contribuendo al benessere dei dipendenti e migliorando l'immagine aziendale. La frequenza degli interventi può essere adattata alle specifiche esigenze del cliente, con soluzioni giornaliere, settimanali o periodiche.
+Cooprimavera Soc. Coop. offre un servizio di [pulizia uffici](/servizi/pulizie-uffici/) meticoloso e personalizzato, comprendendo la sanificazione di scrivanie, postazioni di lavoro, aree comuni, servizi igienici e pavimenti. Utilizziamo prodotti professionali a basso impatto ambientale per garantire un ambiente di lavoro salubre, ordinato e stimolante, contribuendo al benessere dei dipendenti e migliorando l'immagine aziendale. La frequenza degli interventi può essere adattata alle specifiche esigenze del cliente, con soluzioni giornaliere, settimanali o periodiche.
 
 ![Pulizia professionale delle vetrate](img/posizione-pulizie.jpg)
 
 ## Pulizia vetrate
 
 Il nostro servizio di pulizia vetrate è eseguito da personale esperto e qualificato, in grado di trattare vetri di ogni tipo e dimensione, incluse vetrine, facciate continue e finestre in altezza. Impieghiamo tecniche avanzate come l'utilizzo di acqua demineralizzata e sistemi a osmosi inversa per eliminare aloni e residui, garantendo una trasparenza cristallina e una maggiore luminosità degli ambienti interni. La sicurezza è una nostra priorità: utilizziamo attrezzature certificate e rispettiamo rigorose procedure operative.
+
+## Pulizia condomini
+
+Per gli amministratori di condominio curiamo la [pulizia delle parti comuni](/servizi/pulizie-condomini/): scale, androni, ascensori, cortili, garage e locali rifiuti, con canone fisso, calendario degli interventi e un referente diretto. Su richiesta uniamo nello stesso contratto il verde condominiale, la disinfestazione e il portierato.
 
 ## Pulizia enti pubblici e privati
 

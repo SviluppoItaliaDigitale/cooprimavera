@@ -1,14 +1,19 @@
 {{ define "main" }}
+{{- $servizi := where (site.GetPage "/servizi").Pages.ByWeight "Params.secondaria" "!=" true }}
+{{- $zone := (site.GetPage "/zone").Pages.ByWeight }}
 <section class="eroe gradiente-vivo">
   <div id="hero-particelle" aria-hidden="true"></div>
   <div class="emblema-logo" aria-hidden="true">
-    {{ with resources.Get "img/fiore.png" }}{{ with .Resize "600x webp q90" }}
-    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+    {{ with resources.Get "img/fiore.png" }}{{ with .Resize "400x webp q85" }}
+    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="" loading="lazy" decoding="async">
     {{ end }}{{ end }}
   </div>
   <div class="contenitore">
-    <p class="eroe-occhiello" data-anim="fade-down">Cooprimavera Società Cooperativa · Castelli Romani</p>
-    <h1 data-anim="fade-up">Il miglior partner per
+    {{- /* Sopra la piega: ingressi in CSS puro (classe entra-*), non legati
+           al caricamento di GSAP, così il testo è visibile subito (LCP) */ -}}
+    <p class="eroe-occhiello entra entra-giu">Cooprimavera · Ariccia, Castelli Romani</p>
+    <h1 class="entra entra-su">Impresa di pulizie e multiservizi a Roma e nei Castelli Romani</h1>
+    <p class="eroe-claim entra entra-su entra-r1">Il miglior partner per
       <span class="parole-rotanti">
         <span>il tuo business</span>
         <span>le tue pulizie</span>
@@ -16,76 +21,33 @@
         <span>i tuoi eventi</span>
         <span>la tua sede</span>
       </span>
-    </h1>
-    <p class="eroe-testo" data-anim="fade-up" data-anim-delay="0.15">Chi sceglie noi, sceglie la nostra competenza e la capacità di risolvere i vostri problemi. Pulizie professionali, verde, portierato ed eventi, con una missione in più: dare lavoro a chi ne ha più bisogno.</p>
-    <p class="eroe-azioni" data-anim="fade-up" data-anim-delay="0.3">
+    </p>
+    <p class="eroe-testo entra entra-su entra-r2">Dal {{ site.Params.anno_fondazione }} una cooperativa che risolve i problemi delle imprese: <strong>pulizie professionali e sanificazioni</strong>, <strong>disinfestazioni</strong>, <strong>giardinaggio e manutenzione del verde</strong>, <strong>portierato</strong> e <strong>allestimenti per eventi</strong>. Personale formato, prodotti certificati e una missione in più: dare lavoro a chi ne ha più bisogno.</p>
+    <p class="eroe-azioni entra entra-su entra-r3">
       <a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo gratuito</a>
       <a class="bottone bottone-secondario" href="{{ "servizi/" | relURL }}">Scopri i servizi</a>
     </p>
+    <ul class="eroe-prove entra entra-su entra-r3" aria-label="Perché sceglierci">
+      <li>Sopralluogo e preventivo gratuiti</li>
+      <li>Prodotti professionali certificati, anche Ecolabel</li>
+      <li>Squadre operative a Roma e in tutti i Castelli Romani</li>
+    </ul>
   </div>
   <div class="divisore divisore-bianco" aria-hidden="true">
     <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C240,58 480,4 720,26 C960,48 1200,12 1440,34 L1440,60 L0,60 Z"></path></svg>
   </div>
 </section>
 
-<section class="sezione">
-  <div class="contenitore">
-    <h2 data-split="words">I nostri valori</h2>
-    <div class="griglia griglia-4 valori" data-anim-group>
-      <div class="valore" data-tilt>
-        <h3>Formazione</h3>
-        <p>Formazione continua e specializzata per il personale dipendente.</p>
-      </div>
-      <div class="valore" data-tilt>
-        <h3>Valorizzazione</h3>
-        <p>Il socio lavoratore è al centro della cooperativa, per valorizzarlo.</p>
-      </div>
-      <div class="valore" data-tilt>
-        <h3>Sicurezza</h3>
-        <p>Gli appalti di lavoro vengono eseguiti nella massima sicurezza.</p>
-      </div>
-      <div class="valore" data-tilt>
-        <h3>Certificazione</h3>
-        <p>Certificazioni e abilitazioni sono il "must" per la cooperativa.</p>
-      </div>
-    </div>
-    <div class="fascia-numeri" data-anim="fade-up">
-      <div class="voce-numero">
-        <div class="numero"><span data-conta="{{ sub now.Year 2006 }}">0</span></div>
-        <div class="etichetta">anni di esperienza</div>
-      </div>
-      <div class="voce-numero">
-        <div class="numero"><span data-conta="{{ len (site.GetPage "/servizi").Pages }}">0</span></div>
-        <div class="etichetta">servizi a catalogo</div>
-      </div>
-      <div class="voce-numero">
-        <div class="numero"><span data-conta="23">0</span></div>
-        <div class="etichetta">servizi specialistici</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="fascia-marquee" aria-hidden="true">
-  <div class="marquee">
-    <div class="marquee__pista">
-      {{ $voci := slice }}
-      {{ range (site.GetPage "/servizi").Pages.ByWeight }}{{ $voci = $voci | append .Title }}{{ end }}
-      {{ $voci = $voci | append "Preventivo gratuito" }}
-      {{ range (slice 1 2) }}{{ range $voci }}<span class="marquee__voce">{{ . }}</span>{{ end }}{{ end }}
-    </div>
-  </div>
-</div>
-
 <section class="sezione sezione-alterna">
   <div class="contenitore">
     <h2 data-split="words">I nostri servizi</h2>
+    <p class="sezione-intro" data-anim="fade-up">Un unico fornitore per tutti i servizi alla tua sede: dalle pulizie quotidiane degli uffici alla manutenzione del giardino, dal portierato all'allestimento dei tuoi eventi.</p>
     <div class="griglia griglia-3" data-anim-group>
-      {{ range (site.GetPage "/servizi").Pages.ByWeight }}
+      {{ range $servizi }}
       {{ $p := . }}
       <article class="scheda" data-tilt>
         <a href="{{ .RelPermalink }}">
-          {{ with .Params.immagine }}<span class="foto-zoom">{{ partial "immagine.html" (dict "percorso" . "alt" "" "ritaglio" "640x400" "ancora" $p.Params.ritaglio_ancora "skeleton" true) }}</span>{{ end }}
+          {{ with .Params.immagine }}<span class="foto-zoom">{{ partial "immagine.html" (dict "percorso" . "alt" ($p.Params.alt_immagine | default (printf "%s — Cooprimavera" $p.Title)) "ritaglio" "640x400" "ancora" $p.Params.ritaglio_ancora "skeleton" true) }}</span>{{ end }}
           <h3>{{ .Title }}</h3>
         </a>
         <p>{{ .Description }}</p>
@@ -96,54 +58,99 @@
 </section>
 
 <section class="sezione">
+  <div class="contenitore">
+    <h2 data-split="words">Perché scegliere Cooprimavera</h2>
+    <div class="griglia griglia-4 valori" data-anim-group>
+      <div class="valore" data-tilt>
+        <h3>Formazione</h3>
+        <p>Personale dipendente formato in modo continuo e specializzato, con abilitazioni per le attrezzature e la sicurezza sul lavoro.</p>
+      </div>
+      <div class="valore" data-tilt>
+        <h3>Valorizzazione</h3>
+        <p>Il socio lavoratore è al centro della cooperativa: squadre stabili, che conoscono i clienti e le loro sedi.</p>
+      </div>
+      <div class="valore" data-tilt>
+        <h3>Sicurezza</h3>
+        <p>Ogni appalto è eseguito nella massima sicurezza, con procedure operative definite e prodotti certificati.</p>
+      </div>
+      <div class="valore" data-tilt>
+        <h3>Certificazione</h3>
+        <p>Certificazioni e abilitazioni sono il nostro "must": prodotti Ecolabel, conformi ai CAM e idonei alle procedure HACCP.</p>
+      </div>
+    </div>
+    <div class="fascia-numeri" data-anim="fade-up">
+      <div class="voce-numero">
+        <div class="numero"><span data-conta="{{ sub now.Year (int site.Params.anno_fondazione) }}">0</span></div>
+        <div class="etichetta">anni di esperienza</div>
+      </div>
+      <div class="voce-numero">
+        <div class="numero"><span data-conta="{{ len $servizi }}">0</span></div>
+        <div class="etichetta">servizi a catalogo</div>
+      </div>
+      <div class="voce-numero">
+        <div class="numero"><span data-conta="{{ len $zone }}">0</span></div>
+        <div class="etichetta">comuni serviti ogni giorno</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fascia-marquee" aria-hidden="true">
+  <div class="marquee">
+    <div class="marquee__pista">
+      {{ $voci := slice }}
+      {{ range $servizi }}{{ $voci = $voci | append .Title }}{{ end }}
+      {{ $voci = $voci | append "Preventivo gratuito" }}
+      {{ range (slice 1 2) }}{{ range $voci }}<span class="marquee__voce">{{ . }}</span>{{ end }}{{ end }}
+    </div>
+  </div>
+</div>
+
+<section class="sezione sezione-alterna">
   <div class="contenitore centro">
     <h2 data-split="words">Per chi lavoriamo</h2>
-    <p data-anim="fade-up">Serviamo realtà di ogni tipo, a Roma e nei Castelli Romani.</p>
+    <p data-anim="fade-up">Serviamo realtà di ogni tipo, a Roma e nei Castelli Romani: contratti continuativi per aziende ed enti, interventi singoli per condomìni e privati.</p>
     <ul class="settori" data-anim-group>
-      <li>Uffici e aziende</li>
-      <li>Condomìni</li>
+      <li><a href="{{ "servizi/pulizie-uffici/" | relURL }}">Uffici e aziende</a></li>
+      <li><a href="{{ "servizi/pulizie-condomini/" | relURL }}">Condomìni</a></li>
       <li>Scuole</li>
       <li>Palestre e centri sportivi</li>
       <li>Ospedali e case di cura</li>
       <li>Aziende alimentari</li>
       <li>Enti pubblici</li>
+      <li>Negozi e centri commerciali</li>
       <li>Privati</li>
     </ul>
   </div>
 </section>
 
-<section class="sezione sezione-alterna">
+<section class="sezione">
   <div class="contenitore centro">
     <h2 data-split="words">Dove operiamo</h2>
-    <p data-anim="fade-up">La nostra squadra lavora ogni giorno a Roma e nei comuni dei Castelli Romani.</p>
+    <p data-anim="fade-up">La sede operativa è ad Ariccia: le nostre squadre raggiungono ogni giorno Roma e tutti i comuni dei Castelli Romani.</p>
     <ul class="settori" data-anim-group>
-      <li>Roma</li>
-      <li>Ariccia</li>
-      <li>Albano Laziale</li>
-      <li>Genzano di Roma</li>
-      <li>Castel Gandolfo</li>
-      <li>Marino</li>
-      <li>Ciampino</li>
-      <li>Grottaferrata</li>
-      <li>Frascati</li>
+      {{ range $zone }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
       <li>Rocca di Papa</li>
+      <li>Grottaferrata</li>
       <li>Nemi</li>
       <li>Lanuvio</li>
-      <li>Velletri</li>
       <li>Lariano</li>
     </ul>
+    <p class="rimando" data-anim="fade-up"><a class="bottone" href="{{ "zone/" | relURL }}">Tutte le zone servite</a></p>
   </div>
 </section>
 
-<section class="sezione">
+<section class="sezione sezione-alterna">
   <div class="contenitore banda">
     <div data-anim="fade-right">
       <h2>Lavora con noi</h2>
-      <p>Siamo alla ricerca costante di nuovo personale da inserire nel nostro organico. Scopri le posizioni aperte e inviaci il tuo curriculum.</p>
+      <p>Siamo alla ricerca costante di nuovo personale da inserire nel nostro organico: addetti alle pulizie e giardinieri per gli appalti di Roma e dei Castelli Romani. Scopri le posizioni aperte e inviaci il tuo curriculum.</p>
       <p><a class="bottone bottone-chiaro" href="{{ "lavora-con-noi/" | relURL }}">Posizioni aperte</a></p>
     </div>
     <div class="banda-immagine foto-zoom" data-anim="fade-left">
-      {{ partial "immagine.html" (dict "percorso" "img/lavora-con-noi.jpg" "alt" "" "larghezza" 720 "sizes" "(min-width: 760px) 430px, 88vw" "skeleton" true) }}
+      {{ partial "immagine.html" (dict "percorso" "img/lavora-con-noi.jpg" "alt" "Operatori Cooprimavera al lavoro: cerchiamo addetti alle pulizie e giardinieri" "larghezza" 720 "sizes" "(min-width: 760px) 430px, 88vw" "skeleton" true) }}
     </div>
   </div>
 </section>
@@ -151,8 +158,8 @@
 <section class="sezione sezione-verde gradiente-vivo">
   <div class="contenitore centro">
     <h2 data-split="words">Hai un progetto in mente?</h2>
-    <p data-anim="fade-up">Contattaci per un preventivo gratuito e senza impegno: ascoltiamo le tue esigenze e ti proponiamo la soluzione migliore.</p>
-    <p data-anim="fade-up" data-anim-delay="0.15"><a class="bottone bottone-chiaro" href="{{ "preventivo/" | relURL }}">Contattaci adesso</a></p>
+    <p data-anim="fade-up">Contattaci per un preventivo gratuito e senza impegno: ascoltiamo le tue esigenze, facciamo il sopralluogo e ti proponiamo la soluzione migliore. Rispondiamo dal lunedì al venerdì, anche su WhatsApp.</p>
+    <p data-anim="fade-up" data-anim-delay="0.15"><a class="bottone bottone-chiaro" href="{{ "preventivo/" | relURL }}">Contattaci adesso</a> <a class="bottone bottone-secondario" href="tel:{{ site.Params.telefono_uff_link }}">Chiama {{ site.Params.telefono_uff }}</a></p>
   </div>
 </section>
 {{ end }}

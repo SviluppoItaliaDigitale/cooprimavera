@@ -1,0 +1,40 @@
+{{ define "main" }}
+{{- $servizi := where (site.GetPage "/servizi").Pages.ByWeight "Params.secondaria" "!=" true }}
+{{- $altre := where (site.GetPage "/zone").Pages.ByWeight "RelPermalink" "!=" .RelPermalink }}
+<div class="contenitore pagina">
+  {{ partial "briciole.html" . }}
+  <p class="occhiello entra entra-giu">Dove operiamo · {{ .Params.provincia | default "Provincia di Roma" }}</p>
+  <h1 class="entra entra-su">{{ .Params.titolo_h1 | default (printf "Impresa di pulizie e multiservizi a %s" .Title) }}</h1>
+  {{ with .Params.sottotitolo }}<p class="sottotitolo entra entra-su entra-r1">{{ . }}</p>{{ end }}
+  <div class="prosa entra entra-su entra-r2">{{ .Content }}</div>
+
+  <section class="zona-servizi" data-anim="fade-up">
+    <h2>I servizi disponibili a {{ .Title }}</h2>
+    <ul class="griglia griglia-3 lista-servizi">
+      {{ range $servizi }}
+      <li class="scheda scheda-testo">
+        <a href="{{ .RelPermalink }}"><h3 class="scheda-titolo">{{ .Title }}</h3></a>
+        <p>{{ .Description }}</p>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+
+  {{ partial "faq.html" . }}
+
+  <div class="cta-finale" data-anim="fade-up">
+    <h2>Preventivo gratuito a {{ .Title }}</h2>
+    <p>Sopralluogo senza impegno e offerta chiara entro pochi giorni. La nostra sede operativa è ad Ariccia{{ with .Params.distanza }}, {{ . }}{{ end }}.</p>
+    <p class="eroe-azioni"><a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo</a> <a class="bottone bottone-chiaro" href="tel:{{ site.Params.telefono_uff_link }}">Chiama {{ site.Params.telefono_uff }}</a> <a class="bottone bottone-chiaro" href="{{ site.Params.whatsapp_link }}" rel="noopener">WhatsApp</a></p>
+  </div>
+
+  {{ with $altre }}
+  <nav class="altri-servizi" aria-label="Altre zone servite">
+    <h2>Operiamo anche a</h2>
+    <ul class="settori">
+      {{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
+    </ul>
+  </nav>
+  {{ end }}
+</div>
+{{ end }}

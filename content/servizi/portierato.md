@@ -1,9 +1,20 @@
 ---
 title: "Servizi di portierato"
-description: "Portierato e reception, controllo accessi, videosorveglianza e centralino per condomini, uffici, aziende ed enti: sicurezza e accoglienza."
+description: "Portierato e reception a Roma e Castelli Romani: controllo accessi, videosorveglianza, centralino, presidio diurno e notturno per condomini, uffici ed enti."
 immagine: "img/portierato.jpg"
 ritaglio_ancora: "Top"
 weight: 30
+titolo_seo: "Servizi di portierato e reception a Roma e Castelli Romani | Cooprimavera"
+alt_immagine: "Addetto al portierato e alla reception in un condominio"
+tipo_servizio: "Portierato e reception"
+offerte: ["Portierato e reception", "Controllo accessi", "Videosorveglianza e monitoraggio", "Gestione centralino", "Piccole manutenzioni", "Gestione chiavi e badge", "Servizio diurno e notturno", "Rondismo e controllo perimetrale"]
+faq:
+  - domanda: "Il portierato è un servizio di vigilanza armata?"
+    risposta: "No: il portierato è un servizio di **accoglienza, controllo accessi e presidio non armato**, svolto da personale formato. Per la vigilanza armata è necessario un istituto autorizzato; su richiesta lavoriamo in coordinamento con quello del cliente."
+  - domanda: "È possibile un servizio solo in alcune fasce orarie?"
+    risposta: "Sì: il servizio è **modulabile** per fasce orarie, giorni e stagioni — ad esempio solo la mattina, solo nei giorni feriali o solo di notte — con eventuali sostituzioni garantite dalla cooperativa."
+  - domanda: "Il portiere può svolgere anche piccole pulizie o manutenzioni?"
+    risposta: "Sì: su incarico il nostro personale esegue **piccole manutenzioni, gestione dei rifiuti e controlli** e segnala guasti o necessità di intervento tecnico, mantenendo decoro ed efficienza della struttura."
 ---
 
 Sicurezza e accoglienza professionale per la tua attività: soluzioni di portierato complete e personalizzate per condomini, uffici, aziende, enti pubblici e privati, strutture sanitarie e centri commerciali. Il nostro personale qualificato è il primo punto di contatto per visitatori, clienti e dipendenti.

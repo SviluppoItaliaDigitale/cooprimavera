@@ -5,6 +5,8 @@
 :root {
   --verde: #9fc63d;
   --verde-scuro: #627c26;
+  /* Verde più profondo per testo su fondo verde chiaro (contrasto AA ≥ 4.5) */
+  --verde-testo: #5a7222;
   --verde-fondo: #f4f8e8;
   --inchiostro: #232a1c;
   --grigio: #5c6357;
@@ -332,7 +334,7 @@ p  { text-wrap: pretty; }
 }
 .settori li {
   background: var(--verde-fondo); border: 1px solid var(--bordo);
-  color: var(--verde-scuro); font-weight: 700;
+  color: var(--verde-testo); font-weight: 700;
   padding: .5rem 1.1rem; border-radius: 999px;
   transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
 }
@@ -379,7 +381,7 @@ p  { text-wrap: pretty; }
 .posizione-corpo { padding: 1.2rem 1.3rem 1.4rem; display: flex; flex-direction: column; gap: .5rem; }
 .posizione-corpo p { margin: 0; }
 .posizione-settore {
-  align-self: flex-start; background: var(--verde-fondo); color: var(--verde-scuro);
+  align-self: flex-start; background: var(--verde-fondo); color: var(--verde-testo);
   font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
   padding: .25rem .8rem; border-radius: 999px;
 }
@@ -410,7 +412,7 @@ p  { text-wrap: pretty; }
 .modulo-preventivo textarea:focus {
   outline: 3px solid var(--verde); outline-offset: 1px; border-color: var(--verde-scuro);
 }
-.campo-nota { font-size: .92rem; color: var(--verde-scuro); margin: .4rem 0 0; }
+.campo-nota { font-size: .92rem; color: var(--verde-testo); margin: .4rem 0 0; }
 
 /* Come funziona: passi numerati verso il preventivo */
 .passi {
@@ -504,3 +506,86 @@ p  { text-wrap: pretty; }
   padding-top: .9rem; padding-bottom: .9rem;
   font-size: .9rem; color: #b9c1ad;
 }
+
+/* ---- Ingressi sopra la piega in CSS puro (LCP) ----
+   Gli elementi .entra non dipendono da GSAP: si animano appena il CSS è
+   pronto, e restano visibili anche se il JavaScript non arriva mai.
+   Con reduced-motion l'animazione è disattivata. */
+.anim-pronto .entra { animation: entra-base .8s cubic-bezier(.2, .7, .2, 1) both; }
+.anim-pronto .entra-su   { animation-name: entra-su; }
+.anim-pronto .entra-giu  { animation-name: entra-giu; }
+.anim-pronto .entra-zoom { animation-name: entra-zoom; }
+.anim-pronto .entra-r1 { animation-delay: .12s; }
+.anim-pronto .entra-r2 { animation-delay: .24s; }
+.anim-pronto .entra-r3 { animation-delay: .36s; }
+@keyframes entra-base { from { opacity: 0; } }
+@keyframes entra-su   { from { opacity: 0; transform: translateY(26px); } }
+@keyframes entra-giu  { from { opacity: 0; transform: translateY(-22px); } }
+@keyframes entra-zoom { from { opacity: 0; transform: scale(.94); } }
+@media (prefers-reduced-motion: reduce) { .anim-pronto .entra { animation: none; } }
+
+/* Eroe: claim rotante sotto al titolo con le parole chiave */
+.eroe h1 { font-size: clamp(1.75rem, 1.1rem + 3vw, 2.7rem); max-width: 22ch; }
+.eroe-claim {
+  font-size: clamp(1.25rem, 1rem + 1.6vw, 1.9rem); font-weight: 800; line-height: 1.25;
+  margin: 0 0 1rem; color: #fff; letter-spacing: -.01em;
+}
+.eroe-prove {
+  list-style: none; margin: 1.6rem 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: .5rem 1.4rem;
+  font-size: .95rem; color: #e4efc7;
+}
+.eroe-prove li::before { content: "✓"; color: var(--verde); font-weight: 800; margin-right: .45rem; }
+
+/* Introduzione di sezione e sottotitoli */
+.sezione-intro { max-width: 48rem; color: var(--grigio); margin: 0 0 .5rem; }
+.sottotitolo { font-size: 1.2rem; color: var(--grigio); max-width: 48rem; margin: -.2rem 0 1rem; }
+.occhiello {
+  text-transform: uppercase; letter-spacing: .12em; font-weight: 700;
+  font-size: .82rem; color: var(--verde-scuro); margin: 0 0 .3rem;
+}
+
+/* Card di solo testo (approfondimenti, servizi nelle pagine zona) */
+.lista-servizi, .approfondimenti ul { list-style: none; padding: 0; }
+.scheda-testo { padding: 1.1rem 1.25rem 1.2rem; border-top: 4px solid var(--verde); }
+.scheda-testo .scheda-titolo { margin: 0 0 .3rem; }
+.scheda-testo p { margin: 0; }
+.approfondimenti, .zona-servizi { margin-top: 2.6rem; }
+.approfondimenti h2, .zona-servizi h2 { margin-bottom: 0; }
+
+/* Blocco finale di richiesta preventivo nelle pagine interne */
+.cta-finale {
+  margin-top: 3rem; padding: clamp(1.4rem, 4vw, 2.4rem);
+  background: linear-gradient(120deg, var(--verde-fondo), #fff);
+  border: 1px solid var(--bordo); border-radius: var(--raggio);
+}
+.cta-finale h2 { margin: 0 0 .5rem; }
+.cta-finale p { max-width: 48rem; }
+.cta-finale .eroe-azioni { margin-top: 1.2rem; }
+.cta-finale .bottone-chiaro { border: 2px solid var(--verde-scuro); }
+
+/* Collegamenti ad altri servizi / altre zone */
+.altri-servizi { margin-top: 2.4rem; }
+.altri-servizi h2 { font-size: 1.1rem; margin-bottom: .2rem; }
+.altri-servizi .settori { justify-content: flex-start; margin-top: .8rem; }
+.settori a { color: inherit; text-decoration: none; }
+.settori li:hover a { color: #fff; }
+
+/* Piè di pagina: liste di collegamenti */
+.pie-griglia { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.pie-titolo a { color: var(--verde); text-decoration: none; }
+.pie-titolo a:hover { color: #fff; }
+.pie-lista li { margin: .3rem 0; }
+.pie-lista a { text-decoration: none; }
+.pie-lista a:hover { text-decoration: underline; }
+.pie-lista-zone { columns: 2; column-gap: 1rem; }
+.pie-social { margin-top: 1rem; }
+.pie-cta {
+  display: inline-block; margin-top: .6rem; padding: .5rem 1.1rem; border-radius: 999px;
+  background: var(--verde); color: var(--inchiostro) !important; font-weight: 700; text-decoration: none;
+}
+.pie-cta:hover { background: #fff; }
+.pie-copy a { color: #b9c1ad; }
+
+/* Su telefono i bottoni fissi non devono coprire i link del piè di pagina */
+@media (max-width: 760px) { .pie-copy { padding-bottom: 6.5rem; padding-right: 4.5rem; } }

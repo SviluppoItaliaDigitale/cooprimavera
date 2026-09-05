@@ -1,5 +1,5 @@
 /* ============================================================
-   Misericordia di Ariccia ODV — Orchestratore delle animazioni
+   Cooprimavera — Orchestratore delle animazioni
    GSAP + ScrollTrigger + SplitText + particles.js (auto-ospitati)
    ------------------------------------------------------------
    Effetti (ispirati a Salient e Hub, riscritti nel brand):
@@ -173,8 +173,9 @@
     if (window.console) console.warn("Animazioni disattivate:", err);
   }
 
-  /* ---- 9. Particelle nell'hero ---- */
-  avviaParticelle(false);
+  /* ---- 9. Particelle nell'hero (solo su schermi grandi con mouse:
+     su telefono costano CPU e batteria senza aggiungere nulla) ---- */
+  avviaParticelle(!(hover && window.matchMedia("(min-width: 900px)").matches));
 
   function avviaParticelle(spente) {
     var nodo = document.getElementById("hero-particelle");

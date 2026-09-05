@@ -1,23 +1,37 @@
 {{- /* Rende un'immagine da assets/ in WebP.
      Contesto: dict "percorso" "img/x.jpg" "alt" "..." "larghezza" 800
      Con "ritaglio" (es. "640x400") ritaglia a misura fissa: card tutte uguali.
-     Con "sizes" si dichiara la larghezza resa: genera anche una variante
-     dimezzata (srcset) così i telefoni non scaricano pixel inutili. */ -}}
+     Con "sizes" si dichiara la larghezza resa: genera varianti più piccole
+     (srcset) così i telefoni non scaricano pixel inutili.
+     Con "prioritaria" true l'immagine è sopra la piega (LCP): niente lazy
+     loading né skeleton, e fetchpriority alta. */ -}}
 {{- $ris := resources.Get .percorso -}}
 {{- if $ris -}}
+  {{- $q := .qualita | default 80 -}}
   {{- $img := "" -}}
-  {{- $mezza := "" -}}
+  {{- $varianti := slice -}}
   {{- if .ritaglio -}}
     {{- /* "ancora" sposta il punto di ritaglio (es. "Top" per non tagliare le teste) */ -}}
-    {{- $img = $ris.Fill (printf "%s %s webp q80" .ritaglio (.ancora | default "Smart")) -}}
+    {{- $img = $ris.Fill (printf "%s %s webp q%d" .ritaglio (.ancora | default "Smart") $q) -}}
     {{- $dim := split .ritaglio "x" -}}
-    {{- $mezza = $ris.Fill (printf "%dx%d webp q80" (div (int (index $dim 0)) 2) (div (int (index $dim 1)) 2)) -}}
+    {{- $varianti = $varianti | append ($ris.Fill (printf "%dx%d %s webp q%d" (div (int (index $dim 0)) 2) (div (int (index $dim 1)) 2) (.ancora | default "Smart") $q)) -}}
   {{- else -}}
-    {{- $img = $ris.Resize (printf "%dx webp q80" (.larghezza | default 800)) -}}
+    {{- $larg := .larghezza | default 800 -}}
+    {{- if gt $larg $ris.Width }}{{ $larg = $ris.Width }}{{ end -}}
+    {{- $img = $ris.Resize (printf "%dx webp q%d" $larg $q) -}}
+    {{- if gt $img.Width 900 -}}
+      {{- $varianti = $varianti | append ($ris.Resize (printf "%dx webp q%d" (int (mul $img.Width 0.66)) $q)) -}}
+    {{- end -}}
     {{- if gt $img.Width 500 -}}
-      {{- $mezza = $ris.Resize (printf "%dx webp q80" (div $img.Width 2)) -}}
+      {{- $varianti = $varianti | append ($ris.Resize (printf "%dx webp q%d" (div $img.Width 2) $q)) -}}
     {{- end -}}
   {{- end -}}
+  {{- $srcset := slice -}}
+  {{- range $varianti }}{{ $srcset = $srcset | append (printf "%s %dw" .RelPermalink .Width) }}{{ end -}}
+  {{- $srcset = $srcset | append (printf "%s %dw" $img.RelPermalink $img.Width) -}}
   <img src="{{ $img.RelPermalink }}"
-    {{- with $mezza }} srcset="{{ .RelPermalink }} {{ .Width }}w, {{ $img.RelPermalink }} {{ $img.Width }}w" sizes="{{ $.sizes | default "(min-width: 900px) 360px, 92vw" }}"{{ end }} width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ .alt }}" loading="lazy" decoding="async"{{ if .skeleton }} data-skeleton{{ end }}>
+    {{- if $varianti }} srcset="{{ delimit $srcset ", " }}" sizes="{{ .sizes | default "(min-width: 900px) 360px, 92vw" }}"{{ end }} width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ .alt }}"
+    {{- if .prioritaria }} fetchpriority="high" decoding="async"
+    {{- else }} loading="lazy" decoding="async"{{ if .skeleton }} data-skeleton{{ end }}
+    {{- end }}>
 {{- end -}}
