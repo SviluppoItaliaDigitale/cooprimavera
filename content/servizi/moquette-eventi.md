@@ -1,8 +1,16 @@
 ---
 title: "Moquette per eventi"
-description: "Moquette su misura per eventi, spettacoli, sfilate e matrimoni: liscia, velluto, glitter e da esterno. Taglio e posa a cura del nostro personale."
+description: "Moquette su misura per eventi, spettacoli, sfilate e matrimoni a Roma e Castelli Romani: liscia, velluto, glitter e da esterno. Taglio e posa inclusi."
 immagine: "img/moquette-velluto.jpg"
 weight: 67
+titolo_seo: "Moquette per eventi su misura a Roma e Castelli Romani | Cooprimavera"
+alt_immagine: "Moquette in velluto posata per un evento"
+tipo_servizio: "Moquette per eventi"
+faq:
+  - domanda: "La moquette viene posata dal vostro personale?"
+    risposta: "Sì: **tagliamo la moquette su misura, la posiamo e la rimuoviamo a fine evento**. Basta indicarci tipo di evento, superficie da coprire e colore desiderato."
+  - domanda: "Esiste una moquette adatta alla pioggia e all'esterno?"
+    risposta: "Sì: la **moquette da esterno** è drenante, antiscivolo e resistente alle intemperie (anche con fibra anti-UV), ideale per eventi in piazza, sagre e postazioni all'aperto."
 ---
 
 Per eventi, spettacoli, sfilate, matrimoni e assemblee aziendali forniamo e posiamo la **moquette su misura**: la tagliamo sulle dimensioni richieste e la posizioniamo noi, pronta per l'evento. Ci viene richiesta anche per **rivestire il palco e dare colore alla scena**, e dalle **bande musicali che si esibiscono su strada**, che vogliono una copertura totale e ordinata delle loro postazioni.

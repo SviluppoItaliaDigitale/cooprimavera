@@ -1,0 +1,17 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {{- /* Pagine legali fuori dalla sitemap (restano indicizzabili ma non sono
+         un obiettivo di ricerca); home e servizi con priorità più alta */ -}}
+  {{- range where .Data.Pages "Params.noindex_sitemap" "!=" true }}
+  {{- if and (ne .Kind "404") (not .Params.noindex) }}
+  <url>
+    <loc>{{ .Permalink }}</loc>
+    {{- if not .Lastmod.IsZero }}
+    <lastmod>{{ .Lastmod.Format "2006-01-02" }}</lastmod>
+    {{- end }}
+    <changefreq>{{ .Sitemap.ChangeFreq }}</changefreq>
+    <priority>{{ if .IsHome }}1.0{{ else if eq .Section "servizi" }}0.9{{ else if eq .Section "zone" }}0.8{{ else if eq .RelPermalink "/preventivo/" }}0.9{{ else }}{{ .Sitemap.Priority }}{{ end }}</priority>
+  </url>
+  {{- end }}
+  {{- end }}
+</urlset>

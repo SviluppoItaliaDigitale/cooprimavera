@@ -1,13 +1,33 @@
+{{- /* Testa della pagina: meta SEO, social, dati strutturati e foglio di stile.
+     Il <title> è la leva SEO principale: ogni pagina può fissarlo in front
+     matter (titolo_seo); altrimenti "Titolo | Cooprimavera". */ -}}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{{ $titolo := .Title }}
-{{ if .IsHome }}{{ $titolo = "Cooprimavera — Impresa di pulizie e multiservizi a Roma e Castelli Romani" }}{{ else }}{{ $titolo = printf "%s — %s" .Title site.Title }}{{ end }}
+{{- $suffisso := site.Params.titolo_suffisso | default site.Title }}
+{{- $titolo := .Title }}
+{{- if .IsHome }}
+  {{- $titolo = "Impresa di pulizie e multiservizi a Roma e Castelli Romani | Cooprimavera" }}
+{{- else if .Params.titolo_seo }}
+  {{- $titolo = .Params.titolo_seo }}
+{{- else }}
+  {{- $titolo = printf "%s | %s" .Title $suffisso }}
+{{- end }}
+{{- $descrizione := .Description | default .Summary | default site.Params.descrizione | plainify | truncate 160 }}
 <title>{{ $titolo }}</title>
-<meta name="description" content="{{ .Description | default .Summary | default site.Params.descrizione | plainify | truncate 160 }}">
-{{ if site.Params.noindex }}<meta name="robots" content="noindex, nofollow">{{ end }}
+<meta name="description" content="{{ $descrizione }}">
+{{- if or site.Params.noindex .Params.noindex (eq .Kind "404") }}
+<meta name="robots" content="noindex, nofollow">
+{{- else }}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="{{ .Permalink }}">
+{{- end }}
+<meta name="theme-color" content="#627c26">
+<meta name="author" content="Cooprimavera Società Cooperativa">
+<meta name="geo.region" content="IT-RM">
+<meta name="geo.placename" content="Ariccia">
 <link rel="icon" type="image/png" href="{{ "favicon.png" | absURL }}">
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
+<link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}">
 {{/* Un solo foglio di stile: kit animazioni + stile del sito concatenati
      (l'ordine conta: main.css sovrascrive il kit dove serve) */}}
 {{ $css := slice (resources.Get "css/animazioni.css") (resources.Get "css/main.css") | resources.Concat "css/stile.css" | minify | fingerprint }}
@@ -22,75 +42,29 @@
     }
   })();
 </script>
+{{- /* Anteprima social: JPEG 1200x630 (WhatsApp e Facebook non leggono il WebP) */ -}}
+{{- $ogimg := "" }}
+{{- with .Params.immagine }}{{ $ogimg = resources.Get . }}{{ end }}
+{{- if not $ogimg }}{{ $ogimg = resources.Get site.Params.immagine_social }}{{ end }}
+{{- $og := "" }}
+{{- with $ogimg }}{{ $og = .Fill (printf "1200x630 %s jpg q82" ($.Params.ritaglio_ancora | default "Smart")) }}{{ end }}
+<meta property="og:site_name" content="Cooprimavera Società Cooperativa">
 <meta property="og:title" content="{{ $titolo }}">
 <meta property="og:description" content="{{ .Description | default site.Params.descrizione | plainify | truncate 200 }}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:locale" content="it_IT">
+{{- with $og }}
+<meta property="og:image" content="{{ .Permalink }}">
+<meta property="og:image:width" content="{{ .Width }}">
+<meta property="og:image:height" content="{{ .Height }}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="{{ $.Params.alt_immagine | default $titolo }}">
+{{- end }}
 <meta name="twitter:card" content="summary_large_image">
-{{ $ogimg := resources.Get (.Params.immagine | default "img/logo.png") | default (resources.Get "img/logo.png") }}
-{{ with $ogimg }}{{ with .Resize "1200x webp q85" }}<meta property="og:image" content="{{ .Permalink }}">{{ end }}{{ end }}
-{{ if .IsHome }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Cooprimavera Società Cooperativa",
-  "url": "https://www.cooprimavera.com/",
-  "email": "{{ site.Params.email }}",
-  "telephone": "{{ site.Params.telefono_cell_link }}",
-  "vatID": "IT{{ site.Params.piva }}",
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "09:00", "closes": "14:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "18:00" }
-  ],
-  "areaServed": ["Roma", "Castelli Romani", "Ariccia", "Albano Laziale", "Genzano di Roma", "Castel Gandolfo", "Marino", "Ciampino", "Grottaferrata", "Frascati", "Rocca di Papa", "Nemi", "Lanuvio", "Velletri", "Lariano"],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Via Giuseppe Lugli 2/4",
-    "postalCode": "00072",
-    "addressLocality": "Ariccia",
-    "addressRegion": "RM",
-    "addressCountry": "IT"
-  },
-  "sameAs": [
-    "{{ site.Params.social.facebook }}",
-    "{{ site.Params.social.instagram }}",
-    "{{ site.Params.social.linkedin }}",
-    "{{ site.Params.social.x }}"
-  ]
-}
-</script>
-{{ end }}
-{{ with .Params.faq }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {{ range $i, $f := . }}{{ if $i }},{{ end }}{
-      "@type": "Question",
-      "name": {{ $f.domanda | jsonify }},
-      "acceptedAnswer": { "@type": "Answer", "text": {{ $f.risposta | markdownify | plainify | jsonify }} }
-    }{{ end }}
-  ]
-}
-</script>
-{{ end }}
-{{ if and .CurrentSection (eq .CurrentSection.Title "Servizi") (not .IsSection) }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": {{ .Title | jsonify }},
-  "description": {{ .Description | jsonify }},
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "Cooprimavera Società Cooperativa",
-    "url": "https://www.cooprimavera.com/",
-    "telephone": "{{ site.Params.telefono_cell_link }}"
-  },
-  "areaServed": ["Castelli Romani", "Roma", "Ariccia", "Genzano di Roma"]
-}
-</script>
-{{ end }}
+<meta name="twitter:title" content="{{ $titolo }}">
+<meta name="twitter:description" content="{{ $descrizione }}">
+{{- with $og }}
+<meta name="twitter:image" content="{{ .Permalink }}">
+{{- end }}
+{{ partial "schema.html" (dict "pagina" . "titolo" $titolo "descrizione" $descrizione "og" $og) }}

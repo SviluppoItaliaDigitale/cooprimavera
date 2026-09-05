@@ -3,9 +3,31 @@
     <div>
       <h2 class="pie-titolo">Cooprimavera Soc. Coop.</h2>
       <p class="pie-claim">{{ site.Params.claim }}</p>
-      <p>Impresa multiservizi dei Castelli Romani, dal 2006.</p>
+      <p>Impresa di pulizie e multiservizi dei Castelli Romani, dal {{ site.Params.anno_fondazione }}: pulizie, sanificazioni, disinfestazioni, giardinaggio, portierato ed eventi a Roma e provincia.</p>
       <p>P.IVA {{ site.Params.piva }}</p>
+      <ul class="pie-social" aria-label="Profili social">
+        <li><a href="{{ site.Params.social.facebook }}" rel="noopener">Facebook</a></li>
+        <li><a href="{{ site.Params.social.instagram }}" rel="noopener">Instagram</a></li>
+        <li><a href="{{ site.Params.social.linkedin }}" rel="noopener">LinkedIn</a></li>
+        <li><a href="{{ site.Params.social.x }}" rel="noopener">X</a></li>
+      </ul>
     </div>
+    <nav aria-label="Servizi">
+      <h2 class="pie-titolo"><a href="{{ "servizi/" | relURL }}">Servizi</a></h2>
+      <ul class="pie-lista">
+        {{ range where (site.GetPage "/servizi").Pages.ByWeight "Params.secondaria" "!=" true }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+    <nav aria-label="Zone servite">
+      <h2 class="pie-titolo"><a href="{{ "zone/" | relURL }}">Dove operiamo</a></h2>
+      <ul class="pie-lista pie-lista-zone">
+        {{ with site.GetPage "/zone" }}{{ range .Pages.ByWeight }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}{{ end }}
+      </ul>
+    </nav>
     <div>
       <h2 class="pie-titolo">Contatti</h2>
       <p>Sede operativa: {{ site.Params.sede_operativa }}</p>
@@ -18,23 +40,11 @@
         <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a><br>
         PEC: <a href="mailto:{{ site.Params.pec }}">{{ site.Params.pec }}</a>
       </p>
-    </div>
-    <div>
-      <h2 class="pie-titolo">Seguici</h2>
-      <ul class="pie-social">
-        <li><a href="{{ site.Params.social.facebook }}" rel="noopener">Facebook</a></li>
-        <li><a href="{{ site.Params.social.instagram }}" rel="noopener">Instagram</a></li>
-        <li><a href="{{ site.Params.social.linkedin }}" rel="noopener">LinkedIn</a></li>
-        <li><a href="{{ site.Params.social.x }}" rel="noopener">X</a></li>
-      </ul>
-      <ul class="pie-legale">
-        <li><a href="{{ "privacy/" | relURL }}">Privacy policy</a></li>
-        <li><a href="{{ "cookie/" | relURL }}">Cookie policy</a></li>
-      </ul>
+      <p><a class="pie-cta" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo gratuito</a></p>
     </div>
   </div>
   <div class="contenitore pie-copy">
-    <p>© {{ now.Year }} Cooprimavera Società Cooperativa</p>
+    <p>© {{ now.Year }} Cooprimavera Società Cooperativa · <a href="{{ "chi-siamo/" | relURL }}">Chi siamo</a> · <a href="{{ "lavora-con-noi/" | relURL }}">Lavora con noi</a> · <a href="{{ "privacy/" | relURL }}">Privacy policy</a> · <a href="{{ "cookie/" | relURL }}">Cookie policy</a></p>
   </div>
 </footer>
 <a id="whatsapp-fisso" href="{{ site.Params.whatsapp_link }}" rel="noopener" aria-label="Scrivici su WhatsApp al {{ site.Params.whatsapp }}" title="Scrivici su WhatsApp: {{ site.Params.whatsapp }}">
@@ -46,11 +56,14 @@
 <button id="torna-su" aria-label="Torna in cima alla pagina" title="Torna su" hidden>
   <svg viewBox="0 0 16 16" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 3.5a.5.5 0 0 1 .354.146l5 5a.5.5 0 0 1-.708.708L8 4.707 3.354 9.354a.5.5 0 1 1-.708-.708l5-5A.5.5 0 0 1 8 3.5z"/></svg>
 </button>
+{{- /* Librerie di animazione: caricate in differita; le particelle solo in home,
+       dove c'è l'eroe che le usa */ -}}
 <script src="{{ "vendor/gsap/gsap.min.js" | relURL }}" defer></script>
 <script src="{{ "vendor/gsap/ScrollTrigger.min.js" | relURL }}" defer></script>
 <script src="{{ "vendor/gsap/SplitText.min.js" | relURL }}" defer></script>
-<script src="{{ "vendor/particles/particles.min.js" | relURL }}" defer></script>
-<script src="{{ "js/animazioni.js" | relURL }}" defer></script>
+{{ if .IsHome }}<script src="{{ "vendor/particles/particles.min.js" | relURL }}" defer></script>{{ end }}
+{{ $js := resources.Get "js/animazioni.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
 <script>
   (function () {
     var b = document.querySelector('.menu-bottone');

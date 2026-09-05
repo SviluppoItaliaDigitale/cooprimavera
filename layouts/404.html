@@ -2,10 +2,14 @@
 <div class="contenitore pagina centro pagina-404">
   <p class="codice-404" aria-hidden="true">404</p>
   <h1>Pagina non trovata</h1>
-  <p class="prosa">La pagina che cercavi non esiste o è stata spostata con il nuovo sito.</p>
+  <p class="prosa">La pagina che cercavi non esiste o è stata spostata con il nuovo sito. Ecco da dove ripartire.</p>
   <p class="eroe-azioni">
     <a class="bottone" href="{{ site.Home.RelPermalink }}">Torna alla home</a>
     <a class="bottone bottone-chiaro" href="{{ "servizi/" | relURL }}">Vedi i servizi</a>
+    <a class="bottone bottone-chiaro" href="{{ "preventivo/" | relURL }}">Chiedi un preventivo</a>
   </p>
+  <ul class="settori">
+    {{ range where (site.GetPage "/servizi").Pages.ByWeight "Params.secondaria" "!=" true }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
+  </ul>
 </div>
 {{ end }}

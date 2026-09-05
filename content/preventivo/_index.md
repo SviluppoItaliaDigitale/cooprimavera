@@ -1,6 +1,7 @@
 ---
 title: "Preventivo e contatti"
-description: "Richiedi un preventivo gratuito e senza impegno a Cooprimavera: modulo guidato, telefono, WhatsApp, email, PEC e sedi di Ariccia e Genzano di Roma."
+titolo_seo: "Preventivo gratuito e contatti | Cooprimavera, Ariccia"
+description: "Richiedi un preventivo gratuito a Cooprimavera: modulo guidato, telefono, WhatsApp, email e PEC. Sedi ad Ariccia e Genzano di Roma, Castelli Romani."
 layout: "page"
 faq:
   - domanda: "Il preventivo è davvero gratuito?"
@@ -47,6 +48,8 @@ Hai un progetto in mente? Compila il modulo qui sotto: prepariamo il messaggio p
       <option>Giardinaggio</option>
       <option>Servizi di portierato</option>
       <option>Allestimenti per eventi</option>
+      <option>Noleggio sedie / moquette per eventi</option>
+      <option>Forniture igieniche per i bagni</option>
       <option>Altro / più servizi</option>
     </select>
     <p class="campo-nota" id="mp-nota-sopralluogo" hidden>Per questo servizio il sopralluogo è obbligatorio: ti contatteremo per fissarlo.</p>
@@ -79,7 +82,7 @@ Hai un progetto in mente? Compila il modulo qui sotto: prepariamo il messaggio p
   var nota = document.getElementById("mp-nota-sopralluogo");
   servizio.addEventListener("change", function () {
     var v = servizio.value;
-    nota.hidden = !(v === "Pulizie professionali" || v === "Giardinaggio");
+    nota.hidden = !(v === "Pulizie professionali" || v === "Giardinaggio" || v === "Disinfestazioni");
   });
   form.addEventListener("submit", function (e) {
     e.preventDefault();

@@ -1,6 +1,8 @@
 ---
 title: "Chi siamo"
-description: "Cooprimavera, nata nel 2006, unisce servizi di qualità alle imprese e inserimento lavorativo di persone svantaggiate nei Castelli Romani."
+titolo_seo: "Chi siamo: cooperativa multiservizi dal 2006 | Cooprimavera"
+alt_immagine: "La squadra di Cooprimavera, cooperativa multiservizi di Ariccia"
+description: "Cooprimavera, nata nel 2006, unisce servizi di qualità alle imprese e inserimento lavorativo di persone svantaggiate nei Castelli Romani e a Roma."
 immagine: "img/chi-siamo.jpg"
 layout: "page"
 ---
@@ -13,7 +15,7 @@ Cooprimavera, nata nel 2006, si distingue per la sua doppia missione: offrire se
 
 ## Perché scegliere noi
 
-Scegliere la nostra cooperativa multiservizi significa affidarsi a un partner solido e competente, che mette al primo posto la soddisfazione del cliente. Grazie alla nostra pluriennale esperienza nel settore, garantiamo efficienza e qualità in ogni servizio offerto, dall'assistenza domiciliare alla manutenzione del verde, dalla pulizia degli uffici ai piccoli lavori domestici.
+Scegliere la nostra cooperativa multiservizi significa affidarsi a un partner solido e competente, che mette al primo posto la soddisfazione del cliente. Grazie alla nostra pluriennale esperienza nel settore, garantiamo efficienza e qualità in ogni servizio offerto, dalla pulizia degli uffici e dei condomìni alla manutenzione del verde, dalle sanificazioni e disinfestazioni al portierato e agli allestimenti per eventi.
 
 Ci distinguiamo per la costante attenzione all'innovazione, per un'assistenza ai clienti puntuale e cordiale e per l'affidabilità che da sempre contraddistingue il nostro operato. La nostra reputazione è il frutto di un impegno quotidiano volto a superare le aspettative, offrendo soluzioni personalizzate e un servizio impeccabile.
 
@@ -25,3 +27,14 @@ Ci distinguiamo per la costante attenzione all'innovazione, per un'assistenza ai
 - **Valorizzazione** — il socio lavoratore è al centro della cooperativa.
 - **Sicurezza** — gli appalti di lavoro vengono eseguiti nella massima sicurezza.
 - **Certificazione** — certificazioni e abilitazioni sono il "must" della cooperativa.
+
+## Dove lavoriamo
+
+La sede operativa, con ufficio e magazzino, è ad **Ariccia**; la sede legale a **Genzano di Roma**. Le nostre squadre lavorano ogni giorno a [Roma](/zone/roma/) e in tutti i comuni dei [Castelli Romani](/zone/): Ariccia, Albano Laziale, Genzano, Castel Gandolfo, Marino, Ciampino, Frascati, Velletri e dintorni.
+
+## I numeri di Cooprimavera
+
+- **Dal 2006** al servizio di imprese, enti e famiglie.
+- **Nove servizi** a catalogo, dalle pulizie agli eventi, con un unico referente.
+- **Prodotti certificati**: linee Ecolabel, conformi ai CAM e idonee alle procedure HACCP.
+- **Soci lavoratori del territorio**, formati e assicurati, con squadre stabili su ogni appalto.

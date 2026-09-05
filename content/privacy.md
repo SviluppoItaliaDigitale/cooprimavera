@@ -1,5 +1,6 @@
 ---
 title: "Privacy policy"
+noindex_sitemap: true
 description: "Informativa sul trattamento dei dati personali del sito cooprimavera.com ai sensi degli artt. 13 e 14 del Regolamento (UE) 2016/679 (GDPR)."
 ---
 
