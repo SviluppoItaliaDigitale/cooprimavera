@@ -11,7 +11,7 @@ faq:
   - domanda: "Quanto costa un'impresa di pulizie a Roma e nei Castelli Romani?"
     risposta: "Il prezzo dipende da **metratura, frequenza e tipo di ambiente**: per questo il sopralluogo è obbligatorio e gratuito. Dopo averlo fatto ricevi un preventivo chiaro, a canone mensile per i contratti continuativi o a corpo per gli interventi singoli."
   - domanda: "Lavorate anche per i privati o solo per le aziende?"
-    risposta: "Entrambi. Oltre a uffici, condomìni, scuole ed enti, eseguiamo per i **privati** pulizie straordinarie, sgrossi post cantiere, pulizia vetrate e sanificazioni."
+    risposta: "Entrambi. Oltre a uffici, condomìni, scuole ed enti, eseguiamo per i **privati** pulizie straordinarie, sgrossi post cantiere, pulizia vetrate e sanificazioni, e per agenzie immobiliari e aste giudiziarie la [pulizia degli immobili in vendita](/servizi/valorizzazione-immobili/)."
   - domanda: "Quali prodotti usate?"
     risposta: "Prodotti professionali **Sanitec di Italchimica**, con linee **Ecolabel** e conformi ai **CAM**, e prodotti idonei alle procedure **HACCP** per le attività alimentari. Le schede tecniche e di sicurezza sono disponibili su richiesta."
   - domanda: "Il personale è assicurato e formato?"
