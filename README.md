@@ -1,6 +1,6 @@
 # Sito Cooprimavera
 
-Sito web di **Cooprimavera Soc. Coop.** — multiservizi (pulizie professionali, sanificazioni, giardinaggio, portierato, allestimenti per eventi, disinfestazioni), Ariccia (RM).
+Sito web di **Cooprimavera Soc. Coop.** — multiservizi (pulizie professionali, sanificazioni, giardinaggio, valorizzazione immobili in vendita, portierato, allestimenti per eventi, disinfestazioni), Ariccia (RM).
 
 - **Dominio:** https://www.cooprimavera.com
 - **Hosting:** Aruba

@@ -46,6 +46,7 @@ Hai un progetto in mente? Compila il modulo qui sotto: prepariamo il messaggio p
       <option>Sanificazioni</option>
       <option>Disinfestazioni</option>
       <option>Giardinaggio</option>
+      <option>Valorizzazione immobili in vendita</option>
       <option>Servizi di portierato</option>
       <option>Allestimenti per eventi</option>
       <option>Noleggio sedie / moquette per eventi</option>
@@ -82,7 +83,7 @@ Hai un progetto in mente? Compila il modulo qui sotto: prepariamo il messaggio p
   var nota = document.getElementById("mp-nota-sopralluogo");
   servizio.addEventListener("change", function () {
     var v = servizio.value;
-    nota.hidden = !(v === "Pulizie professionali" || v === "Giardinaggio" || v === "Disinfestazioni");
+    nota.hidden = !(v === "Pulizie professionali" || v === "Giardinaggio" || v === "Valorizzazione immobili in vendita" || v === "Disinfestazioni");
   });
   form.addEventListener("submit", function (e) {
     e.preventDefault();

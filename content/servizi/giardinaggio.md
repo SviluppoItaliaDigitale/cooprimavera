@@ -14,6 +14,8 @@ faq:
     risposta: "Sì: eseguiamo **potature di alberi ad alto fusto** e abbattimenti controllati con personale abilitato e attrezzature per il lavoro in quota, occupandoci anche dello smaltimento del materiale di risulta."
   - domanda: "Quando è il periodo giusto per potare?"
     risposta: "Varia per specie: in generale le **potature principali si fanno nel riposo vegetativo** (autunno-inverno), le siepi si rifilano più volte da primavera a fine estate e gli alberi da fiore dopo la fioritura. Nel sopralluogo definiamo il calendario adatto al tuo giardino."
+  - domanda: "Rimettete in ordine il giardino di una casa in vendita?"
+    risposta: "Sì: per agenzie immobiliari, custodi giudiziari e privati eseguiamo interventi una tantum di **sfalcio, potatura, pulizia di vialetti e terrazzi e fioriture stagionali** per presentare al meglio l'immobile. Insieme alla pulizia degli interni fa parte del servizio di [valorizzazione immobili in vendita](/servizi/valorizzazione-immobili/)."
   - domanda: "Curate anche il verde condominiale e aziendale?"
     risposta: "Sì: **giardini condominiali, aree verdi aziendali e di enti pubblici** sono gran parte del nostro lavoro, spesso in un unico contratto con le pulizie delle parti comuni."
 ---
