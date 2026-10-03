@@ -49,7 +49,7 @@ righe: list[str] = []
 
 
 def scrivi(testo: str = "") -> None:
-    print(testo)
+    print(testo, flush=True)
     righe.append(testo)
 
 
@@ -412,6 +412,7 @@ def a_elimina_tutti(rete, conf, **_):
     archiviati = {x["id"]: x for x in json.loads(f.read_text(encoding="utf-8")).get(rete, [])}
     attuali = post_fb() if rete == "fb" else tutte(f"{ig_id()}/media", fields="id")
     fatti, saltati, errori = 0, [], []
+    scrivi(f"Post presenti su {rete}: {len(attuali)}")
     for p in attuali:
         x = archiviati.get(p["id"])
         if not x:
@@ -422,6 +423,7 @@ def a_elimina_tutti(rete, conf, **_):
             r = chiama("DELETE", p["id"])
             if r.get("success") is True:
                 fatti += 1
+                print(f"eliminato {p['id']} ({fatti})", flush=True)
             else:
                 errori.append(f"`{p['id']}`: {r.get('errore', r)}")
     scrivi(f"Eliminati {fatti} post ({rete}).")
