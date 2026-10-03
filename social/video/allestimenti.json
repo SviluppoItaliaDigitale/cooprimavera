@@ -71,8 +71,5 @@
     "titolo": "Life of Riley",
     "volume": 0.2
   },
-  "voci": [
-    "if_sara",
-    "im_nicola"
-  ]
+  "voce": "im_nicola"
 }
