@@ -195,8 +195,12 @@ def a_pubblica(rete, testo, immagine, quando="", **_):
     if quando:
         # Programmazione nativa di Facebook: da 10 minuti a 75 giorni nel futuro
         from datetime import datetime
+        from zoneinfo import ZoneInfo
         try:
-            ts = int(datetime.fromisoformat(quando).timestamp())
+            d = datetime.fromisoformat(quando)
+            if d.tzinfo is None:  # senza fuso: è l'ora italiana, non quella del server (UTC)
+                d = d.replace(tzinfo=ZoneInfo("Europe/Rome"))
+            ts = int(d.timestamp())
         except ValueError:
             esci(f"«quando» non valido: {quando} (esempio: 2026-10-05T09:00:00+02:00)")
         if rete != "fb":
