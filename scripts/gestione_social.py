@@ -328,7 +328,7 @@ def scarica(url: str, nome: str) -> str | None:
 
 def post_fb() -> list[dict]:
     return tutte(f"{PAGE_ID}/posts", fields="id,created_time,message,story,permalink_url,status_type,"
-                 "attachments{media_type,url,media{image{src},source},subattachments{media_type,media{image{src},source}}}")
+                 "attachments{media_type,url,target{id},media{image{src},source},subattachments{media_type,target{id},media{image{src},source}}}")
 
 
 def media_fb(p: dict) -> list[str]:
@@ -342,8 +342,27 @@ def media_fb(p: dict) -> list[str]:
     return urls
 
 
+_protette: set[str] | None = None
+
+
+def foto_protette() -> set[str]:
+    """Foto profilo e copertina attuali della pagina (copertina degli album «profile» e «cover»)."""
+    global _protette
+    if _protette is None:
+        _protette = {(a.get("cover_photo") or {}).get("id") for a in tutte(f"{PAGE_ID}/albums", fields="type,cover_photo")
+                     if a.get("type") in ("profile", "cover")} - {None}
+        c = chiama("GET", PAGE_ID, fields="cover{id}").get("cover") or {}
+        if c.get("id"):
+            _protette.add(c["id"])
+    return _protette
+
+
 def intoccabile(p: dict) -> bool:
-    return any(k in (p.get("story") or "").lower() for k in INTOCCABILI)
+    if any(k in (p.get("story") or "").lower() for k in INTOCCABILI):
+        return True
+    obiettivi = {(x.get("target") or {}).get("id") for a in (p.get("attachments") or {}).get("data", [])
+                 for x in [a] + (a.get("subattachments") or {}).get("data", [])}
+    return bool(obiettivi & foto_protette())
 
 
 def a_esporta(**_):
