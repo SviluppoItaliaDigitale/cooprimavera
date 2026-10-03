@@ -2,7 +2,7 @@
 
 Copia di testi, date, link e immagini dei post prima della ripartenza da zero.
 
-## Facebook — 304 post
+## Facebook — 314 post
 
 ### 2012-03-14 — [192102847559438_192112487558474](https://www.facebook.com/photo.php?fbid=192112487558474&set=a.192112010891855&type=3)
 
@@ -20,6 +20,16 @@ Cooprimavera ha aggiunto 5 nuove foto.
 Finalmente online il nuovo sito della Cooperativa Sociale Primavera visitateci http://www.cooprimavera.com/joomla/index.php/mission 
 
 
+### 2012-03-14 — [192102847559438_192112804225109](https://www.facebook.com/photo.php?fbid=192112640891792&set=a.192112010891855&type=3)
+
+Cooprimavera ha aggiunto 4 nuove foto.
+
+![](fb/2012-03-14_192102847559438_192112804225109_1.jpg)
+![](fb/2012-03-14_192102847559438_192112804225109_2.jpg)
+![](fb/2012-03-14_192102847559438_192112804225109_3.jpg)
+![](fb/2012-03-14_192102847559438_192112804225109_4.jpg)
+![](fb/2012-03-14_192102847559438_192112804225109_5.jpg)
+
 ### 2012-03-15 — [192102847559438_828937101437855](https://www.facebook.com/192102847559438/posts/387159301294328/)
 
 http://it.wikipedia.org/wiki/Societ%C3%A0_cooperativa
@@ -36,7 +46,7 @@ http://www.un.org/en/events/coopsyear/
 
 _(senza testo)_
 
-![](fb/2012-03-16_192102847559438_2363313363818233_1.jpg)
+Video YouTube: https://www.youtube.com/watch?v=hT40Mdce7Uo (probabile, da verificare)
 
 ### 2012-03-16 — [192102847559438_594982635426985](https://www.facebook.com/192102847559438/posts/202693013168275/)
 
@@ -73,11 +83,16 @@ _(senza testo)_
 "Lascia un mondo migliore di come l'hai trovato" Sir Lord Robert Baden Powell
 
 
+### 2012-03-16 — [192102847559438_432551562267892](https://www.facebook.com/192102847559438/posts/314271575304380/)
+
+_(senza testo)_
+
+
 ### 2012-03-17 — [192102847559438_482873963234711](https://www.facebook.com/192102847559438/posts/345629772145834/)
 
 _(senza testo)_
 
-![](fb/2012-03-17_192102847559438_482873963234711_1.jpg)
+Video YouTube: https://www.youtube.com/watch?v=lcZDWo6hiuI (probabile, da verificare)
 
 ### 2012-03-17 — [192102847559438_193198177449905](https://www.facebook.com/1803076791233790/posts/193198177449905)
 
@@ -160,19 +175,19 @@ _(senza testo)_
 
 _(senza testo)_
 
-![](fb/2012-04-10_192102847559438_3259380587651497_1.jpg)
+Video YouTube: https://www.youtube.com/watch?v=gYflXRomjBY (probabile, da verificare)
 
 ### 2012-04-10 — [192102847559438_593138709122688](https://www.facebook.com/192102847559438/posts/216122385160366/)
 
 _(senza testo)_
 
-![](fb/2012-04-10_192102847559438_593138709122688_1.jpg)
+Video YouTube: https://www.youtube.com/watch?v=BSt__YWMKUM (probabile, da verificare)
 
 ### 2012-04-22 — [192102847559438_537456871471359](https://www.facebook.com/192102847559438/posts/410367568991094/)
 
 Grande!!!!!
 
-![](fb/2012-04-22_192102847559438_537456871471359_1.jpg)
+Video YouTube: https://www.youtube.com/watch?v=QkQe7SctWRs (probabile, da verificare)
 
 ### 2012-04-22 — [192102847559438_211157268987329](https://www.facebook.com/photo.php?fbid=211157268987329&set=a.614060993468715&type=3)
 
@@ -190,7 +205,13 @@ _(senza testo)_
 
 _(senza testo)_
 
-![](fb/2012-04-26_192102847559438_384405760350385_1.jpg)
+Video YouTube: https://www.youtube.com/watch?v=_uxxrYtvkgI (probabile, da verificare)
+
+### 2012-04-26 — [192102847559438_768661821023837](https://www.facebook.com/192102847559438/posts/278905645534045/)
+
+_(senza testo)_
+
+![](fb/2012-04-26_192102847559438_768661821023837_1.png)
 
 ### 2012-04-28 — [192102847559438_1392969511192667](https://www.facebook.com/192102847559438/posts/220993918013123/)
 
@@ -341,7 +362,7 @@ _(senza testo)_
 
 L'Amministratore Delegato Carlo Zoccolotti viene intervistato presso l'emittente televisiva RomaUno.
 
-![](fb/2013-03-02_192102847559438_3250926005223020_1.jpg)
+Video YouTube: https://www.youtube.com/watch?v=ffB1qoRaypM (probabile, da verificare)
 
 ### 2013-03-19 — [192102847559438_1130199344241486](https://www.facebook.com/192102847559438/posts/560371680662601/)
 
@@ -408,13 +429,13 @@ La nostra segretaria al lavoro!!!
 
 http://www.youtube.com/watch?v=c2ker3_iI6A
 
-![](fb/2013-04-02_192102847559438_1200025390561733_1.jpg)
+Video YouTube: http://www.youtube.com/watch?v=c2ker3_iI6A (dal testo del post)
 
 ### 2013-04-02 — [192102847559438_1313345822738295](https://www.facebook.com/192102847559438/posts/444290738988706/)
 
 http://www.youtube.com/watch?v=yW_LeEG-j24
 
-![](fb/2013-04-02_192102847559438_1313345822738295_1.jpg)
+Video YouTube: http://www.youtube.com/watch?v=yW_LeEG-j24 (dal testo del post)
 
 ### 2013-04-02 — [192102847559438_395194406072445](https://www.facebook.com/192102847559438/posts/503712189693722/)
 
@@ -429,12 +450,18 @@ http://risinozoccolotti.blogspot.it/2013/04/servizi-di-pulizie-cooprimavera.html
 
 http://www.youtube.com/watch?v=dyuDFl-ICU8
 
-![](fb/2013-04-10_192102847559438_1069282793959608_1.jpg)
+Video YouTube: http://www.youtube.com/watch?v=dyuDFl-ICU8 (dal testo del post)
 
 ### 2013-04-22 — [192102847559438_329413107161744](https://www.facebook.com/1803076791233790/posts/329413107161744)
 
 http://www.craniostenosi-ilcigno.org/ilcigno/
 
+
+### 2013-04-22 — [192102847559438_1168097000407500](https://www.facebook.com/192102847559438/posts/329423753827346/)
+
+http://www.petalidiprimavera.it/
+
+![](fb/2013-04-22_192102847559438_1168097000407500_1.png)
 
 ### 2013-04-25 — [192102847559438_330205970415791](https://www.facebook.com/photo.php?fbid=330205970415791&set=a.614060993468715&type=3)
 
@@ -463,13 +490,13 @@ http://www.progettiamoinsieme.eu
 
 http://www.youtube.com/watch?v=Ms3V-s9odUM
 
-![](fb/2013-05-08_192102847559438_930291814444811_1.jpg)
+Video YouTube: http://www.youtube.com/watch?v=Ms3V-s9odUM (dal testo del post)
 
 ### 2013-05-08 — [192102847559438_469803335015460](https://www.facebook.com/192102847559438/posts/333589256744129/)
 
 http://www.youtube.com/watch?v=ank6dShuInY
 
-![](fb/2013-05-08_192102847559438_469803335015460_1.jpg)
+Video YouTube: http://www.youtube.com/watch?v=ank6dShuInY (dal testo del post)
 
 ### 2013-05-16 — [192102847559438_335386906564364](https://www.facebook.com/photo.php?fbid=335386906564364&set=a.614060993468715&type=3)
 
@@ -606,7 +633,7 @@ Poi lo inserisco anche in hd ;)
 
 Che giornata ragazzi!! Questo che vedete sono 12 ore di lavoro condensate in 2,28 minuti di video, un'esperienza incredibile ma che alla fine ha dato i suoi frutti
 
-![](fb/2013-09-12_192102847559438_507226508070349_1.jpg)
+Video YouTube: https://www.youtube.com/watch?v=PxE0azhHjiQ (probabile, da verificare)
 
 ### 2013-09-12 — [192102847559438_371641376272250](https://www.facebook.com/photo.php?fbid=371641376272250&set=a.614060993468715&type=3)
 
@@ -703,7 +730,7 @@ No limits! :D
 
 _(senza testo)_
 
-![](fb/2013-11-13_192102847559438_625254402442112_1.jpg)
+Video YouTube: https://www.youtube.com/watch?v=nr5hcz5SNr8 (probabile, da verificare)
 
 ### 2013-11-21 — [192102847559438_395025857267135](https://www.facebook.com/photo.php?fbid=395025857267135&set=a.614060993468715&type=3)
 
@@ -894,6 +921,14 @@ Oggi complice la bella giornata abbiamo provato un po' di nuovi macchinari al la
 ![](fb/2014-07-01_192102847559438_468863893216664_3.jpg)
 ![](fb/2014-07-01_192102847559438_468863893216664_4.jpg)
 
+### 2014-07-01 — [192102847559438_468927926543594](https://www.facebook.com/photo.php?fbid=468927926543594&set=a.468927313210322&type=3)
+
+Cooprimavera ha aggiunto 2 nuove foto.
+
+![](fb/2014-07-01_192102847559438_468927926543594_1.jpg)
+![](fb/2014-07-01_192102847559438_468927926543594_2.jpg)
+![](fb/2014-07-01_192102847559438_468927926543594_3.jpg)
+
 ### 2014-07-06 — [192102847559438_1412931805785225](https://www.facebook.com/192102847559438/posts/470388716397515/)
 
 _(senza testo)_
@@ -996,7 +1031,7 @@ http://youtu.be/_XYcBhE3gQw?list=UULApK-IjidkdGK75c3lTe-w
 
 www.cooprimavera.com
 
-![](fb/2014-10-19_192102847559438_6014039661959184_1.jpg)
+Video YouTube: http://youtu.be/_XYcBhE3gQw (dal testo del post)
 
 ### 2014-10-30 — [192102847559438_513443745425345](https://www.facebook.com/1803076791233790/posts/513443745425345)
 
@@ -1069,7 +1104,7 @@ Ecco un video divertente per ricordare la giornata!!!
 
 www.cooprimavera.com
 
-![](fb/2014-12-23_192102847559438_431979362237120_1.jpg)
+Video YouTube: https://www.youtube.com/watch?v=5R1mvyul_tM (probabile, da verificare)
 
 ### 2014-12-31 — [192102847559438_537202803049439](https://www.facebook.com/1803076791233790/posts/537202803049439)
 
@@ -1097,7 +1132,7 @@ Una breve guida sulla pulizia e sul trattamento di una superifice in cotto tosca
 
 http://youtu.be/uwxINp_Ogws
 
-![](fb/2015-01-26_192102847559438_578584217349536_1.jpg)
+Video YouTube: http://youtu.be/uwxINp_Ogws (dal testo del post)
 
 ### 2015-03-08 — [192102847559438_561724930597226](https://www.facebook.com/photo.php?fbid=561724930597226&set=a.614060993468715&type=3)
 
@@ -1155,6 +1190,15 @@ Cooprimavera ha aggiunto 4 nuove foto.
 ![](fb/2015-04-27_192102847559438_579915168778202_3.jpg)
 ![](fb/2015-04-27_192102847559438_579915168778202_4.jpg)
 ![](fb/2015-04-27_192102847559438_579915168778202_5.jpg)
+
+### 2015-04-27 — [192102847559438_579914032111649](https://www.facebook.com/photo.php?fbid=579913965444989&set=a.579914218778297&type=3)
+
+Cooprimavera ha aggiunto 3 nuove foto.
+
+![](fb/2015-04-27_192102847559438_579914032111649_1.jpg)
+![](fb/2015-04-27_192102847559438_579914032111649_2.jpg)
+![](fb/2015-04-27_192102847559438_579914032111649_3.jpg)
+![](fb/2015-04-27_192102847559438_579914032111649_4.jpg)
 
 ### 2015-05-12 — [192102847559438_584600144976371](https://www.facebook.com/photo.php?fbid=584600144976371&set=a.614061000135381&type=3)
 
@@ -1226,6 +1270,24 @@ Cooprimavera ha aggiunto 23 nuove foto — a Lazio.
 ![](fb/2015-11-02_192102847559438_641282029308182_12.jpg)
 ![](fb/2015-11-02_192102847559438_641282029308182_13.jpg)
 
+### 2015-11-02 — [192102847559438_641282302641488](https://www.facebook.com/photo.php?fbid=641282342641484&set=a.641281732641545&type=3)
+
+Cooprimavera ha aggiunto 24 nuove foto — a Lazio.
+
+![](fb/2015-11-02_192102847559438_641282302641488_1.jpg)
+![](fb/2015-11-02_192102847559438_641282302641488_2.jpg)
+![](fb/2015-11-02_192102847559438_641282302641488_3.jpg)
+![](fb/2015-11-02_192102847559438_641282302641488_4.jpg)
+![](fb/2015-11-02_192102847559438_641282302641488_5.jpg)
+![](fb/2015-11-02_192102847559438_641282302641488_6.jpg)
+![](fb/2015-11-02_192102847559438_641282302641488_7.jpg)
+![](fb/2015-11-02_192102847559438_641282302641488_8.jpg)
+![](fb/2015-11-02_192102847559438_641282302641488_9.jpg)
+![](fb/2015-11-02_192102847559438_641282302641488_10.jpg)
+![](fb/2015-11-02_192102847559438_641282302641488_11.jpg)
+![](fb/2015-11-02_192102847559438_641282302641488_12.jpg)
+![](fb/2015-11-02_192102847559438_641282302641488_13.jpg)
+
 ### 2015-12-08 — [192102847559438_652318054871246](https://www.facebook.com/photo.php?fbid=652317764871275&set=a.652317714871280&type=3)
 
 Cooprimavera ha aggiunto 12 nuove foto — con Alessandro Cuollo e altre 4 persone.
@@ -1244,12 +1306,29 @@ Cooprimavera ha aggiunto 12 nuove foto — con Alessandro Cuollo e altre 4 perso
 ![](fb/2015-12-08_192102847559438_652318054871246_12.jpg)
 ![](fb/2015-12-08_192102847559438_652318054871246_13.jpg)
 
+### 2015-12-08 — [192102847559438_652318024871249](https://www.facebook.com/photo.php?fbid=652317764871275&set=a.652317714871280&type=3)
+
+Cooprimavera ha aggiunto 11 nuove foto — con Alessandro Cuollo e altre 4 persone.
+
+![](fb/2015-12-08_192102847559438_652318024871249_1.jpg)
+![](fb/2015-12-08_192102847559438_652318024871249_2.jpg)
+![](fb/2015-12-08_192102847559438_652318024871249_3.jpg)
+![](fb/2015-12-08_192102847559438_652318024871249_4.jpg)
+![](fb/2015-12-08_192102847559438_652318024871249_5.jpg)
+![](fb/2015-12-08_192102847559438_652318024871249_6.jpg)
+![](fb/2015-12-08_192102847559438_652318024871249_7.jpg)
+![](fb/2015-12-08_192102847559438_652318024871249_8.jpg)
+![](fb/2015-12-08_192102847559438_652318024871249_9.jpg)
+![](fb/2015-12-08_192102847559438_652318024871249_10.jpg)
+![](fb/2015-12-08_192102847559438_652318024871249_11.jpg)
+![](fb/2015-12-08_192102847559438_652318024871249_12.jpg)
+
 ### 2015-12-23 — [192102847559438_1167407817149738](https://www.facebook.com/192102847559438/posts/657827934320258/)
 
 Un grande augurio di buon natale e buone feste a tutti i soci, i clienti, i fornitori, e i volontari che partecipano e rendono possibile questa piccola grande realtà che è la Cooprimavera!!!
 https://youtu.be/-PPTg98N_eA
 
-![](fb/2015-12-23_192102847559438_1167407817149738_1.jpg)
+Video YouTube: https://youtu.be/-PPTg98N_eA (dal testo del post)
 
 ### 2015-12-27 — [192102847559438_659621670807551](https://www.facebook.com/photo.php?fbid=659616970808021&set=a.659616914141360&type=3)
 
@@ -1269,6 +1348,24 @@ Ancora auguri di buone feste a tutti i soci e lavoratori della cooprimavera!!!
 ![](fb/2015-12-27_192102847559438_659621670807551_12.jpg)
 ![](fb/2015-12-27_192102847559438_659621670807551_13.jpg)
 
+### 2015-12-27 — [192102847559438_659621700807548](https://www.facebook.com/photo.php?fbid=659616970808021&set=a.659616914141360&type=3)
+
+Ancora auguri di buone feste a tutti i soci e lavoratori della cooprimavera!!!
+
+![](fb/2015-12-27_192102847559438_659621700807548_1.jpg)
+![](fb/2015-12-27_192102847559438_659621700807548_2.jpg)
+![](fb/2015-12-27_192102847559438_659621700807548_3.jpg)
+![](fb/2015-12-27_192102847559438_659621700807548_4.jpg)
+![](fb/2015-12-27_192102847559438_659621700807548_5.jpg)
+![](fb/2015-12-27_192102847559438_659621700807548_6.jpg)
+![](fb/2015-12-27_192102847559438_659621700807548_7.jpg)
+![](fb/2015-12-27_192102847559438_659621700807548_8.jpg)
+![](fb/2015-12-27_192102847559438_659621700807548_9.jpg)
+![](fb/2015-12-27_192102847559438_659621700807548_10.jpg)
+![](fb/2015-12-27_192102847559438_659621700807548_11.jpg)
+![](fb/2015-12-27_192102847559438_659621700807548_12.jpg)
+![](fb/2015-12-27_192102847559438_659621700807548_13.jpg)
+
 ### 2016-02-01 — [192102847559438_1071114280198465](https://www.facebook.com/192102847559438/posts/671631452939906/)
 
 SERVICE EVENTI COOPRIMAVERA
@@ -1276,7 +1373,7 @@ Affitto e montaggio di un palco modulare in piazza Tommaso Frasconi in occasione
 
 www.cooprimavera.com
 
-![](fb/2016-02-01_192102847559438_1071114280198465_1.jpg)
+Video YouTube: https://www.youtube.com/watch?v=LR8-rbMuAXU (probabile, da verificare)
 
 ### 2016-03-05 — [192102847559438_683819758387742](https://www.facebook.com/photo.php?fbid=683819758387742&set=a.614060993468715&type=3)
 
@@ -1351,6 +1448,24 @@ Il presidente della regione Lazio Zingaretti in visita a Genzano per supportare 
 ![](fb/2016-05-19_192102847559438_716784488424602_11.jpg)
 ![](fb/2016-05-19_192102847559438_716784488424602_12.jpg)
 ![](fb/2016-05-19_192102847559438_716784488424602_13.jpg)
+
+### 2016-05-19 — [192102847559438_716784578424593](https://www.facebook.com/photo.php?fbid=716784025091315&set=a.716783985091319&type=3)
+
+Il presidente della regione Lazio Zingaretti in visita a Genzano per supportare il sindaco Flavio Gabbarini
+
+![](fb/2016-05-19_192102847559438_716784578424593_1.jpg)
+![](fb/2016-05-19_192102847559438_716784578424593_2.jpg)
+![](fb/2016-05-19_192102847559438_716784578424593_3.jpg)
+![](fb/2016-05-19_192102847559438_716784578424593_4.jpg)
+![](fb/2016-05-19_192102847559438_716784578424593_5.jpg)
+![](fb/2016-05-19_192102847559438_716784578424593_6.jpg)
+![](fb/2016-05-19_192102847559438_716784578424593_7.jpg)
+![](fb/2016-05-19_192102847559438_716784578424593_8.jpg)
+![](fb/2016-05-19_192102847559438_716784578424593_9.jpg)
+![](fb/2016-05-19_192102847559438_716784578424593_10.jpg)
+![](fb/2016-05-19_192102847559438_716784578424593_11.jpg)
+![](fb/2016-05-19_192102847559438_716784578424593_12.jpg)
+![](fb/2016-05-19_192102847559438_716784578424593_13.jpg)
 
 ### 2016-06-01 — [192102847559438_722083981227986](https://www.facebook.com/1803076791233790/videos/722083981227986)
 
@@ -1457,7 +1572,7 @@ www.cooprimavera.com
 
 #Music #DanieleGroff #livemusic #eventi
 
-![](fb/2016-12-20_192102847559438_662460661408337_1.jpg)
+Video YouTube: https://youtu.be/D8CC23nw-cc (dal testo del post)
 
 ### 2017-02-17 — [192102847559438_468110258545437](https://www.facebook.com/192102847559438/posts/893894280713621/)
 
