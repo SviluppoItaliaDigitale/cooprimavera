@@ -2,7 +2,10 @@
 title: "Piccole manutenzioni"
 titolo_seo: "Piccole manutenzioni a Roma e Castelli Romani | Cooprimavera"
 description: "Piccoli lavori di manutenzione a Roma e Castelli Romani: ripristino di intonaci, tinteggiature, piastrelle, recinzioni e vialetti. Per condomini, uffici, case in vendita e privati."
-weight: 69
+weight: 35
+immagine: "img/piccole-manutenzioni.jpg"
+alt_immagine: "Operaio con casco e mascherina rasa una parete con la spatola"
+ritaglio_ancora: "Top"
 tipo_servizio: "Piccole manutenzioni"
 offerte: ["Piccole riparazioni murarie e ripristino di intonaci", "Tinteggiature di pareti, scale e ringhiere", "Sostituzione di piastrelle, stuccature e sigillature", "Manutenzione di recinzioni, cancelli, vialetti, pozzetti e grondaie"]
 faq:
