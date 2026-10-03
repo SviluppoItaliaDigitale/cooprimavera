@@ -110,13 +110,42 @@ perché Instagram vuole un indirizzo pubblico.
 Un post del calendario con il campo `video` (indirizzo di un `.mp4` in
 `static/social/video/`) esce come **Reel su Instagram** e, se su Facebook non
 era già programmato un post con la foto, come **video su Facebook**; sul sito la
-notizia mostra il video. I video (1080×1920, 20-25 secondi, senza musica) si
-generano con `node social/video/genera.js [nome]` da `social/video/<nome>.json`:
-scene con le foto vere del registro lavori (`foto`) o con i disegni al tratto di
-`social/disegni/` (`disegno`, si tracciano da soli), più apertura e chiusura.
-Il logo sta sulla fascia chiara in basso, sopra l'area coperta dai pulsanti dei
-Reel. Facebook non programma i video dalle API: li pubblica `pubblica-oggi` il
-giorno stesso.
+notizia mostra il video. Facebook non programma i video dalle API: li pubblica
+`pubblica-oggi` il giorno stesso.
+
+I video (1080×1920, 25-40 secondi) si generano con
+`node social/video/genera.js [nome]` da `social/video/<nome>.json`. Scene:
+`parole` (apertura), `foto` (foto vere del registro lavori, ingrandite e rese più
+nitide), `disegno` (disegni al tratto di `social/disegni/` che si tracciano da
+soli), `clip` (video gratuiti Pexels in `social/video/clip/`), `fine`. Ogni scena
+o didascalia può avere una `voce`: la scena si allunga quanto serve. La musica
+(`musica`) si abbassa da sola quando parla la voce; volume finale -14 LUFS, come
+chiedono i social. Il logo sta sulla fascia chiara in basso, sopra l'area
+coperta dai pulsanti dei Reel.
+
+**Voce sintetica** (scelta di Alessandro il 3/10/2026): `social/video/voce.py`
+con Kokoro. Per rigenerare i video serve, una volta sola, fuori dal repository:
+
+```sh
+python3 -m venv ~/kokoro-venv && ~/kokoro-venv/bin/pip install kokoro-onnx==0.6.1 soundfile
+mkdir -p ~/kokoro && cd ~/kokoro && for f in kokoro-v1.0.onnx voices-v1.0.bin; do
+  curl -LO https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/$f; done
+VOCE_PY=~/kokoro-venv/bin/python VOCE_MODELLI=~/kokoro node social/video/genera.js
+```
+
+Voce `im_nicola` (maschile); l'alternativa è `if_sara` (campo `voce` del json).
+Numeri di telefono e anni nella voce vanno scritti in lettere.
+
+**Fonti e licenze**
+- Musica: Kevin MacLeod (incompetech.com), licenza CC BY 4.0: «Sneaky Snitch»
+  (topi), «Life of Riley» (allestimenti), «Carefree» (fotovoltaico). La licenza
+  chiede la citazione: è nel cartello finale del video e in fondo al testo del
+  post («Musica del video: …»).
+- Clip: Pexels (licenza Pexels, uso libero): 12281161 (topo), 9788591 (pannello
+  da vicino), 12646455 (lavaggio pannelli con spazzola).
+- Voce: Kokoro-82M (Apache 2.0) con kokoro-onnx 0.6.1 (MIT); la pronuncia passa
+  da espeak-ng (GPL-3.0, tramite espeakng-loader), usato solo come strumento e
+  non incluso nel repository.
 
 ## Pubblicazione automatica (attivata il 3/10/2026 su richiesta di Alessandro)
 

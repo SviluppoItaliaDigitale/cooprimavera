@@ -1,4 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 952 792" font-family="Barlow Condensed" font-weight="800" stroke-linecap="round" stroke-linejoin="round">
+<g class="f" data-t="0.9" ><rect x="70" y="150" width="180" height="250" fill="#fff"/><path d="M380 230 Q 495 170 610 230 Z" fill="#9fc63d" opacity=".55"/><rect x="390" y="230" width="210" height="160" fill="#dfe8c4"/></g>
+<g class="f" data-t="4.0" ><rect x="735" y="170" width="160" height="220" fill="#fff"/><rect x="735" y="170" width="160" height="50" fill="#9fc63d"/></g>
 <path class="d" data-t="0.1" data-v="0.7" d="M70 150 H250 V400 H70 Z" fill="none" stroke="#232a1c" stroke-width="6" />
 <path class="d" data-t="0.3" data-v="0.7" d="M125 140 H195 V170 H125 Z" fill="none" stroke="#232a1c" stroke-width="5" />
 <g class="f" data-t="0.6" ><path d="M95 215 l10 10 l18 -20" stroke="#9fc63d" stroke-width="6" fill="none"/><line x1="135" y1="217" x2="225" y2="217" stroke="#232a1c" stroke-width="5"/><path d="M95 270 l10 10 l18 -20" stroke="#9fc63d" stroke-width="6" fill="none"/><line x1="135" y1="272" x2="225" y2="272" stroke="#232a1c" stroke-width="5"/><path d="M95 325 l10 10 l18 -20" stroke="#9fc63d" stroke-width="6" fill="none"/><line x1="135" y1="327" x2="225" y2="327" stroke="#232a1c" stroke-width="5"/></g>
