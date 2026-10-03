@@ -15,7 +15,7 @@ on:
         description: "Cosa fare"
         required: true
         type: choice
-        options: [elenco, statistiche, commenti, messaggi, pubblica, modifica, elimina, rispondi-commento, nascondi-commento, elimina-commento, rispondi-messaggio, prova]
+        options: [elenco, statistiche, esporta, elimina-tutti, commenti, messaggi, pubblica, modifica, elimina, rispondi-commento, nascondi-commento, elimina-commento, rispondi-messaggio, prova]
       rete:
         description: "Facebook o Instagram"
         required: true
@@ -51,7 +51,7 @@ concurrency:
 jobs:
   esegui:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
@@ -71,6 +71,15 @@ jobs:
           ESITO_FILE: ${{ github.event_name == 'push' && '.github/social/esito.md' || '' }}
         run: python3 scripts/gestione_social.py
 
+      - name: Archivio come artifact (anche da avvio manuale)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: archivio-social
+          path: archivio-social
+          if-no-files-found: ignore
+          retention-days: 90
+
       - name: Salva l'esito sul ramo
         if: always() && github.event_name == 'push'
         run: |
@@ -78,5 +87,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
           git add .github/social/esito.md
+          [ -d archivio-social ] && git add archivio-social
           git commit -m "Gestione social: esito" || exit 0
           git push origin "HEAD:${GITHUB_REF_NAME}"
