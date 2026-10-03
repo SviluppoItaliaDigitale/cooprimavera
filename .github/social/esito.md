@@ -1,5 +1,3 @@
-## Gestione social — esporta (2026-10-03 16:58 UTC)
-- esportati ora: 7 post Facebook, 2 Instagram
-- Facebook: 320 post, 588 file salvati, 67 post senza immagini
-- Instagram: 18 post, 28 file salvati, 0 post senza immagini
-Archivio in `archivio-social/` (README.md con l'elenco, dati.json con i dati).
+## Gestione social — elimina-tutti (2026-10-03 16:59 UTC)
+Post presenti su fb: 7
+Eliminati 7 post (fb).
