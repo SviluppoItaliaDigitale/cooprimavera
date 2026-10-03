@@ -1,0 +1,28 @@
+{{- /* Registro lavori: righe con data, foto, titolo, luogo e servizi.
+     Contesto: dict "pagine" (lavori già ordinati) "anni" true per raggrupparli per anno. */ -}}
+{{- $righe := .pagine -}}
+{{- $gruppi := slice (dict "Key" "" "Pages" $righe) -}}
+{{- if .anni }}{{ $gruppi = $righe.GroupByDate "2006" }}{{ end -}}
+<div class="registro">
+  {{- range $gruppi }}
+  {{- with .Key }}<h2 class="registro-anno" id="anno-{{ . }}">{{ . }}</h2>{{ end }}
+  <ol class="registro-righe">
+    {{- range .Pages }}
+    {{- $p := . }}
+    <li class="registro-riga">
+      <a href="{{ .RelPermalink }}">
+        <time class="registro-data" datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "data-it.html" (dict "data" .Date) }}</time>
+        {{ with .Params.immagine }}<span class="registro-foto">{{ partial "immagine.html" (dict "percorso" . "alt" "" "ritaglio" "240x180") }}</span>{{ end }}
+        <span class="registro-testo">
+          <span class="registro-titolo">{{ .Title }}</span>
+          <span class="registro-luogo">{{ with .Params.luogo }}{{ . }}{{ end }}{{ if and .Params.luogo .Params.comune }} · {{ end }}{{ with .Params.comune }}{{ . }}{{ end }}</span>
+        </span>
+        <span class="registro-servizi">
+          {{- range .Params.servizi }}{{ with site.GetPage (printf "/servizi/%s" .) }}<span>{{ .Title }}</span>{{ end }}{{ end -}}
+        </span>
+      </a>
+    </li>
+    {{- end }}
+  </ol>
+  {{- end }}
+</div>

@@ -143,6 +143,18 @@
   </div>
 </section>
 
+{{- /* Ultimi lavori: compare solo se nel registro c'è qualcosa degli ultimi 18 mesi */ -}}
+{{- $recenti := where (where site.RegularPages "Section" "lavori") "Date" "ge" (now.AddDate 0 -18 0) }}
+{{- with $recenti }}
+<section class="sezione">
+  <div class="contenitore">
+    <h2 data-split="words">Ultimi lavori</h2>
+    {{ partial "registro-lavori.html" (dict "pagine" (first 3 .ByDate.Reverse)) }}
+    <p class="rimando" data-anim="fade-up"><a class="bottone" href="{{ "lavori/" | relURL }}">Il registro dei lavori</a></p>
+  </div>
+</section>
+{{- end }}
+
 <section class="sezione sezione-alterna">
   <div class="contenitore banda">
     <div data-anim="fade-right">

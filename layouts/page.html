@@ -13,6 +13,15 @@
   {{ end }}
   <div class="prosa entra entra-su entra-r2">{{ .Content }}</div>
   {{ if $servizio }}
+  {{- /* Lavori fatti per questo servizio, dal registro lavori */ -}}
+  {{- $lavori := where (where site.RegularPages "Section" "lavori") "Params.servizi" "intersect" (slice .File.ContentBaseName) }}
+  {{- with $lavori }}
+  <section class="lavori-servizio" data-anim="fade-up">
+    <h2>Alcuni lavori fatti</h2>
+    {{ partial "registro-lavori.html" (dict "pagine" (first 6 .ByDate.Reverse)) }}
+    <p class="rimando"><a href="{{ "lavori/" | relURL }}">Tutto il registro dei lavori</a></p>
+  </section>
+  {{- end }}
   {{- /* Approfondimenti: pagine secondarie collegate (es. pulizie uffici, condomini) */ -}}
   {{- $figlie := where .CurrentSection.Pages "Params.genitore" .File.ContentBaseName }}
   {{- with $figlie }}

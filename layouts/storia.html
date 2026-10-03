@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{- /* Linea del tempo: tappe dal front matter (anno, titolo, testo, foto, lavori) */ -}}
+<div class="contenitore pagina storia">
+  {{ partial "briciole.html" . }}
+  <h1 class="entra entra-su">{{ .Title }}</h1>
+  <div class="prosa intro entra entra-su entra-r1">{{ .Content }}</div>
+  {{- with .Params.immagine }}
+  <figure class="storia-apertura foto-zoom entra entra-zoom entra-r2">{{ partial "immagine.html" (dict "percorso" . "alt" $.Params.alt_immagine "larghezza" 1100 "sizes" "(min-width: 1140px) 1060px, 92vw" "prioritaria" true) }}<figcaption>{{ $.Params.alt_immagine }}</figcaption></figure>
+  {{- end }}
+  <nav class="storia-indice" aria-label="Anni">{{ range .Params.tappe }}<a href="#anno-{{ .anno }}">{{ .anno }}</a>{{ end }}</nav>
+  <ol class="storia-tappe">
+    {{- range $i, $t := .Params.tappe }}
+    <li class="storia-tappa{{ if $t.foto }} con-foto{{ end }}" id="anno-{{ $t.anno }}" data-anim="fade-up">
+      <p class="storia-anno" aria-hidden="true">{{ $t.anno }}</p>
+      <div class="storia-corpo">
+        <h2><span class="visivamente-nascosto">{{ $t.anno }}: </span>{{ $t.titolo }}</h2>
+        <p>{{ $t.testo | markdownify }}</p>
+        {{- with $t.lavori }}
+        <ul class="storia-lavori">
+          {{- range . }}{{ with site.GetPage . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}{{ end }}
+        </ul>
+        {{- end }}
+      </div>
+      {{- with $t.foto }}
+      <figure class="storia-foto">{{ partial "immagine.html" (dict "percorso" .file "alt" .alt "larghezza" 640 "sizes" "(min-width: 900px) 380px, 88vw" "skeleton" true) }}<figcaption>{{ $t.anno }}</figcaption></figure>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ol>
+  <div class="cta-finale" data-anim="fade-up">
+    <h2>I prossimi vent'anni li costruiamo con voi</h2>
+    <p>Pulizie, sanificazioni, verde ed eventi a Roma e nei Castelli Romani: sopralluogo e preventivo gratuiti.</p>
+    <p class="eroe-azioni"><a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo</a> <a class="bottone bottone-chiaro" href="{{ "lavori/" | relURL }}">Il registro dei lavori</a></p>
+  </div>
+</div>
+{{ end }}

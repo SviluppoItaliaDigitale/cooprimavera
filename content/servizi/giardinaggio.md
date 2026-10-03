@@ -26,6 +26,8 @@ Il tuo partner per un giardino da sogno: progettazione, realizzazione e manutenz
 
 **Per i servizi di giardinaggio il sopralluogo è obbligatorio:** il preventivo definitivo viene formulato solo dopo aver visto le aree verdi, così è preciso e senza sorprese.
 
+Dal 2022 Cooprimavera ha l'**idoneità per la manutenzione del verde pubblico e privato** prevista dalla legge 154/2016: possiamo lavorare per privati, condomini e aziende, ma anche per comuni ed enti pubblici.
+
 ![Piantumazione in un'aiuola fiorita](img/progettazione-giardini.jpg)
 
 ## Progettazione e realizzazione giardini
@@ -41,6 +43,14 @@ Per mantenere il giardino sempre in perfetta forma offriamo servizi di manutenzi
 Interveniamo per esigenze specifiche e stagionali: potature di alberi ad alto fusto in sicurezza, trattamenti fitosanitari mirati, scarificatura del prato, concimazione professionale con prodotti specifici per ogni tipo di pianta, preparazione del giardino per la stagione invernale o estiva.
 
 ![Motosega professionale per le potature](img/potatura-alberi.jpg)
+
+## Terreni incolti e bonifiche
+
+Rovi, sterpaglie e terreni abbandonati: con trinciatrice e decespugliatori li rendiamo di nuovo praticabili e sicuri, anche su terrazzamenti e pendii. È il lavoro con cui, nel 2014, abbiamo recuperato il terreno della nostra [fattoria sociale sul lago di Nemi](/lavori/2014-bonifica-terreno-lago-di-nemi/).
+
+## Smaltimento del verde
+
+Dal taglio allo smaltimento: sfalci, potature e materiale di risulta li portiamo via noi, come produttori iscritti all'Albo nazionale Gestori Ambientali, e li conferiamo negli impianti autorizzati. Il cliente non deve organizzare nient'altro.
 
 ## Cura e potatura di alberi
 
