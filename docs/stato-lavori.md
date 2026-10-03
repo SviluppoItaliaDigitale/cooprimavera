@@ -23,9 +23,9 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
   in Meta Business Suite (ID 1803148191226650), con la grafica precedente
   (logo più piccolo).
 - **Facebook, 8–29 ottobre**: i 7 post del calendario programmati con
-  `programma-calendario` (3/10). Dal 2 novembre vanno programmati più avanti
-  (limite di circa 30 giorni per i post con foto): rilanciare
-  `programma-calendario` verso il 25 ottobre e il 20 novembre.
+  `programma-calendario` (3/10). Gli altri, fino al 31 dicembre compreso, li
+  pubblica la pubblicazione automatica il giorno stesso: non serve rilanciare
+  `programma-calendario`.
 - **Dal 5/10/2026, Instagram, Facebook e sito**: pubblicazione automatica il
   lunedì e il giovedì alle 9 (workflow su `main`).
 
