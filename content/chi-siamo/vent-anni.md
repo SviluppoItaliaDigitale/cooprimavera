@@ -55,12 +55,12 @@ tappe:
     titolo: "Il giardino di chi vende casa"
     testo: "Cominciamo a preparare i giardini di chi mette in vendita casa: è l'idea da cui nasce il servizio di valorizzazione degli immobili. Ad agosto otteniamo l'idoneità per la manutenzione del verde pubblico e privato prevista dalla legge 154/2016. I furgoni intanto girano per sagre e feste di paese."
   - anno: "2023"
-    titolo: "La sede di Ariccia"
-    testo: "A dicembre apriamo ufficio e magazzino in via Giuseppe Lugli, ad Ariccia: da lì partono ogni mattina le squadre."
+    titolo: "Un nuovo presidente e la sede di Ariccia"
+    testo: "Ad agosto Alessandro Cuollo diventa presidente della cooperativa, dove lavora dai primi anni; a giugno 2026 il consiglio lo riconferma. A dicembre apriamo ufficio e magazzino in via Giuseppe Lugli, ad Ariccia: da lì partono ogni mattina le squadre."
     foto: { file: "img/lavori/2022-furgoni.jpg", alt: "Furgone Cooprimavera in un parcheggio all'alba prima di un allestimento" }
   - anno: "2026"
     titolo: "Vent'anni"
     testo: "Il 5 ottobre 2026 compiamo vent'anni. Siamo una cooperativa di produzione e lavoro, con sede legale a Genzano, ufficio e magazzino ad Ariccia e squadre ogni giorno a Roma e nei Castelli Romani. Rifacciamo il sito e ripartiamo da zero sui social: da qui in avanti i lavori li trovate nel [registro](/lavori/)."
 ---
 
-Il 5 ottobre 2006 nasceva a Lanuvio la cooperativa che oggi si chiama Cooprimavera. Questa è la sua storia, anno per anno, con le foto e le parole dei nostri post dal 2012 in poi. Non c'è tutto: ci sono i lavori di cui siamo andati fieri abbastanza da fotografarli.
+Il 5 ottobre 2006 nasceva a Lanuvio la cooperativa che oggi si chiama Cooprimavera. Questa è la sua storia, anno per anno, con le foto e le parole dei nostri post dal 2012 in poi. Mancano molti lavori, e negli anni senza una tappa non siamo stati fermi: semplicemente nessuno aveva tempo di fare foto. Le pulizie di ogni giorno, che sono la maggior parte del nostro lavoro, in foto non ci finiscono quasi mai.

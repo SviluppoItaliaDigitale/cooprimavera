@@ -11,7 +11,7 @@ layout: "page"
 
 Cooprimavera nasce il **5 ottobre 2006 a Lanuvio** come «Primavera Onlus», una cooperativa sociale con uno scopo preciso: dare lavoro a persone disabili, svantaggiate o emarginate, dentro un'impresa vera. Nel 2011 comincia l'attività con le pulizie; nel 2012 l'assemblea dei soci cambia nome e statuto e la cooperativa diventa Cooprimavera. Nel gennaio 2013 facciamo i primi colloqui al Centro per l'impiego di Frascati per le squadre delle pulizie.
 
-Negli anni il lavoro si allarga: dal 2014 le [sanificazioni e disinfestazioni](/servizi/sanificazioni/), la bonifica di un terreno sul lago di Nemi da cui nasce la nostra fattoria sociale, i primi grandi eventi con sedie, moquette e palchi, dal PalaTiziano al Foro Italico. Nel 2022 otteniamo l'idoneità per la manutenzione del verde pubblico e privato, nel 2023 apriamo ufficio e magazzino ad Ariccia.
+Negli anni il lavoro si allarga: dal 2014 le [sanificazioni e disinfestazioni](/servizi/sanificazioni/), la bonifica di un terreno sul lago di Nemi da cui nasce la nostra fattoria sociale, i primi grandi eventi con sedie, moquette e palchi, dal PalaTiziano al Foro Italico. Nel 2022 otteniamo l'idoneità per la manutenzione del verde pubblico e privato. Nel 2023 Alessandro Cuollo, nella cooperativa dai primi anni, ne diventa presidente, e apriamo ufficio e magazzino ad Ariccia.
 
 **[Vent'anni di Cooprimavera, anno per anno →](/chi-siamo/vent-anni/)**
 
@@ -21,7 +21,9 @@ Negli anni il lavoro si allarga: dal 2014 le [sanificazioni e disinfestazioni](/
 
 Siamo una cooperativa di produzione e lavoro: la cooperativa è dei soci lavoratori, e le squadre restano le stesse sullo stesso appalto, così conoscono la sede e le abitudini del cliente. Il cliente ha un solo referente per pulizie, verde, sanificazioni ed eventi, e prima di ogni preventivo facciamo il sopralluogo.
 
-Il modo migliore per capire come lavoriamo è guardare i lavori fatti: li trovi nel **[registro dei lavori](/lavori/)**, con le foto scattate dalle squadre.
+Oggi facciamo [pulizie professionali](/servizi/pulizie-professionali/), anche straordinarie e su pavimenti delicati; [sanificazioni](/servizi/sanificazioni/) e [disinfestazioni](/servizi/disinfestazioni/); [giardinaggio](/servizi/giardinaggio/), con l'idoneità per il verde pubblico e lo smaltimento degli sfalci; [portierato](/servizi/portierato/); [allestimenti per eventi](/servizi/allestimenti-eventi/), con service audio, luci e video e accoglienza in sala.
+
+Alcuni lavori li trovi nel **[registro dei lavori](/lavori/)**, con le foto scattate dalle squadre. Molti altri non li ha fotografati nessuno: le pulizie di ogni giorno raramente finiscono in una foto.
 
 ![Prendersi cura dell'ambiente e delle persone](img/impegno-ambiente.jpg)
 
