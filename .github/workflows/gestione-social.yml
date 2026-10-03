@@ -55,7 +55,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Un push che cancella comando.json (pulizia del ramo) non è un comando: niente da fare.
       - name: Esegui
+        if: github.event_name != 'push' || hashFiles('.github/social/comando.json') != ''
         env:
           PAGE_ID: ${{ secrets.META_PAGE_ID }}
           PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
