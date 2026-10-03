@@ -23,6 +23,8 @@ Azioni (variabile AZIONE, o campo "azione" del file comando):
                       archivio-social/ (README.md + dati.json)
   elimina-tutti       elimina i post di RETE già presenti in archivio-social/dati.json; salta
                       foto profilo/copertina e post non archiviati — CONFERMA=ELIMINA
+  svuota-album        scarica e poi elimina le foto degli album FB (non profilo/copertina),
+                      quando i post degli album ricompaiono — CONFERMA=ELIMINA
 
 Limiti della piattaforma, non dello strumento: su Instagram la didascalia di un
 post pubblicato non si modifica (si elimina e si ripubblica); su Facebook si
@@ -448,8 +450,51 @@ def a_elimina_tutti(rete, conf, **_):
         sys.exit(1)
 
 
+def a_svuota_album(conf, **_):
+    """Scarica nell'archivio e poi elimina le foto degli album della pagina (non profilo/copertina).
+    Una foto si elimina solo se è stata scaricata davvero. Serve quando i post degli album
+    continuano a ricomparire dopo elimina-tutti."""
+    conferma(conf)
+    f = ARCHIVIO / "dati.json"
+    dati = json.loads(f.read_text(encoding="utf-8")) if f.exists() else {"fb": [], "ig": []}
+    salvate = dati.setdefault("fb_album", [])
+    gia = {x["id"] for x in salvate}
+    fatti, saltate, errori = 0, 0, []
+    for alb in tutte(f"{PAGE_ID}/albums", fields="id,name,type,count"):
+        if alb.get("type") in ("profile", "cover"):
+            scrivi(f"- album «{alb.get('name', '')}» ({alb.get('type')}): lasciato com'è")
+            continue
+        foto = tutte(f"{alb['id']}/photos", fields="id,created_time,name,images")
+        scrivi(f"- album «{alb.get('name', '')}»: {len(foto)} foto")
+        for x in foto:
+            data = x.get("created_time", "")[:10]
+            immagini = sorted(x.get("images") or [], key=lambda i: -i.get("width", 0))
+            file = None
+            if x["id"] in gia:
+                file = next((y["file"] for y in salvate if y["id"] == x["id"]), None)
+            elif immagini:
+                file = scarica(immagini[0]["source"], f"fb-album/{data}_{x['id']}")
+                if file:
+                    salvate.append({"id": x["id"], "data": data, "album": alb.get("name", ""),
+                                    "testo": x.get("name") or "", "file": file})
+                    gia.add(x["id"])
+            if not file:
+                saltate += 1
+                continue
+            r = chiama("DELETE", x["id"])
+            if r.get("success") is True:
+                fatti += 1
+            else:
+                errori.append(f"`{x['id']}`: {r.get('errore', r)}")
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text(json.dumps(dati, ensure_ascii=False, indent=1), encoding="utf-8")
+    scrivi(f"Foto degli album eliminate: {fatti} (archiviate prima in `{ARCHIVIO}/fb-album/`); non scaricate e quindi lasciate: {saltate}.")
+    for e in errori:
+        scrivi(f"- ❌ {e}")
+
+
 AZIONI = {
-    "esporta": a_esporta, "elimina-tutti": a_elimina_tutti,
+    "esporta": a_esporta, "elimina-tutti": a_elimina_tutti, "svuota-album": a_svuota_album,
     "prova": a_prova, "elenco": a_elenco, "statistiche": a_statistiche,
     "pubblica": a_pubblica, "modifica": a_modifica, "elimina": a_elimina,
     "commenti": a_commenti, "rispondi-commento": a_rispondi_commento,
