@@ -45,7 +45,7 @@ Gestione del centralino telefonico, smistamento delle chiamate, presa dei messag
 
 ## Piccole manutenzioni e segnalazioni
 
-Su incarico, il nostro personale effettua piccole operazioni di manutenzione ordinaria — sostituzione di lampadine, verifiche di base degli impianti, gestione dei rifiuti — e segnala guasti o necessità di intervento tecnico, mantenendo efficienza e decoro della struttura.
+Su incarico, il nostro personale effettua piccole operazioni di manutenzione ordinaria — sostituzione di lampadine, verifiche di base degli impianti, gestione dei rifiuti — e segnala guasti o necessità di intervento tecnico, mantenendo efficienza e decoro della struttura. Per i lavori un po' più grandi, come tinteggiature o ripristini di intonaco, c'è il servizio di [piccole manutenzioni](/servizi/piccole-manutenzioni/).
 
 ## Gestione chiavi e badge
 
