@@ -1,2 +1,25 @@
-## Gestione social — elimina (2026-10-03 17:56 UTC)
-Eliminato `1803148191226650` (fb)
+## Gestione social — programma-calendario (2026-10-03 17:56 UTC)
+- 2026-10-05 «Vent'anni oggi»: programmato
+- 2026-10-08 «Da Primavera a Cooprimavera»: già programmato
+- 2026-10-12 «Col freddo i topi cercano casa»: già programmato
+- 2026-10-15 «La fattoria sociale sul lago di Nemi»: già programmato
+- 2026-10-19 «Il giardino si prepara adesso»: già programmato
+- 2026-10-22 «Cerchiamo persone»: già programmato
+- 2026-10-26 «I lavori piccoli che non aspettano»: già programmato
+- 2026-10-29 «Ring, sedie e moquette»: già programmato
+- 2026-11-02 «Per chi amministra un condominio»: oltre 28 giorni, si programma più avanti
+- 2026-11-05 «In tournée con il teatro»: oltre 28 giorni, si programma più avanti
+- 2026-11-09 «Pannelli sporchi, meno energia»: oltre 28 giorni, si programma più avanti
+- 2026-11-12 «Foglie, piazze, marciapiedi»: oltre 28 giorni, si programma più avanti
+- 2026-11-16 «Dove passano tante persone»: oltre 28 giorni, si programma più avanti
+- 2026-11-19 «Sanificare, poi ripartire»: oltre 28 giorni, si programma più avanti
+- 2026-11-23 «Prima e dopo»: oltre 28 giorni, si programma più avanti
+- 2026-11-26 «Natale si prenota adesso»: oltre 28 giorni, si programma più avanti
+- 2026-11-30 «Se nevica»: oltre 28 giorni, si programma più avanti
+- 2026-12-03 «Genzano, Ariccia, e da qui in avanti»: oltre 28 giorni, si programma più avanti
+- 2026-12-07 «Quello che fa funzionare una struttura»: oltre 28 giorni, si programma più avanti
+- 2026-12-10 «Lavora con noi nel 2027»: oltre 28 giorni, si programma più avanti
+- 2026-12-14 «L'ufficio pulito per gennaio»: oltre 28 giorni, si programma più avanti
+- 2026-12-17 «Sedie per la cena di Natale»: oltre 28 giorni, si programma più avanti
+- 2026-12-24 «Buon Natale»: oltre 28 giorni, si programma più avanti
+- 2026-12-31 «Grazie per l'anno dei vent'anni»: oltre 28 giorni, si programma più avanti
