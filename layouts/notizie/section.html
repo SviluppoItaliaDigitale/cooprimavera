@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="contenitore pagina">
+  {{ partial "briciole.html" . }}
+  <h1 class="entra entra-su">{{ .Title }}</h1>
+  <div class="prosa intro entra entra-su entra-r1">{{ .Content }}</div>
+  {{ with .Pages.ByDate.Reverse }}
+  <ol class="notizie">
+    {{ range . }}
+    <li class="notizia-riga">
+      <a href="{{ .RelPermalink }}">
+        <img src="{{ .Params.grafica | relURL }}" alt="" width="216" height="270" loading="lazy" decoding="async">
+        <span class="registro-testo">
+          <time class="registro-data" datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "data-it.html" (dict "data" .Date "giorno" true) }}</time>
+          <span class="registro-titolo">{{ .Title }}</span>
+          <span class="registro-luogo">{{ .Params.tema }}</span>
+        </span>
+      </a>
+    </li>
+    {{ end }}
+  </ol>
+  {{ else }}
+  <p>Le prime notizie arrivano lunedì 5 ottobre 2026, per i vent'anni della cooperativa.</p>
+  {{ end }}
+</div>
+{{ end }}

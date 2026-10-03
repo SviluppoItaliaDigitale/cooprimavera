@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="contenitore pagina lavoro">
+  {{ partial "briciole.html" . }}
+  <p class="lavoro-cartellino entra entra-giu">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "data-it.html" (dict "data" .Date "giorno" true) }}</time>
+    {{- with .Params.tema }}<span>{{ . }}</span>{{ end }}
+  </p>
+  <h1 class="entra entra-su">{{ .Title }}</h1>
+  <div class="notizia">
+    <img class="notizia-grafica" src="{{ .Params.grafica | relURL }}" alt="Grafica della notizia «{{ .Title }}»" width="1080" height="1350" fetchpriority="high">
+    <div class="prosa">{{ .Content }}
+      <p class="notizia-social">Pubblicata anche su <a href="{{ site.Params.social.facebook }}" rel="noopener">Facebook</a> e <a href="{{ site.Params.social.instagram }}" rel="noopener">Instagram</a>.</p>
+    </div>
+  </div>
+  <nav class="lavoro-naviga" aria-label="Altre notizie">
+    {{ with .PrevInSection }}<a href="{{ .RelPermalink }}"><span>Notizia precedente</span>{{ .Title }}</a>{{ end }}
+    {{ with .NextInSection }}<a href="{{ .RelPermalink }}"><span>Notizia successiva</span>{{ .Title }}</a>{{ end }}
+  </nav>
+  <div class="cta-finale" data-anim="fade-up">
+    <h2>Ti serve una mano?</h2>
+    <p>Pulizie, verde, sanificazioni, manutenzioni ed eventi a Roma e nei Castelli Romani. Sopralluogo e preventivo gratuiti.</p>
+    <p class="eroe-azioni"><a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo</a> <a class="bottone bottone-chiaro" href="{{ "notizie/" | relURL }}">Tutte le notizie</a></p>
+  </div>
+</div>
+{{ end }}

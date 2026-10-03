@@ -22,16 +22,18 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
 - **Lunedì 5/10/2026 ore 9:00, Facebook**: post «Vent'anni oggi» programmato
   in Meta Business Suite (ID 1803148191226650), con la grafica precedente
   (logo più piccolo).
-- **Lunedì 5/10/2026 ore 9:00, Instagram**: lo pubblica una routine che apre
-  una sessione nuova (azione `pubblica-oggi`).
+- **Facebook, 8–29 ottobre**: i 7 post del calendario programmati con
+  `programma-calendario` (3/10). Gli altri, fino al 31 dicembre compreso, li
+  pubblica la pubblicazione automatica il giorno stesso: non serve rilanciare
+  `programma-calendario`.
+- **Dal 5/10/2026, Instagram, Facebook e sito**: pubblicazione automatica il
+  lunedì e il giovedì alle 9 (workflow su `main`).
 
 ## Da decidere / da fare
-1. **Resto del calendario**: Alessandro deve scegliere tra
-   - A) pubblicazione automatica lunedì e giovedì alle 9:00 (cron nel workflow
-     con `pubblica-oggi`; serve la sua conferma esplicita, il controllo
-     permessi l'ha bloccata senza);
-   - B) `programma-calendario` per Facebook (fino a 74 giorni avanti) e
-     Instagram pubblicato a mano o su richiesta.
+1. **Pubblicazione automatica**: decisa da Alessandro il 3/10 («trova te il
+   sistema migliore, tutto automaticamente»): social e sito escono da soli il
+   lunedì e il giovedì alle 9 (vedi `docs/social-meta.md`). Da tenere d'occhio
+   le prime uscite.
 2. Se vuole il logo grande anche sul post del 5/10 su Facebook: cancellare il
    post programmato e riprogrammarlo con la grafica nuova.
 3. Sostituire con foto vere le 10 grafiche con foto di repertorio

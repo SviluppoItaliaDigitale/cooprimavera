@@ -41,6 +41,11 @@ on:
         description: "Per eliminare scrivi ELIMINA"
         required: false
         type: string
+  # Calendario social: lunedì e giovedì alle 9:00 italiane pubblica il post del
+  # giorno (07:00 UTC con l'ora legale, 08:00 con quella solare: il giro che
+  # arriva prima delle 9 non trova nulla da fare, l'altro salta i doppioni).
+  schedule:
+    - cron: "0 7,8 * * 1,4"
   push:
     branches-ignore: [main]
     paths: [".github/social/comando.json"]
@@ -65,7 +70,7 @@ jobs:
         env:
           PAGE_ID: ${{ secrets.META_PAGE_ID }}
           PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
-          AZIONE: ${{ inputs.azione }}
+          AZIONE: ${{ github.event_name == 'schedule' && 'pubblica-oggi' || inputs.azione }}
           RETE: ${{ inputs.rete }}
           ID: ${{ inputs.id }}
           TESTO: ${{ inputs.testo }}

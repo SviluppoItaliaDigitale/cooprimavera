@@ -691,3 +691,15 @@ p  { text-wrap: pretty; }
   .storia-tappa, .storia-tappa.con-foto { grid-template-columns: 1fr; }
   .storia-foto { max-width: 360px; }
 }
+
+/* Notizie (dal calendario social): elenco con la grafica verticale e pagina */
+.notizie { list-style: none; margin: 1.6rem 0 0; padding: 0; border-top: 3px solid var(--inchiostro); }
+.notizia-riga a { display: grid; grid-template-columns: 108px 1fr; gap: 1.2rem; align-items: center; padding: 1rem .4rem; border-bottom: 1px dashed #c9d2b6; color: var(--inchiostro); text-decoration: none; }
+.notizia-riga a:hover { background: var(--verde-fondo); }
+.notizia-riga img { width: 108px; height: 135px; object-fit: cover; display: block; box-shadow: var(--ombra); }
+.notizia-riga .registro-data { display: block; margin-bottom: .2rem; }
+.notizia { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 2rem; align-items: start; margin-top: 1.2rem; }
+.notizia-grafica { width: 100%; height: auto; box-shadow: var(--ombra-alta); }
+.notizia .prosa p { margin-top: 0; }
+.notizia-social { color: var(--grigio); font-size: .95rem; }
+@media (max-width: 760px) { .notizia { grid-template-columns: 1fr; } }

@@ -8,6 +8,10 @@ disableHugoGeneratorInject = true
 # Data di ultima modifica dal commit git: finisce nel <lastmod> della sitemap
 # (il deploy fa il checkout con tutta la cronologia, vedi deploy.yml)
 enableGitInfo = true
+# Le date senza fuso (calendario social) sono ora italiana; le pagine con data
+# futura restano nascoste finché il sito non si ricompila dopo quella data
+timeZone = "Europe/Rome"
+buildFuture = false
 
 [frontmatter]
 lastmod = [":git", "lastmod", "date", "publishDate"]

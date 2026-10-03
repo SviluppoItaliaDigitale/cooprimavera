@@ -143,6 +143,21 @@
   </div>
 </section>
 
+{{- /* Ultime notizie dal calendario social: compaiono man mano che escono */ -}}
+{{- with first 3 (where site.RegularPages "Section" "notizie").ByDate.Reverse }}
+<section class="sezione">
+  <div class="contenitore">
+    <h2 data-split="words">Dalla nostra pagina</h2>
+    <ol class="notizie">
+      {{ range . }}
+      <li class="notizia-riga"><a href="{{ .RelPermalink }}"><img src="{{ .Params.grafica | relURL }}" alt="" width="216" height="270" loading="lazy" decoding="async"><span class="registro-testo"><time class="registro-data" datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "data-it.html" (dict "data" .Date "giorno" true) }}</time><span class="registro-titolo">{{ .Title }}</span><span class="registro-luogo">{{ .Params.tema }}</span></span></a></li>
+      {{ end }}
+    </ol>
+    <p class="rimando"><a class="bottone" href="{{ "notizie/" | relURL }}">Tutte le notizie</a></p>
+  </div>
+</section>
+{{- end }}
+
 {{- /* Ultimi lavori: compare solo se nel registro c'è qualcosa degli ultimi 18 mesi */ -}}
 {{- $recenti := where (where site.RegularPages "Section" "lavori") "Date" "ge" (now.AddDate 0 -18 0) }}
 {{- with $recenti }}
