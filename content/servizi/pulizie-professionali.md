@@ -64,6 +64,10 @@ Il nostro servizio di pulizia post cantiere è essenziale per rendere rapidament
 
 Pietra, cotto e mosaici rovinati da muffa, calcare o sporco di anni si recuperano con il prodotto giusto e la macchina giusta: **monospazzola**, detergenti specifici come l'acido tamponato per la pietra, poi i **trattamenti protettivi** antiusura e antisporco e, dove serve, la lucidatura. Alcuni esempi nel [registro dei lavori](/lavori/).
 
+## Strutture sanitarie, alberghi, caserme e beni storici
+
+Puliamo anche **strutture sanitarie e socio-assistenziali**, **alberghi e convitti**, **caserme** ed edifici e **beni di interesse storico e artistico**, pubblici e privati, con prodotti e metodi adatti a ogni ambiente. Per le attività di supporto (riassetto camere, cucine, ausiliari) vedi i [servizi ausiliari](/servizi/servizi-ausiliari/).
+
 ## Pulizia palestre
 
 La pulizia e l'igienizzazione delle palestre sono fondamentali per prevenire la diffusione di germi e batteri in ambienti dove si pratica attività fisica. Offriamo un servizio completo che include la pulizia e disinfezione di attrezzi, macchinari, spogliatoi, docce, pavimenti e aree comuni, con prodotti specifici ad azione antibatterica e fungicida e particolare attenzione alle superfici di contatto più frequente.
