@@ -93,3 +93,15 @@ Limiti trovati:
 - i vecchi video **IGTV** di Instagram non si cancellano dalle API (errore
   «Fatal»): vanno tolti a mano dall'app.
 
+## Calendario
+
+Il calendario dei post sta in `social/calendario.json` (data, ora italiana,
+testi, grafica); le grafiche si generano con `node social/grafiche/genera.js`
+e finiscono in `static/social/`, online su `https://www.cooprimavera.com/social/…`
+perché Instagram vuole un indirizzo pubblico.
+
+- `programma-calendario`: programma su Facebook i post entro 74 giorni (limite
+  di Facebook: 75); si vedono in Meta Business Suite → Programmati.
+- `pubblica-oggi`: pubblica il post del giorno su Instagram e, se non era già
+  programmato, su Facebook; non pubblica due volte lo stesso giorno.
+
