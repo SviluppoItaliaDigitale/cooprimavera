@@ -53,7 +53,9 @@ Il workflow `.github/workflows/gestione-social.yml` (script
 `scripts/gestione_social.py`) gestisce pagina Facebook e Instagram anche col PC
 spento: elenco dei post, statistiche, pubblicare, modificare il testo (solo
 Facebook), eliminare, commenti (leggere, rispondere, nascondere, eliminare),
-messaggi Messenger/Direct (leggere, rispondere), prova invisibile.
+messaggi Messenger/Direct (leggere, rispondere), prova invisibile, `esporta`
+(archivio completo di testi e immagini in `archivio-social/`) ed `elimina-tutti`
+(cancella solo i post già archiviati, mai foto profilo e copertina).
 
 - **Dal telefono**: app GitHub → repository → *Actions* → *🛠️ Gestione social*
   → *Run workflow*, scegliere azione e rete e compilare i campi. Per eliminare

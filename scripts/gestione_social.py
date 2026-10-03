@@ -19,6 +19,10 @@ Azioni (variabile AZIONE, o campo "azione" del file comando):
   elimina-commento    elimina un commento (RETE, ID) — CONFERMA=ELIMINA
   messaggi            ultime conversazioni Messenger (fb) o Direct (ig)
   rispondi-messaggio  risponde in una conversazione (RETE, ID della conversazione, TESTO)
+  esporta             salva testi, date, link, immagini e video di TUTTI i post FB e IG in
+                      archivio-social/ (README.md + dati.json)
+  elimina-tutti       elimina i post di RETE già presenti in archivio-social/dati.json; salta
+                      foto profilo/copertina e post non archiviati — CONFERMA=ELIMINA
 
 Limiti della piattaforma, non dello strumento: su Instagram la didascalia di un
 post pubblicato non si modifica (si elimina e si ripubblica); su Facebook si
@@ -289,7 +293,130 @@ def a_rispondi_messaggio(rete, ident, testo, **_):
     esito(r, f"Messaggio inviato: `{r.get('message_id')}`")
 
 
+ARCHIVIO = Path(os.environ.get("ARCHIVIO") or "archivio-social")
+# Post di Facebook che non si toccano: cancellarli toglierebbe foto profilo o copertina.
+INTOCCABILI = ("profile picture", "cover photo", "immagine del profilo", "foto del profilo", "foto di copertina", "immagine di copertina")
+
+
+def tutte(percorso: str, **param) -> list[dict]:
+    """Tutte le pagine di un elenco della Graph API."""
+    dati, dopo = [], None
+    for _ in range(100):
+        r = chiama("GET", percorso, limit=100, after=dopo, **param)
+        if "errore" in r:
+            esci(r["errore"])
+        dati += r.get("data", [])
+        dopo = (r.get("paging") or {}).get("cursors", {}).get("after")
+        if not dopo or not (r.get("paging") or {}).get("next"):
+            break
+    return dati
+
+
+def scarica(url: str, nome: str) -> str | None:
+    try:
+        with urllib.request.urlopen(url, timeout=120) as r:
+            tipo = r.headers.get("Content-Type", "")
+            est = ".mp4" if "video" in tipo else ".png" if "png" in tipo else ".jpg"
+            f = ARCHIVIO / (nome + est)
+            f.parent.mkdir(parents=True, exist_ok=True)
+            f.write_bytes(r.read())
+            return str(f.relative_to(ARCHIVIO))
+    except Exception as e:  # noqa: BLE001
+        scrivi(f"- ⚠️ non scaricato {nome}: {e}")
+        return None
+
+
+def post_fb() -> list[dict]:
+    return tutte(f"{PAGE_ID}/posts", fields="id,created_time,message,story,permalink_url,status_type,"
+                 "attachments{media_type,url,media{image{src},source},subattachments{media_type,media{image{src},source}}}")
+
+
+def media_fb(p: dict) -> list[str]:
+    urls = []
+    for a in (p.get("attachments") or {}).get("data", []):
+        for x in [a] + (a.get("subattachments") or {}).get("data", []):
+            m = x.get("media") or {}
+            u = m.get("source") or (m.get("image") or {}).get("src")
+            if u and u not in urls:
+                urls.append(u)
+    return urls
+
+
+def intoccabile(p: dict) -> bool:
+    return any(k in (p.get("story") or "").lower() for k in INTOCCABILI)
+
+
+def a_esporta(**_):
+    """Salva testi, date, link e immagini/video di tutti i post FB e IG in ARCHIVIO."""
+    indice = {"fb": [], "ig": []}
+    for p in post_fb():
+        data = p.get("created_time", "")[:10]
+        file = [f for n, u in enumerate(media_fb(p)) if (f := scarica(u, f"fb/{data}_{p['id']}_{n + 1}"))]
+        indice["fb"].append({"id": p["id"], "data": data, "testo": p.get("message") or p.get("story") or "",
+                             "link": p.get("permalink_url", ""), "file": file, "intoccabile": intoccabile(p)})
+    for m in tutte(f"{ig_id()}/media", fields="id,timestamp,caption,permalink,media_type,media_url,thumbnail_url,"
+                   "children{media_type,media_url,thumbnail_url}"):
+        data = m.get("timestamp", "")[:10]
+        pezzi = (m.get("children") or {}).get("data") or [m]
+        file = []
+        for n, x in enumerate(pezzi):
+            for u in (x.get("media_url"), x.get("thumbnail_url") if x.get("media_type") == "VIDEO" else None):
+                if u and (f := scarica(u, f"ig/{data}_{m['id']}_{n + 1}{'_copertina' if u == x.get('thumbnail_url') else ''}")):
+                    file.append(f)
+        indice["ig"].append({"id": m["id"], "data": data, "testo": m.get("caption") or "",
+                             "link": m.get("permalink", ""), "tipo": m.get("media_type", ""), "file": file})
+    ARCHIVIO.mkdir(parents=True, exist_ok=True)
+    (ARCHIVIO / "dati.json").write_text(json.dumps(indice, ensure_ascii=False, indent=1), encoding="utf-8")
+    md = [f"# Archivio social Cooprimavera ({time.strftime('%d/%m/%Y')})", "",
+          "Copia di testi, date, link e immagini dei post prima della ripartenza da zero.", ""]
+    for rete, nome in (("fb", "Facebook"), ("ig", "Instagram")):
+        md += [f"## {nome} — {len(indice[rete])} post", ""]
+        for x in sorted(indice[rete], key=lambda x: x["data"]):
+            md.append(f"### {x['data']} — [{x['id']}]({x['link']})" + (" (foto profilo/copertina: non si cancella)" if x.get("intoccabile") else ""))
+            md += ["", x["testo"] or "_(senza testo)_", ""] + [f"![]({f})" if f.endswith((".jpg", ".png")) else f"[video]({f})" for f in x["file"]] + [""]
+    (ARCHIVIO / "README.md").write_text("\n".join(md), encoding="utf-8")
+    for rete, nome in (("fb", "Facebook"), ("ig", "Instagram")):
+        n_file = sum(len(x["file"]) for x in indice[rete])
+        senza = sum(1 for x in indice[rete] if not x["file"])
+        intocc = sum(1 for x in indice[rete] if x.get("intoccabile"))
+        scrivi(f"- {nome}: {len(indice[rete])} post, {n_file} file salvati, {senza} post senza immagini"
+               + (f", {intocc} foto profilo/copertina (escluse dalla cancellazione)" if intocc else ""))
+    scrivi(f"Archivio in `{ARCHIVIO}/` (README.md con l'elenco, dati.json con i dati).")
+
+
+def a_elimina_tutti(rete, conf, **_):
+    """Elimina i post di RETE già salvati in ARCHIVIO/dati.json (mai quelli non archiviati)."""
+    conferma(conf)
+    f = ARCHIVIO / "dati.json"
+    if not f.exists():
+        esci(f"manca {f}: prima esegui «esporta»")
+    archiviati = {x["id"]: x for x in json.loads(f.read_text(encoding="utf-8")).get(rete, [])}
+    attuali = post_fb() if rete == "fb" else tutte(f"{ig_id()}/media", fields="id")
+    fatti, saltati, errori = 0, [], []
+    for p in attuali:
+        x = archiviati.get(p["id"])
+        if not x:
+            saltati.append(f"`{p['id']}` non è nell'archivio")
+        elif x.get("intoccabile") or (rete == "fb" and intoccabile(p)):
+            saltati.append(f"`{p['id']}` foto profilo/copertina")
+        else:
+            r = chiama("DELETE", p["id"])
+            if r.get("success") is True:
+                fatti += 1
+            else:
+                errori.append(f"`{p['id']}`: {r.get('errore', r)}")
+    scrivi(f"Eliminati {fatti} post ({rete}).")
+    for s in saltati:
+        scrivi(f"- saltato {s}")
+    for e in errori:
+        scrivi(f"- ❌ {e}")
+    if errori:
+        salva_esito()
+        sys.exit(1)
+
+
 AZIONI = {
+    "esporta": a_esporta, "elimina-tutti": a_elimina_tutti,
     "prova": a_prova, "elenco": a_elenco, "statistiche": a_statistiche,
     "pubblica": a_pubblica, "modifica": a_modifica, "elimina": a_elimina,
     "commenti": a_commenti, "rispondi-commento": a_rispondi_commento,
