@@ -1,2 +1,25 @@
-## Gestione social — pubblica (2026-10-03 17:23 UTC)
-Programmato per 2026-10-05T09:00:00+02:00 su Facebook: `1803148191226650`
+## Gestione social — programma-calendario (2026-10-03 17:41 UTC)
+- 2026-10-05 «Vent'anni oggi»: già programmato
+- 2026-10-08 «Da Primavera a Cooprimavera»: programmato
+- 2026-10-12 «Col freddo i topi cercano casa»: programmato
+- 2026-10-15 «La fattoria sociale sul lago di Nemi»: programmato
+- 2026-10-19 «Il giardino si prepara adesso»: programmato
+- 2026-10-22 «Cerchiamo persone»: programmato
+- 2026-10-26 «I lavori piccoli che non aspettano»: programmato
+- 2026-10-29 «Ring, sedie e moquette»: programmato
+- 2026-11-02 «Per chi amministra un condominio»: ❌ (#100) The specified scheduled publish time was invalid.
+- 2026-11-05 «In tournée con il teatro»: ❌ (#100) The specified scheduled publish time was invalid.
+- 2026-11-09 «Pannelli sporchi, meno energia»: ❌ (#100) The specified scheduled publish time was invalid.
+- 2026-11-12 «Foglie, piazze, marciapiedi»: ❌ (#100) The specified scheduled publish time was invalid.
+- 2026-11-16 «Dove passano tante persone»: ❌ (#100) The specified scheduled publish time was invalid.
+- 2026-11-19 «Sanificare, poi ripartire»: ❌ (#100) The specified scheduled publish time was invalid.
+- 2026-11-23 «Prima e dopo»: ❌ (#100) The specified scheduled publish time was invalid.
+- 2026-11-26 «Natale si prenota adesso»: ❌ (#100) The specified scheduled publish time was invalid.
+- 2026-11-30 «Se nevica»: ❌ (#100) The specified scheduled publish time was invalid.
+- 2026-12-03 «Genzano, Ariccia, e da qui in avanti»: ❌ (#100) The specified scheduled publish time was invalid.
+- 2026-12-07 «Quello che fa funzionare una struttura»: ❌ (#100) The specified scheduled publish time was invalid.
+- 2026-12-10 «Lavora con noi nel 2027»: ❌ (#100) The specified scheduled publish time was invalid.
+- 2026-12-14 «L'ufficio pulito per gennaio»: ❌ (#100) The specified scheduled publish time was invalid.
+- 2026-12-17 «Sedie per la cena di Natale»: oltre 74 giorni, si programma più avanti
+- 2026-12-24 «Buon Natale»: oltre 74 giorni, si programma più avanti
+- 2026-12-31 «Grazie per l'anno dei vent'anni»: oltre 74 giorni, si programma più avanti
