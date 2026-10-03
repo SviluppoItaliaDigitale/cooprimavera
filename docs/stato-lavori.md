@@ -22,6 +22,10 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
 - **Lunedì 5/10/2026 ore 9:00, Facebook**: post «Vent'anni oggi» programmato
   in Meta Business Suite (ID 1803148191226650), con la grafica precedente
   (logo più piccolo).
+- **Facebook, 8–29 ottobre**: i 7 post del calendario programmati con
+  `programma-calendario` (3/10). Dal 2 novembre vanno programmati più avanti
+  (limite di circa 30 giorni per i post con foto): rilanciare
+  `programma-calendario` verso il 25 ottobre e il 20 novembre.
 - **Lunedì 5/10/2026 ore 9:00, Instagram**: lo pubblica una routine che apre
   una sessione nuova (azione `pubblica-oggi`).
 
@@ -30,7 +34,7 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
    - A) pubblicazione automatica lunedì e giovedì alle 9:00 (cron nel workflow
      con `pubblica-oggi`; serve la sua conferma esplicita, il controllo
      permessi l'ha bloccata senza);
-   - B) `programma-calendario` per Facebook (fino a 74 giorni avanti) e
+   - B) `programma-calendario` per Facebook (fino a 28 giorni avanti, da rilanciare ogni 2-3 settimane) e
      Instagram pubblicato a mano o su richiesta.
 2. Se vuole il logo grande anche sul post del 5/10 su Facebook: cancellare il
    post programmato e riprogrammarlo con la grafica nuova.

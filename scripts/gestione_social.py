@@ -10,7 +10,7 @@ Azioni (variabile AZIONE, o campo "azione" del file comando):
                       un contenitore IG senza pubblicarlo. Nulla diventa visibile.
   elenco              ultimi post di Facebook e Instagram con identificativi
   statistiche         follower e copertura di pagina e account Instagram
-  programma-calendario programma su Facebook i post di social/calendario.json entro 74 giorni
+  programma-calendario programma su Facebook i post di social/calendario.json entro 28 giorni
   pubblica-oggi       pubblica il post del calendario di oggi (Instagram, e Facebook se non programmato);
                       lo lancia da solo il workflow il lunedì e il giovedì
   pubblica            pubblica su RETE (fb o ig): TESTO, e IMMAGINE_URL (obbligatoria su ig);
@@ -490,19 +490,20 @@ def _programmati_fb() -> set[int]:
 
 
 def a_programma_calendario(**_):
-    """Programma su Facebook i post del calendario tra 15 minuti e 74 giorni da adesso, se non già programmati."""
+    """Programma su Facebook i post del calendario tra 15 minuti e 28 giorni da adesso, se non già programmati.
+    I post con foto Facebook li accetta solo entro circa 30 giorni: si rilancia ogni 2-3 settimane."""
     gia = _programmati_fb()
     adesso = time.time()
     for x in json.loads(CALENDARIO.read_text(encoding="utf-8"))["post"]:
         ts = _quando(x)
         if ts in gia:
             scrivi(f"- {x['data']} «{x['titolo']}»: già programmato")
-        elif adesso + 900 <= ts <= adesso + 74 * 86400:
+        elif adesso + 900 <= ts <= adesso + 28 * 86400:
             r = chiama("POST", f"{PAGE_ID}/photos", url=x["immagine"], caption=x["fb"],
                        published="false", scheduled_publish_time=ts)
             scrivi(f"- {x['data']} «{x['titolo']}»: " + (f"❌ {r['errore']}" if "errore" in r else "programmato"))
         elif ts > adesso:
-            scrivi(f"- {x['data']} «{x['titolo']}»: oltre 74 giorni, si programma più avanti")
+            scrivi(f"- {x['data']} «{x['titolo']}»: oltre 28 giorni, si programma più avanti")
 
 
 def a_pubblica_oggi(**_):
