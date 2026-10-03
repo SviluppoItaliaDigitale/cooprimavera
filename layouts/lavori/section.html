@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="contenitore pagina">
+  {{ partial "briciole.html" . }}
+  <h1 class="entra entra-su">{{ .Title }}</h1>
+  <div class="prosa intro entra entra-su entra-r1">{{ .Content }}</div>
+  {{- $anni := slice }}{{ range .Pages.GroupByDate "2006" }}{{ $anni = $anni | append .Key }}{{ end }}
+  {{- if gt (len $anni) 1 }}
+  <nav class="registro-indice" aria-label="Anni">{{ range $anni }}<a href="#anno-{{ . }}">{{ . }}</a>{{ end }}</nav>
+  {{- end }}
+  {{ partial "registro-lavori.html" (dict "pagine" .Pages.ByDate.Reverse "anni" true) }}
+  <p class="registro-nota">Le schede fino al 2022 vengono dal nostro archivio social; i lavori nuovi li aggiungiamo man mano. Per la storia completa: <a href="{{ "chi-siamo/vent-anni/" | relURL }}">vent'anni di Cooprimavera</a>.</p>
+  <div class="cta-finale" data-anim="fade-up">
+    <h2>Hai un lavoro simile da fare?</h2>
+    <p>Raccontaci di cosa si tratta: fissiamo il sopralluogo, se serve, e ti mandiamo un preventivo chiaro.</p>
+    <p class="eroe-azioni"><a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo</a> <a class="bottone bottone-chiaro" href="tel:{{ site.Params.telefono_uff_link }}">Chiama {{ site.Params.telefono_uff }}</a></p>
+  </div>
+</div>
+{{ end }}

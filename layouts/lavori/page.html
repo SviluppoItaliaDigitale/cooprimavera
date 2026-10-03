@@ -1,0 +1,34 @@
+{{ define "main" }}
+{{- $servizi := slice }}{{ range .Params.servizi }}{{ with site.GetPage (printf "/servizi/%s" .) }}{{ $servizi = $servizi | append . }}{{ end }}{{ end }}
+<div class="contenitore pagina lavoro">
+  {{ partial "briciole.html" . }}
+  <p class="lavoro-cartellino entra entra-giu">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "data-it.html" (dict "data" .Date "giorno" true) }}</time>
+    {{- with .Params.luogo }}<span>{{ . }}</span>{{ end }}
+    {{- with .Params.comune }}<span>{{ . }}</span>{{ end }}
+  </p>
+  <h1 class="entra entra-su">{{ .Title }}</h1>
+  {{- $foto := .Params.foto }}
+  {{- with index $foto 0 }}
+  <figure class="lavoro-foto-principale entra entra-zoom entra-r1">{{ partial "immagine.html" (dict "percorso" .file "alt" .alt "larghezza" 1100 "sizes" "(min-width: 1140px) 1060px, 92vw" "prioritaria" true) }}</figure>
+  {{- end }}
+  <div class="prosa entra entra-su entra-r2">{{ .Content }}</div>
+  {{- if gt (len $foto) 1 }}
+  <ul class="lavoro-galleria" data-anim-group>
+    {{- range after 1 $foto }}
+    <li><figure>{{ partial "immagine.html" (dict "percorso" .file "alt" .alt "larghezza" 800 "sizes" "(min-width: 760px) 520px, 92vw" "skeleton" true) }}<figcaption>{{ .alt }}</figcaption></figure></li>
+    {{- end }}
+  </ul>
+  {{- end }}
+  {{ with .Params.fonte }}<p class="lavoro-fonte">Foto e testo: {{ . }}.</p>{{ end }}
+  <nav class="lavoro-naviga" aria-label="Altri lavori">
+    {{ with .PrevInSection }}<a href="{{ .RelPermalink }}"><span>Lavoro precedente</span>{{ .Title }}</a>{{ end }}
+    {{ with .NextInSection }}<a href="{{ .RelPermalink }}"><span>Lavoro successivo</span>{{ .Title }}</a>{{ end }}
+  </nav>
+  <div class="cta-finale" data-anim="fade-up">
+    <h2>Ti serve un lavoro così?</h2>
+    <p>{{ with $servizi }}Lo facciamo nel servizio {{ range $i, $s := . }}{{ if $i }} e {{ end }}<a href="{{ $s.RelPermalink }}">{{ lower $s.Title }}</a>{{ end }}. {{ end }}Sopralluogo e preventivo sono gratuiti.</p>
+    <p class="eroe-azioni"><a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo</a> <a class="bottone bottone-chiaro" href="{{ "lavori/" | relURL }}">Tutti i lavori</a></p>
+  </div>
+</div>
+{{ end }}

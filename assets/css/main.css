@@ -589,3 +589,105 @@ p  { text-wrap: pretty; }
 
 /* Su telefono i bottoni fissi non devono coprire i link del piè di pagina */
 @media (max-width: 760px) { .pie-copy { padding-bottom: 6.5rem; padding-right: 4.5rem; } }
+
+/* ---- Registro lavori e storia: direzione "registro di cantiere".
+   Righe datate come un quaderno lavori, anni grandi a contorno,
+   foto come stampe con la data scritta sotto. ---- */
+.registro-indice, .storia-indice {
+  display: flex; flex-wrap: wrap; gap: .3rem 1rem; margin: 1.4rem 0 .5rem;
+  font-variant-numeric: tabular-nums; font-weight: 700;
+}
+.registro-indice a, .storia-indice a { text-decoration: none; color: var(--grigio); }
+.registro-indice a:hover, .storia-indice a:hover { color: var(--verde-scuro); text-decoration: underline; }
+
+.registro-anno {
+  font-size: clamp(2.6rem, 1.8rem + 3vw, 4rem); line-height: 1; letter-spacing: -.03em;
+  color: transparent; -webkit-text-stroke: 2px var(--verde-scuro);
+  border-top: 3px solid var(--inchiostro); padding-top: .9rem; margin: 2.6rem 0 .4rem;
+}
+@supports not (-webkit-text-stroke: 2px black) { .registro-anno { color: var(--verde-scuro); } }
+.registro-righe { list-style: none; margin: 0; padding: 0; }
+.registro-riga a {
+  display: grid; grid-template-columns: 6.5rem 120px 1fr auto; gap: 1.1rem; align-items: center;
+  padding: .9rem .6rem; border-bottom: 1px dashed #c9d2b6;
+  color: var(--inchiostro); text-decoration: none; transition: background .2s ease;
+}
+.registro-riga a:hover { background: var(--verde-fondo); }
+.registro-data { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--verde-testo); text-transform: capitalize; }
+.registro-foto img { width: 120px; height: 90px; object-fit: cover; border-radius: 4px; display: block; }
+.registro-titolo { display: block; font-weight: 800; font-size: 1.08rem; line-height: 1.25; }
+.registro-riga a:hover .registro-titolo { color: var(--verde-scuro); }
+.registro-luogo { display: block; color: var(--grigio); font-size: .95rem; margin-top: .15rem; }
+.registro-servizi { display: flex; flex-direction: column; align-items: flex-end; gap: .15rem; font-size: .85rem; color: var(--grigio); text-align: right; }
+.registro-nota { color: var(--grigio); max-width: 48rem; margin-top: 2rem; }
+@media (max-width: 760px) {
+  .registro-riga a { grid-template-columns: 96px 1fr; grid-template-areas: "foto data" "foto testo" "foto servizi"; gap: .1rem .9rem; align-items: start; }
+  .registro-foto { grid-area: foto; }
+  .registro-foto img { width: 96px; height: 96px; }
+  .registro-data { grid-area: data; font-size: .9rem; }
+  .registro-testo { grid-area: testo; }
+  .registro-servizi { grid-area: servizi; align-items: flex-start; text-align: left; flex-direction: row; flex-wrap: wrap; gap: 0 .6rem; }
+}
+
+/* Scheda di un lavoro */
+.lavoro-cartellino {
+  display: inline-flex; flex-wrap: wrap; gap: 0; margin: 0 0 1rem;
+  background: var(--inchiostro); color: #fff; border-radius: 4px; overflow: hidden;
+  font-weight: 700; font-size: .92rem;
+}
+.lavoro-cartellino > * { padding: .4rem .8rem; }
+.lavoro-cartellino > * + * { border-left: 1px solid rgba(255, 255, 255, .25); }
+.lavoro-cartellino time { background: var(--verde); color: var(--inchiostro); }
+.lavoro-foto-principale { margin: 1.2rem 0; }
+.lavoro-foto-principale img { border-radius: 6px; max-height: 640px; width: auto; max-width: 100%; }
+.lavoro-galleria {
+  list-style: none; padding: 0; margin: 2rem 0 0; max-width: 60rem;
+  display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.lavoro-galleria figure, .storia-foto { margin: 0; }
+.lavoro-galleria img { border-radius: 4px; width: 100%; height: auto; }
+.lavoro-galleria figcaption { font-size: .9rem; color: var(--grigio); margin-top: .35rem; }
+.lavoro-fonte { font-size: .88rem; color: var(--grigio); margin-top: 1.6rem; }
+.lavoro-naviga { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 2.2rem 0 0; max-width: 60rem; }
+.lavoro-naviga a { border-top: 3px solid var(--inchiostro); padding-top: .6rem; text-decoration: none; font-weight: 700; color: var(--inchiostro); }
+.lavoro-naviga a:hover { color: var(--verde-scuro); }
+.lavoro-naviga span { display: block; font-weight: 600; font-size: .85rem; color: var(--grigio); }
+
+/* Vent'anni: linea del tempo */
+.storia-apertura { margin: 1.5rem 0 0; }
+.storia-apertura img { border-radius: 6px; width: 100%; height: auto; }
+.storia-apertura figcaption, .storia-foto figcaption { font-size: .88rem; color: var(--grigio); margin-top: .35rem; }
+.storia-tappe { list-style: none; margin: 2.4rem 0 0; padding: 0; border-left: 3px solid var(--verde); }
+.storia-tappa {
+  display: grid; grid-template-columns: minmax(7rem, 13rem) 1fr; gap: .4rem 2rem;
+  padding: 0 0 2.6rem 1.4rem; position: relative; scroll-margin-top: 6rem;
+}
+.storia-tappa::before {
+  content: ""; position: absolute; left: -9px; top: .9rem; width: 15px; height: 15px;
+  background: var(--carta); border: 3px solid var(--verde-scuro); border-radius: 50%;
+}
+.storia-tappa.con-foto { grid-template-columns: minmax(7rem, 13rem) 1fr minmax(200px, 340px); }
+.storia-anno {
+  margin: 0; font-size: clamp(3rem, 2rem + 4vw, 5.6rem); font-weight: 800; line-height: .9;
+  letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 2px var(--verde-scuro);
+  font-variant-numeric: tabular-nums;
+}
+@supports not (-webkit-text-stroke: 2px black) { .storia-anno { color: var(--verde-scuro); } }
+.storia-corpo h2 { margin: .4rem 0 .5rem; font-size: var(--titolo-2); }
+.storia-corpo p { margin: 0; max-width: 40rem; }
+.storia-lavori { list-style: none; padding: 0; margin: .9rem 0 0; display: grid; gap: .3rem; }
+.storia-lavori a { font-weight: 700; text-decoration: none; }
+.storia-lavori a::before { content: "→ "; }
+.storia-lavori a:hover { text-decoration: underline; }
+.storia-foto {
+  align-self: start; background: #fff; padding: .55rem .55rem .4rem; border: 1px solid var(--bordo);
+  box-shadow: 0 1px 2px rgba(35, 42, 28, .08), 0 8px 18px rgba(35, 42, 28, .1);
+  transform: rotate(-1.2deg);
+}
+.storia-tappa:nth-child(even) .storia-foto { transform: rotate(1deg); }
+.storia-foto img { display: block; width: 100%; height: auto; }
+.storia-foto figcaption { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; text-align: right; color: var(--inchiostro); }
+@media (max-width: 900px) {
+  .storia-tappa, .storia-tappa.con-foto { grid-template-columns: 1fr; }
+  .storia-foto { max-width: 360px; }
+}
