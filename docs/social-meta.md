@@ -133,8 +133,8 @@ mkdir -p ~/kokoro && cd ~/kokoro && for f in kokoro-v1.0.onnx voices-v1.0.bin; d
 VOCE_PY=~/kokoro-venv/bin/python VOCE_MODELLI=~/kokoro node social/video/genera.js
 ```
 
-Doppia voce: `"voci": ["if_sara", "im_nicola"]` alterna Sara e Nicola scena per scena
-(con `"voce"` una sola). In basso, fascia chiara con logo, telefono e WhatsApp
+Voce: `"voce": "im_nicola"` (Nicola, maschile: Alessandro la trova migliore
+nella lettura). Con `"voci": [...]` le scene alternano più voci. In basso, fascia chiara con logo, telefono e WhatsApp
 06 63 46 70, cellulare 331 777 1888, email e sito.
 Numeri di telefono e anni nella voce vanno scritti in lettere.
 

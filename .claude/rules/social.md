@@ -14,7 +14,7 @@ Indicazioni di Alessandro (presidente) per post, grafiche e pagine.
   gira da sola; restano solo sito e telefono nella fascia del logo.
 - **Video**: fascia chiara bassa (non troppo bianca né alta) con logo piccolo ma
   leggibile, telefono e WhatsApp 06 63 46 70, cellulare 331 777 1888, email e sito;
-  doppia voce sintetica (Kokoro, Sara e Nicola alternate) scelta da Alessandro; musica gratuita
+  voce sintetica maschile (Kokoro, «Nicola»: legge meglio di Sara, parere di Alessandro); musica gratuita
   con licenza verificata. Con Kevin MacLeod (CC BY 4.0) la citazione va nel
   cartello finale e nel testo del post. Clip gratuite (Pexels) solo come
   illustrazione: mai presentarle come lavoro nostro.
