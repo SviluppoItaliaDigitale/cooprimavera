@@ -4,6 +4,7 @@
 // social/video/voce.py (Kokoro): VOCE_PY = python con kokoro-onnx, VOCE_MODELLI = cartella dei modelli.
 // Scene: parole, foto (archivio), disegno (SVG di social/disegni/ che si traccia da solo), clip (video gratuito), fine.
 // Ogni scena può avere "voce" (o voci sulle didascalie): la scena si allunga quanto serve alla voce.
+// Con "voci": ["if_sara", "im_nicola"] le scene si alternano tra le due voci.
 // Regole: logo sempre sulla fascia chiara in basso, sopra l'area coperta dai pulsanti dei Reel.
 const fs = require('fs'), path = require('path'), os = require('os'), { execFileSync } = require('child_process');
 let chromium; try { ({ chromium } = require('playwright')); } catch { ({ chromium } = require('/opt/node-tools/node_modules/playwright')); }
@@ -33,9 +34,11 @@ h1{position:absolute;left:64px;right:64px;top:300px;font:800 112px/.95 'Barlow C
 .fine-t{position:absolute;left:64px;right:64px;top:1060px;font:600 48px/1.3 Barlow;color:var(--chiaro)}
 .clip{position:absolute;left:60px;top:450px;width:960px;height:800px;border:4px solid var(--inchiostro);box-shadow:12px 12px 0 var(--verde);overflow:hidden;background:#000}
 .clip img{width:100%;height:100%;display:block}
-.crediti{position:absolute;left:64px;right:64px;top:1405px;font:600 24px/1.3 Barlow;color:#9aa58a}
-.piede{position:absolute;left:0;right:0;top:1500px;bottom:0;background:var(--carta);border-top:8px solid var(--verde);padding:56px 64px 0}
-.piede img{height:120px}.piede p{font:600 40px Barlow;color:var(--inchiostro);margin-top:26px}`;
+.crediti{position:absolute;left:64px;right:64px;top:1440px;font:600 24px/1.3 Barlow;color:#9aa58a}
+.piede{position:absolute;left:0;right:0;top:1530px;height:230px;background:var(--fondo);border-top:6px solid var(--verde);padding:26px 56px 0;display:grid;grid-template-columns:auto 1fr;column-gap:40px;align-items:center}
+.piede img{height:76px}
+.piede .tel{font:600 30px/1.3 Barlow;color:var(--inchiostro)}.piede .tel b{font-weight:600;color:#3f5418}
+.piede .web{grid-column:1/3;font:600 30px Barlow;color:var(--inchiostro);margin-top:16px;padding-top:12px;border-top:2px dashed #b9c79a}`;
 
 function scena(s, i, c) {
   const h = s.titolo ? `<h1>${esc(s.titolo)}</h1>` : '';
@@ -97,7 +100,8 @@ function prepara(c, tmp) {
     s.eventi = [];
     if (s.voce) s.eventi.push({ t: s.tipo === 'parole' || s.tipo === 'fine' ? .2 : .3, testo: s.voce });
     (s.didascalie || []).forEach(d => d.voce && s.eventi.push({ t: d.t, testo: d.voce }));
-    s.eventi.sort((x, y) => x.t - y.t).forEach((e, k) => { e.id = `v${i}_${k}`; battute.push({ id: e.id, testo: e.testo }); });
+    const v = c.voci ? c.voci[i % c.voci.length] : c.voce;
+    s.eventi.sort((x, y) => x.t - y.t).forEach((e, k) => { e.id = `v${i}_${k}`; battute.push({ id: e.id, testo: e.testo, voce: v }); });
   });
   let durate = {};
   if (battute.length)
@@ -150,7 +154,7 @@ async function genera(br, nome) {
   prepara(c, tmp);
   const html = `<!doctype html><meta charset=utf-8><style>${CSS}</style><body><div class="cart">${esc(c.tema)}</div>
 ${c.scene.map((s, i) => scena(s, i, c).replace('class="sc', `data-d="${s.durataVera}" data-w='${JSON.stringify(s.w)}' class="sc`)).join('\n')}
-<div class="piede"><img src="${F('assets/img/logo.png')}" alt=""><p>cooprimavera.com · 06 63 46 70</p></div>
+<div class="piede"><img src="${F('assets/img/logo.png')}" alt=""><div class="tel"><b>Tel. e WhatsApp</b> 06 63 46 70<br><b>Cellulare</b> 331 777 1888</div><div class="web">info@cooprimavera.com · cooprimavera.com</div></div>
 <script>const DISS=${DISS};(${motore})()</script>`;
   fs.writeFileSync(path.join(tmp, 'v.html'), html);
   const pg = await br.newPage({ viewport: { width: 1080, height: 1920 } });

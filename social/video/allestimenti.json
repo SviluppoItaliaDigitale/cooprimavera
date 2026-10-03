@@ -61,15 +61,18 @@
       ],
       "testo": [
         "Da Genzano e Ariccia, per Roma e i Castelli Romani.",
-        "Preventivi: 06 63 46 70"
+        "Telefono e WhatsApp 06 63 46 70"
       ],
-      "voce": "Il vostro evento? Cooprimavera, Genzano e Ariccia. Zero sei, sessantatré, quarantasei, settanta."
+      "voce": "Il vostro evento? Cooprimavera, Genzano e Ariccia. Chiamate o scrivete su WhatsApp allo zero sei, sessantatré, quarantasei, settanta."
     }
   ],
-  "voce": "im_nicola",
   "musica": {
     "file": "social/video/musica/life-of-riley.mp3",
     "titolo": "Life of Riley",
     "volume": 0.2
-  }
+  },
+  "voci": [
+    "if_sara",
+    "im_nicola"
+  ]
 }

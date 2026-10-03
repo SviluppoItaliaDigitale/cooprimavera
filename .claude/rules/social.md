@@ -10,7 +10,9 @@ Indicazioni di Alessandro (presidente) per post, grafiche e pagine.
   disegni al tratto in stile «tavola tecnica» (`social/disegni/`): linee
   inchiostro su carta chiara, verde Cooprimavera, rosso solo per i punti critici,
   numeri cerchiati. Niente icone generiche né immagini AI.
-- **Video**: voce sintetica (Kokoro) scelta da Alessandro; musica gratuita
+- **Video**: fascia chiara bassa (non troppo bianca né alta) con logo piccolo ma
+  leggibile, telefono e WhatsApp 06 63 46 70, cellulare 331 777 1888, email e sito;
+  doppia voce sintetica (Kokoro, Sara e Nicola alternate) scelta da Alessandro; musica gratuita
   con licenza verificata. Con Kevin MacLeod (CC BY 4.0) la citazione va nel
   cartello finale e nel testo del post. Clip gratuite (Pexels) solo come
   illustrazione: mai presentarle come lavoro nostro.

@@ -1,7 +1,6 @@
 {
   "tema": "Disinfestazioni",
   "copertina": 12.0,
-  "voce": "im_nicola",
   "musica": {
     "file": "social/video/musica/sneaky-snitch.mp3",
     "titolo": "Sneaky Snitch",
@@ -128,9 +127,13 @@
       ],
       "testo": [
         "Sopralluogo gratuito, da Genzano e Ariccia.",
-        "06 63 46 70"
+        "Telefono e WhatsApp 06 63 46 70"
       ],
-      "voce": "Cooprimavera, Genzano e Ariccia. Zero sei, sessantatré, quarantasei, settanta."
+      "voce": "Cooprimavera, Genzano e Ariccia. Chiamate o scrivete su WhatsApp allo zero sei, sessantatré, quarantasei, settanta."
     }
+  ],
+  "voci": [
+    "if_sara",
+    "im_nicola"
   ]
 }
