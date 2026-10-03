@@ -17,6 +17,7 @@ Il sito è live dal go-live del 2026-07-13.
 - Per rilanciare un deploy a mano: GitHub → **Actions** → «Pubblica su Aruba (LIVE)» → **Run workflow**.
 - Le credenziali FTP sono nei secret del repository (`FTP_HOST`, `FTP_USERNAME`, `FTP_PASSWORD`).
 - Accesso a Facebook e Instagram tramite API Meta: vedi [`docs/social-meta.md`](docs/social-meta.md).
+- Stato dei lavori e cose in sospeso: [`docs/stato-lavori.md`](docs/stato-lavori.md).
 
 ### Altri workflow (una tantum, avvio solo manuale)
 

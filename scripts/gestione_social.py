@@ -10,6 +10,9 @@ Azioni (variabile AZIONE, o campo "azione" del file comando):
                       un contenitore IG senza pubblicarlo. Nulla diventa visibile.
   elenco              ultimi post di Facebook e Instagram con identificativi
   statistiche         follower e copertura di pagina e account Instagram
+  programma-calendario programma su Facebook i post di social/calendario.json entro 74 giorni
+  pubblica-oggi       pubblica il post del calendario di oggi (Instagram, e Facebook se non programmato);
+                      lo lancia da solo il workflow il lunedì e il giovedì
   pubblica            pubblica su RETE (fb o ig): TESTO, e IMMAGINE_URL (obbligatoria su ig);
                       su fb con QUANDO (es. 2026-10-05T09:00:00+02:00) il post viene programmato
   modifica            riscrive il testo di un post Facebook (ID, TESTO)
@@ -466,7 +469,70 @@ def a_elimina_tutti(rete, conf, **_):
         sys.exit(1)
 
 
+# --- calendario -------------------------------------------------------------
+
+CALENDARIO = Path(os.environ.get("CALENDARIO") or "social/calendario.json")
+
+
+def _roma():
+    from zoneinfo import ZoneInfo
+    return ZoneInfo("Europe/Rome")
+
+
+def _quando(x) -> int:
+    from datetime import datetime
+    return int(datetime.fromisoformat(f"{x['data']}T{x.get('ora', '09:00')}:00").replace(tzinfo=_roma()).timestamp())
+
+
+def _programmati_fb() -> set[int]:
+    r = tutte(f"{PAGE_ID}/scheduled_posts", fields="id,scheduled_publish_time")
+    return {int(x["scheduled_publish_time"]) for x in r if x.get("scheduled_publish_time")}
+
+
+def a_programma_calendario(**_):
+    """Programma su Facebook i post del calendario tra 15 minuti e 74 giorni da adesso, se non già programmati."""
+    gia = _programmati_fb()
+    adesso = time.time()
+    for x in json.loads(CALENDARIO.read_text(encoding="utf-8"))["post"]:
+        ts = _quando(x)
+        if ts in gia:
+            scrivi(f"- {x['data']} «{x['titolo']}»: già programmato")
+        elif adesso + 900 <= ts <= adesso + 74 * 86400:
+            r = chiama("POST", f"{PAGE_ID}/photos", url=x["immagine"], caption=x["fb"],
+                       published="false", scheduled_publish_time=ts)
+            scrivi(f"- {x['data']} «{x['titolo']}»: " + (f"❌ {r['errore']}" if "errore" in r else "programmato"))
+        elif ts > adesso:
+            scrivi(f"- {x['data']} «{x['titolo']}»: oltre 74 giorni, si programma più avanti")
+
+
+def a_pubblica_oggi(**_):
+    """Pubblica il post del calendario di oggi (ora italiana) se è passata l'ora prevista:
+    su Instagram se oggi non c'è già un post; su Facebook se non è già programmato né pubblicato."""
+    from datetime import datetime
+    oggi = datetime.now(_roma())
+    x = next((x for x in json.loads(CALENDARIO.read_text(encoding="utf-8"))["post"] if x["data"] == oggi.strftime("%Y-%m-%d")), None)
+    if not x:
+        scrivi("Nessun post in calendario oggi.")
+        return
+    if time.time() < _quando(x):
+        scrivi(f"Post di oggi «{x['titolo']}» previsto alle {x.get('ora', '09:00')}: non ancora.")
+        return
+    inizio = int(oggi.replace(hour=0, minute=0, second=0, microsecond=0).timestamp())
+    media = chiama("GET", f"{ig_id()}/media", fields="id,timestamp", limit=10).get("data", [])
+    if any(datetime.fromisoformat(m["timestamp"].replace("+0000", "+00:00")).timestamp() >= inizio for m in media):
+        scrivi(f"Instagram: oggi c'è già un post, «{x['titolo']}» non viene ripubblicato.")
+    else:
+        a_pubblica(rete="ig", testo=x["ig"], immagine=x["immagine"])
+    if _quando(x) in _programmati_fb():
+        scrivi("Facebook: programmato, esce da solo.")
+    elif chiama("GET", f"{PAGE_ID}/posts", fields="id", since=inizio, limit=5).get("data"):
+        scrivi("Facebook: oggi c'è già un post.")
+    else:
+        a_pubblica(rete="fb", testo=x["fb"], immagine=x["immagine"])
+
+
 AZIONI = {
+    "programma-calendario": a_programma_calendario, "pubblica-oggi": a_pubblica_oggi,
     "esporta": a_esporta, "elimina-tutti": a_elimina_tutti,
     "prova": a_prova, "elenco": a_elenco, "statistiche": a_statistiche,
     "pubblica": a_pubblica, "modifica": a_modifica, "elimina": a_elimina,

@@ -1,0 +1,460 @@
+{
+ "_nota": "Calendario social Cooprimavera ottobre-dicembre 2026. Ore in ora italiana. Le grafiche si rigenerano con social/grafiche/genera.py e finiscono in static/social/ (online su cooprimavera.com/social/). Stato del lavoro: docs/stato-lavori.md.",
+ "post": [
+  {
+   "data": "2026-10-05",
+   "ora": "09:00",
+   "titolo": "Vent'anni oggi",
+   "pagina_sito": "/chi-siamo/vent-anni/",
+   "immagine": "https://www.cooprimavera.com/social/2026-10-05-vent-anni.jpg",
+   "file": "2026-10-05-vent-anni.jpg",
+   "grafica": {
+    "tipo": "anno",
+    "tema": "Vent'anni",
+    "titolo": "Vent'anni oggi",
+    "sotto": "Cooprimavera Soc. Coop. · Genzano di Roma e Ariccia",
+    "anno": "2006–2026",
+    "foto": "assets/img/lavori/2014-infiorata-genzano.jpg",
+    "fonte_foto": "archivio"
+   },
+   "fb": "Il 5 ottobre 2006, a Lanuvio, nasceva la cooperativa che oggi si chiama Cooprimavera. Oggi compiamo vent'anni.\n\nSiamo a Genzano di Roma, dove ha sede la cooperativa, e ad Ariccia, in via Giuseppe Lugli, con ufficio e magazzino: da qui ogni mattina partono le squadre per Roma e i Castelli Romani. Pulizie, verde, sanificazioni, piccole manutenzioni, eventi.\n\nAbbiamo fatto pulizia anche qui. Da oggi su questa pagina trovate il lavoro vero, una settimana alla volta.\n\nLa nostra storia, anno per anno: cooprimavera.com/chi-siamo/vent-anni",
+   "ig": "Il 5 ottobre 2006 nasceva la cooperativa che oggi si chiama Cooprimavera. Oggi compiamo vent'anni.\n\nAbbiamo fatto pulizia anche qui: da Genzano e Ariccia vi facciamo vedere il lavoro di ogni settimana, tra Roma e i Castelli Romani.\n\nLa storia completa è sul sito, link in bio.\n\n#Cooprimavera #GenzanodiRoma #Ariccia #CastelliRomani"
+  },
+  {
+   "data": "2026-10-08",
+   "ora": "09:00",
+   "titolo": "Da Primavera a Cooprimavera",
+   "pagina_sito": "/chi-siamo/vent-anni/",
+   "immagine": "https://www.cooprimavera.com/social/2026-10-08-da-primavera-a-cooprimavera.jpg",
+   "file": "2026-10-08-da-primavera-a-cooprimavera.jpg",
+   "grafica": {
+    "tipo": "anno",
+    "tema": "Vent'anni · 1 di 6",
+    "titolo": "Da Primavera a Cooprimavera",
+    "sotto": "Vent'anni di Cooprimavera · 1 di 6",
+    "anno": "2006–2012",
+    "foto": "assets/img/lavori/2012-pulizie-uffici.jpg",
+    "fonte_foto": "archivio"
+   },
+   "fb": "Vent'anni di Cooprimavera, 1 di 6.\n\nNel 2006 nasciamo a Lanuvio come «Primavera Onlus», una cooperativa sociale: lo statuto mette al centro il lavoro per chi fa più fatica a trovarlo. Nel 2011 cominciamo con le pulizie, che sono ancora oggi il nostro lavoro principale. Nel 2012 apriamo questa pagina e a novembre la cooperativa prende il nome di Cooprimavera.\n\nNella foto, un ufficio nel marzo 2012.\n\ncooprimavera.com/chi-siamo/vent-anni",
+   "ig": "Vent'anni di Cooprimavera, 1 di 6.\n\n2006: nasciamo a Lanuvio come cooperativa sociale. 2011: le prime pulizie. 2012: diventiamo Cooprimavera.\n\nNella foto, un ufficio nel marzo 2012.\n\n#Cooprimavera #ventanni #CastelliRomani"
+  },
+  {
+   "data": "2026-10-12",
+   "ora": "09:00",
+   "titolo": "Col freddo i topi cercano casa",
+   "pagina_sito": "/servizi/disinfestazioni/",
+   "immagine": "https://www.cooprimavera.com/social/2026-10-12-col-freddo-i-topi-cercano-casa.jpg",
+   "file": "2026-10-12-col-freddo-i-topi-cercano-casa.jpg",
+   "grafica": {
+    "tipo": "foto",
+    "tema": "Disinfestazioni",
+    "titolo": "Col freddo i topi cercano casa",
+    "sotto": "Derattizzazione d'autunno",
+    "foto": "assets/img/squadra-disinfestazione.jpg",
+    "fonte_foto": "repertorio"
+   },
+   "fb": "Con le prime notti fredde topi e ratti cercano riparo al chiuso: cantine, garage, magazzini, locali caldaia.\n\nI segnali da non ignorare: rosicchiature su cassette e cavi, escrementi lungo i muri, rumori nei controsoffitti di notte.\n\nInterveniamo a Roma e in tutti i Castelli Romani per condomini, aziende e privati, con sopralluogo gratuito e prodotti professionali certificati.\n\ncooprimavera.com/servizi/disinfestazioni · 06 63 46 70",
+   "ig": "Con le prime notti fredde topi e ratti cercano riparo in cantine, garage e magazzini.\n\nRosicchiature, escrementi, rumori di notte: meglio chiamarci prima. Sopralluogo gratuito a Roma e Castelli Romani.\n\n#derattizzazione #CastelliRomani #Ariccia"
+  },
+  {
+   "data": "2026-10-15",
+   "ora": "09:00",
+   "titolo": "La fattoria sociale sul lago di Nemi",
+   "pagina_sito": "/lavori/2014-bonifica-terreno-lago-di-nemi/",
+   "immagine": "https://www.cooprimavera.com/social/2026-10-15-la-fattoria-sociale-sul-lago-di-nemi.jpg",
+   "file": "2026-10-15-la-fattoria-sociale-sul-lago-di-nemi.jpg",
+   "grafica": {
+    "tipo": "anno",
+    "tema": "Vent'anni · 2 di 6",
+    "titolo": "La fattoria sociale sul lago di Nemi",
+    "sotto": "Vent'anni di Cooprimavera · 2 di 6",
+    "anno": "2014",
+    "foto": "assets/img/lavori/2014-nemi-lago.jpg",
+    "fonte_foto": "archivio"
+   },
+   "fb": "Vent'anni di Cooprimavera, 2 di 6.\n\nFebbraio 2014: sopra il lago di Nemi c'era un terreno coperto da un roveto enorme. Trinciatrice, decespugliatori e tanto lavoro, e a fine maggio i terrazzamenti erano puliti. A luglio la nostra fattoria sociale vendeva le prime cassette di verdura: zucchine, melanzane, peperoni, pomodori, senza concimi né diserbanti.\n\nLo stesso anno arrivano le sanificazioni e il primo grande evento sportivo, la boxe al PalaTiziano.\n\ncooprimavera.com/lavori",
+   "ig": "Vent'anni di Cooprimavera, 2 di 6.\n\n2014: bonifichiamo un terreno sul lago di Nemi e ci nasce la nostra fattoria sociale.\n\n#Nemi #CastelliRomani #fattoriasociale #Cooprimavera"
+  },
+  {
+   "data": "2026-10-19",
+   "ora": "09:00",
+   "titolo": "Il giardino si prepara adesso",
+   "pagina_sito": "/servizi/giardinaggio/",
+   "immagine": "https://www.cooprimavera.com/social/2026-10-19-il-giardino-si-prepara-adesso.jpg",
+   "file": "2026-10-19-il-giardino-si-prepara-adesso.jpg",
+   "grafica": {
+    "tipo": "foto",
+    "tema": "Giardinaggio",
+    "titolo": "Il giardino si prepara adesso",
+    "sotto": "Ottobre e novembre",
+    "foto": "assets/img/potatura-siepi.jpg",
+    "fonte_foto": "repertorio"
+   },
+   "fb": "Ottobre e novembre sono i mesi giusti per preparare il giardino all'inverno: le ultime rasature del prato, la raccolta delle foglie, le potature di contenimento delle siepi, lo svuotamento degli impianti di irrigazione prima delle gelate.\n\nFacciamo manutenzione ordinaria e straordinaria per privati, condomini e aziende, e lo smaltimento del verde è compreso.\n\nSopralluogo gratuito: cooprimavera.com/servizi/giardinaggio",
+   "ig": "Il giardino si prepara all'inverno adesso: ultime rasature, foglie, siepi, irrigazione da svuotare.\n\nPensiamo a tutto noi, smaltimento compreso. Sopralluogo gratuito.\n\n#giardinaggio #CastelliRomani #Ariccia"
+  },
+  {
+   "data": "2026-10-22",
+   "ora": "09:00",
+   "titolo": "Cerchiamo persone",
+   "pagina_sito": "/lavora-con-noi/",
+   "immagine": "https://www.cooprimavera.com/social/2026-10-22-cerchiamo-persone.jpg",
+   "file": "2026-10-22-cerchiamo-persone.jpg",
+   "grafica": {
+    "tipo": "testo",
+    "tema": "Lavora con noi",
+    "titolo": "Cerchiamo persone",
+    "righe": [
+     "Addette e addetti alle pulizie",
+     "Giardinieri",
+     "Patente B · Roma e Castelli Romani",
+     "Tempo determinato, poi indeterminato"
+    ],
+    "foto": null,
+    "fonte_foto": null
+   },
+   "fb": "Cerchiamo personale per i nostri appalti di Roma e dei Castelli Romani:\n\n· addette e addetti alle pulizie, automuniti, con patente B e disponibilità a spostarsi tra un cantiere e l'altro;\n· giardinieri con esperienza, meglio se con patentini.\n\nContratto a tempo determinato con rinnovo e poi passaggio a indeterminato.\n\nLe posizioni e il modulo per candidarsi: cooprimavera.com/lavora-con-noi",
+   "ig": "Cerchiamo addette e addetti alle pulizie e giardinieri per Roma e Castelli Romani.\n\nPatente B, contratto a tempo determinato e poi indeterminato. Come candidarsi: link in bio.\n\n#lavoro #offertedilavoro #CastelliRomani #Ariccia"
+  },
+  {
+   "data": "2026-10-26",
+   "ora": "09:00",
+   "titolo": "I lavori piccoli che non aspettano",
+   "pagina_sito": "/servizi/piccole-manutenzioni/",
+   "immagine": "https://www.cooprimavera.com/social/2026-10-26-i-lavori-piccoli-che-non-aspettano.jpg",
+   "file": "2026-10-26-i-lavori-piccoli-che-non-aspettano.jpg",
+   "grafica": {
+    "tipo": "foto",
+    "tema": "Piccole manutenzioni",
+    "titolo": "I lavori piccoli che non aspettano",
+    "sotto": "Intonaci, tinte, piastrelle, cancelli",
+    "foto": "assets/img/piccole-manutenzioni.jpg",
+    "fonte_foto": "repertorio"
+   },
+   "fb": "L'intonaco che si stacca dal muretto, la piastrella rotta sul pianerottolo, la ringhiera da riverniciare, il cancello che non chiude.\n\nSono lavori troppo piccoli per un'impresa edile, ma lasciati lì peggiorano. Li facciamo noi, spesso nella stessa giornata delle pulizie o del giardino, con un solo referente.\n\nNon facciamo ristrutturazioni: facciamo piccole manutenzioni, per condomini, uffici, case in vendita e privati.\n\ncooprimavera.com/servizi/piccole-manutenzioni",
+   "ig": "Intonaco che si stacca, piastrella rotta, ringhiera da riverniciare: lavori piccoli, ma da fare.\n\nPiccole manutenzioni per condomini, uffici e privati, insieme a pulizie e verde.\n\n#manutenzione #condominio #CastelliRomani"
+  },
+  {
+   "data": "2026-10-29",
+   "ora": "09:00",
+   "titolo": "Ring, sedie e moquette",
+   "pagina_sito": "/lavori/2016-centenario-federazione-pugilistica-foro-italico/",
+   "immagine": "https://www.cooprimavera.com/social/2026-10-29-ring-sedie-e-moquette.jpg",
+   "file": "2026-10-29-ring-sedie-e-moquette.jpg",
+   "grafica": {
+    "tipo": "anno",
+    "tema": "Vent'anni · 3 di 6",
+    "titolo": "Ring, sedie e moquette",
+    "sotto": "Vent'anni di Cooprimavera · 3 di 6",
+    "anno": "2014–2016",
+    "foto": "assets/img/lavori/2014-palatiziano-ring.jpg",
+    "fonte_foto": "archivio"
+   },
+   "fb": "Vent'anni di Cooprimavera, 3 di 6.\n\nDal 2014 al 2016 abbiamo lavorato molto con la boxe: gli incontri della Federazione Pugilistica Italiana al PalaTiziano, il Campionato dell'Unione Europea al Palazzetto dello Sport, e nel 2016 il centenario della Federazione nella Sala delle Armi del Foro Italico, dove eravamo tra i fornitori ufficiali.\n\nSedute, moquette, palchi e pedane: è lì che abbiamo imparato a montare un evento grande.\n\ncooprimavera.com/lavori",
+   "ig": "Vent'anni di Cooprimavera, 3 di 6.\n\n2014–2016: PalaTiziano, Palazzetto dello Sport, Foro Italico. Sedie, moquette e ring per la boxe.\n\n#boxe #eventi #Roma #Cooprimavera"
+  },
+  {
+   "data": "2026-11-02",
+   "ora": "09:00",
+   "titolo": "Per chi amministra un condominio",
+   "pagina_sito": "/servizi/pulizie-condomini/",
+   "immagine": "https://www.cooprimavera.com/social/2026-11-02-per-chi-amministra-un-condominio.jpg",
+   "file": "2026-11-02-per-chi-amministra-un-condominio.jpg",
+   "grafica": {
+    "tipo": "foto",
+    "tema": "Condomini",
+    "titolo": "Per chi amministra un condominio",
+    "sotto": "Canone fisso, un solo referente",
+    "foto": "assets/img/pulizie.jpg",
+    "fonte_foto": "repertorio"
+   },
+   "fb": "In questo periodo molti condomini fanno l'assemblea e rivedono i contratti. Per gli amministratori, ecco cosa comprende il nostro servizio di pulizie condominiali:\n\nscale e pianerottoli, androne, ascensore, cortili e rampe, garage e cantine, locale rifiuti, vetri e lucernari, con canone fisso e un calendario concordato.\n\nE se servono, con lo stesso referente: verde condominiale, piccole manutenzioni, disinfestazioni, portierato.\n\nPreventivo gratuito: cooprimavera.com/servizi/pulizie-condomini",
+   "ig": "Amministratori di condominio: scale, androni, ascensori, cortili e garage con canone fisso e un solo referente.\n\nAnche verde, piccole manutenzioni e disinfestazioni. Preventivo gratuito.\n\n#condominio #amministratoredicondominio #CastelliRomani"
+  },
+  {
+   "data": "2026-11-05",
+   "ora": "09:00",
+   "titolo": "In tournée con il teatro",
+   "pagina_sito": "/lavori/2020-tournee-montagne-russe/",
+   "immagine": "https://www.cooprimavera.com/social/2026-11-05-in-tournee-con-il-teatro.jpg",
+   "file": "2026-11-05-in-tournee-con-il-teatro.jpg",
+   "grafica": {
+    "tipo": "anno",
+    "tema": "Vent'anni · 4 di 6",
+    "titolo": "In tournée con il teatro",
+    "sotto": "Vent'anni di Cooprimavera · 4 di 6",
+    "anno": "2017–2020",
+    "foto": "assets/img/lavori/2020-montagne-russe.jpg",
+    "fonte_foto": "archivio"
+   },
+   "fb": "Vent'anni di Cooprimavera, 4 di 6.\n\nTra il 2017 e il 2020 il service per lo spettacolo diventa un lavoro di mesi: il tour di Maurizio Battista al Centrale del Tennis, i dieci anni di «Voglia di teatro» della BCC Colli Albani, la data di Brignano a Foligno, le tournée di Corrado Tedeschi con «Partenza in salita» e «Montagne russe».\n\nPalco, luci, audio, video: oggi è il nostro servizio di allestimenti.\n\ncooprimavera.com/servizi/allestimenti-eventi",
+   "ig": "Vent'anni di Cooprimavera, 4 di 6.\n\n2017–2020: in tournée con il teatro. Palco, luci, audio e video, di città in città.\n\n#teatro #service #eventi #Cooprimavera"
+  },
+  {
+   "data": "2026-11-09",
+   "ora": "09:00",
+   "titolo": "Pannelli sporchi, meno energia",
+   "pagina_sito": "/servizi/pulizie-professionali/",
+   "immagine": "https://www.cooprimavera.com/social/2026-11-09-pannelli-sporchi-meno-energia.jpg",
+   "file": "2026-11-09-pannelli-sporchi-meno-energia.jpg",
+   "grafica": {
+    "tipo": "foto",
+    "tema": "Fotovoltaico",
+    "titolo": "Pannelli sporchi, meno energia",
+    "sotto": "Pulizia dei pannelli fotovoltaici",
+    "foto": "assets/img/pulizia-fotovoltaico.jpg",
+    "fonte_foto": "repertorio"
+   },
+   "fb": "Dopo l'estate sui pannelli fotovoltaici restano polvere, smog, guano e muschio. Uno strato di sporco toglie luce alle celle e quindi produzione.\n\nPuliamo impianti su tetti di case, condomini e capannoni con acqua demineralizzata e spazzole specifiche, che non rovinano la superficie dei pannelli.\n\ncooprimavera.com/servizi/pulizie-professionali",
+   "ig": "Polvere, smog e guano dopo l'estate: pannelli sporchi producono meno.\n\nPuliamo impianti su case, condomini e capannoni.\n\n#fotovoltaico #pannellisolari #CastelliRomani"
+  },
+  {
+   "data": "2026-11-12",
+   "ora": "09:00",
+   "titolo": "Foglie, piazze, marciapiedi",
+   "pagina_sito": "/servizi/servizi-comuni-enti/",
+   "immagine": "https://www.cooprimavera.com/social/2026-11-12-foglie-piazze-marciapiedi.jpg",
+   "file": "2026-11-12-foglie-piazze-marciapiedi.jpg",
+   "grafica": {
+    "tipo": "foto",
+    "tema": "Comuni ed enti",
+    "titolo": "Foglie, piazze, marciapiedi",
+    "sotto": "Servizi per comuni ed enti",
+    "foto": "assets/img/decoro-urbano.jpg",
+    "fonte_foto": "repertorio"
+   },
+   "fb": "Per comuni, enti e consorzi dei Castelli Romani: spazzamento di strade e piazze, raccolta delle foglie, diserbo, cura di parchi, aiuole e spartitraffico, pulizia di fontane e bagni pubblici, supporto a mercati e fiere.\n\nSiamo una cooperativa di produzione e lavoro iscritta all'Albo delle cooperative, con l'idoneità per la manutenzione del verde pubblico (legge 154/2016).\n\ncooprimavera.com/servizi/servizi-comuni-enti",
+   "ig": "Strade, piazze, parchi e fontane: servizi di decoro urbano per comuni ed enti dei Castelli Romani.\n\n#decorourbano #comuni #CastelliRomani"
+  },
+  {
+   "data": "2026-11-16",
+   "ora": "09:00",
+   "titolo": "Dove passano tante persone",
+   "pagina_sito": "/servizi/sanificazioni/",
+   "immagine": "https://www.cooprimavera.com/social/2026-11-16-dove-passano-tante-persone.jpg",
+   "file": "2026-11-16-dove-passano-tante-persone.jpg",
+   "grafica": {
+    "tipo": "foto",
+    "tema": "Sanificazioni",
+    "titolo": "Dove passano tante persone",
+    "sotto": "Sanificazione di uffici, scuole, palestre",
+    "foto": "assets/img/lavori/2020-sanificazione-2.jpg",
+    "fonte_foto": "archivio"
+   },
+   "fb": "In inverno uffici, scuole, palestre e studi medici sono pieni e chiusi. Oltre alla pulizia quotidiana, una sanificazione periodica delle superfici e degli ambienti è il modo più semplice di tenerli in ordine.\n\nUsiamo disinfettanti certificati e, dove serve, vapore e trattamento dell'aria. Nella foto, un nostro intervento in un ufficio.\n\ncooprimavera.com/servizi/sanificazioni",
+   "ig": "Uffici, scuole e palestre in inverno: pulizia quotidiana e sanificazioni periodiche con disinfettanti certificati.\n\n#sanificazione #uffici #CastelliRomani"
+  },
+  {
+   "data": "2026-11-19",
+   "ora": "09:00",
+   "titolo": "Sanificare, poi ripartire",
+   "pagina_sito": "/lavori/2020-concerto-palazzo-farnese-caprarola/",
+   "immagine": "https://www.cooprimavera.com/social/2026-11-19-sanificare-poi-ripartire.jpg",
+   "file": "2026-11-19-sanificare-poi-ripartire.jpg",
+   "grafica": {
+    "tipo": "anno",
+    "tema": "Vent'anni · 5 di 6",
+    "titolo": "Sanificare, poi ripartire",
+    "sotto": "Vent'anni di Cooprimavera · 5 di 6",
+    "anno": "2020",
+    "foto": "assets/img/lavori/2020-palazzo-farnese.jpg",
+    "fonte_foto": "archivio"
+   },
+   "fb": "Vent'anni di Cooprimavera, 5 di 6.\n\nPrimavera 2020: sanifichiamo uffici con vapore e ozono. Poi, d'estate, gli spettacoli ripartono e noi con loro. Nella foto il cortile di Palazzo Farnese a Caprarola a luglio 2020, con il pubblico distanziato per il concerto di Luca Ciarla: la parte tecnica era nostra.\n\nLo stesso mese prepariamo verde, interni e pulizie per la nuova filiale della BCC Colli Albani.\n\ncooprimavera.com/lavori",
+   "ig": "Vent'anni di Cooprimavera, 5 di 6.\n\n2020: prima le sanificazioni, poi la ripartenza. Palazzo Farnese, Caprarola, luglio 2020.\n\n#Caprarola #PalazzoFarnese #eventi #Cooprimavera"
+  },
+  {
+   "data": "2026-11-23",
+   "ora": "09:00",
+   "titolo": "Prima e dopo",
+   "pagina_sito": "/servizi/pulizie-professionali/",
+   "immagine": "https://www.cooprimavera.com/social/2026-11-23-prima-e-dopo.jpg",
+   "file": "2026-11-23-prima-e-dopo.jpg",
+   "grafica": {
+    "tipo": "foto",
+    "tema": "Pulizie straordinarie",
+    "titolo": "Prima e dopo",
+    "sotto": "Pietra, cotto e mosaico",
+    "foto": "assets/img/lavori/2014-mosaico.jpg",
+    "fonte_foto": "archivio"
+   },
+   "fb": "Pietra, cotto e mosaici rovinati da muffa, calcare o sporco di anni spesso non vanno cambiati: si recuperano.\n\nMonospazzola, detergenti specifici, poi trattamenti protettivi e, dove serve, la lucidatura. Nella foto un mosaico prima e dopo il nostro intervento.\n\ncooprimavera.com/servizi/pulizie-professionali",
+   "ig": "Prima e dopo: un mosaico riportato al colore originale.\n\nPietra, cotto e mosaici si recuperano con la macchina e il prodotto giusti.\n\n#primaedopo #pulizie #mosaico #CastelliRomani"
+  },
+  {
+   "data": "2026-11-26",
+   "ora": "09:00",
+   "titolo": "Natale si prenota adesso",
+   "pagina_sito": "/servizi/allestimenti-eventi/",
+   "immagine": "https://www.cooprimavera.com/social/2026-11-26-natale-si-prenota-adesso.jpg",
+   "file": "2026-11-26-natale-si-prenota-adesso.jpg",
+   "grafica": {
+    "tipo": "foto",
+    "tema": "Allestimenti",
+    "titolo": "Natale si prenota adesso",
+    "sotto": "Palco, sedie, moquette, luci",
+    "foto": "assets/img/allestimento-palco.jpg",
+    "fonte_foto": "repertorio"
+   },
+   "fb": "Mercatini, presepi viventi, concerti in piazza, feste aziendali: dicembre si riempie presto.\n\nPer comuni, pro loco, parrocchie e aziende montiamo palco modulare, sedie, moquette, audio e luci, con il nostro personale in sala se serve.\n\nMeglio prenotare con qualche settimana di anticipo: cooprimavera.com/servizi/allestimenti-eventi",
+   "ig": "Mercatini, concerti, feste aziendali: dicembre si prenota adesso.\n\nPalco, sedie, moquette, audio e luci a Roma e Castelli Romani.\n\n#Natale #eventi #CastelliRomani"
+  },
+  {
+   "data": "2026-11-30",
+   "ora": "09:00",
+   "titolo": "Se nevica",
+   "pagina_sito": "/servizi/servizi-comuni-enti/",
+   "immagine": "https://www.cooprimavera.com/social/2026-11-30-se-nevica.jpg",
+   "file": "2026-11-30-se-nevica.jpg",
+   "grafica": {
+    "tipo": "testo",
+    "tema": "Comuni e condomini",
+    "titolo": "Se nevica",
+    "righe": [
+     "Sgombero neve da marciapiedi e accessi",
+     "Spargimento del sale",
+     "Comuni, scuole, condomini, aziende",
+     "Meglio accordarsi prima"
+    ],
+    "foto": null,
+    "fonte_foto": null
+   },
+   "fb": "Ai Castelli la neve arriva di rado, ma quando arriva blocca tutto: marciapiedi, scale, accessi a scuole e uffici.\n\nPer comuni, condomini e aziende facciamo sgombero della neve e spargimento del sale. Conviene accordarsi prima dell'inverno, così sappiamo dove andare per primi.\n\ncooprimavera.com/servizi/servizi-comuni-enti · 06 63 46 70",
+   "ig": "Quando nevica ai Castelli si blocca tutto. Sgombero neve e sale per comuni, condomini e aziende: meglio accordarsi prima.\n\n#neve #CastelliRomani #comuni"
+  },
+  {
+   "data": "2026-12-03",
+   "ora": "09:00",
+   "titolo": "Genzano, Ariccia, e da qui in avanti",
+   "pagina_sito": "/chi-siamo/vent-anni/",
+   "immagine": "https://www.cooprimavera.com/social/2026-12-03-genzano-ariccia-e-da-qui-in-avanti.jpg",
+   "file": "2026-12-03-genzano-ariccia-e-da-qui-in-avanti.jpg",
+   "grafica": {
+    "tipo": "anno",
+    "tema": "Vent'anni · 6 di 6",
+    "titolo": "Genzano, Ariccia, e da qui in avanti",
+    "sotto": "Vent'anni di Cooprimavera · 6 di 6",
+    "anno": "2022–2026",
+    "foto": "assets/img/lavori/2022-furgoni.jpg",
+    "fonte_foto": "archivio"
+   },
+   "fb": "Vent'anni di Cooprimavera, 6 di 6.\n\nNel 2022 otteniamo l'idoneità per la manutenzione del verde pubblico e privato. Nel 2023 Alessandro Cuollo, nella cooperativa dai primi anni, ne diventa presidente, e apriamo ufficio e magazzino in via Giuseppe Lugli, ad Ariccia.\n\nOggi siamo qui, tra la sede di Genzano e il magazzino di Ariccia, con i furgoni che ogni mattina partono per Roma e i Castelli. I prossimi vent'anni li trovate su questa pagina e nel registro dei lavori.\n\ncooprimavera.com/lavori",
+   "ig": "Vent'anni di Cooprimavera, 6 di 6.\n\n2023: la sede di Ariccia. Da qui partono ogni mattina le squadre.\n\n#GenzanodiRoma #Ariccia #CastelliRomani #Cooprimavera"
+  },
+  {
+   "data": "2026-12-07",
+   "ora": "09:00",
+   "titolo": "Quello che fa funzionare una struttura",
+   "pagina_sito": "/servizi/servizi-ausiliari/",
+   "immagine": "https://www.cooprimavera.com/social/2026-12-07-quello-che-fa-funzionare-una-struttura.jpg",
+   "file": "2026-12-07-quello-che-fa-funzionare-una-struttura.jpg",
+   "grafica": {
+    "tipo": "foto",
+    "tema": "Servizi ausiliari",
+    "titolo": "Quello che fa funzionare una struttura",
+    "sotto": "Scuole, alberghi, mense, strutture",
+    "foto": "assets/img/servizi-ausiliari.jpg",
+    "fonte_foto": "repertorio"
+   },
+   "fb": "Accanto alle pulizie ci sono tanti lavori che fanno funzionare una scuola, un albergo o una struttura: ausiliari scolastici, riassetto delle camere e rifacimento dei letti, rigoverno di cucine e stoviglie, distribuzione dei pasti, pulizia dei mezzi.\n\nLi facciamo con squadre stabili, che conoscono gli ambienti e le persone.\n\ncooprimavera.com/servizi/servizi-ausiliari",
+   "ig": "Ausiliari scolastici, riassetto camere, cucine e mense, pulizia dei mezzi: i servizi che fanno funzionare una struttura.\n\n#servizi #scuole #alberghi #CastelliRomani"
+  },
+  {
+   "data": "2026-12-10",
+   "ora": "09:00",
+   "titolo": "Lavora con noi nel 2027",
+   "pagina_sito": "/lavora-con-noi/",
+   "immagine": "https://www.cooprimavera.com/social/2026-12-10-lavora-con-noi-nel-2027.jpg",
+   "file": "2026-12-10-lavora-con-noi-nel-2027.jpg",
+   "grafica": {
+    "tipo": "testo",
+    "tema": "Lavora con noi",
+    "titolo": "Lavora con noi nel 2027",
+    "righe": [
+     "Addette e addetti alle pulizie",
+     "Giardinieri",
+     "Patente B",
+     "Contratto con passaggio a indeterminato"
+    ],
+    "foto": null,
+    "fonte_foto": null
+   },
+   "fb": "Per il nuovo anno cerchiamo ancora addette e addetti alle pulizie e giardinieri, per gli appalti di Roma e dei Castelli Romani.\n\nServe la patente B e disponibilità a spostarsi tra un lavoro e l'altro. Contratto a tempo determinato con rinnovo e poi indeterminato.\n\nCandidature: cooprimavera.com/lavora-con-noi",
+   "ig": "Per il 2027 cerchiamo addette e addetti alle pulizie e giardinieri. Patente B, contratto con passaggio a indeterminato.\n\nLink in bio.\n\n#lavoro #offertedilavoro #CastelliRomani"
+  },
+  {
+   "data": "2026-12-14",
+   "ora": "09:00",
+   "titolo": "L'ufficio pulito per gennaio",
+   "pagina_sito": "/servizi/pulizie-uffici/",
+   "immagine": "https://www.cooprimavera.com/social/2026-12-14-l-ufficio-pulito-per-gennaio.jpg",
+   "file": "2026-12-14-l-ufficio-pulito-per-gennaio.jpg",
+   "grafica": {
+    "tipo": "foto",
+    "tema": "Pulizie uffici",
+    "titolo": "L'ufficio pulito per gennaio",
+    "sotto": "Pulizie straordinarie di fine anno",
+    "foto": "assets/img/posizione-pulizie.jpg",
+    "fonte_foto": "repertorio"
+   },
+   "fb": "Molti uffici chiudono tra Natale e l'Epifania: è il momento giusto per le pulizie che durante l'anno si rimandano. Vetri, moquette, archivi, lampade, condizionatori, cucinotti.\n\nOrganizziamo l'intervento a ufficio chiuso, così a gennaio si riparte in ordine.\n\ncooprimavera.com/servizi/pulizie-uffici",
+   "ig": "Ufficio chiuso per le feste? È il momento delle pulizie straordinarie: vetri, moquette, archivi, condizionatori.\n\n#pulizie #uffici #CastelliRomani"
+  },
+  {
+   "data": "2026-12-17",
+   "ora": "09:00",
+   "titolo": "Sedie per la cena di Natale",
+   "pagina_sito": "/servizi/noleggio-sedie/",
+   "immagine": "https://www.cooprimavera.com/social/2026-12-17-sedie-per-la-cena-di-natale.jpg",
+   "file": "2026-12-17-sedie-per-la-cena-di-natale.jpg",
+   "grafica": {
+    "tipo": "foto",
+    "tema": "Noleggio sedie",
+    "titolo": "Sedie per la cena di Natale",
+    "sotto": "Sedia Selena, con consegna e ritiro",
+    "foto": "assets/img/sedia-selena.png",
+    "fonte_foto": "prodotto"
+   },
+   "fb": "Cene aziendali, concerti, recite di Natale, assemblee di fine anno: noleggiamo la sedia Selena, impilabile e certificata, per interni ed esterni.\n\nLa consegniamo, la montiamo e poi la ritiriamo noi.\n\ncooprimavera.com/servizi/noleggio-sedie",
+   "ig": "Cene aziendali, recite, concerti: noleggio sedie con consegna e ritiro a Roma e Castelli Romani.\n\n#noleggiosedie #eventi #Natale"
+  },
+  {
+   "data": "2026-12-24",
+   "ora": "09:00",
+   "titolo": "Buon Natale",
+   "pagina_sito": "/",
+   "immagine": "https://www.cooprimavera.com/social/2026-12-24-buon-natale.jpg",
+   "file": "2026-12-24-buon-natale.jpg",
+   "grafica": {
+    "tipo": "foto",
+    "tema": "Auguri",
+    "titolo": "Buon Natale",
+    "sotto": "da tutta la squadra di Cooprimavera",
+    "foto": "social/grafiche/foto/pexels-3557597-natale.jpg",
+    "fonte_foto": "repertorio"
+   },
+   "fb": "Buon Natale da tutta la squadra di Cooprimavera.\n\nGrazie a chi in questi vent'anni ci ha affidato il suo ufficio, il suo condominio, il suo giardino o il suo evento, e a chi lavora con noi ogni giorno tra Genzano, Ariccia, Roma e i Castelli Romani.\n\nBuone feste a tutti voi.",
+   "ig": "Buon Natale da tutta la squadra di Cooprimavera.\n\nGrazie a clienti, soci e lavoratori per questi vent'anni. Buone feste!\n\n#BuonNatale #Cooprimavera #GenzanodiRoma #Ariccia #CastelliRomani"
+  },
+  {
+   "data": "2026-12-31",
+   "ora": "09:00",
+   "titolo": "Grazie per l'anno dei vent'anni",
+   "pagina_sito": "/lavori/",
+   "immagine": "https://www.cooprimavera.com/social/2026-12-31-grazie-per-l-anno-dei-vent-anni.jpg",
+   "file": "2026-12-31-grazie-per-l-anno-dei-vent-anni.jpg",
+   "grafica": {
+    "tipo": "anno",
+    "tema": "Fine anno",
+    "titolo": "Grazie per l'anno dei vent'anni",
+    "sotto": "Cooprimavera Soc. Coop.",
+    "anno": "2026",
+    "foto": "assets/img/lavori/2020-palazzo-farnese-palco.jpg",
+    "fonte_foto": "archivio"
+   },
+   "fb": "Il 2026 è stato l'anno dei nostri vent'anni: sito nuovo, una pagina ripartita da zero, il registro dei lavori, nuovi servizi per comuni, scuole e strutture.\n\nGrazie a clienti, soci e lavoratori. Buon 2027 da Cooprimavera.\n\ncooprimavera.com",
+   "ig": "Grazie per l'anno dei nostri vent'anni. Buon 2027 da Cooprimavera.\n\n#buonanno #Cooprimavera #CastelliRomani"
+  }
+ ]
+}
