@@ -316,6 +316,9 @@ def scarica(url: str, nome: str) -> str | None:
     try:
         with urllib.request.urlopen(url, timeout=120) as r:
             tipo = r.headers.get("Content-Type", "")
+            if "text/html" in tipo:  # video esterni (YouTube): niente file, resta il link nel post
+                scrivi(f"- ℹ️ {nome}: contenuto esterno, non scaricato ({url[:80]})")
+                return None
             est = ".mp4" if "video" in tipo else ".png" if "png" in tipo else ".jpg"
             f = ARCHIVIO / (nome + est)
             f.parent.mkdir(parents=True, exist_ok=True)
@@ -384,7 +387,15 @@ def a_esporta(**_):
                     file.append(f)
         indice["ig"].append({"id": m["id"], "data": data, "testo": m.get("caption") or "",
                              "link": m.get("permalink", ""), "tipo": m.get("media_type", ""), "file": file})
+    scrivi(f"- esportati ora: {len(indice['fb'])} post Facebook, {len(indice['ig'])} Instagram")
     ARCHIVIO.mkdir(parents=True, exist_ok=True)
+    # Unisce all'archivio già presente: i post cancellati restano, i nuovi si aggiungono
+    vecchio = ARCHIVIO / "dati.json"
+    if vecchio.exists():
+        prima = json.loads(vecchio.read_text(encoding="utf-8"))
+        for rete in ("fb", "ig"):
+            nuovi = {x["id"] for x in indice[rete]}
+            indice[rete] = [x for x in prima.get(rete, []) if x["id"] not in nuovi] + indice[rete]
     (ARCHIVIO / "dati.json").write_text(json.dumps(indice, ensure_ascii=False, indent=1), encoding="utf-8")
     md = [f"# Archivio social Cooprimavera ({time.strftime('%d/%m/%Y')})", "",
           "Copia di testi, date, link e immagini dei post prima della ripartenza da zero.", ""]
@@ -392,7 +403,8 @@ def a_esporta(**_):
         md += [f"## {nome} — {len(indice[rete])} post", ""]
         for x in sorted(indice[rete], key=lambda x: x["data"]):
             md.append(f"### {x['data']} — [{x['id']}]({x['link']})" + (" (foto profilo/copertina: non si cancella)" if x.get("intoccabile") else ""))
-            md += ["", x["testo"] or "_(senza testo)_", ""] + [f"![]({f})" if f.endswith((".jpg", ".png")) else f"[video]({f})" for f in x["file"]] + [""]
+            md += ["", x["testo"] or "_(senza testo)_", ""] + [f"![]({f})" if f.endswith((".jpg", ".png")) else f"[video]({f})" for f in x["file"]]
+            md += [f"Video YouTube: {v}" for v in x.get("video_esterni", [])] + [""]
     (ARCHIVIO / "README.md").write_text("\n".join(md), encoding="utf-8")
     for rete, nome in (("fb", "Facebook"), ("ig", "Instagram")):
         n_file = sum(len(x["file"]) for x in indice[rete])
