@@ -1,0 +1,139 @@
+{
+  "tema": "Disinfestazioni",
+  "copertina": 12.0,
+  "musica": {
+    "file": "social/video/musica/sneaky-snitch.mp3",
+    "titolo": "Sneaky Snitch",
+    "volume": 0.2
+  },
+  "scene": [
+    {
+      "tipo": "parole",
+      "durata": 2.4,
+      "parole": [
+        "Fa freddo.",
+        "I topi cercano",
+        "casa."
+      ],
+      "voce": "Fa freddo. E i topi cercano casa."
+    },
+    {
+      "tipo": "clip",
+      "durata": 3.0,
+      "titolo": "Ospiti indesiderati",
+      "clip": "social/video/clip/pexels-12281161-topo.mp4",
+      "da": 0,
+      "didascalie": [
+        {
+          "t": 0.3,
+          "testo": "Cantine, garage, magazzini, locali caldaia.",
+          "voce": "Con il freddo cercano riparo: cantine, garage, magazzini."
+        }
+      ]
+    },
+    {
+      "tipo": "disegno",
+      "durata": 8.0,
+      "titolo": "Da dove entrano",
+      "disegno": "social/disegni/topi-dove-entrano.svg",
+      "didascalie": [
+        {
+          "t": 0.3,
+          "testo": "Ecco i punti deboli di un edificio.",
+          "voce": "Da dove entrano?"
+        },
+        {
+          "t": 2.0,
+          "testo": "1. Dalla fessura sotto la porta del garage.",
+          "voce": "Sotto la porta del garage."
+        },
+        {
+          "t": 3.3,
+          "testo": "2. Lungo i tubi che attraversano i muri.",
+          "voce": "Lungo i tubi nei muri."
+        },
+        {
+          "t": 4.6,
+          "testo": "3. Dalle griglie di aerazione rotte.",
+          "voce": "Dalle griglie rotte."
+        },
+        {
+          "t": 5.9,
+          "testo": "4. E poi su, fino al controsoffitto.",
+          "voce": "E su, fino al controsoffitto."
+        }
+      ]
+    },
+    {
+      "tipo": "disegno",
+      "durata": 5.0,
+      "titolo": "I segnali",
+      "disegno": "social/disegni/topi-segnali.svg",
+      "didascalie": [
+        {
+          "t": 0.6,
+          "testo": "Cavi rosicchiati.",
+          "voce": "I segnali: cavi rosicchiati,"
+        },
+        {
+          "t": 1.6,
+          "testo": "Escrementi lungo i muri.",
+          "voce": "escrementi,"
+        },
+        {
+          "t": 2.4,
+          "testo": "Rumori di notte nel controsoffitto.",
+          "voce": "rumori di notte."
+        },
+        {
+          "t": 3.8,
+          "testo": "Se li notate, non aspettate la primavera.",
+          "voce": "Non aspettate la primavera."
+        }
+      ]
+    },
+    {
+      "tipo": "disegno",
+      "durata": 6.0,
+      "titolo": "Cosa facciamo",
+      "disegno": "social/disegni/topi-cosa-facciamo.svg",
+      "didascalie": [
+        {
+          "t": 0.3,
+          "testo": "1. Sopralluogo gratuito.",
+          "voce": "Noi: sopralluogo gratuito,"
+        },
+        {
+          "t": 1.9,
+          "testo": "2. Postazioni numerate, chiuse in contenitori di sicurezza.",
+          "voce": "postazioni chiuse e numerate,"
+        },
+        {
+          "t": 3.7,
+          "testo": "3. Controlli periodici nel tempo.",
+          "voce": "controlli nel tempo."
+        },
+        {
+          "t": 4.8,
+          "testo": "Prodotti professionali certificati."
+        }
+      ]
+    },
+    {
+      "tipo": "fine",
+      "durata": 3.6,
+      "parole": [
+        "Topi in cantina?"
+      ],
+      "testo": [
+        "Sopralluogo gratuito, da Genzano e Ariccia.",
+        "Telefono e WhatsApp 06 63 46 70"
+      ],
+      "voce": "Cooprimavera, Genzano e Ariccia. Chiamate o scrivete su WhatsApp allo zero sei, sessantatré, quarantasei, settanta."
+    }
+  ],
+  "voci": [
+    "if_sara",
+    "im_nicola"
+  ]
+}

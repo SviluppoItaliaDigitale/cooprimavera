@@ -1,0 +1,108 @@
+{
+  "tema": "Pulizia pannelli fotovoltaici",
+  "copertina": 11.0,
+  "musica": {
+    "file": "social/video/musica/carefree.mp3",
+    "titolo": "Carefree",
+    "volume": 0.2
+  },
+  "scene": [
+    {
+      "tipo": "parole",
+      "durata": 2.4,
+      "parole": [
+        "Pannelli sporchi,",
+        "meno energia."
+      ],
+      "voce": "Pannelli sporchi? Meno energia."
+    },
+    {
+      "tipo": "clip",
+      "durata": 3.0,
+      "titolo": "Dopo l'estate",
+      "clip": "social/video/clip/pexels-9788591-pannello.mp4",
+      "da": 0,
+      "didascalie": [
+        {
+          "t": 0.3,
+          "testo": "Polvere, smog, guano, muschio.",
+          "voce": "Dopo l'estate: polvere, smog, guano, muschio."
+        }
+      ]
+    },
+    {
+      "tipo": "disegno",
+      "durata": 5.2,
+      "titolo": "Cosa succede",
+      "disegno": "social/disegni/pannello-sporco.svg",
+      "didascalie": [
+        {
+          "t": 0.3,
+          "testo": "Il sole arriva sui pannelli…",
+          "voce": "Il sole arriva sui pannelli,"
+        },
+        {
+          "t": 2.6,
+          "testo": "…ma lo sporco toglie luce alle celle, e quindi produzione.",
+          "voce": "ma lo sporco toglie luce alle celle, e quindi produzione."
+        }
+      ]
+    },
+    {
+      "tipo": "disegno",
+      "durata": 5.6,
+      "titolo": "Come puliamo",
+      "disegno": "social/disegni/pannello-pulizia.svg",
+      "didascalie": [
+        {
+          "t": 0.3,
+          "testo": "Acqua demineralizzata e spazzole specifiche, che non rovinano la superficie.",
+          "voce": "Li puliamo con acqua demineralizzata e spazzole specifiche."
+        }
+      ]
+    },
+    {
+      "tipo": "clip",
+      "durata": 4.0,
+      "titolo": "Sul tetto",
+      "clip": "social/video/clip/pexels-12646455-lavaggio-pannelli.mp4",
+      "da": 0.5,
+      "didascalie": [
+        {
+          "t": 0.3,
+          "testo": "Case, condomini e capannoni.",
+          "voce": "Su case, condomini e capannoni."
+        }
+      ]
+    },
+    {
+      "tipo": "disegno",
+      "durata": 4.4,
+      "titolo": "Pannelli puliti",
+      "disegno": "social/disegni/pannello-pulito.svg",
+      "didascalie": [
+        {
+          "t": 0.3,
+          "testo": "Più luce sulle celle, più energia.",
+          "voce": "Pannelli puliti: più luce sulle celle, più energia."
+        }
+      ]
+    },
+    {
+      "tipo": "fine",
+      "durata": 3.6,
+      "parole": [
+        "Pannelli da pulire?"
+      ],
+      "testo": [
+        "Preventivi, da Genzano e Ariccia.",
+        "Telefono e WhatsApp 06 63 46 70"
+      ],
+      "voce": "Cooprimavera, Genzano e Ariccia. Chiamate o scrivete su WhatsApp allo zero sei, sessantatré, quarantasei, settanta."
+    }
+  ],
+  "voci": [
+    "if_sara",
+    "im_nicola"
+  ]
+}

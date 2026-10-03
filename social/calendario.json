@@ -1,5 +1,5 @@
 {
- "_nota": "Calendario social Cooprimavera ottobre-dicembre 2026. Ore in ora italiana. Le grafiche si rigenerano con social/grafiche/genera.py e finiscono in static/social/ (online su cooprimavera.com/social/). Stato del lavoro: docs/stato-lavori.md.",
+ "_nota": "Calendario social Cooprimavera ottobre-dicembre 2026. Ore in ora italiana. Le grafiche si rigenerano con social/grafiche/genera.js e finiscono in static/social/ (online su cooprimavera.com/social/). Con \"video\" il post esce come Reel su Instagram (e video su Facebook se non già programmato): i video si generano con social/video/genera.js. Stato del lavoro: docs/stato-lavori.md.",
  "post": [
   {
    "data": "2026-10-05",
@@ -46,6 +46,7 @@
    "pagina_sito": "/servizi/disinfestazioni/",
    "immagine": "https://www.cooprimavera.com/social/2026-10-12-col-freddo-i-topi-cercano-casa.jpg",
    "file": "2026-10-12-col-freddo-i-topi-cercano-casa.jpg",
+   "video": "https://www.cooprimavera.com/social/video/topi.mp4",
    "grafica": {
     "tipo": "foto",
     "tema": "Disinfestazioni",
@@ -54,8 +55,8 @@
     "foto": "assets/img/squadra-disinfestazione.jpg",
     "fonte_foto": "repertorio"
    },
-   "fb": "Con le prime notti fredde topi e ratti cercano riparo al chiuso: cantine, garage, magazzini, locali caldaia.\n\nI segnali da non ignorare: rosicchiature su cassette e cavi, escrementi lungo i muri, rumori nei controsoffitti di notte.\n\nInterveniamo a Roma e in tutti i Castelli Romani per condomini, aziende e privati, con sopralluogo gratuito e prodotti professionali certificati.\n\ncooprimavera.com/servizi/disinfestazioni · 06 63 46 70",
-   "ig": "Con le prime notti fredde topi e ratti cercano riparo in cantine, garage e magazzini.\n\nRosicchiature, escrementi, rumori di notte: meglio chiamarci prima. Sopralluogo gratuito a Roma e Castelli Romani.\n\n#derattizzazione #CastelliRomani #Ariccia"
+   "fb": "Con le prime notti fredde topi e ratti cercano riparo al chiuso: cantine, garage, magazzini, locali caldaia.\n\nI segnali da non ignorare: rosicchiature su cassette e cavi, escrementi lungo i muri, rumori nei controsoffitti di notte.\n\nInterveniamo a Roma e in tutti i Castelli Romani per condomini, aziende e privati, con sopralluogo gratuito e prodotti professionali certificati.\n\ncooprimavera.com/servizi/disinfestazioni · 06 63 46 70\n\nMusica del video: «Sneaky Snitch», Kevin MacLeod (incompetech.com), licenza CC BY 4.0.",
+   "ig": "Con le prime notti fredde topi e ratti cercano riparo in cantine, garage e magazzini.\n\nRosicchiature, escrementi, rumori di notte: meglio chiamarci prima. Sopralluogo gratuito a Roma e Castelli Romani.\n\n#derattizzazione #CastelliRomani #Ariccia\n\nMusica del video: «Sneaky Snitch», Kevin MacLeod (incompetech.com), licenza CC BY 4.0."
   },
   {
    "data": "2026-10-15",
@@ -142,6 +143,7 @@
    "pagina_sito": "/lavori/2016-centenario-federazione-pugilistica-foro-italico/",
    "immagine": "https://www.cooprimavera.com/social/2026-10-29-ring-sedie-e-moquette.jpg",
    "file": "2026-10-29-ring-sedie-e-moquette.jpg",
+   "video": "https://www.cooprimavera.com/social/video/allestimenti.mp4",
    "grafica": {
     "tipo": "anno",
     "tema": "Vent'anni · 3 di 6",
@@ -151,8 +153,8 @@
     "foto": "assets/img/lavori/2014-palatiziano-ring.jpg",
     "fonte_foto": "archivio"
    },
-   "fb": "Vent'anni di Cooprimavera, 3 di 6.\n\nDal 2014 al 2016 abbiamo lavorato molto con la boxe: gli incontri della Federazione Pugilistica Italiana al PalaTiziano, il Campionato dell'Unione Europea al Palazzetto dello Sport, e nel 2016 il centenario della Federazione nella Sala delle Armi del Foro Italico, dove eravamo tra i fornitori ufficiali.\n\nSedute, moquette, palchi e pedane: è lì che abbiamo imparato a montare un evento grande.\n\ncooprimavera.com/lavori",
-   "ig": "Vent'anni di Cooprimavera, 3 di 6.\n\n2014–2016: PalaTiziano, Palazzetto dello Sport, Foro Italico. Sedie, moquette e ring per la boxe.\n\n#boxe #eventi #Roma #Cooprimavera"
+   "fb": "Vent'anni di Cooprimavera, 3 di 6.\n\nDal 2014 al 2016 abbiamo lavorato molto con la boxe: gli incontri della Federazione Pugilistica Italiana al PalaTiziano, il Campionato dell'Unione Europea al Palazzetto dello Sport, e nel 2016 il centenario della Federazione nella Sala delle Armi del Foro Italico, dove eravamo tra i fornitori ufficiali.\n\nSedute, moquette, palchi e pedane: è lì che abbiamo imparato a montare un evento grande.\n\ncooprimavera.com/lavori\n\nMusica del video: «Life of Riley», Kevin MacLeod (incompetech.com), licenza CC BY 4.0.",
+   "ig": "Vent'anni di Cooprimavera, 3 di 6.\n\n2014–2016: PalaTiziano, Palazzetto dello Sport, Foro Italico. Sedie, moquette e ring per la boxe.\n\n#boxe #eventi #Roma #Cooprimavera\n\nMusica del video: «Life of Riley», Kevin MacLeod (incompetech.com), licenza CC BY 4.0."
   },
   {
    "data": "2026-11-02",
@@ -198,6 +200,7 @@
    "pagina_sito": "/servizi/pulizie-professionali/",
    "immagine": "https://www.cooprimavera.com/social/2026-11-09-pannelli-sporchi-meno-energia.jpg",
    "file": "2026-11-09-pannelli-sporchi-meno-energia.jpg",
+   "video": "https://www.cooprimavera.com/social/video/fotovoltaico.mp4",
    "grafica": {
     "tipo": "foto",
     "tema": "Fotovoltaico",
@@ -206,8 +209,8 @@
     "foto": "assets/img/pulizia-fotovoltaico.jpg",
     "fonte_foto": "repertorio"
    },
-   "fb": "Dopo l'estate sui pannelli fotovoltaici restano polvere, smog, guano e muschio. Uno strato di sporco toglie luce alle celle e quindi produzione.\n\nPuliamo impianti su tetti di case, condomini e capannoni con acqua demineralizzata e spazzole specifiche, che non rovinano la superficie dei pannelli.\n\ncooprimavera.com/servizi/pulizie-professionali",
-   "ig": "Polvere, smog e guano dopo l'estate: pannelli sporchi producono meno.\n\nPuliamo impianti su case, condomini e capannoni.\n\n#fotovoltaico #pannellisolari #CastelliRomani"
+   "fb": "Dopo l'estate sui pannelli fotovoltaici restano polvere, smog, guano e muschio. Uno strato di sporco toglie luce alle celle e quindi produzione.\n\nPuliamo impianti su tetti di case, condomini e capannoni con acqua demineralizzata e spazzole specifiche, che non rovinano la superficie dei pannelli.\n\ncooprimavera.com/servizi/pulizie-professionali\n\nMusica del video: «Carefree», Kevin MacLeod (incompetech.com), licenza CC BY 4.0.",
+   "ig": "Polvere, smog e guano dopo l'estate: pannelli sporchi producono meno.\n\nPuliamo impianti su case, condomini e capannoni.\n\n#fotovoltaico #pannellisolari #CastelliRomani\n\nMusica del video: «Carefree», Kevin MacLeod (incompetech.com), licenza CC BY 4.0."
   },
   {
    "data": "2026-11-12",

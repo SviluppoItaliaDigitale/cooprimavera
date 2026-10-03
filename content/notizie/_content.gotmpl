@@ -13,6 +13,7 @@
       "content" (dict "mediaType" "text/markdown" "value" $testo)
       "params" (dict
         "grafica" (printf "/social/%s" .file)
+        "video" (strings.TrimPrefix "https://www.cooprimavera.com" (.video | default ""))
         "tema" .grafica.tema
         "pagina_sito" .pagina_sito
         "immagine" (cond (strings.HasPrefix $foto "assets/") (strings.TrimPrefix "assets/" $foto) "")

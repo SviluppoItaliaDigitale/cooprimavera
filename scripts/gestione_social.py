@@ -14,7 +14,8 @@ Azioni (variabile AZIONE, o campo "azione" del file comando):
   pubblica-oggi       pubblica il post del calendario di oggi (Instagram, e Facebook se non programmato);
                       lo lancia da solo il workflow il lunedì e il giovedì
   pubblica            pubblica su RETE (fb o ig): TESTO, e IMMAGINE_URL (obbligatoria su ig);
-                      su fb con QUANDO (es. 2026-10-05T09:00:00+02:00) il post viene programmato
+                      su fb con QUANDO (es. 2026-10-05T09:00:00+02:00) il post viene programmato;
+                      se IMMAGINE_URL è un .mp4 pubblica un video (Reel su ig)
   modifica            riscrive il testo di un post Facebook (ID, TESTO)
   elimina             elimina un post (RETE, ID; su ig va bene anche il permalink) — CONFERMA=ELIMINA
   commenti            commenti di un post (RETE, ID)
@@ -211,6 +212,10 @@ def a_pubblica(rete, testo, immagine, quando="", **_):
         if not 600 <= ts - time.time() <= 75 * 86400:
             esci("la data programmata deve essere tra 10 minuti e 75 giorni da adesso")
         prog = {"published": "false", "scheduled_publish_time": ts}
+    if rete not in ("fb", "ig"):
+        esci("rete deve essere fb o ig")
+    if immagine.lower().endswith(".mp4"):
+        return pubblica_video(rete, testo, immagine, **prog)
     if rete == "fb":
         if immagine:
             r = chiama("POST", f"{PAGE_ID}/photos", url=immagine, caption=testo, **prog)
@@ -234,6 +239,30 @@ def a_pubblica(rete, testo, immagine, quando="", **_):
         scrivi(f"Pubblicato su Instagram: `{r['id']}` {link}")
     else:
         esci("rete deve essere fb o ig")
+
+
+def pubblica_video(rete, testo, video, **prog):
+    """Video verticale: Reel su Instagram, video della pagina su Facebook. Copertina: stesso nome in .jpg."""
+    if rete == "fb":
+        r = chiama("POST", f"{PAGE_ID}/videos", file_url=video, description=testo, **prog)
+        return esito(r, f"Video {'programmato' if prog else 'pubblicato'} su Facebook: `{r.get('id')}`")
+    i = ig_id()
+    c = chiama("POST", f"{i}/media", media_type="REELS", video_url=video, caption=testo,
+               cover_url=video[:-4] + ".jpg", share_to_feed="true")
+    if "errore" in c:
+        esci(c["errore"])
+    for _ in range(60):  # Instagram elabora il video: di solito meno di un minuto
+        s = chiama("GET", c["id"], fields="status_code").get("status_code")
+        if s == "FINISHED":
+            break
+        if s == "ERROR":
+            esci("Instagram non è riuscito a elaborare il video")
+        time.sleep(5)
+    r = chiama("POST", f"{i}/media_publish", creation_id=c["id"])
+    if "errore" in r:
+        esci(r["errore"])
+    link = chiama("GET", r["id"], fields="permalink").get("permalink", "")
+    scrivi(f"Reel pubblicato su Instagram: `{r['id']}` {link}")
 
 
 def a_modifica(rete, ident, testo, **_):
@@ -523,13 +552,13 @@ def a_pubblica_oggi(**_):
     if any(datetime.fromisoformat(m["timestamp"].replace("+0000", "+00:00")).timestamp() >= inizio for m in media):
         scrivi(f"Instagram: oggi c'è già un post, «{x['titolo']}» non viene ripubblicato.")
     else:
-        a_pubblica(rete="ig", testo=x["ig"], immagine=x["immagine"])
+        a_pubblica(rete="ig", testo=x["ig"], immagine=x.get("video") or x["immagine"])
     if _quando(x) in _programmati_fb():
         scrivi("Facebook: programmato, esce da solo.")
     elif chiama("GET", f"{PAGE_ID}/posts", fields="id", since=inizio, limit=5).get("data"):
         scrivi("Facebook: oggi c'è già un post.")
     else:
-        a_pubblica(rete="fb", testo=x["fb"], immagine=x["immagine"])
+        a_pubblica(rete="fb", testo=x["fb"], immagine=x.get("video") or x["immagine"])
 
 
 AZIONI = {

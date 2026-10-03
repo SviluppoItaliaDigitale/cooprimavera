@@ -1,0 +1,78 @@
+{
+  "tema": "Allestimenti per eventi",
+  "copertina": 6.0,
+  "scene": [
+    {
+      "tipo": "parole",
+      "durata": 2.6,
+      "parole": [
+        "Palco.",
+        "Sedie.",
+        "Moquette.",
+        "Luci."
+      ],
+      "voce": "Palco, sedie, moquette, luci."
+    },
+    {
+      "tipo": "foto",
+      "durata": 3.2,
+      "titolo": "Ring, sedute e moquette",
+      "foto": "assets/img/lavori/2014-palatiziano-ring.jpg",
+      "dove": "PalaTiziano, Roma",
+      "anno": "2014",
+      "cosa": "Boxe con la Federazione Pugilistica Italiana",
+      "voce": "Duemilaquattordici, PalaTiziano di Roma: ring, sedute e moquette."
+    },
+    {
+      "tipo": "foto",
+      "durata": 3.2,
+      "titolo": "Moquette certificata",
+      "foto": "assets/img/lavori/2016-moquette-studio-tv.jpg",
+      "dove": "Studio televisivo, Roma",
+      "anno": "2016",
+      "cosa": "Tagliata su misura e posata",
+      "voce": "Duemilasedici: moquette certificata per uno studio televisivo."
+    },
+    {
+      "tipo": "foto",
+      "durata": 3.2,
+      "titolo": "In tournée col teatro",
+      "foto": "assets/img/lavori/2020-montagne-russe-truss.jpg",
+      "dove": "«Montagne russe», 2019–2020",
+      "anno": "2020",
+      "cosa": "Full service in ogni teatro",
+      "voce": "Duemilaventi: in tournée con il teatro."
+    },
+    {
+      "tipo": "foto",
+      "durata": 3.2,
+      "titolo": "Audio e luci in cortile",
+      "foto": "assets/img/lavori/2020-palazzo-farnese-palco.jpg",
+      "dove": "Palazzo Farnese, Caprarola",
+      "anno": "2020",
+      "cosa": "Concerto di Luca Ciarla",
+      "voce": "E audio e luci a Palazzo Farnese, Caprarola."
+    },
+    {
+      "tipo": "fine",
+      "durata": 3.6,
+      "parole": [
+        "Il vostro evento?"
+      ],
+      "testo": [
+        "Da Genzano e Ariccia, per Roma e i Castelli Romani.",
+        "Telefono e WhatsApp 06 63 46 70"
+      ],
+      "voce": "Il vostro evento? Cooprimavera, Genzano e Ariccia. Chiamate o scrivete su WhatsApp allo zero sei, sessantatré, quarantasei, settanta."
+    }
+  ],
+  "musica": {
+    "file": "social/video/musica/life-of-riley.mp3",
+    "titolo": "Life of Riley",
+    "volume": 0.2
+  },
+  "voci": [
+    "if_sara",
+    "im_nicola"
+  ]
+}
