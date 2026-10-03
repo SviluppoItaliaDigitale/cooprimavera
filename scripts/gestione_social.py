@@ -212,6 +212,8 @@ def a_pubblica(rete, testo, immagine, quando="", **_):
         if not 600 <= ts - time.time() <= 75 * 86400:
             esci("la data programmata deve essere tra 10 minuti e 75 giorni da adesso")
         prog = {"published": "false", "scheduled_publish_time": ts}
+    if rete not in ("fb", "ig"):
+        esci("rete deve essere fb o ig")
     if immagine.lower().endswith(".mp4"):
         return pubblica_video(rete, testo, immagine, **prog)
     if rete == "fb":
