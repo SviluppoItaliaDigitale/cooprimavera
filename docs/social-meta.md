@@ -141,8 +141,8 @@ Numeri di telefono e anni nella voce vanno scritti in lettere.
 **Fonti e licenze**
 - Musica: Kevin MacLeod (incompetech.com), licenza CC BY 4.0: «Sneaky Snitch»
   (topi), «Life of Riley» (allestimenti), «Carefree» (fotovoltaico). La licenza
-  chiede la citazione: è nel cartello finale del video e in fondo al testo del
-  post («Musica del video: …»).
+  chiede la citazione: è nel cartello finale del video, in piccolo e poco
+  visibile come chiesto da Alessandro, e in fondo al testo del post («Musica «…» Kevin MacLeod, …»).
 - Clip: Pexels (licenza Pexels, uso libero): 12281161 (topo), 9788591 (pannello
   da vicino), 12646455 (lavaggio pannelli con spazzola).
 - Voce: Kokoro-82M (Apache 2.0) con kokoro-onnx 0.6.1 (MIT); la pronuncia passa
