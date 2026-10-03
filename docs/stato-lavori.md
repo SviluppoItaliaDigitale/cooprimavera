@@ -26,16 +26,14 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
   `programma-calendario` (3/10). Dal 2 novembre vanno programmati più avanti
   (limite di circa 30 giorni per i post con foto): rilanciare
   `programma-calendario` verso il 25 ottobre e il 20 novembre.
-- **Lunedì 5/10/2026 ore 9:00, Instagram**: lo pubblica una routine che apre
-  una sessione nuova (azione `pubblica-oggi`).
+- **Dal 5/10/2026, Instagram, Facebook e sito**: pubblicazione automatica il
+  lunedì e il giovedì alle 9 (workflow su `main`).
 
 ## Da decidere / da fare
-1. **Resto del calendario**: Alessandro deve scegliere tra
-   - A) pubblicazione automatica lunedì e giovedì alle 9:00 (cron nel workflow
-     con `pubblica-oggi`; serve la sua conferma esplicita, il controllo
-     permessi l'ha bloccata senza);
-   - B) `programma-calendario` per Facebook (fino a 28 giorni avanti, da rilanciare ogni 2-3 settimane) e
-     Instagram pubblicato a mano o su richiesta.
+1. **Pubblicazione automatica**: decisa da Alessandro il 3/10 («trova te il
+   sistema migliore, tutto automaticamente»): social e sito escono da soli il
+   lunedì e il giovedì alle 9 (vedi `docs/social-meta.md`). Da tenere d'occhio
+   le prime uscite.
 2. Se vuole il logo grande anche sul post del 5/10 su Facebook: cancellare il
    post programmato e riprogrammarlo con la grafica nuova.
 3. Sostituire con foto vere le 10 grafiche con foto di repertorio

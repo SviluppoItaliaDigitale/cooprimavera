@@ -1,0 +1,21 @@
+{{- /* Content adapter: una pagina per ogni post di social/calendario.json.
+       Le pagine con data futura non vengono pubblicate (buildFuture è spento):
+       compaiono quando il sito si ricompila dopo l'ora del post. */ -}}
+{{- $cal := os.ReadFile "social/calendario.json" | transform.Unmarshal }}
+{{- range $cal.post }}
+  {{- $foto := .grafica.foto | default "" }}
+  {{- $testo := replaceRE `(cooprimavera\.com(/[a-z0-9/\-]*)?)` "[$1](https://www.$1)" .fb }}
+  {{- $testo = replace $testo "\n" "\n\n" }}
+  {{- $.AddPage (dict
+      "path" (strings.TrimSuffix ".jpg" .file)
+      "title" .titolo
+      "dates" (dict "date" (time.AsTime (printf "%sT%s:00" .data .ora)))
+      "content" (dict "mediaType" "text/markdown" "value" $testo)
+      "params" (dict
+        "grafica" (printf "/social/%s" .file)
+        "tema" .grafica.tema
+        "pagina_sito" .pagina_sito
+        "immagine" (cond (strings.HasPrefix $foto "assets/") (strings.TrimPrefix "assets/" $foto) "")
+        "description" (truncate 155 (plainify (index (split .fb "\n\n") 0))))
+  ) }}
+{{- end }}

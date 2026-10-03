@@ -105,3 +105,23 @@ perché Instagram vuole un indirizzo pubblico.
 - `pubblica-oggi`: pubblica il post del giorno su Instagram e, se non era già
   programmato, su Facebook; non pubblica due volte lo stesso giorno.
 
+## Pubblicazione automatica (attivata il 3/10/2026 su richiesta di Alessandro)
+
+- **Social**: il workflow «🛠️ Gestione social» parte da solo il lunedì e il
+  giovedì (07:00 e 08:00 UTC, cioè le 9:00 italiane con l'ora legale e con
+  quella solare) con `pubblica-oggi`: pubblica su Instagram e su Facebook il post
+  di quel giorno preso da `social/calendario.json`. Salta Facebook se il post è
+  già programmato o pubblicato, salta Instagram se oggi c'è già un post.
+- **Sito**: ogni post del calendario è anche una pagina in `/notizie/`, creata da
+  `content/notizie/_content.gotmpl` (content adapter di Hugo). Le pagine con data
+  futura non vengono pubblicate (`buildFuture = false`); il workflow «Pubblica su
+  Aruba» ricompila il sito il lunedì e il giovedì alle 07:20 e 08:20 UTC, così la
+  notizia esce insieme al post. In home il riquadro «Dalla nostra pagina» mostra
+  le ultime tre.
+- **Cosa viene pubblicato**: solo quello che è in `social/calendario.json` su
+  `main`, cioè passato da una PR approvata. Per aggiungere post: righe nuove nel
+  calendario, grafiche con `node social/grafiche/genera.js`, PR.
+- **Per fermare tutto**: GitHub → Actions → «🛠️ Gestione social» → ⋯ →
+  Disable workflow (e lo stesso per l'avvio programmato di «Pubblica su Aruba»,
+  togliendo `schedule` da `deploy.yml`).
+
