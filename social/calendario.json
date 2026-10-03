@@ -1,5 +1,5 @@
 {
- "_nota": "Calendario social Cooprimavera ottobre-dicembre 2026. Ore in ora italiana. Le grafiche si rigenerano con social/grafiche/genera.py e finiscono in static/social/ (online su cooprimavera.com/social/). Stato del lavoro: docs/stato-lavori.md.",
+ "_nota": "Calendario social Cooprimavera ottobre-dicembre 2026. Ore in ora italiana. Le grafiche si rigenerano con social/grafiche/genera.js e finiscono in static/social/ (online su cooprimavera.com/social/). Con \"video\" il post esce come Reel su Instagram (e video su Facebook se non già programmato): i video si generano con social/video/genera.js. Stato del lavoro: docs/stato-lavori.md.",
  "post": [
   {
    "data": "2026-10-05",
@@ -46,6 +46,7 @@
    "pagina_sito": "/servizi/disinfestazioni/",
    "immagine": "https://www.cooprimavera.com/social/2026-10-12-col-freddo-i-topi-cercano-casa.jpg",
    "file": "2026-10-12-col-freddo-i-topi-cercano-casa.jpg",
+   "video": "https://www.cooprimavera.com/social/video/topi.mp4",
    "grafica": {
     "tipo": "foto",
     "tema": "Disinfestazioni",
@@ -142,6 +143,7 @@
    "pagina_sito": "/lavori/2016-centenario-federazione-pugilistica-foro-italico/",
    "immagine": "https://www.cooprimavera.com/social/2026-10-29-ring-sedie-e-moquette.jpg",
    "file": "2026-10-29-ring-sedie-e-moquette.jpg",
+   "video": "https://www.cooprimavera.com/social/video/allestimenti.mp4",
    "grafica": {
     "tipo": "anno",
     "tema": "Vent'anni · 3 di 6",
@@ -198,6 +200,7 @@
    "pagina_sito": "/servizi/pulizie-professionali/",
    "immagine": "https://www.cooprimavera.com/social/2026-11-09-pannelli-sporchi-meno-energia.jpg",
    "file": "2026-11-09-pannelli-sporchi-meno-energia.jpg",
+   "video": "https://www.cooprimavera.com/social/video/fotovoltaico.mp4",
    "grafica": {
     "tipo": "foto",
     "tema": "Fotovoltaico",

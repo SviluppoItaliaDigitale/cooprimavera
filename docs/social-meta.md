@@ -105,6 +105,19 @@ perché Instagram vuole un indirizzo pubblico.
 - `pubblica-oggi`: pubblica il post del giorno su Instagram e, se non era già
   programmato, su Facebook; non pubblica due volte lo stesso giorno.
 
+### Video (Reel)
+
+Un post del calendario con il campo `video` (indirizzo di un `.mp4` in
+`static/social/video/`) esce come **Reel su Instagram** e, se su Facebook non
+era già programmato un post con la foto, come **video su Facebook**; sul sito la
+notizia mostra il video. I video (1080×1920, 20-25 secondi, senza musica) si
+generano con `node social/video/genera.js [nome]` da `social/video/<nome>.json`:
+scene con le foto vere del registro lavori (`foto`) o con i disegni al tratto di
+`social/disegni/` (`disegno`, si tracciano da soli), più apertura e chiusura.
+Il logo sta sulla fascia chiara in basso, sopra l'area coperta dai pulsanti dei
+Reel. Facebook non programma i video dalle API: li pubblica `pubblica-oggi` il
+giorno stesso.
+
 ## Pubblicazione automatica (attivata il 3/10/2026 su richiesta di Alessandro)
 
 - **Social**: il workflow «🛠️ Gestione social» parte da solo il lunedì e il

@@ -1,0 +1,12 @@
+{
+  "tema": "Allestimenti per eventi",
+  "copertina": 4.2,
+  "scene": [
+    {"tipo": "parole", "durata": 2.6, "parole": ["Palco.", "Sedie.", "Moquette.", "Luci."]},
+    {"tipo": "foto", "durata": 3.2, "titolo": "Ring, sedute e moquette", "foto": "assets/img/lavori/2014-palatiziano-ring.jpg", "dove": "PalaTiziano, Roma", "anno": "2014", "cosa": "Boxe con la Federazione Pugilistica Italiana"},
+    {"tipo": "foto", "durata": 3.2, "titolo": "Moquette certificata", "foto": "assets/img/lavori/2016-moquette-studio-tv.jpg", "dove": "Studio televisivo, Roma", "anno": "2016", "cosa": "Tagliata su misura e posata"},
+    {"tipo": "foto", "durata": 3.2, "titolo": "In tournée col teatro", "foto": "assets/img/lavori/2020-montagne-russe-truss.jpg", "dove": "«Montagne russe», 2019–2020", "anno": "2020", "cosa": "Full service in ogni teatro"},
+    {"tipo": "foto", "durata": 3.2, "titolo": "Audio e luci in cortile", "foto": "assets/img/lavori/2020-palazzo-farnese-palco.jpg", "dove": "Palazzo Farnese, Caprarola", "anno": "2020", "cosa": "Concerto di Luca Ciarla"},
+    {"tipo": "fine", "durata": 3.6, "parole": ["Il vostro evento?"], "testo": ["Da Genzano e Ariccia, per Roma e i Castelli Romani.", "Preventivi: 06 63 46 70"]}
+  ]
+}

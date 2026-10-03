@@ -7,7 +7,11 @@
   </p>
   <h1 class="entra entra-su">{{ .Title }}</h1>
   <div class="notizia">
+    {{- with .Params.video }}
+    <video class="notizia-grafica" src="{{ . | relURL }}" poster="{{ replace . ".mp4" ".jpg" | relURL }}" width="1080" height="1920" controls playsinline preload="none" aria-label="Video della notizia «{{ $.Title }}»"></video>
+    {{- else }}
     <img class="notizia-grafica" src="{{ .Params.grafica | relURL }}" alt="Grafica della notizia «{{ .Title }}»" width="1080" height="1350" fetchpriority="high">
+    {{- end }}
     <div class="prosa">{{ .Content }}
       <p class="notizia-social">Pubblicata anche su <a href="{{ site.Params.social.facebook }}" rel="noopener">Facebook</a> e <a href="{{ site.Params.social.instagram }}" rel="noopener">Instagram</a>.</p>
     </div>
