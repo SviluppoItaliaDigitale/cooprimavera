@@ -6,7 +6,7 @@ weight: 10
 titolo_seo: "Impresa di pulizie a Roma e Castelli Romani | Cooprimavera"
 alt_immagine: "Impresa di pulizie professionali a Roma e Castelli Romani: operatore al lavoro"
 tipo_servizio: "Pulizie professionali"
-offerte: ["Pulizia uffici", "Pulizia vetrate", "Pulizia enti pubblici e privati", "Pulizia post cantiere", "Pulizia palestre", "Pulizia scuole", "Pulizia aziende alimentari", "Pulizia pannelli fotovoltaici", "Pulizie condominiali"]
+offerte: ["Pulizia uffici", "Pulizia vetrate", "Pulizia enti pubblici e privati", "Pulizia post cantiere", "Recupero pavimenti in pietra, cotto e mosaico", "Pulizia palestre", "Pulizia scuole", "Pulizia aziende alimentari", "Pulizia pannelli fotovoltaici", "Pulizie condominiali"]
 faq:
   - domanda: "Quanto costa un'impresa di pulizie a Roma e nei Castelli Romani?"
     risposta: "Il prezzo dipende da **metratura, frequenza e tipo di ambiente**: per questo il sopralluogo è obbligatorio e gratuito. Dopo averlo fatto ricevi un preventivo chiaro, a canone mensile per i contratti continuativi o a corpo per gli interventi singoli."
@@ -59,6 +59,14 @@ Ci occupiamo della pulizia e sanificazione di una vasta gamma di enti pubblici e
 ## Pulizia post cantiere
 
 Il nostro servizio di pulizia post cantiere è essenziale per rendere rapidamente utilizzabili gli spazi dopo interventi di costruzione, ristrutturazione o demolizione. Ci occupiamo della rimozione di detriti, polvere, residui di vernice e calce, con pulizia approfondita di pavimenti, finestre e superfici, preparando gli ambienti per l'arredamento e l'utilizzo finale. Il nostro team è attrezzato per affrontare anche le situazioni più complesse, garantendo un risultato impeccabile nel rispetto dei tempi concordati.
+
+## Pavimenti delicati: pietra, cotto e mosaico
+
+Pietra, cotto e mosaici rovinati da muffa, calcare o sporco di anni si recuperano con il prodotto giusto e la macchina giusta: **monospazzola**, detergenti specifici come l'acido tamponato per la pietra, poi i **trattamenti protettivi** antiusura e antisporco e, dove serve, la lucidatura. Alcuni esempi nel [registro dei lavori](/lavori/).
+
+## Strutture sanitarie, alberghi, caserme e beni storici
+
+Puliamo anche **strutture sanitarie e socio-assistenziali**, **alberghi e convitti**, **caserme** ed edifici e **beni di interesse storico e artistico**, pubblici e privati, con prodotti e metodi adatti a ogni ambiente. Per le attività di supporto (riassetto camere, cucine, ausiliari) vedi i [servizi ausiliari](/servizi/servizi-ausiliari/).
 
 ## Pulizia palestre
 

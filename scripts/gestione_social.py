@@ -10,7 +10,8 @@ Azioni (variabile AZIONE, o campo "azione" del file comando):
                       un contenitore IG senza pubblicarlo. Nulla diventa visibile.
   elenco              ultimi post di Facebook e Instagram con identificativi
   statistiche         follower e copertura di pagina e account Instagram
-  pubblica            pubblica su RETE (fb o ig): TESTO, e IMMAGINE_URL (obbligatoria su ig)
+  pubblica            pubblica su RETE (fb o ig): TESTO, e IMMAGINE_URL (obbligatoria su ig);
+                      su fb con QUANDO (es. 2026-10-05T09:00:00+02:00) il post viene programmato
   modifica            riscrive il testo di un post Facebook (ID, TESTO)
   elimina             elimina un post (RETE, ID; su ig va bene anche il permalink) — CONFERMA=ELIMINA
   commenti            commenti di un post (RETE, ID)
@@ -191,13 +192,30 @@ def a_statistiche(**_):
         scrivi(f"- {metrica} (28 giorni): {v if v is not None else 'non disponibile'}")
 
 
-def a_pubblica(rete, testo, immagine, **_):
+def a_pubblica(rete, testo, immagine, quando="", **_):
+    prog = {}
+    if quando:
+        # Programmazione nativa di Facebook: da 10 minuti a 75 giorni nel futuro
+        from datetime import datetime
+        from zoneinfo import ZoneInfo
+        try:
+            d = datetime.fromisoformat(quando)
+            if d.tzinfo is None:  # senza fuso: è l'ora italiana, non quella del server (UTC)
+                d = d.replace(tzinfo=ZoneInfo("Europe/Rome"))
+            ts = int(d.timestamp())
+        except ValueError:
+            esci(f"«quando» non valido: {quando} (esempio: 2026-10-05T09:00:00+02:00)")
+        if rete != "fb":
+            esci("Instagram non permette di programmare i post dalle API: si pubblica all'ora giusta")
+        if not 600 <= ts - time.time() <= 75 * 86400:
+            esci("la data programmata deve essere tra 10 minuti e 75 giorni da adesso")
+        prog = {"published": "false", "scheduled_publish_time": ts}
     if rete == "fb":
         if immagine:
-            r = chiama("POST", f"{PAGE_ID}/photos", url=immagine, caption=testo)
+            r = chiama("POST", f"{PAGE_ID}/photos", url=immagine, caption=testo, **prog)
         else:
-            r = chiama("POST", f"{PAGE_ID}/feed", message=richiedi("testo", testo))
-        esito(r, f"Pubblicato su Facebook: `{r.get('post_id') or r.get('id')}`")
+            r = chiama("POST", f"{PAGE_ID}/feed", message=richiedi("testo", testo), **prog)
+        esito(r, f"{'Programmato per ' + quando if quando else 'Pubblicato'} su Facebook: `{r.get('post_id') or r.get('id')}`")
     elif rete == "ig":
         i = ig_id()
         c = chiama("POST", f"{i}/media", image_url=richiedi("immagine_url", immagine), caption=testo)
@@ -525,7 +543,7 @@ def main() -> None:
     if azione not in AZIONI:
         esci(f"azione sconosciuta «{azione}». Possibili: {', '.join(AZIONI)}")
     AZIONI[azione](rete=(val("rete") or "fb").lower(), ident=val("id"), testo=val("testo"),
-                   immagine=val("immagine_url"), conf=val("conferma"))
+                   immagine=val("immagine_url"), conf=val("conferma"), quando=val("quando"))
     salva_esito()
 
 

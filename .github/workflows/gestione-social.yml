@@ -33,6 +33,10 @@ on:
         description: "Link pubblico di un'immagine JPEG (obbligatorio per pubblicare su Instagram)"
         required: false
         type: string
+      quando:
+        description: "Solo Facebook: data e ora di pubblicazione programmata, es. 2026-10-05T09:00:00+02:00"
+        required: false
+        type: string
       conferma:
         description: "Per eliminare scrivi ELIMINA"
         required: false
@@ -67,6 +71,7 @@ jobs:
           TESTO: ${{ inputs.testo }}
           IMMAGINE_URL: ${{ inputs.immagine_url }}
           CONFERMA: ${{ inputs.conferma }}
+          QUANDO: ${{ inputs.quando }}
           COMANDO_FILE: ${{ github.event_name == 'push' && '.github/social/comando.json' || '' }}
           ESITO_FILE: ${{ github.event_name == 'push' && '.github/social/esito.md' || '' }}
         run: python3 scripts/gestione_social.py

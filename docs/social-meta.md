@@ -3,8 +3,8 @@
 Configurato il 03/10/2026. Serve a gestire la pagina Facebook
 [Cooprimavera](https://www.facebook.com/Cooprimavera) e l'account Instagram
 [@cooprimaverasoccoop](https://www.instagram.com/cooprimaverasoccoop) senza
-entrare a mano nelle app. Per ora nessuna pubblicazione automatica: il sito non
-ha una sezione news.
+entrare a mano nelle app. I post rimandano alle schede del [registro dei lavori](https://www.cooprimavera.com/lavori/)
+del sito (`content/lavori/`).
 
 ## Configurazione
 
@@ -75,3 +75,21 @@ scadenza «Mai» → i permessi elencati sopra → Genera → Copia. Poi ricavar
 token della pagina con
 `GET https://graph.facebook.com/v23.0/192102847559438?fields=access_token`
 e aggiornare il secret `META_PAGE_TOKEN`.
+
+## Archivio e ripartenza da zero (03/10/2026)
+
+Prima della ripartenza tutti i post sono stati salvati con `esporta` e poi
+cancellati con `elimina-tutti`: 314 su Facebook (dal 2012) e 16 su 18 su
+Instagram. L'archivio completo (testi, date, link, foto e video, link YouTube
+dei video condivisi) sta sul ramo **`archivio-social`**, cartella
+`archivio-social/`: `README.md` per sfogliarlo, `dati.json` per i dati. Non va
+unito a `main` (pesa circa 130 MB).
+
+Limiti trovati:
+- l'elenco dei post di Facebook non restituisce sempre tutto: dopo una
+  cancellazione possono comparire post vecchi mai elencati prima. `elimina-tutti`
+  non li tocca finché non sono nell'archivio: basta rilanciare `esporta`, che
+  aggiunge all'archivio esistente, e poi `elimina-tutti`;
+- i vecchi video **IGTV** di Instagram non si cancellano dalle API (errore
+  «Fatal»): vanno tolti a mano dall'app.
+

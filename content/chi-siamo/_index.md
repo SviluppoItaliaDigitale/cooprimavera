@@ -9,15 +9,21 @@ layout: "page"
 
 ## La nostra storia
 
-Cooprimavera, nata nel 2006, si distingue per la sua doppia missione: offrire servizi di alta qualità alle piccole e medie imprese e favorire l'inserimento lavorativo di persone svantaggiate. Il nostro team, composto da soci e lavoratori giovani e da amministratori con background diversificati, garantisce la dinamicità e l'affidabilità che ci hanno permesso di crescere in questi anni. Proponiamo un'ampia gamma di servizi integrati, che spaziano dalla gestione di appalti di igiene ambientale e manutenzione del verde all'organizzazione e al service per eventi, coniugando efficienza e impegno sociale.
+Cooprimavera nasce il **5 ottobre 2006 a Lanuvio** come «Primavera Onlus», una cooperativa sociale con uno scopo preciso: dare lavoro a persone disabili, svantaggiate o emarginate, dentro un'impresa vera. Nel 2011 comincia l'attività con le pulizie; nel 2012 l'assemblea dei soci cambia nome e statuto e la cooperativa diventa Cooprimavera. Nel gennaio 2013 facciamo i primi colloqui al Centro per l'impiego di Frascati per le squadre delle pulizie.
+
+Negli anni il lavoro si allarga: dal 2014 le [sanificazioni e disinfestazioni](/servizi/sanificazioni/), la bonifica di un terreno sul lago di Nemi da cui nasce la nostra fattoria sociale, i primi grandi eventi con sedie, moquette e palchi, dal PalaTiziano al Foro Italico. Nel 2022 otteniamo l'idoneità per la manutenzione del verde pubblico e privato. Nel 2023 Alessandro Cuollo, nella cooperativa dai primi anni, ne diventa presidente, e apriamo ufficio e magazzino ad Ariccia.
+
+**[Vent'anni di Cooprimavera, anno per anno →](/chi-siamo/vent-anni/)**
 
 ![Il lavoro di squadra è al centro della cooperativa](img/squadra.jpg)
 
-## Perché scegliere noi
+## Come lavoriamo
 
-Scegliere la nostra cooperativa multiservizi significa affidarsi a un partner solido e competente, che mette al primo posto la soddisfazione del cliente. Grazie alla nostra pluriennale esperienza nel settore, garantiamo efficienza e qualità in ogni servizio offerto, dalla pulizia degli uffici e dei condomìni alla manutenzione del verde, dalle sanificazioni e disinfestazioni al portierato e agli allestimenti per eventi.
+Siamo una cooperativa di produzione e lavoro: la cooperativa è dei soci lavoratori, e le squadre restano le stesse sullo stesso appalto, così conoscono la sede e le abitudini del cliente. Il cliente ha un solo referente per pulizie, verde, sanificazioni ed eventi, e prima di ogni preventivo facciamo il sopralluogo.
 
-Ci distinguiamo per la costante attenzione all'innovazione, per un'assistenza ai clienti puntuale e cordiale e per l'affidabilità che da sempre contraddistingue il nostro operato. La nostra reputazione è il frutto di un impegno quotidiano volto a superare le aspettative, offrendo soluzioni personalizzate e un servizio impeccabile.
+Oggi facciamo [pulizie professionali](/servizi/pulizie-professionali/), anche straordinarie e su pavimenti delicati; [sanificazioni](/servizi/sanificazioni/) e [disinfestazioni](/servizi/disinfestazioni/); [giardinaggio](/servizi/giardinaggio/), con l'idoneità per il verde pubblico e lo smaltimento degli sfalci; [portierato](/servizi/portierato/); [piccole manutenzioni](/servizi/piccole-manutenzioni/); [servizi ausiliari](/servizi/servizi-ausiliari/) per scuole, strutture e alberghi; [servizi per comuni ed enti](/servizi/servizi-comuni-enti/), dallo spazzamento allo sgombero neve; [allestimenti per eventi](/servizi/allestimenti-eventi/), con service audio, luci e video e accoglienza in sala.
+
+Alcuni lavori li trovi nel **[registro dei lavori](/lavori/)**, con le foto scattate dalle squadre. Molti altri non li ha fotografati nessuno: le pulizie di ogni giorno raramente finiscono in una foto.
 
 ![Prendersi cura dell'ambiente e delle persone](img/impegno-ambiente.jpg)
 
@@ -35,6 +41,6 @@ La sede operativa, con ufficio e magazzino, è ad **Ariccia**; la sede legale a 
 ## I numeri di Cooprimavera
 
 - **Dal 2006** al servizio di imprese, enti e famiglie.
-- **Nove servizi** a catalogo, dalle pulizie agli eventi, con un unico referente.
+- **Un unico referente** per tutti i servizi, dalle pulizie agli eventi.
 - **Prodotti certificati**: linee Ecolabel, conformi ai CAM e idonee alle procedure HACCP.
 - **Soci lavoratori del territorio**, formati e assicurati, con squadre stabili su ogni appalto.

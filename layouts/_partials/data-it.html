@@ -1,0 +1,5 @@
+{{- /* Data in italiano senza dipendere dalla lingua di Hugo.
+     Contesto: dict "data" (time) "giorno" true per "19 luglio 2020", altrimenti "luglio 2020". */ -}}
+{{- $mesi := slice "gennaio" "febbraio" "marzo" "aprile" "maggio" "giugno" "luglio" "agosto" "settembre" "ottobre" "novembre" "dicembre" -}}
+{{- $m := index $mesi (sub (int .data.Month) 1) -}}
+{{- if .giorno }}{{ .data.Day }} {{ end }}{{ $m }} {{ .data.Year -}}
