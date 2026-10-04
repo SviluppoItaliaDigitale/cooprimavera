@@ -2,6 +2,11 @@
 
 Vale in tutti i progetti, presenti e futuri. Obiettivo: Alessandro lavora da PC, da cellulare o da un'altra postazione, anche con il PC spento, trovando sempre tutto disponibile.
 
+## Parità cellulare–PC
+- Il cellulare vale quanto il PC, specie in emergenza quando il PC non si può usare: niente deve esistere solo sul PC.
+- La memoria si salva **solo** in `memoria/` del repo (versionata), mai nella memoria automatica locale di Claude Code, che il cloud non vede.
+- Strumenti, script e configurazioni nuove vanno nel repo, non solo in `~/.claude` o sul desktop.
+
 ## Se sei in una sessione cloud (PC spento)
 - Riconoscila così: non esistono `~/Scrivania`, gli altri progetti del PC e gli MCP locali (Firecrawl, Playwright).
 - Per il web usa `WebSearch` e `WebFetch`. Gmail, Calendar, Drive e Canva funzionano (connettori di claude.ai).
