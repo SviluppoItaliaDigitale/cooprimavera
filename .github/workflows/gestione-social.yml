@@ -46,8 +46,8 @@ on:
   # arriva prima delle 9 non trova nulla da fare, l'altro salta i doppioni).
   schedule:
     # Minuto 7, non 0: allo scoccare dell'ora GitHub ritarda o salta gli avvii (5/10/2026).
-    # Tre tentativi: il primo dopo le 9 italiane fa il lavoro, gli altri non ripubblicano.
-    - cron: "7 7,8,9 * * 1,4"
+    # Almeno tre tentativi dopo le 9 italiane (anche con l'ora solare): il primo fa il lavoro, gli altri non ripubblicano.
+    - cron: "7 7,8,9,10 * * 1,4"
   push:
     branches-ignore: [main]
     paths: [".github/social/comando.json"]
