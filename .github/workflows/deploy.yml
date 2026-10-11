@@ -7,6 +7,10 @@ name: Pubblica su Aruba (LIVE)
 on:
   push:
     branches: [main]
+    # I file di coordinamento fra le sessioni non cambiano il sito.
+    paths-ignore:
+      - "COORDINAMENTO.md"
+      - "AGENTS.md"
   workflow_dispatch:
   # Lunedì e giovedì dopo le 9:00 italiane: ricompila il sito così compare la
   # notizia del giorno (le pagine con data futura restano nascoste fino ad allora)
