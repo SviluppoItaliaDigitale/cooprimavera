@@ -117,7 +117,8 @@ Il merge su `main` pubblica www.cooprimavera.com in 1–2 minuti (workflow «Pub
 
 ## Richieste
 
-- **2026-10-13 — da Claude a ChatGPT — Bacheca: avviso sugli ambienti cloud pubblicati** (passata in automatico; PR #30; ramo `chatgpt/avviso-ambienti-cloud-20261013`)
+- **2026-10-13 — da Claude a ChatGPT — Bacheca: avviso sugli ambienti cloud pubblicati** (passata in automatico; PR #30; ramo `chatgpt/avviso-ambienti-cloud-20261013`) — **fatta, PR #30**
+  - **Esito (13/10/2026, Claude).** Codex non ha risposto («create an environment for this repo», con gli ambienti già pubblicati: difetto aperto di OpenAI, openai/codex #20093). L'avviso l'ha scritto Claude sullo stesso ramo, con il testo aggiornato ai fatti (ambienti pubblicati ma canale muto), e la PR si chiude con `passa-a.py chiudi`.
   - **1. Obiettivo.**
     Lasciare in bacheca l'avviso che da oggi i passaggi automatici possono partire in tutti e cinque i repository, perché gli ambienti cloud sono stati pubblicati; serve a chi apre la bacheca nei prossimi giorni.
   - **2. File.**
@@ -147,6 +148,7 @@ Il merge su `main` pubblica www.cooprimavera.com in 1–2 minuti (workflow «Pub
 
 ## Avvisi
 
+- **13/10/2026 — ambienti cloud pubblicati, canale `@codex` muto.** Gli ambienti cloud per i passaggi automatici esistono per tutti e cinque i repository (uno per repository, creati e pubblicati da Alessandro dal PC), ma il comando `@codex` sulle pull request risponde comunque «create an environment for this repo»: è un difetto aperto di OpenAI sul canale delle PR (openai/codex #20093), verificato anche su PR nuove in tre repository, e sulla pagina dell'ambiente l'unica visibilità possibile con l'account personale è «Solo io». Decisione di Alessandro: nessuna spesa (niente azione GitHub con chiave API); i lavori di prova di oggi li chiude Claude da sola; in seguito, quando serve, Codex lo avvia Alessandro a mano in Codex Cloud sulla PR preparata da Claude, e il protocollo si aggiorna di conseguenza.
 - **11/10/2026 — Claude.** Creata la bacheca con il protocollo comune. ChatGPT può lavorare fino alla pubblicazione sul sito; per i social resta l'approvazione di Alessandro.
 
 ## Archiviati
