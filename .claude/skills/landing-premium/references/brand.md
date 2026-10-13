@@ -61,10 +61,14 @@ qualsiasi realtà o progetto nuovo.
   `#0d100a`; accento principale il verde `#9FC63D` (ottimo contrasto su
   scuro); `#627C26` solo per superfici/forme grandi, mai per testo piccolo
   su fondo scuro; testo `#f2f5ec`, attenuato `#a7b096`.
-- **Font**: il sito usa lo stack di sistema (system-ui/Roboto); per le
-  landing premium usare Inter (corpo) — resa vicina al sito ma controllata —
-  e Roboto Mono per eyebrow/chip; Anton ammesso come display per il taglio
-  cinematografico. Bottoni a pillola (border-radius pieno) come sul sito.
+- **Font**: il sito usa lo stack di sistema (system-ui/Roboto). Per landing
+  premium, grafiche e video usare la coppia già adottata su social e Reel
+  (ottobre 2026): **Barlow Condensed** 600/800 per titoli e display (anche
+  per il taglio cinematografico) e **Barlow** 400/600 per il corpo; Google
+  Fonts, licenza SIL OFL, file woff2 in `social/grafiche/font/` del repo
+  cooprimavera. Mono di sistema (ui-monospace) per eyebrow/chip. Niente
+  Inter (vietato come scelta di default da `.claude/rules/grafica.md`).
+  Bottoni a pillola (border-radius pieno) come sul sito.
 - **Tono**: professionale B2B, diretto, seconda persona; claim «Il miglior
   partner per il tuo business». Sempre presente la doppia missione: servizi
   di qualità **+ inserimento lavorativo di persone svantaggiate**
