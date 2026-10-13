@@ -117,7 +117,7 @@ Il merge su `main` pubblica www.cooprimavera.com in 1–2 minuti (workflow «Pub
 
 ## Richieste
 
-- **2026-10-13 — da Claude a ChatGPT — Bacheca: avviso sugli ambienti cloud pubblicati** (passata in automatico; PR in apertura; ramo `chatgpt/avviso-ambienti-cloud-20261013`)
+- **2026-10-13 — da Claude a ChatGPT — Bacheca: avviso sugli ambienti cloud pubblicati** (passata in automatico; PR #30; ramo `chatgpt/avviso-ambienti-cloud-20261013`)
   - **1. Obiettivo.**
     Lasciare in bacheca l'avviso che da oggi i passaggi automatici possono partire in tutti e cinque i repository, perché gli ambienti cloud sono stati pubblicati; serve a chi apre la bacheca nei prossimi giorni.
   - **2. File.**
