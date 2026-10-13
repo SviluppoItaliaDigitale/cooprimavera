@@ -30,13 +30,16 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
   pubblica la pubblicazione automatica il giorno stesso: non serve rilanciare
   `programma-calendario`.
 - **Dal 5/10/2026, Instagram, Facebook e sito**: pubblicazione automatica il
-  lunedì e il giovedì alle 9 (workflow su `main`).
+  lunedì e il giovedì alle 9 (workflow su `main`). Dal 13/10 la fa partire e la
+  verifica ogni giorno alle 9:05 la routine di Claude «Cooprimavera:
+  pubblicazione del giorno e verifica», perché gli avvii di GitHub arrivavano
+  con ore di ritardo.
 
 ## Da decidere / da fare
 1. **Pubblicazione automatica**: decisa da Alessandro il 3/10 («trova te il
    sistema migliore, tutto automaticamente»): social e sito escono da soli il
-   lunedì e il giovedì alle 9 (vedi `docs/social-meta.md`). Da tenere d'occhio
-   le prime uscite.
+   lunedì e il giovedì alle 9 (vedi `docs/social-meta.md`). Uscite verificate:
+   5/10, 8/10 (Instagram in ritardo, alle 16:05), 12/10 (primo Reel).
 2. Sostituire con foto vere le grafiche con foto di repertorio
    (`grafica.fonte_foto = "repertorio"` nel calendario): il 3/10 ne sono state
    cambiate tre con foto gratuite più adatte (2, 12 e 26 novembre).

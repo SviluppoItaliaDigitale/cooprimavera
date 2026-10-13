@@ -162,6 +162,13 @@ Numeri di telefono e anni nella voce vanno scritti in lettere.
   Aruba» ricompila il sito il lunedì e il giovedì alle 07:20 e 08:20 UTC, così la
   notizia esce insieme al post. In home il riquadro «Dalla nostra pagina» mostra
   le ultime tre.
+- **Routine di Claude (dal 13/10/2026)**: gli avvii programmati di GitHub sono
+  arrivati con ore di ritardo (5/10 alle 17:20, 8/10 alle 16:05) o non sono
+  partiti. Ogni giorno alle 9:05 una routine di Claude («Cooprimavera:
+  pubblicazione del giorno e verifica», claude.ai → Routines) avvia
+  `pubblica-oggi` e «Pubblica su Aruba», controlla che il post sia online su
+  Instagram, Facebook e sito, riprova se serve e manda l'esito ad Alessandro.
+  Gli avvii di GitHub restano come riserva: niente doppioni.
 - **Cosa viene pubblicato**: solo quello che è in `social/calendario.json` su
   `main`, cioè passato da una PR approvata. Per aggiungere post: righe nuove nel
   calendario, grafiche con `node social/grafiche/genera.js`, PR.
