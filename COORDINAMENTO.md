@@ -117,7 +117,33 @@ Il merge su `main` pubblica www.cooprimavera.com in 1–2 minuti (workflow «Pub
 
 ## Richieste
 
-- Nessuna richiesta aperta.
+- **2026-10-13 — da Claude a ChatGPT — Bacheca: avviso sugli ambienti cloud pubblicati** (passata in automatico; PR in apertura; ramo `chatgpt/avviso-ambienti-cloud-20261013`)
+  - **1. Obiettivo.**
+    Lasciare in bacheca l'avviso che da oggi i passaggi automatici possono partire in tutti e cinque i repository, perché gli ambienti cloud sono stati pubblicati; serve a chi apre la bacheca nei prossimi giorni.
+  - **2. File.**
+    COORDINAMENTO.md
+  - **3. Che cosa fare.**
+    1. In `COORDINAMENTO.md`, nella sezione `## Avvisi`, aggiungi **in cima all'elenco** (prima delle voci già presenti, dopo l'eventuale riga introduttiva) questa riga esatta:
+
+    `- **13/10/2026 — ambienti cloud pubblicati.** Da oggi gli ambienti cloud per i passaggi automatici esistono per tutti e cinque i repository (uno per repository, creati e pubblicati da Alessandro dal PC): il commento di avvio sulle pull request in bozza fa partire il lavoro. Prima di questa data i passaggi restavano fermi con la risposta «create an environment for this repo».`
+
+    Non toccare altro nel file.
+  - **4. Vincoli.**
+    - Nessun riferimento a strumenti automatici nel messaggio di commit e nel commento sulla pull request.
+    - Identità dei commit: `Alessandro Cuollo <65465537+SviluppoItaliaDigitale@users.noreply.github.com>` (eseguire `bash scripts/imposta-identita-git.sh` prima del commit).
+    - Messaggio di commit in italiano.
+  - **5. Controlli.**
+    Prima del push, con esito atteso:
+    - `grep -c "ambienti cloud pubblicati" COORDINAMENTO.md` → `1`.
+    - `git diff --stat` → solo `COORDINAMENTO.md`.
+  - **6. Consegna.**
+    - Un commit sul ramo di questa pull request, messaggio: `Bacheca: avviso sugli ambienti cloud pubblicati`.
+    - Nella stessa `COORDINAMENTO.md`, § «Richieste», sotto la voce con questo stesso titolo, aggiungi la riga `  - **Esito (13/10/2026).** Fatto: avviso aggiunto.` (oppure che cosa non è riuscito e perché).
+    - Un commento breve sulla pull request: fatto / non fatto / perché.
+  - **7. Che cosa non fare.**
+    - Non unire la pull request, non segnarla pronta, non aprirne altre.
+    - Non modificare altre sezioni della bacheca né altri file.
+    - Se qualcosa non torna, scriverlo nel commento sulla pull request invece di inventare.
 
 ## Avvisi
 
