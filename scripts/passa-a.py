@@ -40,8 +40,9 @@ Comandi
                                 che il deploy del merge finisca bene. Con --senza-merge si
                                 ferma dopo aver portato dentro la consegna, riscritto gli
                                 autori e allineato il ramo: la PR resta in bozza e la voce in
-                                «Richieste»; serve a correggere sul ramo, poi si rilancia
-                                `chiudi` (anche con lo stesso --consegna)
+                                «Richieste»; aggiorna la copia locale del ramo (se non è quella
+                                in uso) e stampa i passi per correggere sul ramo, poi si
+                                rilancia `chiudi` (anche con lo stesso --consegna)
 
 Solo libreria standard; GitHub via `gh api` (REST: in sessione cloud GraphQL non c'è);
 git solo con oggetti e riferimenti (commit-tree, update-ref): nessun checkout, la cartella
@@ -1051,6 +1052,59 @@ def _assorbi_consegna(radice: Path, repo: str, n: int, ramo: str, m: int, io_log
     info(f"PR #{m} chiusa come assorbita dalla #{n}, con titolo neutro")
 
 
+def _e_antenato(radice: Path, a: str, b: str) -> bool:
+    return run(["git", "merge-base", "--is-ancestor", a, b], cwd=str(radice), check=False).returncode == 0
+
+
+def _cartella_del_ramo(radice: Path, ref: str) -> str | None:
+    """La cartella di lavoro, fra tutte quelle collegate al repository (`git worktree`), che ha in uso
+    il ramo; None se nessuna."""
+    percorso = None
+    for riga in run(["git", "worktree", "list", "--porcelain"], cwd=str(radice)).stdout.splitlines():
+        if riga.startswith("worktree "):
+            percorso = riga[len("worktree "):]
+        elif riga == f"branch {ref}":
+            return percorso
+    return None
+
+
+def _ramo_locale_per_correggere(radice: Path, ramo: str) -> list[str]:
+    """Dopo --senza-merge il ramo remoto è andato avanti (consegna, autori riscritti, allineamento), mentre
+    la copia locale lasciata da `nuovo` punta ancora alla preparazione: chi corregge partendo da lì
+    lavorerebbe su una storia vecchia. Se il ramo non è in uso in nessuna cartella di lavoro collegata,
+    la porta su origin/<ramo> con update-ref (file intatti, mai commit locali persi); altrimenti non tocca
+    nulla e restituisce i comandi esatti. Restituisce i passi da fare prima delle correzioni."""
+    fetch_rami(radice, ramo)
+    remoto = run(["git", "rev-parse", f"origin/{ramo}"], cwd=str(radice)).stdout.strip()
+    ref = f"refs/heads/{ramo}"
+    cartella = _cartella_del_ramo(radice, ref)
+    in_uso = cartella is not None
+    # In uso in un'altra cartella collegata: lì `git switch` fallirebbe, si lavora in quella cartella.
+    vai = [f"cd {cartella}"] if in_uso and Path(cartella).resolve() != radice.resolve() else []
+    dove = f" (in uso nella cartella {cartella})" if vai else ""
+    locale = run(["git", "rev-parse", "--verify", "--quiet", ref], cwd=str(radice), check=False).stdout.strip()
+    if locale == remoto:
+        info(f"copia locale del ramo {ramo}{dove} già uguale al remoto")
+        return vai if in_uso else [f"git switch {ramo}"]
+    if in_uso:
+        # Il ramo è quello di una cartella di lavoro: aggiornarlo vuol dire toccare i file, lo fa chi corregge.
+        if _e_antenato(radice, locale, remoto):
+            info(f"il ramo {ramo}{dove} è indietro rispetto al remoto: va portato avanti prima di correggere")
+            return vai + [f"git merge --ff-only origin/{ramo}"]
+        info(f"il ramo {ramo}{dove} ha commit che non sono sul remoto: va unito al remoto (merge, mai rebase)")
+        return vai + [f"git merge origin/{ramo}"]
+    if not locale:
+        run(["git", "update-ref", ref, remoto, "0" * 40], cwd=str(radice))
+        info(f"copia locale del ramo {ramo} creata su origin/{ramo} ({remoto[:7]})")
+        return [f"git switch {ramo}"]
+    if _e_antenato(radice, locale, remoto):
+        run(["git", "update-ref", ref, remoto, locale], cwd=str(radice))
+        info(f"copia locale del ramo {ramo} portata sul remoto ({locale[:7]} → {remoto[:7]})")
+        return [f"git switch {ramo}"]
+    info(f"la copia locale del ramo {ramo} ha commit che non sono sul remoto: non la tocco")
+    return [f"git switch {ramo}", f"git merge origin/{ramo}"]
+
+
 def _archivia_voce(radice: Path, ramo: str, n: int, base: str) -> bool:
     """Sposta in «Archiviati» la voce di bacheca della PR #n, con la riga di esito, con un commit sul
     ramo prima dei controlli: così la bacheca unita è già in ordine. Restituisce True se ha fatto push."""
@@ -1100,9 +1154,15 @@ def cmd_chiudi(args) -> None:
     if args.senza_merge:
         # Serve a correggere sul ramo il lavoro arrivato: niente archivio della voce, la PR resta com'è
         # (in bozza: niente revisione automatica, che consuma crediti) e i controlli si aspettano dopo.
-        dopo = f"chiudi --pr {n}" + (f" --consegna {args.consegna}" if args.consegna else "")
+        passi = _ramo_locale_per_correggere(radice, ramo)
+        passi += ["correzioni e `git commit` (messaggi in italiano, senza nomi di strumenti)",
+                  f"git push origin {ramo}",
+                  f"python3 scripts/passa-a.py chiudi --pr {n}"
+                  + (f" --consegna {args.consegna}" if args.consegna else "")]
         info("--senza-merge: consegna nel ramo, autori riscritti, ramo allineato; la PR resta com'è e la "
-             f"voce di bacheca in «Richieste». Dopo le correzioni sul ramo: `{dopo}`")
+             "voce di bacheca in «Richieste». Per correggere sul ramo:\n  "
+             + "\n  ".join(f"{i}. {p if p.startswith('correzioni') else f'`{p}`'}"
+                           for i, p in enumerate(passi, 1)))
         return
     _archivia_voce(radice, ramo, n, base)
 
@@ -1177,7 +1237,8 @@ def main() -> None:
     pc.add_argument("--senza-pulizia", action="store_true", help="non toglie i commenti dalla PR")
     pc.add_argument("--senza-merge", action="store_true",
                     help="porta dentro la consegna, riscrive gli autori e allinea il ramo, poi si ferma: "
-                         "la PR resta in bozza e la voce di bacheca in «Richieste» (per correggere sul ramo)")
+                         "la PR resta in bozza e la voce di bacheca in «Richieste»; aggiorna la copia locale "
+                         "del ramo e stampa i passi per correggere")
     pc.add_argument("--senza-attesa-deploy", action="store_true", help="dopo il merge non aspetta il deploy")
     pc.add_argument("--qualsiasi", action="store_true", help="accetta anche rami non chatgpt/*")
     pc.set_defaults(fn=cmd_chiudi)
