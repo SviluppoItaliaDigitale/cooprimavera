@@ -6,3 +6,7 @@
 - **Eccezione: grafiche e testi per i social** si mostrano ad Alessandro e si uniscono solo dopo il suo «approvo» (`.claude/rules/social.md`).
 - Il merge su `main` pubblica il sito LIVE: un merge per volta, mai commit diretti su `main`.
 - Regole del progetto: `README.md`, `docs/`, `.claude/rules/` (valgono anche per te). Leggi solo ciò che serve al lavoro in corso.
+
+## Code Review Rules
+
+- **Firma dei commit: non giudicarla dai commit del tuo ambiente.** I commit che vedi mentre rivedi una pull request li crea l'ambiente di revisione, con un'identità di servizio, e possono riportare la descrizione della pull request: non sono i commit della pull request. Non segnalare autore, committer o righe di firma dei commit: li controlla e li corregge chi unisce (`scripts/passa-a.py chiudi` riscrive a nome di Alessandro Cuollo i commit con un altro autore e toglie i trailer, regola `.claude/rules/firma-dei-lavori.md`). Segnala invece nomi di strumenti o righe di firma nei file modificati che vengono pubblicati; i file di governo interni (`CLAUDE.md`, `AGENTS.md`, `COORDINAMENTO.md`, `.claude/`, `memoria/`) ne parlano per forza.
