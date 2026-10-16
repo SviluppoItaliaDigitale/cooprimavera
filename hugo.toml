@@ -75,6 +75,11 @@ pageRef = "/lavori"
 weight = 22
 
 [[menus.main]]
+name = "Consigli"
+pageRef = "/consigli"
+weight = 23
+
+[[menus.main]]
 name = "Dove operiamo"
 pageRef = "/zone"
 weight = 25

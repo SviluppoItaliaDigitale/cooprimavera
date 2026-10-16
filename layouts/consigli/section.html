@@ -1,0 +1,40 @@
+{{ define "main" }}
+{{- /* Raccolta dei consigli («Consigli da professionisti», dal calendario social), divisi per servizio:
+       pagina di riferimento per i motori di ricerca e collegamenti interni verso servizi e articoli. */ -}}
+{{- $consigli := where (where site.RegularPages "Section" "notizie") "Params.tema" "Consigli da professionisti" }}
+<div class="contenitore pagina">
+  {{ partial "briciole.html" . }}
+  <h1 class="entra entra-su">{{ .Title }}</h1>
+  <div class="prosa intro entra entra-su entra-r1">{{ .Content }}</div>
+  {{- with $consigli }}
+  {{- range (site.GetPage "/servizi").Pages.ByWeight }}
+  {{- $servizio := . }}
+  {{- with where $consigli "Params.pagina_sito" $servizio.RelPermalink }}
+  <section class="notizie-servizio" data-anim="fade-up">
+    <h2><a href="{{ $servizio.RelPermalink }}">{{ $servizio.Title }}</a></h2>
+    <ol class="notizie">
+      {{ range .ByDate.Reverse }}
+      <li class="notizia-riga">
+        <a href="{{ .RelPermalink }}">
+          <img src="{{ .Params.grafica | relURL }}" alt="" width="216" height="270" loading="lazy" decoding="async">
+          <span class="registro-testo">
+            <time class="registro-data" datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "data-it.html" (dict "data" .Date "giorno" true) }}</time>
+            <span class="registro-titolo">{{ .Title }}</span>
+          </span>
+        </a>
+      </li>
+      {{ end }}
+    </ol>
+  </section>
+  {{- end }}
+  {{- end }}
+  {{- else }}
+  <p>Il primo consiglio arriva il 16 ottobre 2026.</p>
+  {{- end }}
+  <div class="cta-finale" data-anim="fade-up">
+    <h2>Preferisci che ci pensiamo noi?</h2>
+    <p>Pulizie, verde, sanificazioni, manutenzioni ed eventi a Roma e nei Castelli Romani. Sopralluogo e preventivo gratuiti.</p>
+    <p class="eroe-azioni"><a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo</a></p>
+  </div>
+</div>
+{{ end }}

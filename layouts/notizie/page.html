@@ -16,6 +16,30 @@
       <p class="notizia-social">Pubblicata anche su <a href="{{ site.Params.social.facebook }}" rel="noopener">Facebook</a> e <a href="{{ site.Params.social.instagram }}" rel="noopener">Instagram</a>.</p>
     </div>
   </div>
+  {{- /* Altri consigli sullo stesso servizio: collegamenti interni tra articoli collegati */ -}}
+  {{- with .Params.pagina_sito }}
+  {{- $vicini := where (where (where site.RegularPages "Section" "notizie") "Params.pagina_sito" .) "RelPermalink" "ne" $.RelPermalink }}
+  {{- with first 3 $vicini.ByDate.Reverse }}
+  <section class="notizie-servizio" data-anim="fade-up">
+    <h2>Sullo stesso argomento</h2>
+    <ol class="notizie">
+      {{ range . }}
+      <li class="notizia-riga">
+        <a href="{{ .RelPermalink }}">
+          <img src="{{ .Params.grafica | relURL }}" alt="" width="216" height="270" loading="lazy" decoding="async">
+          <span class="registro-testo">
+            <time class="registro-data" datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "data-it.html" (dict "data" .Date "giorno" true) }}</time>
+            <span class="registro-titolo">{{ .Title }}</span>
+            <span class="registro-luogo">{{ .Params.tema }}</span>
+          </span>
+        </a>
+      </li>
+      {{ end }}
+    </ol>
+    <p class="rimando"><a href="{{ "consigli/" | relURL }}">Tutti i consigli</a> · <a href="{{ $.Params.pagina_sito | relURL }}">Il servizio</a></p>
+  </section>
+  {{- end }}
+  {{- end }}
   <nav class="lavoro-naviga" aria-label="Altre notizie">
     {{ with .PrevInSection }}<a href="{{ .RelPermalink }}"><span>Notizia precedente</span>{{ .Title }}</a>{{ end }}
     {{ with .NextInSection }}<a href="{{ .RelPermalink }}"><span>Notizia successiva</span>{{ .Title }}</a>{{ end }}
