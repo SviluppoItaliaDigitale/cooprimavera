@@ -2,14 +2,14 @@
 
 AddDefaultCharset UTF-8
 
-# Un solo indirizzo per ogni pagina: https e www, con un solo rimando 301.
-# Il server sta dietro il proxy di Aruba, che indica il protocollo del visitatore
-# in X-Forwarded-Proto (provato il 16/10/2026: «http» sulle richieste in chiaro,
-# nessun ciclo sulle richieste https).
+# Un solo indirizzo per ogni pagina: le richieste in chiaro passano a https con
+# un rimando 301. Il server sta dietro il proxy di Aruba, che indica il protocollo
+# del visitatore in X-Forwarded-Proto (provato il 16/10/2026: «http» sulle richieste
+# in chiaro, nessun ciclo sulle richieste https). Il passaggio da cooprimavera.com
+# a www lo fa già Aruba.
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteCond %{HTTP:X-Forwarded-Proto} =http [OR]
-  RewriteCond %{HTTP_HOST} !^www\.cooprimavera\.com$ [NC]
+  RewriteCond %{HTTP:X-Forwarded-Proto} =http
   RewriteRule ^ https://www.cooprimavera.com%{REQUEST_URI} [L,R=301]
 </IfModule>
 
