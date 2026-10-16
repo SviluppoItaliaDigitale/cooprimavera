@@ -53,3 +53,9 @@ jobs:
           security: loose
           local-dir: public/
           server-dir: www.cooprimavera.com/
+
+      # Segnala ai motori IndexNow (Bing, Yandex…) le pagine cambiate oggi.
+      # Non blocca mai la pubblicazione.
+      - name: Segnala le pagine nuove ai motori di ricerca (IndexNow)
+        continue-on-error: true
+        run: python3 scripts/indexnow.py public/sitemap.xml

@@ -6,9 +6,15 @@
   {{- $foto := .grafica.foto | default "" }}
   {{- $testo := replaceRE `(cooprimavera\.com(/[a-z0-9/\-]*)?)` "[$1](https://www.$1)" .fb }}
   {{- $testo = replace $testo "\n" "\n\n" }}
+  {{- /* I consigli hanno un articolo più lungo, con fonti e collegamenti: sul sito vale quello */ -}}
+  {{- with .articolo }}{{ $testo = . }}{{ end }}
+  {{- $alt := "" }}
+  {{- $tit := .grafica.titolo }}
+  {{- with .grafica.righe }}{{ $alt = printf "%s: %s." $tit (delimit . "; ") }}{{ end }}
   {{- $.AddPage (dict
       "path" (strings.TrimSuffix ".jpg" .file)
       "title" .titolo
+      "description" (.descrizione | default (truncate 155 (plainify (index (split .fb "\n\n") 0))))
       "dates" (dict "date" (time.AsTime (printf "%sT%s:00" .data .ora)))
       "content" (dict "mediaType" "text/markdown" "value" $testo)
       "params" (dict
@@ -17,6 +23,7 @@
         "tema" .grafica.tema
         "pagina_sito" .pagina_sito
         "immagine" (cond (strings.HasPrefix $foto "assets/") (strings.TrimPrefix "assets/" $foto) "")
-        "description" (truncate 155 (plainify (index (split .fb "\n\n") 0))))
+        "titolo_seo" (.titolo_seo | default "")
+        "alt" $alt)
   ) }}
 {{- end }}

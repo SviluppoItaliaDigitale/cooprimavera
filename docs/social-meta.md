@@ -162,6 +162,15 @@ Numeri di telefono e anni nella voce vanno scritti in lettere.
   Aruba» ricompila il sito il lunedì e il giovedì alle 07:20 e 08:20 UTC, così la
   notizia esce insieme al post. In home il riquadro «Dalla nostra pagina» mostra
   le ultime tre.
+- **Consigli con articolo (dal 16/10/2026)**: un post può avere `articolo`
+  (Markdown più lungo del testo social, con titoli, collegamenti ai servizi e
+  «Fonti»: sul sito vale quello), `titolo_seo` (il `<title>` della pagina) e
+  `descrizione` (meta description, massimo 155 caratteri). La pagina riceve i
+  dati strutturati `BlogPosting` e il testo alternativo della grafica dai suoi
+  punti; ogni pagina servizio elenca i consigli e le notizie con lo stesso
+  `pagina_sito`. Le grafiche `consiglio` possono avere una foto in alto
+  (`grafica.foto` in `assets/img/consigli/`, `grafica.fuoco` per la posizione):
+  da `assets/` la foto diventa anche l'anteprima social della pagina.
 - **Routine di Claude (dal 13/10/2026)**: gli avvii programmati di GitHub sono
   arrivati con ore di ritardo (5/10 alle 17:20, 8/10 alle 16:05) o non sono
   partiti. Ogni giorno alle 9:05 una routine di Claude («Cooprimavera:

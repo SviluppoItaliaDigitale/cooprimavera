@@ -149,6 +149,27 @@
   ) }}
 {{- end }}
 
+{{- /* Notizie e consigli: un BlogPosting con la grafica del post come immagine */ -}}
+{{- if and $p.CurrentSection (eq $p.CurrentSection.RelPermalink "/notizie/") (not $p.IsSection) }}
+  {{- $articolo := dict
+    "@type" "BlogPosting"
+    "@id" (printf "%s#articolo" $p.Permalink)
+    "headline" $p.Title
+    "description" $descrizione
+    "url" $p.Permalink
+    "mainEntityOfPage" (dict "@id" $idPagina)
+    "datePublished" ($p.Date.Format "2006-01-02T15:04:05-07:00")
+    "dateModified" ($p.Lastmod.Format "2006-01-02T15:04:05-07:00")
+    "inLanguage" "it-IT"
+    "author" (dict "@id" $idOrg)
+    "publisher" (dict "@id" $idOrg)
+    "image" (slice (absURL $p.Params.grafica))
+  }}
+  {{- with $p.Params.tema }}{{ $articolo = merge $articolo (dict "articleSection" .) }}{{ end }}
+  {{- with $p.Params.pagina_sito }}{{ if hasPrefix . "/servizi/" }}{{ $articolo = merge $articolo (dict "about" (dict "@id" (printf "%s#servizio" (absURL .)))) }}{{ end }}{{ end }}
+  {{- $grafo = $grafo | append $articolo }}
+{{- end }}
+
 {{- /* Lavora con noi: un JobPosting per posizione (Google Lavoro) */ -}}
 {{- with $p.Params.posizioni }}
   {{- $datore := dict "@type" "Organization" "@id" $idOrg "name" "Cooprimavera Società Cooperativa" "sameAs" $base }}
