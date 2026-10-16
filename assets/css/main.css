@@ -625,7 +625,7 @@ p  { text-wrap: pretty; }
   .registro-foto { grid-area: foto; }
   .registro-foto img { width: 96px; height: 96px; }
   .registro-data { grid-area: data; font-size: .9rem; }
-  .registro-testo { grid-area: testo; }
+  .registro-riga .registro-testo { grid-area: testo; }
   .registro-servizi { grid-area: servizi; align-items: flex-start; text-align: left; flex-direction: row; flex-wrap: wrap; gap: 0 .6rem; }
 }
 

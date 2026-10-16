@@ -29,6 +29,9 @@ resampleFilter = "Lanczos"
 unsafe = true
 
 [params]
+# Codici di verifica di Google Search Console e Bing Webmaster Tools (metodo «tag HTML»): vuoti finché non arrivano
+verifica_google = ""
+verifica_bing = ""
 descrizione = "Cooprimavera Società Cooperativa — impresa multiservizi dei Castelli Romani: pulizie professionali, sanificazioni, disinfestazioni, giardinaggio, portierato e allestimenti per eventi."
 claim = "Il miglior partner per il tuo business"
 # Suffisso dei <title> delle pagine interne
@@ -73,6 +76,11 @@ weight = 20
 name = "Lavori"
 pageRef = "/lavori"
 weight = 22
+
+[[menus.main]]
+name = "Consigli"
+pageRef = "/consigli"
+weight = 23
 
 [[menus.main]]
 name = "Dove operiamo"

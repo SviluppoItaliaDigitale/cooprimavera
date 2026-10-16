@@ -1,0 +1,7 @@
+{{- /* Miniatura 432x540 della grafica di una notizia (static/social/mini/, creata da genera.js) per gli elenchi:
+       pesa circa un quinto della grafica intera; se manca si usa la grafica intera. */ -}}
+{{- $g := .Params.grafica | default "" }}
+{{- $m := replace $g "/social/" "/social/mini/" }}
+{{- $esito := $g }}
+{{- if and $g (os.FileExists (printf "static%s" $m)) }}{{ $esito = $m }}{{ end }}
+{{- return $esito }}

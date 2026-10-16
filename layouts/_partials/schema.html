@@ -165,6 +165,13 @@
     "publisher" (dict "@id" $idOrg)
     "image" (slice (absURL $p.Params.grafica))
   }}
+  {{- /* Google consiglia immagini larghe almeno 1200 px in 16:9, 4:3 e 1:1: si ricavano dalla foto del post */ -}}
+  {{- with $p.Params.immagine }}{{ with resources.Get . }}
+    {{- $foto := . }}
+    {{- $img := slice (absURL $p.Params.grafica) }}
+    {{- range slice "1200x675" "1200x900" "1200x1200" }}{{ $img = $img | append (($foto.Fill (printf "%s Center jpg q82" .)).Permalink) }}{{ end }}
+    {{- $articolo = merge $articolo (dict "image" $img) }}
+  {{- end }}{{ end }}
   {{- with $p.Params.tema }}{{ $articolo = merge $articolo (dict "articleSection" .) }}{{ end }}
   {{- with $p.Params.pagina_sito }}{{ if hasPrefix . "/servizi/" }}{{ $articolo = merge $articolo (dict "about" (dict "@id" (printf "%s#servizio" (absURL .)))) }}{{ end }}{{ end }}
   {{- $grafo = $grafo | append $articolo }}

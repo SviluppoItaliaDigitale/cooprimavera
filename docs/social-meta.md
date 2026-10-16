@@ -171,6 +171,13 @@ Numeri di telefono e anni nella voce vanno scritti in lettere.
   `pagina_sito`. Le grafiche `consiglio` possono avere una foto in alto
   (`grafica.foto` in `assets/img/consigli/`, `grafica.fuoco` per la posizione):
   da `assets/` la foto diventa anche l'anteprima social della pagina.
+- **SEO dei consigli (dal 16/10/2026)**: pagina `/consigli/` (menu «Consigli») con
+  tutti i consigli divisi per servizio; in ogni articolo il riquadro «Sullo
+  stesso argomento» con altri tre post dello stesso servizio; nella sitemap la
+  grafica di ogni notizia come immagine (Google Immagini); nel `BlogPosting`, oltre
+  alla grafica, la foto in 16:9, 4:3 e 1:1 a 1200 px come raccomanda Google;
+  negli elenchi le miniature 432x540 di `static/social/mini/` (circa 36 KB invece
+  di 190), create da `genera.js`; feed RSS delle notizie collegato nella testa.
 - **Routine di Claude (dal 13/10/2026)**: gli avvii programmati di GitHub sono
   arrivati con ore di ritardo (5/10 alle 17:20, 8/10 alle 16:05) o non sono
   partiti. Ogni giorno alle 9:05 una routine di Claude («Cooprimavera:

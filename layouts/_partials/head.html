@@ -22,12 +22,20 @@
 <link rel="canonical" href="{{ .Permalink }}">
 {{- end }}
 <meta name="theme-color" content="#627c26">
+{{- /* Verifica della proprietà del sito per Google Search Console e Bing Webmaster Tools (codici in hugo.toml) */ -}}
+{{- with site.Params.verifica_google }}
+<meta name="google-site-verification" content="{{ . }}">
+{{- end }}
+{{- with site.Params.verifica_bing }}
+<meta name="msvalidate.01" content="{{ . }}">
+{{- end }}
 <meta name="author" content="Cooprimavera Società Cooperativa">
 <meta name="geo.region" content="IT-RM">
 <meta name="geo.placename" content="Ariccia">
 <link rel="icon" type="image/png" href="{{ "favicon.png" | absURL }}">
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
 <link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}">
+<link rel="alternate" type="application/rss+xml" title="Notizie e consigli di Cooprimavera" href="{{ "notizie/index.xml" | absURL }}">
 {{/* Un solo foglio di stile: kit animazioni + stile del sito concatenati
      (l'ordine conta: main.css sovrascrive il kit dove serve) */}}
 {{ $css := slice (resources.Get "css/animazioni.css") (resources.Get "css/main.css") | resources.Concat "css/stile.css" | minify | fingerprint }}
