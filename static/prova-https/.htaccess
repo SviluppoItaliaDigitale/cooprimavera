@@ -1,0 +1,9 @@
+# Prova del passaggio a https dietro il proxy di Aruba: vale solo per questa cartella.
+# Le intestazioni X-Prova-* mostrano che cosa riceve il server; si toglie dopo la verifica.
+<IfModule mod_headers.c>
+  Header always set X-Prova-Proto "%{X-Forwarded-Proto}i"
+  Header always set X-Prova-Https "%{HTTPS}e"
+</IfModule>
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
+RewriteRule ^ https://www.cooprimavera.com%{REQUEST_URI} [L,R=302]

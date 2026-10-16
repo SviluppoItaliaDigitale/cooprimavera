@@ -1,6 +1,6 @@
 // Genera le grafiche dei post social (1080x1350, JPEG) da social/calendario.json.
 // Uso, dalla radice del repository: node social/grafiche/genera.js [AAAA-MM-GG ...]
-// Scrive in static/social/<file>. Regole: logo sempre sulla fascia chiara in basso,
+// Scrive in static/social/<file> e la miniatura 432x540 per gli elenchi del sito in static/social/mini/<file>. Regole: logo sempre sulla fascia chiara in basso,
 // mai su fondo scuro; foto vostre o gratuite (Pexels/Pixabay); caratteri Barlow (OFL) locali.
 const fs = require('fs'), path = require('path');
 let chromium; try { ({ chromium } = require('playwright')); } catch { ({ chromium } = require('/opt/node-tools/node_modules/playwright')); }
@@ -84,10 +84,14 @@ function pagina(p) {
   const solo = process.argv.slice(2);
   const cal = JSON.parse(fs.readFileSync(path.join(R, 'social/calendario.json'), 'utf8')).post.filter(p => !solo.length || solo.includes(p.data));
   const b = await chromium.launch(), pg = await b.newPage({ viewport: { width: 1080, height: 1350 } });
+  const mini = await b.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 0.4 });
+  fs.mkdirSync(path.join(R, 'static/social/mini'), { recursive: true });
   const tmp = path.join(require('os').tmpdir(), 'grafica-social.html');
   for (const p of cal) {
     fs.writeFileSync(tmp, pagina(p)); await pg.goto('file://' + tmp, { waitUntil: 'networkidle' }); await pg.evaluate(() => document.fonts.ready);
-    await pg.screenshot({ path: path.join(R, 'static/social', p.file), type: 'jpeg', quality: 86 }); console.log('ok', p.file);
+    await pg.screenshot({ path: path.join(R, 'static/social', p.file), type: 'jpeg', quality: 86 });
+    await mini.goto('file://' + tmp, { waitUntil: 'networkidle' }); await mini.evaluate(() => document.fonts.ready);
+    await mini.screenshot({ path: path.join(R, 'static/social/mini', p.file), type: 'jpeg', quality: 82 }); console.log('ok', p.file);
   }
   await b.close();
 })();
