@@ -105,6 +105,16 @@ perché Instagram vuole un indirizzo pubblico.
 - `pubblica-oggi`: pubblica il post del giorno su Instagram e, se non era già
   programmato, su Facebook; non pubblica due volte lo stesso giorno.
 
+### Rubrica «Il consiglio del martedì»
+
+Dal 20/10/2026, ogni martedì, un consiglio pratico di stagione (pulizie, verde,
+muffa, pavimenti, eventi, gelo) in quattro punti, con la chiusa «Non hai tempo?
+Ci pensiamo noi» e il numero per telefono e WhatsApp. Grafica `tipo: "consiglio"`
+in `social/grafiche/genera.js`: numero grande in contorno, punti numerati, fondo
+chiaro. Nel calendario: `numero`, `righe` (testi brevi per la grafica) e, nel
+testo dei post, i punti estesi. I nuovi consigli si aggiungono con lo stesso
+schema e la numerazione che continua.
+
 ### Video (Reel)
 
 Un post del calendario con il campo `video` (indirizzo di un `.mp4` in

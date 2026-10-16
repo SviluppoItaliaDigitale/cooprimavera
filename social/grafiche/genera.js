@@ -48,6 +48,15 @@ h1{font-family:'Barlow Condensed',Arial Narrow,sans-serif;font-weight:800;line-h
 .g .cart{position:absolute;top:70px;left:56px}
 .g h1{position:absolute;left:60px;right:60px;top:700px;color:#fff;font-size:200px}
 .g p{position:absolute;left:62px;top:1010px;color:var(--chiaro);font-size:46px;font-weight:600}
+/* consiglio del martedì: numero grande in contorno, passi numerati, chiusa */
+.c{background:var(--fondo)}
+.c .cart{position:absolute;top:70px;left:64px}
+.c .num{position:absolute;right:56px;top:36px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:250px;line-height:1;color:transparent;-webkit-text-stroke:4px var(--verde)}
+.c h1{position:absolute;left:64px;right:64px;top:300px;color:var(--inchiostro);font-size:104px}
+.c ol{position:absolute;left:64px;right:64px;top:560px;list-style:none;counter-reset:n;border-top:3px solid var(--inchiostro)}
+.c li{counter-increment:n;position:relative;font-size:45px;line-height:1.15;font-weight:600;color:var(--inchiostro);padding:28px 0 28px 96px;border-bottom:2px dashed #b9c79a}
+.c li::before{content:counter(n);position:absolute;left:0;top:24px;width:66px;height:66px;border-radius:50%;background:var(--inchiostro);color:#fff;font:800 40px/66px 'Barlow Condensed',sans-serif;text-align:center}
+.c .chiusa{position:absolute;left:64px;right:64px;bottom:200px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:56px;color:var(--scuro)}
 /* bozza */
 .b .vuoto{position:absolute;inset:40px 40px 400px 40px;border:6px dashed #9aa58a;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px;font:600 46px Barlow,sans-serif;color:#5c6357;background:#eef1e6}
 `;
@@ -58,6 +67,7 @@ function pagina(p) {
   let corpo;
   if (g.tipo === 'foto') corpo = `<div class="tela f"><div class="ph" style="background-image:url('${F(g.foto)}')"></div>${cart}<div class="pann"><h1>${esc(g.titolo)}</h1><p>${esc(g.sotto)}</p></div>${piede}</div>`;
   else if (g.tipo === 'anno') corpo = `<div class="tela a"><div class="stampa"><div style="background-image:url('${F(g.foto)}')"></div><em>${g.anno}</em></div>${cart}<div class="anno" style="font-size:${g.anno.length <= 4 ? 230 : 168}px">${g.anno}</div><h1>${esc(g.titolo)}</h1><p>${esc(g.sotto)}</p>${piede}</div>`;
+  else if (g.tipo === 'consiglio') corpo = `<div class="tela c"><div class="cartello cart"><b>${esc(g.tema)}</b></div><div class="num">${esc(g.numero)}</div><h1>${esc(g.titolo)}</h1><ol>${g.righe.map(r => `<li>${esc(r)}</li>`).join('')}</ol><div class="chiusa">${esc(g.chiusa || 'Non hai tempo? Ci pensiamo noi.')}</div>${piede}</div>`;
   else corpo = `<div class="tela t">${cart}<h1>${esc(g.titolo)}</h1><ul>${g.righe.map(r => `<li>${esc(r)}</li>`).join('')}</ul><div class="url">cooprimavera.com${p.pagina_sito}</div>${piede}</div>`;
   return `<!doctype html><html lang="it"><head><meta charset="utf-8"><style>${FONT}${CSS}</style></head><body>${corpo}</body></html>`;
 }

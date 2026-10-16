@@ -35,6 +35,9 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
   pubblicazione del giorno e verifica», perché gli avvii di GitHub arrivavano
   con ore di ritardo.
 
+- **«Il consiglio del martedì»**: 11 post di consigli pratici, dal 20/10 al
+  29/12/2026, ogni martedì alle 9 (approvati da Alessandro prima dell'unione).
+
 ## Da decidere / da fare
 1. **Pubblicazione automatica**: decisa da Alessandro il 3/10 («trova te il
    sistema migliore, tutto automaticamente»): social e sito escono da soli il
