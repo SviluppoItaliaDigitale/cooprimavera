@@ -25,4 +25,19 @@ Indicazioni di Alessandro (presidente) per post, grafiche e pagine.
 - **Dati sensibili**: dai documenti della cooperativa (visura, statuto,
   bilanci) si usano solo date e fatti pubblici; mai codici fiscali, nomi dei
   soci, cifre di bilancio.
+- **Consigli («Consigli da professionisti», dal 16/10/2026)**: solo cose vere e
+  verificabili, con la fonte citata nel post e linkata nell'articolo del sito.
+  Niente argomenti sul mescolare i prodotti (candeggina e ammoniaca: «non
+  idoneo», Alessandro). Si seguono i protocolli standard riconosciuti
+  (indicazione di Alessandro del 16/10): codice colore dei panni dell'INAIL
+  («La sanificazione nel post pandemia», 2023: rosso WC e bidet, giallo
+  arredi, lavabi e piastrelle, blu arredi, punti luce e superfici per alimenti,
+  bianco disinfettanti), metodi dei Criteri ambientali minimi per le pulizie
+  (DM 29/01/2021: dosatori, microfibra, formazione) come buona prassi, mai
+  «conformi CAM». Prodotti: «usiamo prodotti professionali concentrati, da
+  diluire» (Alessandro), senza dire che sono «più efficaci» di quelli del
+  supermercato. Impianti elettrici, idraulici, gas e cancelli motorizzati
+  (DM 37/2008): la cooperativa non è installatrice (registro imprese: pulizia di
+  edifici; sito: «serve un installatore abilitato»), quindi i post dicono
+  «rivolgiti a un'impresa abilitata».
 - Stato del lavoro e cose in sospeso: `docs/stato-lavori.md`.
