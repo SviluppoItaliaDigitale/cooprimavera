@@ -35,6 +35,18 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
   pubblicazione del giorno e verifica», perché gli avvii di GitHub arrivavano
   con ore di ritardo.
 
+## Consigli da professionisti (dal 16/10/2026)
+- Un consiglio al giorno alle 9:00 su Facebook, Instagram e sito, numerati: n. 1 il
+  16/10 (pubblicato), n. 2-55 dal 17/10 al 30/12 (saltano 25 e 26/12 e i giorni con
+  altri post). Ogni consiglio ha foto gratuita Pexels (`assets/img/consigli/`),
+  fonti citate nel post e articolo per il sito con fonti linkate.
+- Verifiche delle fonti fatte il 16/10 per materiali, metodi, stanze, DPI,
+  disinfestazioni, verde, giardinaggio, progettazione, manutenzioni e servizi;
+  per il 2027 restano argomenti di stagione: rose e olivo (febbraio), prato in
+  primavera, irrigazione, blatte, rampicanti, giardino che beve poco, diserbo,
+  ringhiere, tinteggiature esterne, pannelli, salvavita, idraulica.
+- Sostituisce la rubrica «Il consiglio del martedì» (PR #40, chiusa).
+
 ## Da decidere / da fare
 1. **Pubblicazione automatica**: decisa da Alessandro il 3/10 («trova te il
    sistema migliore, tutto automaticamente»): social e sito escono da soli il
