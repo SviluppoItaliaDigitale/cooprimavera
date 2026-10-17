@@ -78,7 +78,13 @@ function pagina(p) {
   else if (g.tipo === 'anno') corpo = `<div class="tela a"><div class="stampa"><div style="background-image:url('${F(g.foto)}')"></div><em>${g.anno}</em></div>${cart}<div class="anno" style="font-size:${g.anno.length <= 4 ? 230 : 168}px">${g.anno}</div><h1>${esc(g.titolo)}</h1><p>${esc(g.sotto)}</p>${piede}</div>`;
   else if (g.tipo === 'consiglio') corpo = `<div class="tela c${g.foto ? ' cf' : ''}">${g.foto ? `<div class="ph" style="background-image:url('${F(g.foto)}');background-position:${g.fuoco || 'center'}"></div>` : ''}<div class="cartello cart"><b>${esc(g.tema)}</b></div><div class="num">${esc(g.numero)}</div><h1>${esc(g.titolo)}</h1><ol>${g.righe.map(r => `<li>${esc(r)}</li>`).join('')}</ol><div class="chiusa">${esc(g.chiusa || 'Non hai tempo? Ci pensiamo noi.')}</div>${piede}</div>`;
   else corpo = `<div class="tela t">${cart}<h1>${esc(g.titolo)}</h1><ul>${g.righe.map(r => `<li>${esc(r)}</li>`).join('')}</ul><div class="url">cooprimavera.com${p.pagina_sito}</div>${piede}</div>`;
-  return `<!doctype html><html lang="it"><head><meta charset="utf-8"><style>${FONT}${CSS}</style></head><body>${corpo}</body></html>`;
+  // Consiglio con foto e titolo su una riga sola: la foto si allunga e il titolo scende fino ai passi,
+  // così non resta un vuoto fra titolo e lista (stessa distanza dei titoli su due righe).
+  const ritocco = `<script>document.fonts.ready.then(()=>{const t=document.querySelector('.cf');if(!t)return;
+    const h=t.querySelector('h1'),o=t.querySelector('ol'),d=Math.round(o.offsetTop-36-(h.offsetTop+h.offsetHeight));if(d<20)return;
+    const s=(e,p,v)=>e.style[p]=(parseFloat(getComputedStyle(e)[p])+v)+'px';
+    s(t.querySelector('.ph'),'height',d);s(t.querySelector('.num'),'top',d);s(h,'top',d);});</script>`;
+  return `<!doctype html><html lang="it"><head><meta charset="utf-8"><style>${FONT}${CSS}</style></head><body>${corpo}${ritocco}</body></html>`;
 }
 (async () => {
   const solo = process.argv.slice(2);
