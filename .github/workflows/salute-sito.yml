@@ -1,0 +1,36 @@
+name: "🩺 Salute del sito"
+
+# Ogni giorno elenca le automazioni in errore (ultimo run su main fallito, oppure
+# run fallito nelle ultime 24 ore non ancora superato da un run riuscito) e tiene
+# aggiornata una sola issue «Salute del sito: automazioni in errore», che si chiude
+# da sola quando tutto è verde. Commenta solo quando l'elenco cambia.
+# Logica in scripts/salute-sito.py. Istruzione di Alessandro del 17/10/2026.
+
+on:
+  schedule:
+    - cron: "23 5 * * *"   # 07:23 italiane con l'ora legale
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  issues: write
+
+concurrency:
+  group: salute-sito
+  cancel-in-progress: false
+
+jobs:
+  salute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Automazioni in errore → issue in-place
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ESCLUDI: .github/workflows/salute-sito.yml
+        run: python3 scripts/salute-sito.py

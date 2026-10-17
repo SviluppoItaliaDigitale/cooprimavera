@@ -80,6 +80,33 @@ def chiama(metodo: str, percorso: str, **param) -> dict:
         return {"errore": f"rete: {e}"}
 
 
+def attendi_media(url: str, attesa_max: int = 600) -> None:
+    """Prima di passare un link a Meta controlla che risponda come immagine o video.
+    Subito dopo un merge il deploy impiega 1-2 minuti: senza attesa Instagram legge la
+    pagina d'errore e risponde «Only photo or video can be accepted as media type» (16/10/2026)."""
+    if not url:
+        return
+    fine = time.time() + attesa_max
+    ultimo = ""
+    while True:
+        try:
+            req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "cooprimavera-social/1.0"})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                tipo = r.headers.get("Content-Type", "")
+                if r.status == 200 and tipo.split("/")[0] in ("image", "video"):
+                    return
+                ultimo = f"HTTP {r.status}, {tipo or 'tipo assente'}"
+        except urllib.error.HTTPError as e:
+            ultimo = f"HTTP {e.code}"
+        except (urllib.error.URLError, TimeoutError) as e:
+            ultimo = f"rete: {e}"
+        if time.time() >= fine:
+            esci(f"il file {url} non risponde come immagine o video ({ultimo}): "
+                 "il deploy non è finito o il file non è sul sito")
+        print(f"In attesa del file sul sito ({ultimo})…", flush=True)
+        time.sleep(20)
+
+
 def esci(msg: str) -> None:
     scrivi(f"**ERRORE:** {msg}")
     salva_esito()
@@ -214,7 +241,9 @@ def a_pubblica(rete, testo, immagine, quando="", **_):
         prog = {"published": "false", "scheduled_publish_time": ts}
     if rete not in ("fb", "ig"):
         esci("rete deve essere fb o ig")
+    attendi_media(immagine)
     if immagine.lower().endswith(".mp4"):
+        attendi_media(immagine[:-4] + ".jpg")  # copertina del Reel
         return pubblica_video(rete, testo, immagine, **prog)
     if rete == "fb":
         if immagine:
@@ -528,6 +557,7 @@ def a_programma_calendario(**_):
         if ts in gia:
             scrivi(f"- {x['data']} «{x['titolo']}»: già programmato")
         elif adesso + 900 <= ts <= adesso + 28 * 86400:
+            attendi_media(x["immagine"])
             r = chiama("POST", f"{PAGE_ID}/photos", url=x["immagine"], caption=x["fb"],
                        published="false", scheduled_publish_time=ts)
             scrivi(f"- {x['data']} «{x['titolo']}»: " + (f"❌ {r['errore']}" if "errore" in r else "programmato"))
