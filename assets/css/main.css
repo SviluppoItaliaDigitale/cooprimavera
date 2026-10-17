@@ -418,8 +418,9 @@ p  { text-wrap: pretty; }
 /* Come funziona: passi numerati verso il preventivo */
 .passi {
   list-style: none; margin: 1.6rem 0 2rem; padding: 0; counter-reset: passo;
-  display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+@media (max-width: 575.98px) { .passi { grid-template-columns: 1fr; } }
 .passi li {
   counter-increment: passo;
   background: var(--verde-fondo); border: 1px solid var(--bordo);

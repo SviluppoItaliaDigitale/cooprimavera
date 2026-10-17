@@ -83,7 +83,11 @@ function pagina(p) {
   const ritocco = `<script>document.fonts.ready.then(()=>{const t=document.querySelector('.cf');if(!t)return;
     const h=t.querySelector('h1'),o=t.querySelector('ol'),d=Math.round(o.offsetTop-36-(h.offsetTop+h.offsetHeight));if(d<20)return;
     const s=(e,p,v)=>e.style[p]=(parseFloat(getComputedStyle(e)[p])+v)+'px';
-    s(t.querySelector('.ph'),'height',d);s(t.querySelector('.num'),'top',d);s(h,'top',d);});</script>`;
+    s(t.querySelector('.ph'),'height',d);s(t.querySelector('.num'),'top',d);s(h,'top',d);});
+    // Grafica solo testo con titolo corto: il titolo scende verso l'elenco invece di lasciare un vuoto in mezzo.
+    document.fonts.ready.then(()=>{const t=document.querySelector('.t');if(!t)return;
+    const h=t.querySelector('h1'),u=t.querySelector('ul'),d=Math.round(u.offsetTop-105-(h.offsetTop+h.offsetHeight));if(d<20)return;
+    h.style.top=(h.offsetTop+d)+'px';});</script>`;
   return `<!doctype html><html lang="it"><head><meta charset="utf-8"><style>${FONT}${CSS}</style></head><body>${corpo}${ritocco}</body></html>`;
 }
 (async () => {
