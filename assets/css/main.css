@@ -413,12 +413,14 @@ p  { text-wrap: pretty; }
   outline: 3px solid var(--verde); outline-offset: 1px; border-color: var(--verde-scuro);
 }
 .campo-nota { font-size: .92rem; color: var(--verde-testo); margin: .4rem 0 0; }
+.campo-nota a { color: var(--verde-testo); }
 
 /* Come funziona: passi numerati verso il preventivo */
 .passi {
   list-style: none; margin: 1.6rem 0 2rem; padding: 0; counter-reset: passo;
-  display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+@media (max-width: 575.98px) { .passi { grid-template-columns: 1fr; } }
 .passi li {
   counter-increment: passo;
   background: var(--verde-fondo); border: 1px solid var(--bordo);
@@ -486,6 +488,8 @@ p  { text-wrap: pretty; }
   border-top: 4px solid var(--verde);
   color: #e8ebe2; margin-top: 4rem;
 }
+/* Se la pagina finisce con una fascia colorata, il piè di pagina la segue senza striscia bianca */
+main:has(> .sezione-verde:last-child, > .sezione-alterna:last-child) + .pie { margin-top: 0; }
 .pie a { color: #cfe08f; text-decoration-color: rgba(159, 198, 61, .45); }
 .pie a:hover { color: #fff; text-decoration-color: #fff; }
 .pie-griglia {
