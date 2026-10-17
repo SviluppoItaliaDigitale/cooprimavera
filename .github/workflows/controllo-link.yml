@@ -44,6 +44,8 @@ jobs:
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           # --root-dir risolve i percorsi /… contro il sito compilato
+          # il percorso delle pagine va tra virgolette: lo espande lychee in tutte
+          # le sottocartelle; senza, la shell lo riduce alle pagine di secondo livello
           # --accept   403 e 429: siti che bloccano i programmi ma funzionano per chi legge
           args: >-
             --no-progress
@@ -56,7 +58,7 @@ jobs:
             --exclude "^tel:"
             --exclude "^mailto:"
             --exclude "^#"
-            public/**/*.html
+            "public/**/*.html"
           output: ./lychee-report.md
           format: markdown
           fail: false
