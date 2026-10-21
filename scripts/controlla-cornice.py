@@ -66,8 +66,9 @@ def problemi_alt(alt) -> list[str]:
     if not isinstance(alt, str) or not alt.strip():
         return ["manca il testo alternativo (campo \"alt\")"]
     p = []
-    if len(alt) > LIMITE_ALT:
-        p.append(f"testo alternativo di {len(alt)} caratteri, oltre il limite di {LIMITE_ALT}")
+    lunghezza = len(alt.encode("utf-16-le")) // 2  # unità UTF-16: un'emoji vale 2, come in gestione_social.py
+    if lunghezza > LIMITE_ALT:
+        p.append(f"testo alternativo di {lunghezza} caratteri, oltre il limite di {LIMITE_ALT}")
     if re.match(r"\s*immagine\b", alt, re.I):
         p.append("il testo alternativo comincia con «Immagine»: il lettore di schermo lo dice già")
     if STRUMENTI.search(alt):
@@ -131,6 +132,8 @@ def prova() -> int:
         ("assente", None, 1),
         ("vuoto", "   ", 1),
         ("troppo lungo", "a" * 1001, 1),
+        ("emoji contate doppie", "Prato. " + "🙂" * 497, 1),  # 504 caratteri, 1001 unità UTF-16
+        ("1000 unità con le emoji", "Prato." + "🙂" * 497, 0),
         ("comincia con Immagine", "Immagine di un prato", 1),
         ("nomina uno strumento", "Grafica preparata con ChatGPT", 1),
         ("sigla AI", "Grafica fatta con l'AI", 1),
