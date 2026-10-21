@@ -6,8 +6,9 @@ sul telefono) oppure con un push del file `.github/social/comando.json` su un
 ramo diverso da main. Legge il token della pagina dai secret, non lo stampa mai.
 
 Azioni (variabile AZIONE, o campo "azione" del file comando):
-  prova               crea, modifica ed elimina un post FB NON pubblicato; prepara
-                      un contenitore IG senza pubblicarlo. Nulla diventa visibile.
+  prova               crea, modifica ed elimina un post FB NON pubblicato; carica ed elimina
+                      una foto FB NON pubblicata con il testo alternativo; prepara un
+                      contenitore IG con il testo alternativo senza pubblicarlo. Nulla diventa visibile.
   elenco              ultimi post di Facebook e Instagram con identificativi
   statistiche         follower e copertura di pagina e account Instagram
   programma-calendario programma su Facebook i post di social/calendario.json entro 28 giorni
@@ -15,7 +16,8 @@ Azioni (variabile AZIONE, o campo "azione" del file comando):
                       lo lancia da solo il workflow il lunedì e il giovedì
   pubblica            pubblica su RETE (fb o ig): TESTO, e IMMAGINE_URL (obbligatoria su ig);
                       su fb con QUANDO (es. 2026-10-05T09:00:00+02:00) il post viene programmato;
-                      se IMMAGINE_URL è un .mp4 pubblica un video (Reel su ig)
+                      se IMMAGINE_URL è un .mp4 pubblica un video (Reel su ig);
+                      con ALT (facoltativo) il testo alternativo dell'immagine
   modifica            riscrive il testo di un post Facebook (ID, TESTO)
   elimina             elimina un post (RETE, ID; su ig va bene anche il permalink) — CONFERMA=ELIMINA
   commenti            commenti di un post (RETE, ID)
@@ -28,6 +30,13 @@ Azioni (variabile AZIONE, o campo "azione" del file comando):
                       archivio-social/ (README.md + dati.json)
   elimina-tutti       elimina i post di RETE già presenti in archivio-social/dati.json; salta
                       foto profilo/copertina e post non archiviati — CONFERMA=ELIMINA
+
+Testo alternativo delle immagini (dal 21/10/2026): per i post del calendario si legge
+dal campo "alt" di social/calendario.json, per «pubblica» da ALT. Instagram lo riceve
+in alt_text (solo immagini, fino a 1000 caratteri: oltre non si invia), Facebook in
+alt_text_custom sulle foto; per i video e i Reel non si invia. Senza testo alternativo
+si pubblica esattamente come prima. Se Meta rifiuta la richiesta con il testo
+alternativo, si ritenta una volta senza e lo si scrive nell'esito: il post non salta.
 
 Limiti della piattaforma, non dello strumento: su Instagram la didascalia di un
 post pubblicato non si modifica (si elimina e si ripubblica); su Facebook si
@@ -50,6 +59,7 @@ from pathlib import Path
 G = "https://graph.facebook.com/" + (os.environ.get("META_GRAPH_VERSION") or "v23.0")
 PAGE_ID = os.environ.get("PAGE_ID", "").strip()
 TOKEN = os.environ.get("PAGE_TOKEN", "").strip()
+LIMITE_ALT_IG = 1000  # Instagram, alt_text: «Alternative text, up to 1000 character, for an image»
 righe: list[str] = []
 
 
@@ -73,11 +83,36 @@ def chiama(metodo: str, percorso: str, **param) -> dict:
             return json.loads(r.read().decode())
     except urllib.error.HTTPError as e:
         try:
-            return {"errore": json.loads(e.read().decode()).get("error", {}).get("message", f"HTTP {e.code}")}
+            msg = json.loads(e.read().decode()).get("error", {}).get("message", f"HTTP {e.code}")
         except Exception:
-            return {"errore": f"HTTP {e.code}"}
+            msg = f"HTTP {e.code}"
+        return {"errore": msg, "codice": e.code}
     except (urllib.error.URLError, TimeoutError) as e:
         return {"errore": f"rete: {e}"}
+
+
+def con_alt(percorso: str, campo: str, alt: str, **param) -> dict:
+    """POST di un'immagine con il testo alternativo in `campo` (alt_text su Instagram, alt_text_custom su
+    Facebook). Senza testo alternativo la richiesta è identica a prima. Se Meta rifiuta la richiesta
+    (risposta 4xx), si ritenta una volta senza testo alternativo e lo si scrive nell'esito, così il post
+    non salta; gli errori di rete e del server (5xx) non si ritentano, come nel resto dello script."""
+    if not alt:
+        return chiama("POST", percorso, **param)
+    r = chiama("POST", percorso, **param, **{campo: alt})
+    if "errore" in r and 400 <= int(r.get("codice") or 0) < 500:
+        scrivi(f"Testo alternativo non accettato ({campo}: {r['errore']}): riprovo una volta senza.")
+        r = chiama("POST", percorso, **param)
+        if "errore" not in r:
+            scrivi("Senza testo alternativo la richiesta è passata.")
+    return r
+
+
+def alt_ig(alt: str) -> str:
+    """Instagram accetta il testo alternativo fino a 1000 caratteri: oltre non lo si invia."""
+    if alt and len(alt) > LIMITE_ALT_IG:
+        scrivi(f"Testo alternativo di {len(alt)} caratteri, oltre il limite di {LIMITE_ALT_IG} di Instagram: non lo invio.")
+        return ""
+    return alt
 
 
 def attendi_media(url: str, attesa_max: int = 600) -> None:
@@ -173,10 +208,19 @@ def a_prova(**_):
         passi.append(("FB: modifica testo", r.get("success") is True, r.get("errore")))
         r = chiama("DELETE", pid)
         passi.append(("FB: elimina", r.get("success") is True, r.get("errore")))
+    # Testo alternativo: qui senza il nuovo tentativo di con_alt, per sapere se Meta accetta davvero il campo
+    r = chiama("POST", f"{PAGE_ID}/photos", url="https://www.cooprimavera.com/apple-touch-icon.png",
+               published="false", alt_text_custom="Prova tecnica del testo alternativo")
+    fid = r.get("id")
+    passi.append(("FB: foto non pubblicata con testo alternativo", bool(fid), r.get("errore")))
+    if fid:
+        r = chiama("DELETE", fid)
+        passi.append(("FB: elimina la foto di prova", r.get("success") is True, r.get("errore")))
     i = ig_id()
     r = chiama("POST", f"{i}/media", caption="Prova tecnica",
-               image_url="https://www.misericordia-ariccia.it/img/og-default.jpg")
-    passi.append(("IG: prepara contenitore senza pubblicare", bool(r.get("id")), r.get("errore")))
+               image_url="https://www.misericordia-ariccia.it/img/og-default.jpg",
+               alt_text="Prova tecnica del testo alternativo")
+    passi.append(("IG: prepara contenitore con testo alternativo senza pubblicare", bool(r.get("id")), r.get("errore")))
     tutto = True
     for nome, buono, err in passi:
         scrivi(f"- {'✅' if buono else '❌'} {nome}" + (f" — {err}" if err else ""))
@@ -221,7 +265,7 @@ def a_statistiche(**_):
         scrivi(f"- {metrica} (28 giorni): {v if v is not None else 'non disponibile'}")
 
 
-def a_pubblica(rete, testo, immagine, quando="", **_):
+def a_pubblica(rete, testo, immagine, quando="", alt="", **_):
     prog = {}
     if quando:
         # Programmazione nativa di Facebook: da 10 minuti a 75 giorni nel futuro
@@ -244,16 +288,20 @@ def a_pubblica(rete, testo, immagine, quando="", **_):
     attendi_media(immagine)
     if immagine.lower().endswith(".mp4"):
         attendi_media(immagine[:-4] + ".jpg")  # copertina del Reel
+        if alt:
+            scrivi("Video: il testo alternativo vale per le immagini, per i video e i Reel non si invia.")
         return pubblica_video(rete, testo, immagine, **prog)
     if rete == "fb":
         if immagine:
-            r = chiama("POST", f"{PAGE_ID}/photos", url=immagine, caption=testo, **prog)
+            r = con_alt(f"{PAGE_ID}/photos", "alt_text_custom", alt, url=immagine, caption=testo, **prog)
         else:
+            if alt:
+                scrivi("Post senza immagine: il testo alternativo non si invia.")
             r = chiama("POST", f"{PAGE_ID}/feed", message=richiedi("testo", testo), **prog)
         esito(r, f"{'Programmato per ' + quando if quando else 'Pubblicato'} su Facebook: `{r.get('post_id') or r.get('id')}`")
     elif rete == "ig":
         i = ig_id()
-        c = chiama("POST", f"{i}/media", image_url=richiedi("immagine_url", immagine), caption=testo)
+        c = con_alt(f"{i}/media", "alt_text", alt_ig(alt), image_url=richiedi("immagine_url", immagine), caption=testo)
         if "errore" in c:
             esci(c["errore"])
         for _ in range(20):
@@ -558,8 +606,8 @@ def a_programma_calendario(**_):
             scrivi(f"- {x['data']} «{x['titolo']}»: già programmato")
         elif adesso + 900 <= ts <= adesso + 28 * 86400:
             attendi_media(x["immagine"])
-            r = chiama("POST", f"{PAGE_ID}/photos", url=x["immagine"], caption=x["fb"],
-                       published="false", scheduled_publish_time=ts)
+            r = con_alt(f"{PAGE_ID}/photos", "alt_text_custom", x.get("alt") or "", url=x["immagine"],
+                        caption=x["fb"], published="false", scheduled_publish_time=ts)
             scrivi(f"- {x['data']} «{x['titolo']}»: " + (f"❌ {r['errore']}" if "errore" in r else "programmato"))
         elif ts > adesso:
             scrivi(f"- {x['data']} «{x['titolo']}»: oltre 28 giorni, si programma più avanti")
@@ -582,13 +630,13 @@ def a_pubblica_oggi(**_):
     if any(datetime.fromisoformat(m["timestamp"].replace("+0000", "+00:00")).timestamp() >= inizio for m in media):
         scrivi(f"Instagram: oggi c'è già un post, «{x['titolo']}» non viene ripubblicato.")
     else:
-        a_pubblica(rete="ig", testo=x["ig"], immagine=x.get("video") or x["immagine"])
+        a_pubblica(rete="ig", testo=x["ig"], immagine=x.get("video") or x["immagine"], alt=x.get("alt") or "")
     if _quando(x) in _programmati_fb():
         scrivi("Facebook: programmato, esce da solo.")
     elif chiama("GET", f"{PAGE_ID}/posts", fields="id", since=inizio, limit=5).get("data"):
         scrivi("Facebook: oggi c'è già un post.")
     else:
-        a_pubblica(rete="fb", testo=x["fb"], immagine=x.get("video") or x["immagine"])
+        a_pubblica(rete="fb", testo=x["fb"], immagine=x.get("video") or x["immagine"], alt=x.get("alt") or "")
 
 
 AZIONI = {
@@ -624,7 +672,7 @@ def main() -> None:
     if azione not in AZIONI:
         esci(f"azione sconosciuta «{azione}». Possibili: {', '.join(AZIONI)}")
     AZIONI[azione](rete=(val("rete") or "fb").lower(), ident=val("id"), testo=val("testo"),
-                   immagine=val("immagine_url"), conf=val("conferma"), quando=val("quando"))
+                   immagine=val("immagine_url"), conf=val("conferma"), quando=val("quando"), alt=val("alt"))
     salva_esito()
 
 

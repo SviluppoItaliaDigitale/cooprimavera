@@ -1,10 +1,17 @@
 // Genera le grafiche dei post social (1080x1350, JPEG) da social/calendario.json.
 // Uso, dalla radice del repository: node social/grafiche/genera.js [AAAA-MM-GG ...]
+//   senza date: solo i post non ancora pubblicati (data e ora del calendario, ora italiana); quelli già usciti non si toccano.
+//   node social/grafiche/genera.js --cornice FILE.jpg [...] [--anno AAAA]: aggiunge la cornice a un JPEG già fatto
+//   (per esempio una copertina o una grafica preparata in altro modo); si ferma se ai bordi c'è un disegno o una scritta.
 // Scrive in static/social/<file> e la miniatura 432x540 per gli elenchi del sito in static/social/mini/<file>. Regole: logo sempre sulla fascia chiara in basso,
 // mai su fondo scuro; foto vostre o gratuite (Pexels/Pixabay); caratteri Barlow (OFL) locali.
-const fs = require('fs'), path = require('path');
+// Cornice di microtesto (dal 21/10/2026, social/grafiche/cornice.js): ogni grafica esce con la provenienza scritta in piccolo
+// lungo i bordi e con un segno nel file; foto e riquadri stanno a 20 px dai bordi, e il generatore si ferma se una scritta,
+// il logo o una foto entrano nella fascia della cornice. Alla fine controlla il segno con scripts/controlla-cornice.py.
+const fs = require('fs'), path = require('path'), { execFileSync } = require('child_process');
 let chromium; try { ({ chromium } = require('playwright')); } catch { ({ chromium } = require('/opt/node-tools/node_modules/playwright')); }
 const R = path.resolve(__dirname, '../..'), F = p => 'file://' + path.join(R, p);
+const CORNICE = fs.readFileSync(path.join(__dirname, 'cornice.js'), 'utf8');
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const FONT = [['Barlow', 400, 'Barlow-400'], ['Barlow', 600, 'Barlow-600'], ['Barlow Condensed', 600, 'BarlowCondensed-600'], ['Barlow Condensed', 800, 'BarlowCondensed-800']]
   .map(([f, w, n]) => `@font-face{font-family:'${f}';font-weight:${w};src:url('${F('social/grafiche/font/' + n + '.woff2')}') format('woff2')}`).join('');
@@ -20,10 +27,10 @@ h1{font-family:'Barlow Condensed',Arial Narrow,sans-serif;font-weight:800;line-h
 .cartello{display:inline-flex;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:34px}
 .cartello b{background:var(--verde);color:var(--inchiostro);padding:8px 18px;font-weight:600}
 .cartello i{font-style:normal;background:var(--inchiostro);color:#fff;padding:8px 18px}
-/* foto */
-.f .ph{position:absolute;inset:0 0 170px 0;background-size:cover;background-position:center}
+/* foto: foto e pannello a 20 px dai bordi, come una stampa con il margine; nel margine corre la cornice di microtesto */
+.f .ph{position:absolute;inset:20px 20px 170px 20px;background-size:cover;background-position:center}
 .f .cart{position:absolute;top:56px;left:56px}
-.f .pann{position:absolute;left:0;right:0;bottom:170px;background:var(--inchiostro);padding:44px 64px 50px}
+.f .pann{position:absolute;left:20px;right:20px;bottom:170px;background:var(--inchiostro);padding:44px 44px 50px}
 .f h1{color:#fff;font-size:104px}
 .f p{color:var(--chiaro);font-size:38px;font-weight:600;margin-top:16px}
 /* anno */
@@ -57,8 +64,8 @@ h1{font-family:'Barlow Condensed',Arial Narrow,sans-serif;font-weight:800;line-h
 .c li{counter-increment:n;position:relative;font-size:45px;line-height:1.15;font-weight:600;color:var(--inchiostro);padding:28px 0 28px 96px;border-bottom:2px dashed #b9c79a}
 .c li::before{content:counter(n);position:absolute;left:0;top:24px;width:66px;height:66px;border-radius:50%;background:var(--inchiostro);color:#fff;font:800 40px/66px 'Barlow Condensed',sans-serif;text-align:center}
 .c .chiusa{position:absolute;left:64px;right:64px;bottom:200px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:56px;color:var(--scuro)}
-/* consiglio con foto: foto in alto, numero su blocco scuro, passi sotto */
-.cf .ph{position:absolute;left:0;right:0;top:0;height:450px;background-size:cover;background-position:center}
+/* consiglio con foto: foto in alto (a 20 px dai bordi, per la cornice), numero su blocco scuro, passi sotto */
+.cf .ph{position:absolute;left:20px;right:20px;top:20px;height:430px;background-size:cover;background-position:center}
 .cf .cart{top:56px;left:56px}
 .cf .num{top:auto;bottom:auto;top:362px;right:56px;font-size:118px;color:var(--verde);-webkit-text-stroke:0;background:var(--inchiostro);padding:6px 26px 2px}
 .cf h1{top:490px;font-size:92px}
@@ -88,20 +95,55 @@ function pagina(p) {
     document.fonts.ready.then(()=>{const t=document.querySelector('.t');if(!t)return;
     const h=t.querySelector('h1'),u=t.querySelector('ul'),d=Math.round(u.offsetTop-105-(h.offsetTop+h.offsetHeight));if(d<20)return;
     h.style.top=(h.offsetTop+d)+'px';});</script>`;
-  return `<!doctype html><html lang="it"><head><meta charset="utf-8"><style>${FONT}${CSS}</style></head><body>${corpo}${ritocco}</body></html>`;
+  return `<!doctype html><html lang="it"><head><meta charset="utf-8"><style>${FONT}${CSS}</style></head><body>${corpo}${ritocco}<script>${CORNICE}</script></body></html>`;
 }
-(async () => {
-  const solo = process.argv.slice(2);
-  const cal = JSON.parse(fs.readFileSync(path.join(R, 'social/calendario.json'), 'utf8')).post.filter(p => !solo.length || solo.includes(p.data));
-  const b = await chromium.launch(), pg = await b.newPage({ viewport: { width: 1080, height: 1350 } });
-  const mini = await b.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 0.4 });
-  fs.mkdirSync(path.join(R, 'static/social/mini'), { recursive: true });
-  const tmp = path.join(require('os').tmpdir(), 'grafica-social.html');
-  for (const p of cal) {
-    fs.writeFileSync(tmp, pagina(p)); await pg.goto('file://' + tmp, { waitUntil: 'networkidle' }); await pg.evaluate(() => document.fonts.ready);
-    await pg.screenshot({ path: path.join(R, 'static/social', p.file), type: 'jpeg', quality: 86 });
-    await mini.goto('file://' + tmp, { waitUntil: 'networkidle' }); await mini.evaluate(() => document.fonts.ready);
-    await mini.screenshot({ path: path.join(R, 'static/social/mini', p.file), type: 'jpeg', quality: 82 }); console.log('ok', p.file);
+// Data e ora di adesso in Italia, nella forma «AAAA-MM-GG HH:MM» (si confronta come testo con data e ora del calendario).
+const adessoRoma = () => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Rome', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date());
+const daUscire = p => `${p.data} ${p.ora || '09:00'}` > adessoRoma();
+const dati = s => Buffer.from(s.slice(s.indexOf(',') + 1), 'base64');
+
+// Cornice su JPEG già fatti, in place. Salta i file che hanno già il segno (mai due cornici sulla stessa grafica).
+async function soloCornice(b, file, anno) {
+  const pg = await b.newPage(), tmp = path.join(require('os').tmpdir(), 'cornice-social.html');
+  fs.writeFileSync(tmp, `<!doctype html><meta charset="utf-8"><style>${FONT}</style><body><script>${CORNICE}</script>`);
+  await pg.goto('file://' + tmp);
+  for (const f of file) {
+    const buf = fs.readFileSync(f), segno = await pg.evaluate(() => window.MARCATORE_CORNICE);
+    if (buf.includes(Buffer.from(segno))) { console.log('ha già la cornice:', f); continue; }
+    const src = 'data:image/jpeg;base64,' + buf.toString('base64');
+    const bordi = await pg.evaluate(s => window.zonaLibera(s), src);
+    if (bordi.length) throw new Error(`${f}: ai bordi ci sono scritte, disegni o foto, la cornice li coprirebbe (${bordi.join('; ')})`);
+    const r = await pg.evaluate(([s, a]) => window.corniceCooprimavera(s, { anno: a, qualita: 0.88 }), [src, anno]);
+    fs.writeFileSync(f, dati(r.dati)); console.log('cornice:', f);
   }
-  await b.close();
-})();
+  await pg.close();
+}
+
+(async () => {
+  const arg = process.argv.slice(2), b = await chromium.launch();
+  try {
+    if (arg[0] === '--cornice') {
+      const i = arg.indexOf('--anno'), anno = i > 0 ? arg[i + 1] : String(new Date().getFullYear());
+      await soloCornice(b, arg.slice(1).filter((x, k) => x !== '--anno' && k !== i), anno);
+      return;
+    }
+    const tutti = JSON.parse(fs.readFileSync(path.join(R, 'social/calendario.json'), 'utf8')).post;
+    const cal = arg.length ? tutti.filter(p => arg.includes(p.data)) : tutti.filter(daUscire);
+    for (const p of cal) if (!daUscire(p)) console.log(`attenzione: il post del ${p.data} è già uscito; lo rifaccio solo perché chiesto`);
+    const pg = await b.newPage({ viewport: { width: 1080, height: 1350 } });
+    fs.mkdirSync(path.join(R, 'static/social/mini'), { recursive: true });
+    const tmp = path.join(require('os').tmpdir(), 'grafica-social.html');
+    for (const p of cal) {
+      fs.writeFileSync(tmp, pagina(p)); await pg.goto('file://' + tmp, { waitUntil: 'networkidle' }); await pg.evaluate(() => document.fonts.ready);
+      await pg.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));   // dopo i ritocchi
+      const bordi = await pg.evaluate(() => window.bordiOccupati());
+      if (bordi.length) throw new Error(`${p.file}: la cornice toccherebbe ${bordi.map(x => `${x.nome} (${x.lati.join(', ')})`).join('; ')}`);
+      const png = await pg.screenshot({ type: 'png' });
+      const r = await pg.evaluate(([s, a]) => window.corniceCooprimavera(s, { anno: a, qualita: 0.86, mini: [432, 540], qualitaMini: 0.82 }),
+        ['data:image/png;base64,' + png.toString('base64'), p.data.slice(0, 4)]);
+      fs.writeFileSync(path.join(R, 'static/social', p.file), dati(r.dati));
+      fs.writeFileSync(path.join(R, 'static/social/mini', p.file), dati(r.mini)); console.log('ok', p.file);
+    }
+  } finally { await b.close(); }
+  execFileSync('python3', [path.join(R, 'scripts/controlla-cornice.py'), '--solo-segno'], { stdio: 'inherit' });
+})().catch(e => { console.error(e.message || e); process.exit(1); });

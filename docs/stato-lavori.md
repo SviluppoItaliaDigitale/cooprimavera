@@ -47,6 +47,19 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
   ringhiere, tinteggiature esterne, pannelli, salvavita, idraulica.
 - Sostituisce la rubrica «Il consiglio del martedì» (PR #40, chiusa).
 
+## Cornice di microtesto e testo alternativo (dal 21/10/2026)
+- Richiesta di Alessandro del 21/10/2026: firmare ogni grafica con la cornice di
+  microtesto ai bordi, come per la Misericordia di Ariccia, e mandare il testo
+  alternativo delle immagini a Facebook e Instagram. Come funziona:
+  `docs/social-meta.md` § «Cornice di microtesto e testo alternativo».
+- Rifatte con la cornice le grafiche e le miniature dei 69 post non ancora usciti
+  (22/10–31/12/2026); rifatti i due video futuri, 29/10 (allestimenti) e 9/11
+  (fotovoltaico), con la cornice anche nella copertina del Reel: stessa durata,
+  stessa voce e musica. Le grafiche e il video dei post già usciti restano come sono.
+- Scritto il campo `alt` di ogni post dal 22/10, guardando ogni grafica.
+- In attesa del «approvo» di Alessandro sulla pull request: finché non è unita,
+  sul sito e sui social escono le grafiche di prima.
+
 ## Da decidere / da fare
 1. **Pubblicazione automatica**: decisa da Alessandro il 3/10 («trova te il
    sistema migliore, tutto automaticamente»): social e sito escono da soli il
@@ -57,6 +70,13 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
    cambiate tre con foto gratuite più adatte (2, 12 e 26 novembre).
 3. Altri video dei servizi: ogni due settimane, con foto vere o disegni.
 4. Instagram: verificare dall'app che i due vecchi video IGTV non ci siano più.
+5. Facebook: i post del 22/10, 26/10 e 29/10, programmati il 3/10, hanno la
+   grafica di allora, senza cornice né testo alternativo (Facebook copia
+   l'immagine quando si programma). Per uscire con quelle nuove vanno eliminati
+   da «Programmati» e riprogrammati con `programma-calendario`: decide Alessandro.
+6. Grafica del 31/12: la stampa e il numero grande dicono «2026», ma la foto è il
+   concerto del 2020 a Palazzo Farnese (`2020-palazzo-farnese-palco.jpg`): da
+   confermare o cambiare foto.
 
 ## Come si riprende
 - Pubblicare o programmare: scrivere `.github/social/comando.json` su un ramo

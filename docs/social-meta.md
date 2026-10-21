@@ -65,7 +65,8 @@ messaggi Messenger/Direct (leggere, rispondere), prova invisibile, `esporta`
   `{"azione": "commenti", "rete": "ig", "id": "https://www.instagram.com/p/…"}`,
   e si fa push: il workflow parte da solo e scrive il risultato in
   `.github/social/esito.md` sullo stesso ramo (poi il ramo si cancella).
-  Campi: `azione`, `rete` (`fb`/`ig`), `id`, `testo`, `immagine_url`, `conferma`.
+  Campi: `azione`, `rete` (`fb`/`ig`), `id`, `testo`, `immagine_url`, `quando`,
+  `alt` (testo alternativo dell'immagine), `conferma`.
 
 ## Rigenerare il token
 
@@ -104,6 +105,43 @@ perché Instagram vuole un indirizzo pubblico.
   con foto Facebook accetta al massimo circa 30 giorni: si rilancia ogni 2-3 settimane); si vedono in Meta Business Suite → Programmati.
 - `pubblica-oggi`: pubblica il post del giorno su Instagram e, se non era già
   programmato, su Facebook; non pubblica due volte lo stesso giorno.
+
+### Cornice di microtesto e testo alternativo (dal 21/10/2026)
+
+Ogni grafica e ogni copertina dei video escono con la **cornice di microtesto**:
+lungo i quattro bordi, in piccolo, «COOPRIMAVERA SOCIETÀ COOPERATIVA ·
+www.cooprimavera.com · grafica di Cooprimavera Società Cooperativa · © anno»,
+invisibile da lontano e leggibile ingrandendo, con il tono adattato al fondo
+(chiaro sullo scuro, scuro sul chiaro). La scrive `social/grafiche/cornice.js`,
+che mette anche un segno nel file JPEG. Foto e riquadri stanno a 20 px dai bordi,
+e `genera.js` si ferma se una scritta, il logo o una foto entrano nella fascia
+della cornice. Nei video la cornice è uno strato sotto le scene: si legge anche
+dopo la compressione, non tocca la fascia del logo e si vede attraverso le foto
+solo durante le dissolvenze (0,35 s). Per una grafica fatta in altro modo:
+`node social/grafiche/genera.js --cornice FILE.jpg` (si ferma se ai bordi c'è un
+disegno o una scritta). Le grafiche dei post già usciti restano come sono.
+
+Ogni post del calendario ha il campo **`alt`**, il testo alternativo della
+grafica: che cosa mostra la foto, scritto guardandola, e che cosa c'è scritto,
+preso dagli stessi campi con cui `genera.js` la disegna; al massimo 1000
+caratteri, mai «Immagine di…», mai nomi di strumenti. `gestione_social.py` lo
+manda a Instagram in `alt_text` (solo immagini, fino a 1000 caratteri) e a
+Facebook in `alt_text_custom` sulle foto, anche programmate; per i video e i
+Reel non si manda. Senza il campo si pubblica come prima; se Meta rifiuta la
+richiesta con il testo alternativo, si ritenta una volta senza e l'esito lo
+scrive. Sul sito diventa l'`alt` della grafica nella pagina della notizia.
+
+Controlli:
+- `python3 scripts/controlla-cornice.py`: per ogni post dal 22/10/2026 controlla
+  il segno della cornice in grafica, miniatura e copertina del video e il campo
+  `alt`; esce con 1 se qualcosa manca. `genera.js` lo lancia da solo alla fine
+  (`--solo-segno`, perché il testo alternativo si scrive dopo aver guardato la
+  grafica); `--prova` lo prova su casi costruiti apposta.
+- `python3 scripts/prova_gestione_social.py`: prova i parametri che lo script
+  manderebbe a Facebook e Instagram con una rete finta, senza inviare nulla.
+- L'azione `prova` del workflow (che invece chiama Meta, senza rendere visibile
+  nulla) carica ed elimina una foto Facebook non pubblicata con il testo
+  alternativo e prepara un contenitore Instagram con il testo alternativo.
 
 ### Video (Reel)
 
@@ -166,8 +204,8 @@ Numeri di telefono e anni nella voce vanno scritti in lettere.
   (Markdown più lungo del testo social, con titoli, collegamenti ai servizi e
   «Fonti»: sul sito vale quello), `titolo_seo` (il `<title>` della pagina) e
   `descrizione` (meta description, massimo 155 caratteri). La pagina riceve i
-  dati strutturati `BlogPosting` e il testo alternativo della grafica dai suoi
-  punti; ogni pagina servizio elenca i consigli e le notizie con lo stesso
+  dati strutturati `BlogPosting` e il testo alternativo della grafica dal campo
+  `alt` del calendario (per i post più vecchi, dal titolo e dai punti); ogni pagina servizio elenca i consigli e le notizie con lo stesso
   `pagina_sito`. Le grafiche `consiglio` possono avere una foto in alto
   (`grafica.foto` in `assets/img/consigli/`, `grafica.fuoco` per la posizione):
   da `assets/` la foto diventa anche l'anteprima social della pagina.
