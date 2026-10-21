@@ -6,7 +6,7 @@ Orari in ora italiana. Le routine di Claude con l'orario fissato in UTC si spost
 
 | Routine | Quando | Testo | Già fatta oggi se… |
 |---|---|---|---|
-| Riparazione guasti dei siti (Misericordia Ariccia, Cooprimavera) (`trig_01RBJ5MxdCUxjeq5UDGu5Lej`) | ogni giorno alle 15:13 italiane con l'ora legale, alle 14:13 con l'ora solare | [`riparazione-guasti-siti.md`](riparazione-guasti-siti.md) | commenti di oggi sulle issue `fonte-rotta`, «Salute» e «Link rotti» dei due siti; se è tutto in ordine non lascia segni, e rifarla costa solo letture |
-| Pubblicazione del giorno e verifica (`trig_01E1EXuCxBBgdG7DernTpbmQ`) | ogni giorno alle 09:05 italiane | [`pubblicazione-del-giorno.md`](pubblicazione-del-giorno.md) | il post di oggi risulta pubblicato su Instagram e programmato o già uscito su Facebook, e la notizia è online; 🔴 questa pubblica sui social: rifalla solo se una di queste tre cose manca davvero |
+| Riparazione guasti dei siti (Misericordia Ariccia, Cooprimavera) (`trig_01RBJ5MxdCUxjeq5UDGu5Lej`) | ogni giorno alle 15:13 italiane con l'ora legale, alle 14:13 con l'ora solare | [`riparazione-guasti-siti.md`](riparazione-guasti-siti.md) | issue `fonte-rotta`, «Salute» e «Link rotti» dei due siti chiuse o commentate dall'account di Alessandro dopo le 15:13 (14:13 con l'ora solare); quando non c'è nulla da riparare non lascia segni, e rifarla comporta solo letture |
+| Pubblicazione del giorno e verifica (`trig_01E1EXuCxBBgdG7DernTpbmQ`) | ogni giorno alle 09:05 italiane | [`pubblicazione-del-giorno.md`](pubblicazione-del-giorno.md) | il post di oggi risulta pubblicato su Instagram e programmato o già uscito su Facebook, e la notizia è online; 🔴 questa pubblica sui social: rifalla solo se una di queste tre cose manca davvero, e se non puoi accertarlo non pubblicare |
 
 Elenco di tutte le routine di Alessandro, anche degli altri repository, e che cosa vuol dire «fai le routine di oggi»: `ROUTINE.md` del repository `assistente-personale`.
