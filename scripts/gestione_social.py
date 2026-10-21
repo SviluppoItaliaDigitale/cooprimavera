@@ -86,22 +86,37 @@ def chiama(metodo: str, percorso: str, **param) -> dict:
             err = json.loads(e.read().decode()).get("error", {})
         except Exception:
             err = {}
-        # codice_meta: il codice dell'errore di Meta (100 = parametro non valido, 190 = token non valido)
-        return {"errore": err.get("message") or f"HTTP {e.code}", "codice": e.code, "codice_meta": err.get("code")}
+        # codice_meta: il codice dell'errore di Meta (100 = parametro non valido, 190 = token non valido);
+        # dettaglio: titolo e messaggio per l'utente, che a volte dicono quale parametro Meta rifiuta
+        dettaglio = " ".join(str(err[k]) for k in ("error_user_title", "error_user_msg") if err.get(k))
+        return {"errore": err.get("message") or f"HTTP {e.code}", "codice": e.code, "codice_meta": err.get("code"),
+                "dettaglio": dettaglio}
     except (urllib.error.URLError, TimeoutError) as e:
         return {"errore": f"rete: {e}"}
 
 
+# Il testo alternativo nominato nel rifiuto di Meta, in qualunque grafia: alt_text, alt_text_custom, «Alt text».
+ALT_NOMINATO = re.compile(r"alt[ _-]?text", re.I)
+# Parametri e cause diversi dal testo alternativo. Un «parametro non valido» (codice 100) che ne nomina uno riguarda
+# quello (indirizzo o immagine che non si scarica, luogo, didascalia, programmazione), non il testo alternativo.
+ALTRA_CAUSA = re.compile(r"url|image|photo|video|media|place|location|caption|message|children|link|publish|schedul",
+                         re.I)
+
+
 def alt_rifiutato(r: dict, campo: str) -> bool:
-    """Vero se il rifiuto di Meta può dipendere dal testo alternativo: il messaggio nomina il campo, oppure è il
-    generico «parametro non valido» (codice 100, «(#100)» nel messaggio). Gli altri rifiuti (token scaduto,
-    limite di chiamate, immagine che non si scarica) col testo alternativo non c'entrano: riprovare senza
-    sarebbe solo una chiamata in più. Stesso criterio della Misericordia (scripts/pubblica_social.py) e
-    della Protezione Civile (scripts/pubblica-social-auto.py del repository dei social)."""
+    """Vero se il rifiuto di Meta (risposta 4xx) dipende o può dipendere dal testo alternativo: il messaggio lo
+    nomina, oppure è il generico «parametro non valido» (codice 100) che non nomina un altro parametro, perché a
+    volte Meta non dice quale parametro rifiuta. Un codice 100 che nomina l'indirizzo dell'immagine, il luogo o un
+    altro parametro, e gli altri rifiuti (token scaduto, limite di chiamate), col testo alternativo non c'entrano:
+    riprovare senza sarebbe solo una chiamata in più. Stesso criterio della Misericordia (scripts/pubblica_social.py)
+    e della Protezione Civile (scripts/pubblica-social-auto.py del repository dei social)."""
     if "errore" not in r or not 400 <= int(r.get("codice") or 0) < 500:
         return False
-    msg = str(r["errore"])
-    return campo in msg or "alt_text" in msg or r.get("codice_meta") == 100 or "(#100)" in msg
+    testo = f"{r['errore']} {r.get('dettaglio') or ''}"
+    if campo in testo or ALT_NOMINATO.search(testo):
+        return True
+    generico = r.get("codice_meta") == 100 or "(#100)" in testo
+    return generico and not ALTRA_CAUSA.search(testo)
 
 
 def con_alt(percorso: str, campo: str, alt: str, **param) -> dict:
@@ -113,10 +128,13 @@ def con_alt(percorso: str, campo: str, alt: str, **param) -> dict:
         return chiama("POST", percorso, **param)
     r = chiama("POST", percorso, **param, **{campo: alt})
     if alt_rifiutato(r, campo):
-        scrivi(f"Testo alternativo non accettato ({campo}: {r['errore']}): riprovo una volta senza.")
+        scrivi(f"Meta ha rifiutato la richiesta con il testo alternativo ({campo}: {r['errore']}): "
+               "riprovo una volta senza.")
         r = chiama("POST", percorso, **param)
         if "errore" not in r:
             scrivi("Senza testo alternativo la richiesta è passata.")
+        else:
+            scrivi("Anche senza testo alternativo la richiesta non passa: il problema è un altro.")
     return r
 
 
