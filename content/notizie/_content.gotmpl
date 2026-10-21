@@ -8,9 +8,11 @@
   {{- $testo = replace $testo "\n" "\n\n" }}
   {{- /* I consigli hanno un articolo più lungo, con fonti e collegamenti: sul sito vale quello */ -}}
   {{- with .articolo }}{{ $testo = . }}{{ end }}
-  {{- $alt := "" }}
+  {{- /* Testo alternativo della grafica: il campo "alt" del calendario (dal 21/10/2026, lo stesso inviato a
+         Facebook e Instagram); per i post più vecchi, titolo e righe della grafica */ -}}
+  {{- $alt := .alt | default "" }}
   {{- $tit := .grafica.titolo }}
-  {{- with .grafica.righe }}{{ $alt = printf "%s: %s." $tit (delimit . "; ") }}{{ end }}
+  {{- if not $alt }}{{ with .grafica.righe }}{{ $alt = printf "%s: %s." $tit (delimit . "; ") }}{{ end }}{{ end }}
   {{- $.AddPage (dict
       "path" (strings.TrimSuffix ".jpg" .file)
       "title" .titolo

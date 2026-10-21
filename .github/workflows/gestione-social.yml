@@ -37,6 +37,10 @@ on:
         description: "Solo Facebook: data e ora di pubblicazione programmata, es. 2026-10-05T09:00:00+02:00"
         required: false
         type: string
+      alt:
+        description: "Testo alternativo dell'immagine: che cosa si vede e che cosa c'è scritto (al massimo 1000 caratteri; non per i video)"
+        required: false
+        type: string
       conferma:
         description: "Per eliminare scrivi ELIMINA"
         required: false
@@ -77,6 +81,7 @@ jobs:
           IMMAGINE_URL: ${{ inputs.immagine_url }}
           CONFERMA: ${{ inputs.conferma }}
           QUANDO: ${{ inputs.quando }}
+          ALT: ${{ inputs.alt }}
           COMANDO_FILE: ${{ github.event_name == 'push' && '.github/social/comando.json' || '' }}
           ESITO_FILE: ${{ github.event_name == 'push' && '.github/social/esito.md' || '' }}
         run: python3 scripts/gestione_social.py
