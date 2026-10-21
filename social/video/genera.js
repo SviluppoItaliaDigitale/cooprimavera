@@ -6,9 +6,15 @@
 // Ogni scena può avere "voce" (o voci sulle didascalie): la scena si allunga quanto serve alla voce.
 // Con "voci": ["if_sara", "im_nicola"] le scene si alternano tra le due voci.
 // Regole: logo sempre sulla fascia chiara in basso, sopra l'area coperta dai pulsanti dei Reel.
+// Cornice di microtesto (dal 21/10/2026, social/grafiche/cornice.js): un livello trasparente con la provenienza del video
+// lungo i bordi, sopra il fondo e la fascia del logo e sotto le scene, così ciò che si muove le passa sopra e non viene mai
+// coperto. Resta leggibile dopo la compressione (prova del 21/10/2026: crf 20 e una ricodifica a 3 Mbit/s). La copertina
+// esce con il segno che scripts/controlla-cornice.py cerca; il generatore si ferma se nella copertina una scritta, il logo
+// o una foto entrano nella fascia della cornice.
 const fs = require('fs'), path = require('path'), os = require('os'), { execFileSync } = require('child_process');
 let chromium; try { ({ chromium } = require('playwright')); } catch { ({ chromium } = require('/opt/node-tools/node_modules/playwright')); }
 const R = path.resolve(__dirname, '../..'), F = p => 'file://' + path.join(R, p), FPS = 30, DISS = 0.35;
+const CORNICE = fs.readFileSync(path.join(R, 'social/grafiche/cornice.js'), 'utf8');
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const FONT = [['Barlow', 600, 'Barlow-600'], ['Barlow Condensed', 600, 'BarlowCondensed-600'], ['Barlow Condensed', 800, 'BarlowCondensed-800']]
   .map(([f, w, n]) => `@font-face{font-family:'${f}';font-weight:${w};src:url('${F('social/grafiche/font/' + n + '.woff2')}')}`).join('');
@@ -17,7 +23,8 @@ const CSS = `${FONT}
 :root{--verde:#9fc63d;--inchiostro:#232a1c;--carta:#fbfcf6;--chiaro:#c8e07e;--fondo:#f4f8e8}
 body{width:1080px;height:1920px;overflow:hidden;background:var(--inchiostro);font-family:Barlow,sans-serif}
 .cart{position:absolute;top:210px;left:64px;font:600 40px 'Barlow Condensed';background:var(--verde);color:var(--inchiostro);padding:8px 20px}
-.sc{position:absolute;inset:0;opacity:0}
+.sc{position:absolute;inset:0;opacity:0;z-index:3}
+.strato-cornice{position:absolute;left:0;top:0;width:1080px;height:1920px;z-index:2;pointer-events:none}
 h1{position:absolute;left:64px;right:64px;top:300px;font:800 112px/.95 'Barlow Condensed';color:#fff}
 .stampa{position:absolute;left:60px;top:560px;width:960px;background:#fff;padding:18px 18px 70px;box-shadow:0 20px 44px rgba(0,0,0,.5)}
 .stampa .ph{height:640px;overflow:hidden}.stampa .ph div{width:100%;height:100%;background-size:cover;background-position:center}
@@ -35,7 +42,7 @@ h1{position:absolute;left:64px;right:64px;top:300px;font:800 112px/.95 'Barlow C
 .clip{position:absolute;left:60px;top:450px;width:960px;height:800px;border:4px solid var(--inchiostro);box-shadow:12px 12px 0 var(--verde);overflow:hidden;background:#000}
 .clip img{width:100%;height:100%;display:block}
 .crediti{position:absolute;left:64px;right:64px;top:1486px;font:400 18px/1.2 Barlow;color:#8a947c}
-.piede{position:absolute;left:0;right:0;top:1530px;height:230px;background:var(--fondo);border-top:6px solid var(--verde);padding:26px 56px 0;display:grid;grid-template-columns:auto 1fr;column-gap:40px;align-items:center}
+.piede{position:absolute;z-index:1;left:0;right:0;top:1530px;height:230px;background:var(--fondo);border-top:6px solid var(--verde);padding:26px 56px 0;display:grid;grid-template-columns:auto 1fr;column-gap:40px;align-items:center}
 .piede img{height:76px}
 .piede .tel{font:600 30px/1.3 Barlow;color:var(--inchiostro)}.piede .tel b{font-weight:600;color:#3f5418}
 .piede .web{grid-column:1/3;font:600 30px Barlow;color:var(--inchiostro);margin-top:16px;padding-top:12px;border-top:2px dashed #b9c79a}`;
@@ -155,10 +162,17 @@ async function genera(br, nome) {
   const html = `<!doctype html><meta charset=utf-8><style>${CSS}</style><body><div class="cart">${esc(c.tema)}</div>
 ${c.scene.map((s, i) => scena(s, i, c).replace('class="sc', `data-d="${s.durataVera}" data-w='${JSON.stringify(s.w)}' class="sc`)).join('\n')}
 <div class="piede"><img src="${F('assets/img/logo.png')}" alt=""><div class="tel"><b>Tel. e WhatsApp</b> 06 63 46 70<br><b>Cellulare</b> 331 777 1888</div><div class="web">info@cooprimavera.com · cooprimavera.com</div></div>
-<script>const DISS=${DISS};(${motore})()</script>`;
+<script>const DISS=${DISS};(${motore})()</script><script>${CORNICE}</script>`;
   fs.writeFileSync(path.join(tmp, 'v.html'), html);
   const pg = await br.newPage({ viewport: { width: 1080, height: 1920 } });
   await pg.goto('file://' + path.join(tmp, 'v.html')); await pg.evaluate(() => document.fonts.ready);
+  // Cornice: livello calcolato sul fondo fisso (prima di frame() le scene sono tutte trasparenti), messo sotto le scene.
+  const fondo = await pg.screenshot({ type: 'png' });
+  await pg.evaluate(async ([png, anno]) => {
+    const r = await window.stratoCornice(png, { anno }), im = new Image();
+    im.className = 'strato-cornice'; im.alt = ''; im.setAttribute('data-microtesto', ''); im.src = r.dati;
+    await im.decode(); document.body.append(im);
+  }, ['data:image/png;base64,' + fondo.toString('base64'), String(new Date().getFullYear())]);
   const T = await pg.evaluate(() => window.T), n = Math.round(T * FPS), out = path.join(R, 'static/social/video');
   fs.mkdirSync(out, { recursive: true });
   for (let k = 0; k < n; k++) {
@@ -166,7 +180,11 @@ ${c.scene.map((s, i) => scena(s, i, c).replace('class="sc', `data-d="${s.durataV
     await pg.screenshot({ path: path.join(tmp, String(k).padStart(5, '0') + '.jpg'), type: 'jpeg', quality: 92 });
   }
   await pg.evaluate(t => window.frame(t), c.copertina ?? T / 2);
-  await pg.screenshot({ path: path.join(out, nome + '.jpg'), type: 'jpeg', quality: 88 });
+  const bordi = await pg.evaluate(() => window.bordiOccupati());
+  if (bordi.length) throw new Error(`${nome}: nella copertina la cornice toccherebbe ${bordi.map(x => `${x.nome} (${x.lati.join(', ')})`).join('; ')}`);
+  const cop = await pg.screenshot({ type: 'jpeg', quality: 88 });
+  const segnata = await pg.evaluate(s => window.segnoCornice(s), 'data:image/jpeg;base64,' + cop.toString('base64'));
+  fs.writeFileSync(path.join(out, nome + '.jpg'), Buffer.from(segnata.slice(segnata.indexOf(',') + 1), 'base64'));
   await pg.close();
   // Audio: musica sotto, che si abbassa quando parla la voce; senza nessuno dei due, traccia muta.
   const a = audio(c, tmp, T, path.join(tmp, 'audio.m4a'));
