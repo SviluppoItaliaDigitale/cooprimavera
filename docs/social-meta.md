@@ -127,9 +127,11 @@ preso dagli stessi campi con cui `genera.js` la disegna; al massimo 1000
 caratteri, mai «Immagine di…», mai nomi di strumenti. `gestione_social.py` lo
 manda a Instagram in `alt_text` (solo immagini, fino a 1000 caratteri) e a
 Facebook in `alt_text_custom` sulle foto, anche programmate; per i video e i
-Reel non si manda. Senza il campo si pubblica come prima; se Meta rifiuta la
-richiesta con il testo alternativo, si ritenta una volta senza e l'esito lo
-scrive. Sul sito diventa l'`alt` della grafica nella pagina della notizia.
+Reel non si manda. Senza il campo si pubblica come prima; se Meta rifiuta il
+testo alternativo (il messaggio nomina il campo, oppure è il generico
+«parametro non valido», codice 100), si ritenta una volta senza e l'esito lo
+scrive. Gli altri rifiuti, come il token scaduto o un'immagine che non si
+scarica, non dipendono dal testo alternativo e non si ritentano. Sul sito diventa l'`alt` della grafica nella pagina della notizia.
 
 Controlli:
 - `python3 scripts/controlla-cornice.py`: per ogni post dal 22/10/2026 controlla

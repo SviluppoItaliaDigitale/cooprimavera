@@ -83,23 +83,36 @@ def chiama(metodo: str, percorso: str, **param) -> dict:
             return json.loads(r.read().decode())
     except urllib.error.HTTPError as e:
         try:
-            msg = json.loads(e.read().decode()).get("error", {}).get("message", f"HTTP {e.code}")
+            err = json.loads(e.read().decode()).get("error", {})
         except Exception:
-            msg = f"HTTP {e.code}"
-        return {"errore": msg, "codice": e.code}
+            err = {}
+        # codice_meta: il codice dell'errore di Meta (100 = parametro non valido, 190 = token non valido)
+        return {"errore": err.get("message") or f"HTTP {e.code}", "codice": e.code, "codice_meta": err.get("code")}
     except (urllib.error.URLError, TimeoutError) as e:
         return {"errore": f"rete: {e}"}
 
 
+def alt_rifiutato(r: dict, campo: str) -> bool:
+    """Vero se il rifiuto di Meta può dipendere dal testo alternativo: il messaggio nomina il campo, oppure è il
+    generico «parametro non valido» (codice 100, «(#100)» nel messaggio). Gli altri rifiuti (token scaduto,
+    limite di chiamate, immagine che non si scarica) col testo alternativo non c'entrano: riprovare senza
+    sarebbe solo una chiamata in più. Stesso criterio della Misericordia (scripts/pubblica_social.py) e
+    della Protezione Civile (scripts/pubblica-social-auto.py del repository dei social)."""
+    if "errore" not in r or not 400 <= int(r.get("codice") or 0) < 500:
+        return False
+    msg = str(r["errore"])
+    return campo in msg or "alt_text" in msg or r.get("codice_meta") == 100 or "(#100)" in msg
+
+
 def con_alt(percorso: str, campo: str, alt: str, **param) -> dict:
     """POST di un'immagine con il testo alternativo in `campo` (alt_text su Instagram, alt_text_custom su
-    Facebook). Senza testo alternativo la richiesta è identica a prima. Se Meta rifiuta la richiesta
-    (risposta 4xx), si ritenta una volta senza testo alternativo e lo si scrive nell'esito, così il post
-    non salta; gli errori di rete e del server (5xx) non si ritentano, come nel resto dello script."""
+    Facebook). Senza testo alternativo la richiesta è identica a prima. Se Meta rifiuta il testo alternativo
+    (alt_rifiutato), si ritenta una volta senza e lo si scrive nell'esito, così il post non salta; gli altri
+    errori, compresi quelli di rete e del server (5xx), non si ritentano, come nel resto dello script."""
     if not alt:
         return chiama("POST", percorso, **param)
     r = chiama("POST", percorso, **param, **{campo: alt})
-    if "errore" in r and 400 <= int(r.get("codice") or 0) < 500:
+    if alt_rifiutato(r, campo):
         scrivi(f"Testo alternativo non accettato ({campo}: {r['errore']}): riprovo una volta senza.")
         r = chiama("POST", percorso, **param)
         if "errore" not in r:

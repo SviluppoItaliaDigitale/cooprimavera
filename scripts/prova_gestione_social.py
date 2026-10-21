@@ -68,9 +68,10 @@ class Rete:
         esito = self.regole(metodo, percorso, param, n)
         if isinstance(esito, Exception):
             raise esito
-        if isinstance(esito, tuple):                      # (codice HTTP, messaggio di errore)
-            codice, msg = esito
-            raise urllib.error.HTTPError(url, codice, msg, {}, io.BytesIO(json.dumps({"error": {"message": msg}}).encode()))
+        if isinstance(esito, tuple):                      # (codice HTTP, messaggio di errore[, codice di Meta])
+            codice, msg, *meta = esito
+            errore = {"message": msg, **({"code": meta[0]} if meta else {})}
+            raise urllib.error.HTTPError(url, codice, msg, {}, io.BytesIO(json.dumps({"error": errore}).encode()))
         if esito is not None:
             return Risposta(esito)
         return Risposta(self.predefinita(metodo, percorso, param))
@@ -220,12 +221,44 @@ class Prova(unittest.TestCase):
     def test_rifiuto_anche_senza_alt_si_ferma(self):
         def regole(metodo, percorso, param, n):
             if metodo == "POST":
-                return (400, "Invalid image URL")
+                return (400, "(#100) Invalid parameter", 100)
         r = self.rete(regole)
         with self.assertRaises(SystemExit):
             gs.a_pubblica(rete="fb", testo="Testo", immagine=FOTO, alt="Foto: un prato.")
         self.assertEqual(len(r.post(f"{PAGINA}/photos")), 2)  # uno con, uno senza; poi basta
+        self.assertIn("**ERRORE:** (#100) Invalid parameter", self.log())
+
+    def test_codice_100_senza_messaggio_si_riprova_senza(self):
+        def regole(metodo, percorso, param, n):
+            if metodo == "POST" and "alt_text" in param:
+                return (400, "Invalid parameter", 100)
+        r = self.rete(regole)
+        gs.a_pubblica(rete="ig", testo="Testo", immagine=FOTO, alt="Foto: un prato.")
+        prima, dopo = r.post(f"{IG}/media")
+        self.assertIn("alt_text", prima)
+        self.assertNotIn("alt_text", dopo)
+        self.assertEqual(len(r.post(f"{IG}/media_publish")), 1)
+
+    def test_rifiuto_che_non_dipende_dall_alt_non_si_riprova(self):
+        def regole(metodo, percorso, param, n):
+            if metodo == "POST":
+                return (400, "Invalid image URL")
+        r = self.rete(regole)
+        with self.assertRaises(SystemExit):
+            gs.a_pubblica(rete="fb", testo="Testo", immagine=FOTO, alt="Foto: un prato.")
+        self.assertEqual(len(r.post(f"{PAGINA}/photos")), 1)  # una sola chiamata: l'alt non c'entra
+        self.assertNotIn("riprovo", self.log())
         self.assertIn("**ERRORE:** Invalid image URL", self.log())
+
+    def test_token_scaduto_non_si_riprova(self):
+        def regole(metodo, percorso, param, n):
+            if metodo == "POST":
+                return (400, "Error validating access token: Session has expired", 190)
+        r = self.rete(regole)
+        with self.assertRaises(SystemExit):
+            gs.a_pubblica(rete="ig", testo="Testo", immagine=FOTO, alt="Foto: un prato.")
+        self.assertEqual(len(r.post(f"{IG}/media")), 1)
+        self.assertNotIn("riprovo", self.log())
 
     def test_instagram_alt_troppo_lungo_non_si_invia(self):
         r = self.rete()
