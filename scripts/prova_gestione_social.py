@@ -68,9 +68,14 @@ class Rete:
         esito = self.regole(metodo, percorso, param, n)
         if isinstance(esito, Exception):
             raise esito
-        if isinstance(esito, tuple):                      # (codice HTTP, messaggio di errore)
-            codice, msg = esito
-            raise urllib.error.HTTPError(url, codice, msg, {}, io.BytesIO(json.dumps({"error": {"message": msg}}).encode()))
+        if isinstance(esito, tuple):   # (codice HTTP, messaggio[, codice di Meta[, messaggio per l'utente]])
+            codice, msg, *meta = esito
+            errore = {"message": msg}
+            if meta:
+                errore["code"] = meta[0]
+            if len(meta) > 1:
+                errore["error_user_msg"] = meta[1]
+            raise urllib.error.HTTPError(url, codice, msg, {}, io.BytesIO(json.dumps({"error": errore}).encode()))
         if esito is not None:
             return Risposta(esito)
         return Risposta(self.predefinita(metodo, percorso, param))
@@ -184,7 +189,9 @@ class Prova(unittest.TestCase):
         self.assertIn("alt_text_custom", prima)
         self.assertNotIn("alt_text_custom", dopo)
         self.assertEqual(dopo["url"], FOTO)
-        self.assertIn("Testo alternativo non accettato (alt_text_custom: (#100) Invalid parameter)", self.log())
+        self.assertIn("Meta ha rifiutato la richiesta con il testo alternativo "
+                      "(alt_text_custom: (#100) Invalid parameter): riprovo una volta senza.", self.log())
+        self.assertIn("Senza testo alternativo la richiesta è passata.", self.log())
         self.assertIn("Pubblicato su Facebook", self.log())
 
     def test_alt_rifiutato_da_instagram_si_riprova_senza(self):
@@ -220,12 +227,77 @@ class Prova(unittest.TestCase):
     def test_rifiuto_anche_senza_alt_si_ferma(self):
         def regole(metodo, percorso, param, n):
             if metodo == "POST":
-                return (400, "Invalid image URL")
+                return (400, "(#100) Invalid parameter", 100)
         r = self.rete(regole)
         with self.assertRaises(SystemExit):
             gs.a_pubblica(rete="fb", testo="Testo", immagine=FOTO, alt="Foto: un prato.")
         self.assertEqual(len(r.post(f"{PAGINA}/photos")), 2)  # uno con, uno senza; poi basta
-        self.assertIn("**ERRORE:** Invalid image URL", self.log())
+        self.assertIn("Anche senza testo alternativo la richiesta non passa: il problema è un altro.", self.log())
+        self.assertIn("**ERRORE:** (#100) Invalid parameter", self.log())
+
+    def test_codice_100_senza_messaggio_si_riprova_senza(self):
+        def regole(metodo, percorso, param, n):
+            if metodo == "POST" and "alt_text" in param:
+                return (400, "Invalid parameter", 100)
+        r = self.rete(regole)
+        gs.a_pubblica(rete="ig", testo="Testo", immagine=FOTO, alt="Foto: un prato.")
+        prima, dopo = r.post(f"{IG}/media")
+        self.assertIn("alt_text", prima)
+        self.assertNotIn("alt_text", dopo)
+        self.assertEqual(len(r.post(f"{IG}/media_publish")), 1)
+
+    def test_codice_100_che_nomina_il_testo_alternativo_nel_dettaglio_si_riprova(self):
+        # titolo e messaggio per l'utente Meta li scrive nella lingua della richiesta: anche in italiano
+        for dettaglio in ("Alt text is too long.", "Il testo alternativo dell'immagine è troppo lungo."):
+            with self.subTest(dettaglio=dettaglio):
+                gs.righe.clear()
+
+                def regole(metodo, percorso, param, n, dettaglio=dettaglio):
+                    if metodo == "POST" and "alt_text_custom" in param:
+                        return (400, "Invalid parameter", 100, dettaglio)
+                r = self.rete(regole)
+                gs.a_pubblica(rete="fb", testo="Testo", immagine=FOTO, alt="Foto: un prato.")
+                prima, dopo = r.post(f"{PAGINA}/photos")
+                self.assertIn("alt_text_custom", prima)
+                self.assertNotIn("alt_text_custom", dopo)
+                self.assertIn("Pubblicato su Facebook", self.log())
+
+    def test_codice_100_che_nomina_un_altro_parametro_non_si_riprova(self):
+        # il codice 100 è generico: se Meta nomina l'immagine, l'indirizzo o il luogo, il testo alternativo non c'entra
+        for esito in ((400, "Invalid image URL", 100),
+                      (400, "(#100) url should represent a valid URL", 100),
+                      (400, "Invalid parameter", 100, "The image could not be downloaded."),
+                      (400, "Invalid parameter", 100, "Non è stato possibile scaricare l'immagine."),
+                      # messaggio documentato per il codice 100 (sottocodice 2207040)
+                      (400, "Invalid parameter", 100, "Cannot use more than 20 tags per created media."),
+                      (400, "(#100) Invalid parameter location_id", 100),
+                      (400, "Invalid image URL")):
+            with self.subTest(esito=esito):
+                gs.righe.clear()
+                r = self.rete(lambda metodo, percorso, param, n, esito=esito: esito if metodo == "POST" else None)
+                with self.assertRaises(SystemExit):
+                    gs.a_pubblica(rete="fb", testo="Testo", immagine=FOTO, alt="Foto: un prato.")
+                self.assertEqual(len(r.post(f"{PAGINA}/photos")), 1)  # una sola chiamata: l'alt non c'entra
+                self.assertNotIn("riprovo", self.log())
+                self.assertIn(f"**ERRORE:** {esito[1]}", self.log())
+
+    def test_codice_100_che_nomina_un_parametro_della_richiesta_non_si_riprova(self):
+        # un parametro che non è fra le parole fisse: lo riconosce perché è nella stessa richiesta
+        r = {"errore": "(#100) Param temporary must be a boolean", "codice": 400, "codice_meta": 100, "dettaglio": ""}
+        self.assertTrue(gs.alt_rifiutato(r, "alt_text_custom"))
+        self.assertFalse(gs.alt_rifiutato(r, "alt_text_custom", {"url": FOTO, "temporary": "true"}))
+        self.assertFalse(gs.alt_rifiutato(dict(r, errore="(#100) Invalid parameter", dettaglio="Temporary must be "
+                                               "true or false."), "alt_text_custom", {"temporary": "true"}))
+
+    def test_token_scaduto_non_si_riprova(self):
+        def regole(metodo, percorso, param, n):
+            if metodo == "POST":
+                return (400, "Error validating access token: Session has expired", 190)
+        r = self.rete(regole)
+        with self.assertRaises(SystemExit):
+            gs.a_pubblica(rete="ig", testo="Testo", immagine=FOTO, alt="Foto: un prato.")
+        self.assertEqual(len(r.post(f"{IG}/media")), 1)
+        self.assertNotIn("riprovo", self.log())
 
     def test_instagram_alt_troppo_lungo_non_si_invia(self):
         r = self.rete()

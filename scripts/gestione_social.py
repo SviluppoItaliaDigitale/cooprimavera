@@ -83,27 +83,70 @@ def chiama(metodo: str, percorso: str, **param) -> dict:
             return json.loads(r.read().decode())
     except urllib.error.HTTPError as e:
         try:
-            msg = json.loads(e.read().decode()).get("error", {}).get("message", f"HTTP {e.code}")
+            err = json.loads(e.read().decode()).get("error", {})
         except Exception:
-            msg = f"HTTP {e.code}"
-        return {"errore": msg, "codice": e.code}
+            err = {}
+        # codice_meta: il codice dell'errore di Meta (100 = parametro non valido, 190 = token non valido);
+        # dettaglio: titolo e messaggio per l'utente, che possono dire quale parametro Meta rifiuta
+        dettaglio = " ".join(str(err[k]) for k in ("error_user_title", "error_user_msg") if err.get(k))
+        return {"errore": err.get("message") or f"HTTP {e.code}", "codice": e.code, "codice_meta": err.get("code"),
+                "dettaglio": dettaglio}
     except (urllib.error.URLError, TimeoutError) as e:
         return {"errore": f"rete: {e}"}
 
 
+# Il testo alternativo nominato nel rifiuto di Meta, in qualunque grafia: alt_text, alt_text_custom, «Alt text».
+# Anche in italiano: titolo e messaggio per l'utente (error_user_title, error_user_msg) Meta li scrive nella lingua
+# della richiesta (guida «Handling Errors» della Graph API).
+ALT_NOMINATO = re.compile(r"alt[ _-]?text|testo alternativo", re.I)
+# Parametri e cause diversi dal testo alternativo, in inglese e in italiano: indirizzo o immagine, luogo, didascalia,
+# programmazione, carosello, tag. Un «parametro non valido» (codice 100) che ne nomina uno riguarda quello, non il
+# testo alternativo. Si aggiungono i nomi degli altri parametri della stessa richiesta (argomento `altri`).
+# Il codice 100 copre problemi diversi, e nei casi documentati il messaggio dice quale (tipo di contenuto, carosello
+# con meno di 2 o più di 10 elementi, tag: riferimento dei codici di errore della Graph API di Instagram); un rifiuto
+# del testo alternativo non è documentato, quindi riprovare quando il 100 non nomina nulla è una regola prudente nostra.
+ALTRA_CAUSA = re.compile(r"url|image|photo|video|media|place|location|caption|message|children|link|publish|schedul"
+                         r"|carousel|\btag"
+                         r"|immagin|foto|indirizz|luogo|posizion|didascal|messagg|programm|carosell",
+                         re.I)
+
+
+def alt_rifiutato(r: dict, campo: str, altri=()) -> bool:
+    """Vero se il rifiuto di Meta (risposta 4xx) dipende o può dipendere dal testo alternativo: il messaggio lo
+    nomina, oppure è un «parametro non valido» (codice 100) che non nomina un altro parametro. `altri` sono i nomi
+    degli altri parametri della stessa richiesta (url, image_url, caption, published…): un codice 100 che ne nomina
+    uno riguarda quello. Un codice 100 che nomina l'indirizzo dell'immagine, il luogo o un altro parametro, e gli
+    altri rifiuti (token scaduto, limite di chiamate), col testo alternativo non c'entrano: riprovare senza sarebbe
+    solo una chiamata in più. Stesso criterio della Misericordia (scripts/pubblica_social.py) e della Protezione
+    Civile (scripts/pubblica-social-auto.py del repository dei social)."""
+    if "errore" not in r or not 400 <= int(r.get("codice") or 0) < 500:
+        return False
+    testo = f"{r['errore']} {r.get('dettaglio') or ''}"
+    if campo in testo or ALT_NOMINATO.search(testo):
+        return True
+    generico = r.get("codice_meta") == 100 or "(#100)" in testo
+    if not generico or ALTRA_CAUSA.search(testo):
+        return False
+    basso = testo.lower()
+    return not any(k.lower() in basso or k.lower().replace("_", " ") in basso for k in altri if k and k != campo)
+
+
 def con_alt(percorso: str, campo: str, alt: str, **param) -> dict:
     """POST di un'immagine con il testo alternativo in `campo` (alt_text su Instagram, alt_text_custom su
-    Facebook). Senza testo alternativo la richiesta è identica a prima. Se Meta rifiuta la richiesta
-    (risposta 4xx), si ritenta una volta senza testo alternativo e lo si scrive nell'esito, così il post
-    non salta; gli errori di rete e del server (5xx) non si ritentano, come nel resto dello script."""
+    Facebook). Senza testo alternativo la richiesta è identica a prima. Se Meta rifiuta il testo alternativo
+    (alt_rifiutato), si ritenta una volta senza e lo si scrive nell'esito, così il post non salta; gli altri
+    errori, compresi quelli di rete e del server (5xx), non si ritentano, come nel resto dello script."""
     if not alt:
         return chiama("POST", percorso, **param)
     r = chiama("POST", percorso, **param, **{campo: alt})
-    if "errore" in r and 400 <= int(r.get("codice") or 0) < 500:
-        scrivi(f"Testo alternativo non accettato ({campo}: {r['errore']}): riprovo una volta senza.")
+    if alt_rifiutato(r, campo, param):
+        scrivi(f"Meta ha rifiutato la richiesta con il testo alternativo ({campo}: {r['errore']}): "
+               "riprovo una volta senza.")
         r = chiama("POST", percorso, **param)
         if "errore" not in r:
             scrivi("Senza testo alternativo la richiesta è passata.")
+        else:
+            scrivi("Anche senza testo alternativo la richiesta non passa: il problema è un altro.")
     return r
 
 

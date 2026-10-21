@@ -24,10 +24,11 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
   stato cancellato).
 - **Reel**: 12/10 (topi), 29/10 (allestimenti) e 9/11 (fotovoltaico) su
   Instagram escono come video (`social/video/`); su Facebook il 12 è uscita la
-  foto programmata, il 9/11 esce il video, e il 29 il video se il post
-  programmato il 3/10 è stato eliminato (vedi «Da decidere / da fare», punto 5).
+  foto programmata, il 9/11 esce il video, e il 29 il video, perché il post
+  programmato il 3/10 non c'è più (vedi «Da decidere / da fare», punto 5).
 - **Facebook, 8–29 ottobre**: i 7 post del calendario programmati con
-  `programma-calendario` (3/10). Gli altri, fino al 31 dicembre compreso, li
+  `programma-calendario` (3/10); quelli del 22, 26 e 29/10 il 21/10 non
+  risultano più programmati (punto 5). Gli altri, fino al 31 dicembre compreso, li
   pubblica la pubblicazione automatica il giorno stesso: non serve rilanciare
   `programma-calendario`.
 - **Dal 5/10/2026, Instagram, Facebook e sito**: pubblicazione automatica il
@@ -72,13 +73,15 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
    cambiate tre con foto gratuite più adatte (2, 12 e 26 novembre).
 3. Altri video dei servizi: ogni due settimane, con foto vere o disegni.
 4. Instagram: verificare dall'app che i due vecchi video IGTV non ci siano più.
-5. Facebook: i post del 22/10, 26/10 e 29/10, programmati il 3/10, hanno la
+5. Facebook: i post del 22/10, 26/10 e 29/10, programmati il 3/10 con la
    grafica di allora, senza cornice né testo alternativo (Facebook copia
-   l'immagine quando si programma). Deciso il 21/10/2026: Alessandro li elimina
-   da Meta Business Suite (le cancellazioni le fa lui); dopo li pubblica la
-   pubblicazione automatica del giorno, con le grafiche nuove, e il 29 su
-   Facebook esce il video. Non serve rilanciare `programma-calendario`, che
-   programmerebbe come foto anche i post con il video.
+   l'immagine quando si programma), non ci sono più: il 21/10/2026 alle 19:23
+   Meta Business Suite non mostra nessun post programmato (Contenuti → Post →
+   Programmato: «Nessun post programmato»; nello Strumento di pianificazione
+   nessun post dal 22/10). Li pubblica la pubblicazione automatica del giorno,
+   con le grafiche nuove, e il 29 su Facebook esce il video. Non serve
+   rilanciare `programma-calendario`, che programmerebbe come foto anche i post
+   con il video.
 6. Grafica del 31/12: la foto è il concerto del 2020 a Palazzo Farnese
    (`2020-palazzo-farnese-palco.jpg`) e fra le foto vostre non ce n'è una di un
    lavoro del 2026. Deciso il 21/10/2026: la stampa resta senza scritta
