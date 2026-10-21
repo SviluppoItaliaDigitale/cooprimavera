@@ -130,15 +130,22 @@ Facebook in `alt_text_custom` sulle foto, anche programmate; per i video e i
 Reel non si manda. Senza il campo si pubblica come prima. Se Meta rifiuta la
 richiesta e il rifiuto può dipendere dal testo alternativo, si ritenta una
 volta senza e l'esito lo scrive: succede quando il messaggio di Meta nomina il
-testo alternativo, oppure quando è il generico «parametro non valido» (codice
-100) e non nomina un altro parametro, perché a volte Meta non dice quale
-parametro rifiuta. Il controllo legge anche il titolo e il messaggio per
-l'utente, che Meta scrive nella lingua della richiesta, quindi riconosce le
-parole sia in inglese sia in italiano. Gli altri rifiuti non dipendono dal
-testo alternativo e non si ritentano: il token scaduto, il limite di chiamate,
-un codice 100 che nomina l'immagine, l'indirizzo o il luogo, un'immagine che non
-si scarica. Sul sito il testo diventa l'`alt` della grafica nella pagina della
-notizia.
+testo alternativo, oppure quando è un «parametro non valido» (codice 100) che
+non nomina né un altro parametro della stessa richiesta né un'altra causa
+(immagine, indirizzo, luogo, didascalia, programmazione, carosello, tag). È una
+regola prudente nostra, non un comportamento descritto da Meta: il
+[riferimento dei codici di errore della Graph API di Instagram](https://developers.facebook.com/documentation/instagram-platform/instagram-graph-api/reference/error-codes)
+usa il codice 100 per problemi diversi (tipo di contenuto, carosello con meno di
+2 o più di 10 elementi, tag), ciascuno con un messaggio che lo nomina, e nessuno
+riguarda il testo alternativo. Le prove usano risposte simulate, non risposte
+vere di Meta. Il controllo legge anche il titolo e il messaggio per l'utente,
+che Meta scrive nella lingua della richiesta
+([guida «Handling Errors»](https://developers.facebook.com/docs/graph-api/guides/error-handling)),
+quindi riconosce le parole sia in inglese sia in italiano. Gli altri rifiuti non
+dipendono dal testo alternativo e non si ritentano: il token scaduto, il limite
+di chiamate, un codice 100 che nomina l'immagine, l'indirizzo o il luogo,
+un'immagine che non si scarica. Sul sito il testo diventa l'`alt` della grafica
+nella pagina della notizia.
 
 Controlli:
 - `python3 scripts/controlla-cornice.py`: per ogni post dal 22/10/2026 controlla

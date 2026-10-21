@@ -268,6 +268,8 @@ class Prova(unittest.TestCase):
                       (400, "(#100) url should represent a valid URL", 100),
                       (400, "Invalid parameter", 100, "The image could not be downloaded."),
                       (400, "Invalid parameter", 100, "Non è stato possibile scaricare l'immagine."),
+                      # messaggio documentato per il codice 100 (sottocodice 2207040)
+                      (400, "Invalid parameter", 100, "Cannot use more than 20 tags per created media."),
                       (400, "(#100) Invalid parameter location_id", 100),
                       (400, "Invalid image URL")):
             with self.subTest(esito=esito):
@@ -278,6 +280,14 @@ class Prova(unittest.TestCase):
                 self.assertEqual(len(r.post(f"{PAGINA}/photos")), 1)  # una sola chiamata: l'alt non c'entra
                 self.assertNotIn("riprovo", self.log())
                 self.assertIn(f"**ERRORE:** {esito[1]}", self.log())
+
+    def test_codice_100_che_nomina_un_parametro_della_richiesta_non_si_riprova(self):
+        # un parametro che non è fra le parole fisse: lo riconosce perché è nella stessa richiesta
+        r = {"errore": "(#100) Param temporary must be a boolean", "codice": 400, "codice_meta": 100, "dettaglio": ""}
+        self.assertTrue(gs.alt_rifiutato(r, "alt_text_custom"))
+        self.assertFalse(gs.alt_rifiutato(r, "alt_text_custom", {"url": FOTO, "temporary": "true"}))
+        self.assertFalse(gs.alt_rifiutato(dict(r, errore="(#100) Invalid parameter", dettaglio="Temporary must be "
+                                               "true or false."), "alt_text_custom", {"temporary": "true"}))
 
     def test_token_scaduto_non_si_riprova(self):
         def regole(metodo, percorso, param, n):
