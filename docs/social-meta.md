@@ -132,10 +132,13 @@ richiesta e il rifiuto può dipendere dal testo alternativo, si ritenta una
 volta senza e l'esito lo scrive: succede quando il messaggio di Meta nomina il
 testo alternativo, oppure quando è il generico «parametro non valido» (codice
 100) e non nomina un altro parametro, perché a volte Meta non dice quale
-parametro rifiuta. Gli altri rifiuti non dipendono dal testo alternativo e non
-si ritentano: il token scaduto, il limite di chiamate, un codice 100 che nomina
-l'immagine, l'indirizzo o il luogo, un'immagine che non si scarica. Sul sito il
-testo diventa l'`alt` della grafica nella pagina della notizia.
+parametro rifiuta. Il controllo legge anche il titolo e il messaggio per
+l'utente, che Meta scrive nella lingua della richiesta, quindi riconosce le
+parole sia in inglese sia in italiano. Gli altri rifiuti non dipendono dal
+testo alternativo e non si ritentano: il token scaduto, il limite di chiamate,
+un codice 100 che nomina l'immagine, l'indirizzo o il luogo, un'immagine che non
+si scarica. Sul sito il testo diventa l'`alt` della grafica nella pagina della
+notizia.
 
 Controlli:
 - `python3 scripts/controlla-cornice.py`: per ogni post dal 22/10/2026 controlla

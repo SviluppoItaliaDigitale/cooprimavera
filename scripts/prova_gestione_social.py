@@ -247,21 +247,27 @@ class Prova(unittest.TestCase):
         self.assertEqual(len(r.post(f"{IG}/media_publish")), 1)
 
     def test_codice_100_che_nomina_il_testo_alternativo_nel_dettaglio_si_riprova(self):
-        def regole(metodo, percorso, param, n):
-            if metodo == "POST" and "alt_text_custom" in param:
-                return (400, "Invalid parameter", 100, "Alt text is too long.")
-        r = self.rete(regole)
-        gs.a_pubblica(rete="fb", testo="Testo", immagine=FOTO, alt="Foto: un prato.")
-        prima, dopo = r.post(f"{PAGINA}/photos")
-        self.assertIn("alt_text_custom", prima)
-        self.assertNotIn("alt_text_custom", dopo)
-        self.assertIn("Pubblicato su Facebook", self.log())
+        # titolo e messaggio per l'utente Meta li scrive nella lingua della richiesta: anche in italiano
+        for dettaglio in ("Alt text is too long.", "Il testo alternativo dell'immagine è troppo lungo."):
+            with self.subTest(dettaglio=dettaglio):
+                gs.righe.clear()
+
+                def regole(metodo, percorso, param, n, dettaglio=dettaglio):
+                    if metodo == "POST" and "alt_text_custom" in param:
+                        return (400, "Invalid parameter", 100, dettaglio)
+                r = self.rete(regole)
+                gs.a_pubblica(rete="fb", testo="Testo", immagine=FOTO, alt="Foto: un prato.")
+                prima, dopo = r.post(f"{PAGINA}/photos")
+                self.assertIn("alt_text_custom", prima)
+                self.assertNotIn("alt_text_custom", dopo)
+                self.assertIn("Pubblicato su Facebook", self.log())
 
     def test_codice_100_che_nomina_un_altro_parametro_non_si_riprova(self):
         # il codice 100 è generico: se Meta nomina l'immagine, l'indirizzo o il luogo, il testo alternativo non c'entra
         for esito in ((400, "Invalid image URL", 100),
                       (400, "(#100) url should represent a valid URL", 100),
                       (400, "Invalid parameter", 100, "The image could not be downloaded."),
+                      (400, "Invalid parameter", 100, "Non è stato possibile scaricare l'immagine."),
                       (400, "(#100) Invalid parameter location_id", 100),
                       (400, "Invalid image URL")):
             with self.subTest(esito=esito):
