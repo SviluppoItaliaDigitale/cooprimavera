@@ -1,0 +1,37 @@
+name: "🖼️ Controllo cornice e testo alternativo"
+
+# Su ogni pull request (e a mano) controlla le grafiche dei post del calendario dal 22/10/2026:
+# segno della cornice di microtesto in grafica, miniatura e copertina dei video, e testo
+# alternativo (campo «alt») presente e corretto (scripts/controlla-cornice.py, con la sua prova).
+# Prova anche i parametri che «🛠️ Gestione social» manda a Facebook e Instagram, con una rete
+# finta: non invia nulla a Meta (scripts/prova_gestione_social.py).
+# Approvato da Alessandro il 21/10/2026. Se diventa rosso, la pull request non si unisce finché
+# il controllo non torna verde.
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: controllo-cornice-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  controlla:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cornice e testo alternativo dei post
+        run: python3 scripts/controlla-cornice.py
+
+      - name: Prova del controllo su casi costruiti apposta
+        run: python3 scripts/controlla-cornice.py --prova
+
+      - name: Prova dei parametri inviati a Facebook e Instagram (rete finta)
+        run: python3 scripts/prova_gestione_social.py

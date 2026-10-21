@@ -81,8 +81,11 @@ function pagina(p) {
   const piede = `<div class="piede"><img src="${F('assets/img/logo.png')}" alt=""><span>cooprimavera.com · 06 63 46 70</span></div>`;
   const cart = `<div class="cartello cart"><b>${esc(g.tema)}</b></div>`;
   let corpo;
+  // Grafiche «anno»: sulla stampa va il periodo della foto, di norma uguale ad «anno». Con «anno_stampa» si scrive
+  // altro; vuoto, la stampa resta senza scritta (fine anno 2026 con una foto del 2020: niente «2026» sulla foto).
+  const stampa = g.anno_stampa ?? g.anno;
   if (g.tipo === 'foto') corpo = `<div class="tela f"><div class="ph" style="background-image:url('${F(g.foto)}')"></div>${cart}<div class="pann"><h1>${esc(g.titolo)}</h1><p>${esc(g.sotto)}</p></div>${piede}</div>`;
-  else if (g.tipo === 'anno') corpo = `<div class="tela a"><div class="stampa"><div style="background-image:url('${F(g.foto)}')"></div><em>${g.anno}</em></div>${cart}<div class="anno" style="font-size:${g.anno.length <= 4 ? 230 : 168}px">${g.anno}</div><h1>${esc(g.titolo)}</h1><p>${esc(g.sotto)}</p>${piede}</div>`;
+  else if (g.tipo === 'anno') corpo = `<div class="tela a"><div class="stampa"><div style="background-image:url('${F(g.foto)}')"></div>${stampa ? `<em>${esc(stampa)}</em>` : ''}</div>${cart}<div class="anno" style="font-size:${g.anno.length <= 4 ? 230 : 168}px">${g.anno}</div><h1>${esc(g.titolo)}</h1><p>${esc(g.sotto)}</p>${piede}</div>`;
   else if (g.tipo === 'consiglio') corpo = `<div class="tela c${g.foto ? ' cf' : ''}">${g.foto ? `<div class="ph" style="background-image:url('${F(g.foto)}');background-position:${g.fuoco || 'center'}"></div>` : ''}<div class="cartello cart"><b>${esc(g.tema)}</b></div><div class="num">${esc(g.numero)}</div><h1>${esc(g.titolo)}</h1><ol>${g.righe.map(r => `<li>${esc(r)}</li>`).join('')}</ol><div class="chiusa">${esc(g.chiusa || 'Non hai tempo? Ci pensiamo noi.')}</div>${piede}</div>`;
   else corpo = `<div class="tela t">${cart}<h1>${esc(g.titolo)}</h1><ul>${g.righe.map(r => `<li>${esc(r)}</li>`).join('')}</ul><div class="url">cooprimavera.com${p.pagina_sito}</div>${piede}</div>`;
   // Consiglio con foto e titolo su una riga sola: la foto si allunga e il titolo scende fino ai passi,
