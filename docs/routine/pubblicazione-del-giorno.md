@@ -2,7 +2,7 @@
 
 - **Quando gira:** ogni giorno alle 09:05 italiane.
 - **Routine di Claude:** `trig_01E1EXuCxBBgdG7DernTpbmQ`, testo aggiornato il 13/10/2026. Sotto la riga c'è lo stesso testo della routine: se cambi l'uno, cambia anche l'altro.
-- **Se Claude è ferma:** la esegue ChatGPT quando Alessandro chiede «fai le routine di oggi» (`AGENTS.md`, § «Quando Claude è fermo, lavori tu al suo posto»). Dove il testo chiede una notifica push o un'email ad Alessandro, l'esito va nel riassunto finale e, se il lavoro nasce da una issue, in un commento sulla issue; dove chiede di avviare un agente, applichi tu la lista di controllo del suo file in `.claude/agents/`. Questa routine di Claude riprende una chat già aperta, quindi il testo è breve e dà per noti alcuni passaggi: il riferimento completo è `social/calendario.json`.
+- **Se Claude è ferma:** la esegue ChatGPT quando Alessandro chiede «fai le routine di oggi» (`AGENTS.md`, § «Quando Claude è ferma, lavori tu al suo posto»). Dove il testo chiede una notifica push o un'email ad Alessandro, l'esito va nel riassunto finale e, se il lavoro nasce da una issue, in un commento sulla issue; dove chiede di avviare un agente, applichi tu la lista di controllo del suo file in `.claude/agents/`. Questa routine di Claude riprende una chat già aperta, quindi il testo è breve e dà per noti alcuni passaggi: il riferimento completo è `social/calendario.json`.
 - **Come capire se oggi è già stata fatta:** il post di oggi risulta pubblicato su Instagram e programmato o già uscito su Facebook, e la notizia è online; 🔴 questa pubblica sui social: rifalla solo se una di queste tre cose manca davvero, e se non puoi accertarlo non pubblicare.
 
 ---
