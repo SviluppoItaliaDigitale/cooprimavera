@@ -2113,13 +2113,14 @@
    "pagina_sito": "/lavori/",
    "immagine": "https://www.cooprimavera.com/social/2026-12-31-grazie-per-l-anno-dei-vent-anni.jpg",
    "file": "2026-12-31-grazie-per-l-anno-dei-vent-anni.jpg",
-   "alt": "Su fondo scuro, a destra, una stampa fotografica un po' inclinata: un violinista suona su una pedana nel cortile di un palazzo storico, con casse audio e luci; sulla stampa la scritta «2026». In alto a sinistra «Fine anno». In grande «2026», poi il titolo «Grazie per l'anno dei vent'anni» e sotto «Cooprimavera Soc. Coop.». In fondo il logo di Cooprimavera con cooprimavera.com e 06 63 46 70.",
+   "alt": "Su fondo scuro, a destra, una stampa fotografica un po' inclinata: un violinista suona su una pedana nel cortile di un palazzo storico, con casse audio e luci. In alto a sinistra «Fine anno». In grande «2026», poi il titolo «Grazie per l'anno dei vent'anni» e sotto «Cooprimavera Soc. Coop.». In fondo il logo di Cooprimavera con cooprimavera.com e 06 63 46 70.",
    "grafica": {
     "tipo": "anno",
     "tema": "Fine anno",
     "titolo": "Grazie per l'anno dei vent'anni",
     "sotto": "Cooprimavera Soc. Coop.",
     "anno": "2026",
+    "anno_stampa": "",
     "foto": "assets/img/lavori/2020-palazzo-farnese-palco.jpg",
     "fonte_foto": "archivio"
    },

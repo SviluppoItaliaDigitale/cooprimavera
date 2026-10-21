@@ -142,6 +142,16 @@ Controlli:
 - L'azione `prova` del workflow (che invece chiama Meta, senza rendere visibile
   nulla) carica ed elimina una foto Facebook non pubblicata con il testo
   alternativo e prepara un contenitore Instagram con il testo alternativo.
+- Su ogni pull request il workflow «🖼️ Controllo cornice e testo alternativo»
+  (`.github/workflows/controllo-cornice.yml`) esegue i primi due controlli, con
+  la prova di `controlla-cornice.py`: se diventa rosso, la pull request non si
+  unisce.
+
+Grafiche «anno»: sulla stampa va il periodo della foto, di norma uguale al
+campo `anno` (il numero grande). Con `anno_stampa` sulla stampa si scrive altro;
+vuoto, la stampa resta senza scritta. Serve quando la foto non è del periodo
+del numero grande, come il 31/12/2026: «2026» in grande, foto del concerto del
+2020 a Palazzo Farnese, nessuna data sulla stampa.
 
 ### Video (Reel)
 
