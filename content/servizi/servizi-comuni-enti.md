@@ -11,7 +11,7 @@ faq:
   - domanda: "Fate anche la raccolta dei rifiuti?"
     risposta: "No: la raccolta e il trasporto dei rifiuti urbani restano al gestore del servizio di igiene urbana del comune. Noi ci occupiamo della **pulizia e del decoro** di strade, piazze e spazi pubblici, e il materiale raccolto segue le regole del servizio comunale."
   - domanda: "Lavorate con le pubbliche amministrazioni?"
-    risposta: "Sì: siamo una cooperativa di produzione e lavoro iscritta all'Albo delle società cooperative, possiamo partecipare a gare e affidamenti e lavorare in convenzione. Per il verde pubblico abbiamo l'idoneità prevista dalla legge 154/2016."
+    risposta: "Sì: siamo una cooperativa di produzione e lavoro iscritta all'Albo delle società cooperative, possiamo partecipare a gare e affidamenti e lavorare in convenzione, e siamo iscritti al **MePA**, il Mercato elettronico della pubblica amministrazione di Consip. Per il verde pubblico abbiamo l'idoneità prevista dalla legge 154/2016."
   - domanda: "Intervenite anche per un singolo evento?"
     risposta: "Sì: pulizia prima e dopo mercati, fiere, sagre e spettacoli in piazza, anche insieme all'[allestimento dell'evento](/servizi/allestimenti-eventi/)."
 ---
