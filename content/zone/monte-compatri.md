@@ -12,7 +12,7 @@ faq:
     risposta: "Sì: per aziende, magazzini e laboratori facciamo pulizie di uffici e locali, **sanificazioni** degli ambienti di lavoro, **pulizia di pannelli fotovoltaici** sui tetti, derattizzazione dei depositi e manutenzione del verde delle aree esterne. Il piano di lavoro si decide al sopralluogo, che è gratuito."
 ---
 
-**Monte Compatri** ha due anime: il centro storico sui colli, a quasi seicento metri, e le frazioni di **Laghetto** e **Pantano Borghese** nella parte bassa del territorio, attraversate dalla **via Casilina**. Il comune conta circa undicimilaseicento abitanti e confina, tra gli altri, con Roma, Rocca Priora, Monte Porzio Catone, Colonna e San Cesareo. Dalla sede di Ariccia lo raggiungiamo in circa trentacinque minuti.
+**Monte Compatri** ha due anime: il centro storico sui colli e le frazioni di **Laghetto** e **Pantano Borghese** nella parte bassa del territorio, attraversate dalla **via Casilina**. Il comune confina, tra gli altri, con Roma, Rocca Priora, Monte Porzio Catone, Colonna e San Cesareo. Dalla sede di Ariccia lo raggiungiamo in circa trentacinque minuti.
 
 ## Cosa facciamo a Monte Compatri
 

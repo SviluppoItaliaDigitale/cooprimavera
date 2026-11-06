@@ -51,7 +51,14 @@ $inizio = isset($_POST['inizio']) ? (float) $_POST['inizio'] : 0;
 $sospetta = $inizio > 0 && (microtime(true) * 1000 - $inizio) < 2000;
 
 // Limite di invii per indirizzo IP nell'ultima ora.
-$ip = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? trim(explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'])[0]) : (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
+// Il sito sta dietro il proxy di Aruba, che aggiunge in fondo a X-Forwarded-For l'indirizzo da cui
+// arriva la richiesta: vale l'ultimo elemento, non il primo, che chi invia può scrivere a piacere.
+$ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
+if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $catena = array_map('trim', explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']));
+    $ultimo = end($catena);
+    if (filter_var($ultimo, FILTER_VALIDATE_IP)) { $ip = $ultimo; }
+}
 $cartella = rtrim(sys_get_temp_dir(), '/');
 $registro = $cartella . '/cooprimavera-preventivi-' . hash('sha256', 'cooprimavera|' . $ip) . '.txt';
 $ora = time();

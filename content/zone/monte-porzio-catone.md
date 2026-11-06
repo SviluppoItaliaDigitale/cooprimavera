@@ -12,7 +12,7 @@ faq:
     risposta: "Sì: oltre al centro raggiungiamo le località sparse del comune, da **Pilozzo** a **Fontana Candida**, da **Camaldoli** alle **Selve di Mondragone**. Per le case e le aziende di campagna fissiamo giornate di lavoro programmate."
 ---
 
-**Monte Porzio Catone** è un paese di vigne: la maggior parte del vino prodotto qui è il bianco **Frascati DOCG**. Il territorio confina con Frascati, Grottaferrata, Monte Compatri e Roma e conserva ville tuscolane come Villa Mondragone, l'eremo di Camaldoli e l'**Osservatorio astronomico di Roma**, costruito sopra i resti di una villa romana. Gli abitanti sono circa ottomilacinquecento. Dalla sede di Ariccia lo raggiungiamo in poco più di mezz'ora.
+**Monte Porzio Catone** è un paese di vigne, nella zona del bianco **Frascati DOCG**. Il territorio confina con Frascati, Grottaferrata, Monte Compatri e Roma e conserva ville tuscolane come Villa Mondragone, l'eremo di Camaldoli e l'**Osservatorio astronomico di Roma**. Dalla sede di Ariccia lo raggiungiamo in poco più di mezz'ora.
 
 ## Cosa facciamo a Monte Porzio Catone
 

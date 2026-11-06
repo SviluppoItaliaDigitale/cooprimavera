@@ -40,5 +40,8 @@ ADESSO=$(python3 -c 'import time;print(int(time.time()*1000)-500)')
 prova "invio rapido: arriva comunque" 200 '"ok"' "${CAMPI[@]}" -F telefono=061234567 -F inizio="$ADESSO"
 [[ $(lettere) == 2 ]] || { echo "ERRORE: l'invio rapido è stato perso"; errori=$((errori+1)); }
 grep -l 'W2RhIHZlcmlmaWNhcmVd' "$T"/posta/* >/dev/null || { echo "ERRORE: l'invio rapido non è segnato [da verificare]"; errori=$((errori+1)); }
+# Limite di invii: il primo elemento di X-Forwarded-For lo sceglie chi invia, conta l'ultimo (proxy)
+for i in 1 2 3 4 5; do curl -s -o /dev/null -X POST "${CAMPI[@]}" -F telefono=061234567 -H "X-Forwarded-For: 10.0.0.$i, 203.0.113.9" "$U"; done
+prova "limite di invii non aggirabile" 429 'diverse richieste' "${CAMPI[@]}" -F telefono=061234567 -H "X-Forwarded-For: 10.0.0.99, 203.0.113.9"
 if (( errori )); then echo "$errori prove fallite"; exit 1; fi
 echo "Modulo preventivo: tutte le prove passate."

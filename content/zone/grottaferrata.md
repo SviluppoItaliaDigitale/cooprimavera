@@ -12,7 +12,7 @@ faq:
     risposta: "Sì: con il servizio di [valorizzazione degli immobili](/servizi/valorizzazione-immobili/) facciamo la pulizia profonda degli interni, dei vetri e dei bagni e mettiamo in ordine il giardino, così l'appartamento o la villetta si presentano bene alle visite. Lavoriamo per privati, agenzie e aste giudiziarie."
 ---
 
-**Grottaferrata** è nata intorno all'**abbazia di Santa Maria**, fondata nel 1004 da san Nilo da Rossano, ed è oggi un comune di circa ventimila abitanti, attraversato dalla **via Anagnina**. Confina, tra gli altri, con Roma, Ciampino, Frascati e Marino: è un territorio di quartieri residenziali, villette con giardino, uffici e attività commerciali. Dalla sede di Ariccia la raggiungiamo in circa venti minuti.
+**Grottaferrata** è nata intorno all'**abbazia di Santa Maria** ed è attraversata dalla **via Anagnina**. Confina, tra gli altri, con Roma, Ciampino, Frascati e Marino: è un territorio di quartieri residenziali, villette con giardino, uffici e attività commerciali. Dalla sede di Ariccia la raggiungiamo in circa venti minuti.
 
 ## Cosa facciamo a Grottaferrata
 

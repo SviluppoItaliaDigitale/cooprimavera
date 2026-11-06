@@ -2,7 +2,7 @@
 title: "Rocca Priora"
 titolo_seo: "Impresa di pulizie a Rocca Priora e Colle di Fuori | Cooprimavera"
 description: "Pulizie di condomìni e uffici, giardinaggio, disinfestazioni e sgombero neve per enti a Rocca Priora e Colle di Fuori. Cooprimavera, Castelli Romani."
-sottotitolo: "Il paese più alto dei Castelli Romani, con gli inverni più freddi: case, condomìni, giardini ed edifici pubblici."
+sottotitolo: "In alto sui Castelli Romani, con inverni freddi: case, condomìni, giardini ed edifici pubblici."
 distanza: "a circa mezz'ora da Rocca Priora"
 weight: 160
 faq:
@@ -12,7 +12,7 @@ faq:
     risposta: "Sì: **Colle di Fuori** è frazione di Rocca Priora e la copriamo come il centro, per pulizie, giardinaggio e disinfestazioni. Per i lavori periodici fissiamo giorni stabiliti, così una sola uscita serve più clienti della zona."
 ---
 
-**Rocca Priora** è il paese più alto dei Castelli Romani: il centro sta a 768 metri ed è anche il comune più freddo dell'area, con inverni lunghi e nevicate che a volte durano giorni. Gran parte del territorio ricade nel **Parco regionale dei Castelli Romani**. Il comune, poco più di dodicimila abitanti, comprende la frazione di **Colle di Fuori** e una parte di Molara, ed è attraversato dalla via Tuscolana. Dalla sede di Ariccia lo raggiungiamo in circa mezz'ora.
+**Rocca Priora** è uno dei paesi più alti dei Castelli Romani, con inverni freddi e qualche nevicata. Gran parte del territorio ricade nel **Parco regionale dei Castelli Romani**. Il comune comprende la frazione di **Colle di Fuori** e una parte di Molara, ed è attraversato dalla via Tuscolana. Dalla sede di Ariccia lo raggiungiamo in circa mezz'ora.
 
 ## Cosa facciamo a Rocca Priora
 
