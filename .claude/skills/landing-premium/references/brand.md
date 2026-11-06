@@ -76,7 +76,7 @@ qualsiasi realtà o progetto nuovo.
   validate.
 - **Fatti verificati utilizzabili**: dal 2006 (20 anni di esperienza);
   9 servizi a catalogo, 23 specialistici; opera a Roma e Castelli Romani
-  (17 comuni elencati sul sito, ognuno con la sua pagina); servizi: pulizie professionali,
+  (18 comuni elencati sul sito: Roma e tutti i 17 dei Castelli Romani, ognuno con la sua pagina); servizi: pulizie professionali,
   giardinaggio, portierato, sanificazioni, disinfestazioni, allestimenti
   per eventi, noleggio sedie, moquette per eventi, forniture igieniche.
 - **CTA tipiche**: «Richiedi un preventivo gratuito» → /preventivo/;
@@ -87,7 +87,7 @@ qualsiasi realtà o progetto nuovo.
   carrello pulizie professionale o dell'allestimento evento (palco/sedie/
   moquette che si compongono); scrollytelling "Una giornata in cooperativa"
   (alba → cantieri → persone, con la missione sociale come chiusura);
-  sciame di cubi per la rete dei 17 comuni serviti.
+  sciame di cubi per la rete dei 18 comuni serviti.
 
 ## Nuove realtà e progetti futuri — procedura
 
