@@ -44,10 +44,18 @@
     {{ with .PrevInSection }}<a href="{{ .RelPermalink }}"><span>Notizia precedente</span>{{ .Title }}</a>{{ end }}
     {{ with .NextInSection }}<a href="{{ .RelPermalink }}"><span>Notizia successiva</span>{{ .Title }}</a>{{ end }}
   </nav>
+  {{- /* Invito finale legato al servizio dell'articolo: il preventivo si apre con quel servizio già scelto */ -}}
+  {{- $servizio := "" }}{{ with .Params.pagina_sito }}{{ with site.GetPage . }}{{ $servizio = . }}{{ end }}{{ end }}
   <div class="cta-finale" data-anim="fade-up">
+    {{- with $servizio }}
+    <h2>Preferisci che lo facciamo noi?</h2>
+    <p>Questo è il nostro lavoro di ogni giorno: <a href="{{ .RelPermalink }}">{{ lower .Title }}</a> a Roma e nei Castelli Romani, con sopralluogo e preventivo gratuiti.</p>
+    <p class="eroe-azioni"><a class="bottone" href="{{ "preventivo/" | relURL }}?servizio={{ .File.ContentBaseName }}">Chiedi un preventivo per {{ lower .Title }}</a> <a class="bottone bottone-chiaro" href="tel:{{ site.Params.telefono_uff_link }}">Chiama {{ site.Params.telefono_uff }}</a></p>
+    {{- else }}
     <h2>Ti serve una mano?</h2>
     <p>Pulizie, verde, sanificazioni, manutenzioni ed eventi a Roma e nei Castelli Romani. Sopralluogo e preventivo gratuiti.</p>
     <p class="eroe-azioni"><a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo</a> <a class="bottone bottone-chiaro" href="{{ "notizie/" | relURL }}">Tutte le notizie</a></p>
+    {{- end }}
   </div>
 </div>
 {{ end }}
