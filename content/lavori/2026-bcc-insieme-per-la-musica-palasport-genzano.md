@@ -1,7 +1,7 @@
 ---
 title: "Allestimenti per la BCC Colli Albani al Palazzo dello Sport di Genzano"
 date: 2026-04-18
-description: "Da più anni allestiamo il Palazzo dello Sport «Gino Cesaroni» di Genzano per gli eventi della BCC Colli Albani: moquette, sedie e sala completa."
+description: "Da più anni, dai tempi della BCC Giuseppe Toniolo, allestiamo il Palazzo dello Sport di Genzano per gli eventi della BCC Colli Albani: moquette, sedie, sala."
 luogo: "Palazzo dello Sport «Gino Cesaroni»"
 comune: "Genzano di Roma"
 servizi: ["allestimenti-eventi", "moquette-eventi", "noleggio-sedie"]
@@ -24,12 +24,14 @@ foto:
     alt: "Corsia di moquette blu lungo la platea e l'ingresso con lo striscione BCC Colli Albani e Nettuno"
   - file: "img/lavori/2026-palasport-genzano-bcc-4.jpg"
     alt: "Il palco allestito sotto la copertura in legno del palazzetto, con il tavolo dei relatori, le bandiere, le casse e la platea a destra"
+  - file: "img/lavori/2026-palasport-genzano-bcc-10.jpg"
+    alt: "Il palazzetto allestito per la BCC Giuseppe Toniolo: striscioni «Una risorsa per la comunità», moquette blu e verde e file di sedie in platea"
   - file: "img/lavori/2026-palasport-genzano-bcc-3.jpg"
     alt: "L'ingresso del Palazzo dello Sport Gino Cesaroni con gli striscioni della BCC Colli Albani e Nettuno e della rassegna Insieme per la musica"
 fonte: "Cooprimavera; volti dei ragazzi e targa oscurati"
 ---
 
-Da più anni, sempre con lo stesso schema, trasformiamo il **Palazzo dello Sport «Gino Cesaroni»** di Genzano di Roma in una sala per gli eventi della **BCC Colli Albani**, oggi BCC Colli Albani e Nettuno: il campo da gioco diventa una platea da centinaia di posti, a partire dalla moquette stesa rotolo per rotolo sul parquet.
+Da più anni, sempre con lo stesso schema, trasformiamo il **Palazzo dello Sport «Gino Cesaroni»** di Genzano di Roma in una sala per gli eventi della banca di credito cooperativo del territorio: già quando era la **BCC Giuseppe Toniolo** di Genzano, poi come **BCC Colli Albani**, nata dalla fusione del 2017, e oggi **BCC Colli Albani e Nettuno**, dopo l'unione con la BCC di Nettuno nel 2026. Il campo da gioco diventa una platea da centinaia di posti, a partire dalla moquette stesa rotolo per rotolo sul parquet.
 
 - **moquette blu** su tutto il campo, con le corsie per il pubblico;
 - **sedie** in file ordinate per la platea;
