@@ -10,6 +10,8 @@ alt_immagine: "Il Palazzo dello Sport di Genzano visto dalla tribuna: moquette b
 foto:
   - file: "img/lavori/2026-palasport-genzano-bcc-1.jpg"
     alt: "Il Palazzo dello Sport di Genzano visto dalla tribuna: moquette blu su tutto il campo, file di sedie nere per il pubblico e in fondo il palco con tre schermi"
+  - file: "img/lavori/2026-palasport-genzano-bcc-5.jpg"
+    alt: "La squadra di Cooprimavera stende i rotoli di moquette blu e verde sul parquet del palazzetto, a tribune vuote"
   - file: "img/lavori/2026-palasport-genzano-bcc-2.jpg"
     alt: "Corsia di moquette blu lungo la platea e l'ingresso con lo striscione BCC Colli Albani e Nettuno"
   - file: "img/lavori/2026-palasport-genzano-bcc-4.jpg"
@@ -21,7 +23,7 @@ fonte: "Cooprimavera; volti dei ragazzi e targa oscurati"
 
 Il **Palazzo dello Sport «Gino Cesaroni»** di Genzano di Roma trasformato in sala per **«Insieme per la musica»**, la rassegna musicale scolastica della Fondazione BCC Colli Albani ETS, con la **BCC Colli Albani e Nettuno** e il patrocinio del Comune di Genzano. L'abbiamo allestito per tutte e due le edizioni: la prima, il **6 dicembre 2025**, e la seconda, il **18 aprile 2026**, con cori e gruppi di undici scuole sul palco.
 
-Il campo da gioco diventa una sala da centinaia di posti:
+Il campo da gioco diventa una sala da centinaia di posti, a partire dalla moquette stesa rotolo per rotolo sul parquet:
 
 - **moquette blu** su tutto il campo, con le corsie per il pubblico;
 - **sedie** in file ordinate per la platea;
