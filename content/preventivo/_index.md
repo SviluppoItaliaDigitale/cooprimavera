@@ -70,7 +70,7 @@ Hai un progetto in mente? Compila il modulo qui sotto: prepariamo il messaggio p
   <p class="campo-nota">Inviando accetti il trattamento dei dati per rispondere alla richiesta (<a href="../privacy/">privacy policy</a>).</p>
   <div class="modulo-azioni">
     <button type="submit" class="bottone">Invia via email</button>
-    <a class="bottone bottone-chiaro" href="tel:+393317771888">Oppure chiamaci: 331 777 1888</a>
+    <a class="bottone bottone-chiaro" href="tel:+3906634670">Oppure chiamaci: 06 63 46 70</a>
     <a class="bottone bottone-chiaro" href="https://wa.me/3906634670?text=Salve%2C%20vorrei%20richiedere%20un%20preventivo." rel="noopener">Scrivici su WhatsApp</a>
   </div>
 </form>
@@ -100,8 +100,7 @@ Hai un progetto in mente? Compila il modulo qui sotto: prepariamo il messaggio p
 
 ## Recapiti diretti
 
-- **Cellulare (il canale più rapido):** [chiamaci al 331 777 1888](tel:+393317771888)
-- **Ufficio:** [06 63 46 70](tel:+3906634670)
+- **Telefono ufficio:** [06 63 46 70](tel:+3906634670)
 - **WhatsApp Business:** [scrivici su WhatsApp](https://wa.me/3906634670) — puoi anche inviarci foto o video degli ambienti: ci aiutano a preparare il sopralluogo
 - **Email:** [info@cooprimavera.com](mailto:info@cooprimavera.com)
 - **PEC:** [cooprimavera@pec.it](mailto:cooprimavera@pec.it)

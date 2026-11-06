@@ -35,3 +35,12 @@ jobs:
 
       - name: Prova dei parametri inviati a Facebook e Instagram (rete finta)
         run: python3 scripts/prova_gestione_social.py
+
+      # Il cellulare 331 777 1888 non è più attivo dal 06/11/2026 (Alessandro): non deve
+      # tornare nel sito, nelle grafiche o nei video. Restano solo i file di governo (.claude/) e questo controllo.
+      - name: Nessun recapito dismesso (cellulare 331 777 1888)
+        run: |
+          if git grep -nIE '331[ .-]?777[ .-]?1888|3317771888' -- . ':!.claude' ':!.github/workflows/controllo-cornice.yml'; then
+            echo "::error::Il cellulare 331 777 1888 non è più attivo: va tolto (restano telefono fisso, WhatsApp, email e PEC)."
+            exit 1
+          fi

@@ -161,7 +161,7 @@ async function genera(br, nome) {
   prepara(c, tmp);
   const html = `<!doctype html><meta charset=utf-8><style>${CSS}</style><body><div class="cart">${esc(c.tema)}</div>
 ${c.scene.map((s, i) => scena(s, i, c).replace('class="sc', `data-d="${s.durataVera}" data-w='${JSON.stringify(s.w)}' class="sc`)).join('\n')}
-<div class="piede"><img src="${F('assets/img/logo.png')}" alt=""><div class="tel"><b>Tel. e WhatsApp</b> 06 63 46 70<br><b>Cellulare</b> 331 777 1888</div><div class="web">info@cooprimavera.com · cooprimavera.com</div></div>
+<div class="piede"><img src="${F('assets/img/logo.png')}" alt=""><div class="tel"><b>Tel. e WhatsApp</b> 06 63 46 70</div><div class="web">info@cooprimavera.com · cooprimavera.com</div></div>
 <script>const DISS=${DISS};(${motore})()</script><script>${CORNICE}</script>`;
   fs.writeFileSync(path.join(tmp, 'v.html'), html);
   const pg = await br.newPage({ viewport: { width: 1080, height: 1920 } });
