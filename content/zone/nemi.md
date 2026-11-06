@@ -12,7 +12,7 @@ faq:
     risposta: "Sì: dopo un fine settimana affollato o una festa, come quella delle fragole a giugno, interveniamo con **pulizie straordinarie** di sale, cucine e servizi, con procedure HACCP dove si lavorano alimenti. Se l'evento lo allestiamo noi, ci occupiamo anche dello smontaggio."
 ---
 
-**Nemi** è il comune meno popoloso dei Castelli Romani: poco meno di duemila abitanti, un centro storico affacciato sul **lago di Nemi** e un territorio di terrazzamenti, orti e boschi che scendono verso l'acqua, con le località di Parco dei Lecci, Valle delle Colombe e Vigna Grande. È noto per le fragole e per il Museo delle navi romane. Dalla sede di Ariccia lo raggiungiamo in circa un quarto d'ora.
+**Nemi** è un piccolo paese: un centro storico affacciato sul **lago di Nemi** e un territorio di terrazzamenti, orti e boschi che scendono verso l'acqua, con le località di Parco dei Lecci, Valle delle Colombe e Vigna Grande. È noto per le fragole e per il Museo delle navi romane. Dalla sede di Ariccia lo raggiungiamo in circa un quarto d'ora.
 
 ## Il nostro lavoro sul lago
 

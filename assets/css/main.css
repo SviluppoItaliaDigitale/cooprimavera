@@ -714,6 +714,7 @@ main:has(> .sezione-verde:last-child, > .sezione-alterna:last-child) + .pie { ma
 .modulo-preventivo .campo-coppia .campo { margin-bottom: .4rem; }
 #mp-nota-recapito { margin: 0 0 1rem; }
 .modulo-preventivo input[type="file"] { background: transparent; border-style: dashed; }
+.modulo-preventivo [hidden] { display: none !important; }
 .campo-trappola { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .modulo-esito { margin-top: 1rem; padding: .9rem 1rem; border-radius: 8px; border-left: 4px solid var(--verde); background: #fff; }
 .modulo-esito p { margin: 0 0 .4rem; }

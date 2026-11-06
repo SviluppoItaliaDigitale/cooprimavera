@@ -45,7 +45,7 @@
     {{ with .NextInSection }}<a href="{{ .RelPermalink }}"><span>Notizia successiva</span>{{ .Title }}</a>{{ end }}
   </nav>
   {{- /* Invito finale legato al servizio dell'articolo: il preventivo si apre con quel servizio già scelto */ -}}
-  {{- $servizio := "" }}{{ with .Params.pagina_sito }}{{ with site.GetPage . }}{{ $servizio = . }}{{ end }}{{ end }}
+  {{- $servizio := "" }}{{ with .Params.pagina_sito }}{{ with site.GetPage . }}{{ if and .CurrentSection (eq .CurrentSection.RelPermalink "/servizi/") (not .IsSection) }}{{ $servizio = . }}{{ end }}{{ end }}{{ end }}
   <div class="cta-finale" data-anim="fade-up">
     {{- with $servizio }}
     <h2>Preferisci che lo facciamo noi?</h2>

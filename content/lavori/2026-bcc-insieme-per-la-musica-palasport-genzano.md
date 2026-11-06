@@ -1,13 +1,19 @@
 ---
-title: "Allestimento del Palazzo dello Sport di Genzano per «Insieme per la musica» della BCC"
+title: "Allestimenti per la BCC Colli Albani al Palazzo dello Sport di Genzano"
 date: 2026-04-18
-description: "Allestimento completo del Palazzo dello Sport «Gino Cesaroni» di Genzano per la rassegna musicale scolastica della BCC Colli Albani e Nettuno, nel 2025 e nel 2026."
+description: "Da più anni allestiamo il Palazzo dello Sport «Gino Cesaroni» di Genzano per gli eventi della BCC Colli Albani: moquette, sedie e sala completa."
 luogo: "Palazzo dello Sport «Gino Cesaroni»"
 comune: "Genzano di Roma"
 servizi: ["allestimenti-eventi", "moquette-eventi", "noleggio-sedie"]
-immagine: "img/lavori/2026-palasport-genzano-bcc-1.jpg"
-alt_immagine: "Il Palazzo dello Sport di Genzano visto dalla tribuna: moquette blu su tutto il campo, file di sedie nere per il pubblico e in fondo il palco con tre schermi"
+immagine: "img/lavori/2026-palasport-genzano-bcc-8.jpg"
+alt_immagine: "La sala vista dal fondo: corsia centrale di moquette blu, file di sedie ai lati e il palco con fiori, tavolo dei relatori e maxischermo"
 foto:
+  - file: "img/lavori/2026-palasport-genzano-bcc-8.jpg"
+    alt: "La sala vista dal fondo: corsia centrale di moquette blu, file di sedie ai lati e il palco con fiori, tavolo dei relatori e maxischermo"
+  - file: "img/lavori/2026-palasport-genzano-bcc-9.jpg"
+    alt: "Dal tavolo dei relatori sul palco, con microfoni e bottiglie d'acqua, si vede la platea di sedie sulla moquette blu e lo striscione BCC Colli Albani"
+  - file: "img/lavori/2026-palasport-genzano-bcc-7.jpg"
+    alt: "La platea vista dal palco tra fiori e bandiere, con gli striscioni «BCC Colli Albani, Uniti siamo ancora più unici» e «Una risorsa per la comunità»"
   - file: "img/lavori/2026-palasport-genzano-bcc-1.jpg"
     alt: "Il Palazzo dello Sport di Genzano visto dalla tribuna: moquette blu su tutto il campo, file di sedie nere per il pubblico e in fondo il palco con tre schermi"
   - file: "img/lavori/2026-palasport-genzano-bcc-5.jpg"
@@ -23,12 +29,12 @@ foto:
 fonte: "Cooprimavera; volti dei ragazzi e targa oscurati"
 ---
 
-Il **Palazzo dello Sport «Gino Cesaroni»** di Genzano di Roma trasformato in sala per **«Insieme per la musica»**, la rassegna musicale scolastica della Fondazione BCC Colli Albani ETS, con la **BCC Colli Albani e Nettuno** e il patrocinio del Comune di Genzano. L'abbiamo allestito per tutte e due le edizioni: la prima, il **6 dicembre 2025**, e la seconda, il **18 aprile 2026**, con cori e gruppi di undici scuole sul palco.
-
-Il campo da gioco diventa una sala da centinaia di posti, a partire dalla moquette stesa rotolo per rotolo sul parquet:
+Da più anni, sempre con lo stesso schema, trasformiamo il **Palazzo dello Sport «Gino Cesaroni»** di Genzano di Roma in una sala per gli eventi della **BCC Colli Albani**, oggi BCC Colli Albani e Nettuno: il campo da gioco diventa una platea da centinaia di posti, a partire dalla moquette stesa rotolo per rotolo sul parquet.
 
 - **moquette blu** su tutto il campo, con le corsie per il pubblico;
 - **sedie** in file ordinate per la platea;
-- la sala pronta intorno al **palco**, con il tavolo per gli interventi.
+- la sala pronta intorno al **palco**, con il tavolo dei relatori.
+
+Con lo stesso allestimento abbiamo preparato anche le due edizioni di **«Insieme per la musica»**, la rassegna musicale scolastica della Fondazione BCC Colli Albani ETS con il patrocinio del Comune di Genzano: il **6 dicembre 2025** e il **18 aprile 2026**, quando sul palco sono saliti cori e gruppi di undici scuole.
 
 Lo facciamo per aziende, enti e associazioni: vedi [allestimenti per eventi](/servizi/allestimenti-eventi/), [moquette per eventi](/servizi/moquette-eventi/) e [noleggio sedie](/servizi/noleggio-sedie/).

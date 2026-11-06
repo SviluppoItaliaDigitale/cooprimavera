@@ -12,7 +12,7 @@ faq:
     risposta: "Sì: buona parte del territorio è in salita, con giardini a terrazze e alberi d'alto fusto. Facciamo **potature anche in quota** con personale abilitato, cura di siepi e prati, pulizia di scarpate e terreni invasi dai rovi, e portiamo via il materiale tagliato."
 ---
 
-**Rocca di Papa** sta sulle pendici di Monte Cavo, sopra il lago Albano, a circa 680 metri di quota: il centro storico si arrampica sotto la vecchia rocca, mentre le frazioni dei **Campi d'Annibale** e dei **Pratoni del Vivaro** occupano gli altopiani interni del vulcano laziale. Qui ha sede il **Parco regionale dei Castelli Romani**. Dalla sede di Ariccia saliamo a Rocca di Papa in circa un quarto d'ora, lungo la via dei Laghi o la provinciale che parte da Ariccia.
+**Rocca di Papa** sta sulle pendici di Monte Cavo, sopra il lago Albano: il centro storico si arrampica sotto la vecchia rocca, mentre le frazioni dei **Campi d'Annibale** e dei **Pratoni del Vivaro** occupano gli altopiani interni del vulcano laziale. Qui ha sede il **Parco regionale dei Castelli Romani**. Dalla sede di Ariccia saliamo a Rocca di Papa in circa un quarto d'ora, lungo la via dei Laghi o la provinciale che parte da Ariccia.
 
 ## Il lavoro che facciamo a Rocca di Papa
 

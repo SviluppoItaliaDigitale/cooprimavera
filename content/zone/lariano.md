@@ -12,7 +12,7 @@ faq:
     risposta: "Sì: nei giardini e nei terreni privati facciamo **potature di alberi d'alto fusto**, anche in quota con personale abilitato, pulizia di foglie e ricci, taglio di rovi e sterpaglie, e portiamo via il materiale di risulta."
 ---
 
-**Lariano** è un comune giovane con una storia lunga: per secoli ha fatto parte di Velletri ed è diventato comune autonomo nel **1967**. Sta alle pendici dei monti dell'**Artemisio**, con il Maschio d'Ariano, 891 metri, come punto più alto del territorio, tra boschi di castagno. Dal castagno viene anche la legna con cui si cuoce il **pane di Lariano**, prodotto agroalimentare tradizionale del Lazio. Oltre al centro, il comune comprende la frazione di **Colle Cagioli**. Dalla sede di Ariccia lo raggiungiamo in circa mezz'ora.
+**Lariano** è un comune giovane con una storia lunga: per secoli ha fatto parte di Velletri, poi è diventato comune autonomo. Sta alle pendici dei monti dell'**Artemisio**, tra boschi di castagno. Dal castagno viene anche la legna con cui si cuoce il **pane di Lariano**, prodotto agroalimentare tradizionale del Lazio. Oltre al centro, il comune comprende la frazione di **Colle Cagioli**. Dalla sede di Ariccia lo raggiungiamo in circa mezz'ora.
 
 ## Cosa facciamo a Lariano
 

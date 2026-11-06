@@ -12,7 +12,7 @@ faq:
     risposta: "Sì: copriamo tutto il comune, comprese **Pascolare, Pietrara, Colle Cavaliere, Malcavallo** e la parte di **Campoleone** che ricade a Lanuvio. Per le case e le aziende di campagna organizziamo il lavoro in giornate intere, così una sola uscita basta per pulizie e verde."
 ---
 
-**Lanuvio** si trova sul versante meridionale dei Colli Albani, confina con Ariccia, Genzano di Roma, Velletri e Aprilia e conta poco meno di tredicimila abitanti. La sua attività principale è l'agricoltura, soprattutto la vigna: il territorio rientra nelle zone dei vini DOC **Colli Lanuvini** e **Colli Albani**. Oltre al centro storico, il comune comprende molte località sparse in campagna, da Pascolare a Campoleone. Dalla sede di Ariccia lo raggiungiamo in circa un quarto d'ora.
+**Lanuvio** si trova sul versante meridionale dei Colli Albani, confina con Ariccia, Genzano di Roma, Velletri e Aprilia. È terra di campagna e di vigne: il territorio rientra nelle zone dei vini DOC **Colli Lanuvini** e **Colli Albani**. Oltre al centro storico, il comune comprende molte località sparse in campagna, da Pascolare a Campoleone. Dalla sede di Ariccia lo raggiungiamo in circa un quarto d'ora.
 
 ## Cosa facciamo a Lanuvio
 
