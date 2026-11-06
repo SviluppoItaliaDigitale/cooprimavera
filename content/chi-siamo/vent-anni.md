@@ -27,7 +27,7 @@ tappe:
     lavori: ["lavori/2014-bonifica-terreno-lago-di-nemi", "lavori/2014-mosaico-riportato-al-colore-originale", "lavori/2014-boxe-al-palatiziano"]
   - anno: "2015"
     titolo: "Scuole e palazzetti"
-    testo: "D'estate la pulizia straordinaria della palestra della scuola Francesco De Sanctis; a ottobre il ring del Campionato dell'Unione Europea al Palazzetto dello Sport di Roma."
+    testo: "D'estate la pulizia e la lucidatura del parquet della palestra della scuola Francesco De Sanctis a Genzano di Roma; a ottobre il ring del Campionato dell'Unione Europea al Palazzetto dello Sport di Roma."
     lavori: ["lavori/2015-palestra-scuola-francesco-de-sanctis", "lavori/2015-boxe-palazzetto-dello-sport-roma"]
   - anno: "2016"
     titolo: "Cento anni di boxe al Foro Italico"
