@@ -16,7 +16,7 @@ richieste:
   - voce: "Decoro urbano"
     risposta: "**Spazzamento manuale** di strade, piazze e marciapiedi, raccolta delle foglie, **diserbo** lungo bordi e cordoli, pulizia di fontane e bagni pubblici, rimozione di graffiti e affissione di manifesti. La raccolta e il trasporto dei rifiuti urbani restano al gestore del servizio comunale."
   - voce: "Scuole pulite"
-    risposta: "Aule, laboratori, palestre, mense, bagni e aree comuni. Le pulizie straordinarie le facciamo a scuola chiusa, come quella del parquet della palestra della scuola Francesco De Sanctis, ad agosto 2015."
+    risposta: "Aule, laboratori, palestre, mense, bagni e aree comuni. Le pulizie straordinarie le facciamo a scuola chiusa, come la pulizia e la lucidatura del parquet della palestra della scuola Francesco De Sanctis a Genzano di Roma, ad agosto 2015."
   - voce: "Ausiliari scolastici"
     risposta: "**Bidellaggio** in istituti pubblici e privati: apertura e chiusura, sorveglianza dei corridoi, supporto al personale. Su richiesta, accompagnamento dei bambini sugli scuolabus. Nelle mense distribuiamo pasti preparati da altri e facciamo il rigoverno di cucine e stoviglie."
   - voce: "Mercati, fiere e neve"
