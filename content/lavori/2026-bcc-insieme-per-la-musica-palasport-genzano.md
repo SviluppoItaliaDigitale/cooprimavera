@@ -12,6 +12,8 @@ foto:
     alt: "Il Palazzo dello Sport di Genzano visto dalla tribuna: moquette blu su tutto il campo, file di sedie nere per il pubblico e in fondo il palco con tre schermi"
   - file: "img/lavori/2026-palasport-genzano-bcc-5.jpg"
     alt: "La squadra di Cooprimavera stende i rotoli di moquette blu e verde sul parquet del palazzetto, a tribune vuote"
+  - file: "img/lavori/2026-palasport-genzano-bcc-6.jpg"
+    alt: "Due operatori srotolano l'ultimo rotolo di moquette blu: il campo è quasi tutto coperto, resta scoperta solo la fascia di parquet lungo il bordo"
   - file: "img/lavori/2026-palasport-genzano-bcc-2.jpg"
     alt: "Corsia di moquette blu lungo la platea e l'ingresso con lo striscione BCC Colli Albani e Nettuno"
   - file: "img/lavori/2026-palasport-genzano-bcc-4.jpg"
