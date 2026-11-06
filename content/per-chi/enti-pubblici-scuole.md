@@ -1,7 +1,7 @@
 ---
 title: "Enti pubblici e scuole"
 titolo_seo: "Servizi per comuni, enti pubblici e scuole a Roma e Castelli Romani | Cooprimavera"
-description: "Per comuni, enti e scuole: gare, affidamenti e convenzioni, verde pubblico con idoneità legge 154/2016, decoro urbano, pulizie e ausiliari scolastici."
+description: "Per comuni, enti e scuole: iscritti al MePA, gare e convenzioni, verde pubblico con idoneità legge 154/2016, decoro urbano, pulizie e ausiliari scolastici."
 sottotitolo: "Pulizie, verde pubblico, decoro urbano e ausiliari scolastici, con gara, affidamento o convenzione."
 immagine: "img/decoro-urbano.jpg"
 alt_immagine: "Operatore pulisce dalle foglie un marciapiede in città con il soffiatore"
@@ -10,7 +10,7 @@ servizio_preventivo: "altro"
 titolo_cta: "Richiedi un'offerta"
 richieste:
   - voce: "Gare, affidamenti e convenzioni"
-    risposta: "Siamo una **cooperativa di produzione e lavoro iscritta all'Albo delle società cooperative**: possiamo partecipare a gare e affidamenti e lavorare in convenzione."
+    risposta: "Siamo una **cooperativa di produzione e lavoro iscritta all'Albo delle società cooperative**: possiamo partecipare a gare e affidamenti e lavorare in convenzione. Siamo **iscritti al MePA**, il Mercato elettronico della pubblica amministrazione gestito da Consip: gli enti ci trovano lì anche per ordini diretti e trattative dirette."
   - voce: "Verde pubblico"
     risposta: "Dal 2022 abbiamo l'**idoneità per la manutenzione del verde pubblico e privato** prevista dalla legge 154/2016: parchi, giardini pubblici, aiuole, piazzole e spartitraffico, con sfalcio, potature e pulizia dei vialetti. Sfalci e potature li portiamo via noi, come produttori iscritti all'Albo nazionale Gestori Ambientali."
   - voce: "Decoro urbano"
