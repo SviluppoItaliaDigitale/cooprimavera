@@ -199,7 +199,7 @@ VOCE_PY=~/kokoro-venv/bin/python VOCE_MODELLI=~/kokoro node social/video/genera.
 
 Voce: `"voce": "im_nicola"` (Nicola, maschile: Alessandro la trova migliore
 nella lettura). Con `"voci": [...]` le scene alternano più voci. In basso, fascia chiara con logo, telefono e WhatsApp
-06 63 46 70, cellulare 331 777 1888, email e sito.
+06 63 46 70, email e sito (il cellulare non è più attivo dal 06/11/2026).
 Numeri di telefono e anni nella voce vanno scritti in lettere.
 
 **Fonti e licenze**

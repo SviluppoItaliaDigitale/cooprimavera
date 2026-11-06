@@ -50,8 +50,7 @@
     (dict "@type" "OpeningHoursSpecification" "dayOfWeek" (slice "Monday" "Tuesday" "Wednesday" "Thursday") "opens" "09:00" "closes" "14:00")
     (dict "@type" "OpeningHoursSpecification" "dayOfWeek" "Friday" "opens" "09:00" "closes" "18:00"))
   "contactPoint" (slice
-    (dict "@type" "ContactPoint" "contactType" "customer service" "telephone" site.Params.telefono_uff_link "email" site.Params.email "areaServed" "IT" "availableLanguage" "Italian")
-    (dict "@type" "ContactPoint" "contactType" "sales" "telephone" site.Params.telefono_cell_link "areaServed" "IT" "availableLanguage" "Italian"))
+    (dict "@type" "ContactPoint" "contactType" "customer service" "telephone" site.Params.telefono_uff_link "email" site.Params.email "areaServed" "IT" "availableLanguage" "Italian"))
   "sameAs" (slice site.Params.social.facebook site.Params.social.instagram site.Params.social.linkedin site.Params.social.x)
 }}
 {{- with $logo }}{{ $org = merge $org (dict "logo" . ) }}{{ end }}
