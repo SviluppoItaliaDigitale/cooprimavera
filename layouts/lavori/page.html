@@ -3,7 +3,7 @@
 <div class="contenitore pagina lavoro">
   {{ partial "briciole.html" . }}
   <p class="lavoro-cartellino entra entra-giu">
-    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "data-it.html" (dict "data" .Date "giorno" true) }}</time>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "data-it.html" (dict "data" .Date "giorno" (not .Params.solo_mese)) }}</time>
     {{- with .Params.luogo }}<span>{{ . }}</span>{{ end }}
     {{- with .Params.comune }}<span>{{ . }}</span>{{ end }}
   </p>
