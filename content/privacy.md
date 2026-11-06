@@ -17,7 +17,7 @@ Email: [info@cooprimavera.com](mailto:info@cooprimavera.com) — PEC: [cooprimav
 
 **Dati di navigazione.** I sistemi informatici del fornitore di hosting acquisiscono, nel corso del loro normale esercizio, alcuni dati la cui trasmissione è implicita nell'uso di internet (indirizzi IP, orari di accesso, pagine visitate). Sono dati necessari alla fruizione del sito, usati solo in forma anonima e aggregata per finalità tecniche e di sicurezza.
 
-**Dati forniti volontariamente.** L'invio di email, messaggi WhatsApp o telefonate ai recapiti indicati sul sito comporta l'acquisizione dei dati necessari a rispondere (recapiti e contenuto del messaggio). Il modulo presente nella pagina "Preventivo e contatti" non trasmette dati al sito: prepara un messaggio che l'utente invia dal proprio WhatsApp o dal proprio programma di posta.
+**Dati forniti volontariamente.** L'invio di email, messaggi WhatsApp o telefonate ai recapiti indicati sul sito comporta l'acquisizione dei dati necessari a rispondere (recapiti e contenuto del messaggio). Il modulo della pagina "Preventivo e contatti" invia i dati inseriti (nome o azienda, servizio, comune, descrizione della richiesta, telefono e/o email ed eventuali foto o documenti allegati) alla casella info@cooprimavera.com tramite il server di posta del fornitore di hosting; il sito non li conserva in un archivio proprio. Per limitare gli invii automatici, il server conserva per un'ora, in forma pseudonimizzata, l'indirizzo IP e l'ora dell'invio, poi li cancella.
 
 Questo sito **non richiede registrazione** e **non utilizza cookie di profilazione** (vedi [cookie policy](/cookie/)).
 

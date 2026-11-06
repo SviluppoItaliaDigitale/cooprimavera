@@ -75,6 +75,38 @@
       m.classList.toggle('aperto', !aperto);
     });
   })();
+  // Fuori dall'orario d'ufficio (lun–gio 9–14, ven 9–18, ora italiana: lo stesso orario di
+  // «orari» in hugo.toml e di schema.html) e nei giorni festivi nazionali i pulsanti «Chiama»
+  // diventano «Scrivici su WhatsApp», perché al telefono non risponderebbe nessuno.
+  (function () {
+    var orari = { 1: [9, 14], 2: [9, 14], 3: [9, 14], 4: [9, 14], 5: [9, 18] };
+    var p = {};
+    try {
+      new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Rome', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', hourCycle: 'h23', weekday: 'short' })
+        .formatToParts(new Date()).forEach(function (x) { p[x.type] = x.value; });
+    } catch (e) { return; }
+    var a = +p.year, m = +p.month, g = +p.day, h = +p.hour;
+    var gs = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 }[p.weekday];
+    // Pasquetta: lunedì dopo Pasqua (algoritmo gregoriano anonimo, Meeus)
+    var A = a % 19, B = Math.floor(a / 100), C = a % 100, D = Math.floor(B / 4), E = B % 4;
+    var F = Math.floor((B + 8) / 25), G = Math.floor((B - F + 1) / 3), H = (19 * A + B - D - G + 15) % 30;
+    var I = Math.floor(C / 4), K = C % 4, L = (32 + 2 * E + 2 * I - H - K) % 7, M = Math.floor((A + 11 * H + 22 * L) / 451);
+    var mp = Math.floor((H + L - 7 * M + 114) / 31), gp = ((H + L - 7 * M + 114) % 31) + 1;
+    var pasquetta = new Date(Date.UTC(a, mp - 1, gp + 1));
+    var feste = ['1-1', '1-6', '4-25', '5-1', '6-2', '8-15', '11-1', '12-8', '12-25', '12-26', (pasquetta.getUTCMonth() + 1) + '-' + pasquetta.getUTCDate()];
+    var fascia = orari[gs];
+    var aperto = fascia && h >= fascia[0] && h < fascia[1] && feste.indexOf(m + '-' + g) === -1;
+    if (aperto) return;
+    var wa = {{ site.Params.whatsapp_link }} + '?text=' + encodeURIComponent('Salve, vi scrivo dal sito: vorrei essere ricontattato.');
+    document.querySelectorAll('a.bottone[href^="tel:"]').forEach(function (b) {
+      b.href = wa;
+      b.rel = 'noopener';
+      b.textContent = 'Ufficio chiuso: scrivici su WhatsApp';
+      b.title = 'Ti ricontattiamo appena riapre l\'ufficio ({{ site.Params.orari }})';
+    });
+    var fisso = document.getElementById('chiamata-fissa');
+    if (fisso) fisso.style.display = 'none';
+  })();
   (function () {
     var su = document.getElementById('torna-su');
     if (!su) return;

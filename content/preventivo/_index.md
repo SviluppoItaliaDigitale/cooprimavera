@@ -20,12 +20,12 @@ faq:
     risposta: "Siamo sempre alla ricerca di nuove persone da inserire in organico: trovi le posizioni aperte e il modulo per candidarti nella pagina [Lavora con noi](../lavora-con-noi/)."
 ---
 
-Hai un progetto in mente? Compila il modulo qui sotto: prepariamo il messaggio per te e lo invii **via email con un tocco** — oppure **chiamaci o scrivici su WhatsApp**, i recapiti sono qui in basso.
+Hai un lavoro da fare? Compila il modulo qui sotto: la richiesta arriva **direttamente in ufficio**, anche con le foto degli ambienti, e ti ricontattiamo noi. Se preferisci, **chiamaci o scrivici su WhatsApp**: i recapiti sono qui in basso.
 
 ## Come funziona
 
 <ol class="passi" data-anim-group>
-  <li><strong>Ci contatti</strong> Compili il modulo, chiami o scrivi su WhatsApp — anche con foto o video degli ambienti.</li>
+  <li><strong>Ci contatti</strong> Compili il modulo, chiami o scrivi su WhatsApp, anche con foto o video degli ambienti.</li>
   <li><strong>Sopralluogo gratuito</strong> Per pulizie e giardinaggio veniamo a vedere gli spazi, senza impegno.</li>
   <li><strong>Preventivo su misura</strong> Ricevi un'offerta chiara, gratuita e senza sorprese.</li>
   <li><strong>Al lavoro</strong> Interviene il nostro personale formato, con prodotti professionali certificati.</li>
@@ -33,70 +33,7 @@ Hai un progetto in mente? Compila il modulo qui sotto: prepariamo il messaggio p
 
 > **Nota bene:** per i servizi di **pulizie** e **giardinaggio** il sopralluogo è **obbligatorio** — il preventivo definitivo viene formulato dopo aver visto gli ambienti o le aree verdi.
 
-<form class="modulo-preventivo" id="modulo-preventivo" data-anim="fade-up">
-  <div class="campo">
-    <label for="mp-nome">Nome e cognome / azienda *</label>
-    <input type="text" id="mp-nome" name="nome" required autocomplete="name">
-  </div>
-  <div class="campo">
-    <label for="mp-servizio">Servizio richiesto *</label>
-    <select id="mp-servizio" name="servizio" required>
-      <option value="">— scegli un servizio —</option>
-      <option>Pulizie professionali</option>
-      <option>Sanificazioni</option>
-      <option>Disinfestazioni</option>
-      <option>Giardinaggio</option>
-      <option>Valorizzazione immobili in vendita</option>
-      <option>Servizi di portierato</option>
-      <option>Allestimenti per eventi</option>
-      <option>Noleggio sedie / moquette per eventi</option>
-      <option>Forniture igieniche per i bagni</option>
-      <option>Altro / più servizi</option>
-    </select>
-    <p class="campo-nota" id="mp-nota-sopralluogo" hidden>Per questo servizio il sopralluogo è obbligatorio: ti contatteremo per fissarlo.</p>
-  </div>
-  <div class="campo">
-    <label for="mp-comune">Comune dell'intervento *</label>
-    <input type="text" id="mp-comune" name="comune" required placeholder="es. Genzano di Roma">
-  </div>
-  <div class="campo">
-    <label for="mp-recapito">Telefono per ricontattarti</label>
-    <input type="tel" id="mp-recapito" name="recapito" autocomplete="tel">
-  </div>
-  <div class="campo">
-    <label for="mp-messaggio">Descrivi l'esigenza (ambienti, metratura, frequenza…) *</label>
-    <textarea id="mp-messaggio" name="messaggio" rows="5" required></textarea>
-  </div>
-  <p class="campo-nota">Inviando accetti il trattamento dei dati per rispondere alla richiesta (<a href="../privacy/">privacy policy</a>).</p>
-  <div class="modulo-azioni">
-    <button type="submit" class="bottone">Invia via email</button>
-    <a class="bottone bottone-chiaro" href="tel:+3906634670">Oppure chiamaci: 06 63 46 70</a>
-    <a class="bottone bottone-chiaro" href="https://wa.me/3906634670?text=Salve%2C%20vorrei%20richiedere%20un%20preventivo." rel="noopener">Scrivici su WhatsApp</a>
-  </div>
-</form>
-
-<script>
-(function () {
-  var form = document.getElementById("modulo-preventivo");
-  if (!form) return;
-  var servizio = document.getElementById("mp-servizio");
-  var nota = document.getElementById("mp-nota-sopralluogo");
-  servizio.addEventListener("change", function () {
-    var v = servizio.value;
-    nota.hidden = !(v === "Pulizie professionali" || v === "Giardinaggio" || v === "Valorizzazione immobili in vendita" || v === "Disinfestazioni");
-  });
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var t = "Richiesta di preventivo dal sito cooprimavera.com\n"
-      + "Nome: " + form.nome.value + "\n"
-      + "Servizio: " + form.servizio.value + "\n"
-      + "Comune: " + form.comune.value + "\n"
-      + (form.recapito.value ? "Telefono: " + form.recapito.value + "\n" : "")
-      + "Esigenza: " + form.messaggio.value;
-    location.href = "mailto:info@cooprimavera.com?subject=" + encodeURIComponent("Richiesta preventivo — " + form.servizio.value) + "&body=" + encodeURIComponent(t);
-  });
-})();
-</script>
+{{< modulo-preventivo >}}
 
 ## Recapiti diretti
 

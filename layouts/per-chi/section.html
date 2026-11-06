@@ -1,0 +1,27 @@
+{{- /* Indice «Per chi lavoriamo»: un elenco a righe dei tipi di cliente,
+       con le richieste principali di ciascuno, poi gli altri settori serviti. */ -}}
+{{ define "main" }}
+<div class="contenitore pagina">
+  {{ partial "briciole.html" . }}
+  <h1 class="entra entra-su">{{ .Title }}</h1>
+  {{ with .Params.sottotitolo }}<p class="sottotitolo entra entra-su entra-r1">{{ . }}</p>{{ end }}
+  <div class="prosa intro entra entra-su entra-r1">{{ .Content }}</div>
+  <ol class="clienti" data-anim-group>
+    {{ range .Pages.ByWeight }}
+    <li class="cliente">
+      <h2 class="cliente-titolo"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <p>{{ .Description }}</p>
+      {{ with .Params.richieste }}
+      <p class="cliente-voci">{{ range $i, $r := first 4 . }}{{ if $i }} · {{ end }}{{ $r.voce }}{{ end }}</p>
+      {{ end }}
+    </li>
+    {{ end }}
+  </ol>
+  {{ with .Params.testo_finale }}<div class="prosa" data-anim="fade-up">{{ . | markdownify }}</div>{{ end }}
+  <div class="cta-finale" data-anim="fade-up">
+    <h2>Raccontaci la tua sede</h2>
+    <p>Sopralluogo e preventivo gratuiti, a Roma e in tutti i Castelli Romani. L'ufficio risponde {{ site.Params.orari }}.</p>
+    <p class="eroe-azioni"><a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo</a> <a class="bottone bottone-chiaro" href="tel:{{ site.Params.telefono_uff_link }}">Chiama {{ site.Params.telefono_uff }}</a> <a class="bottone bottone-chiaro" href="{{ site.Params.whatsapp_link }}" rel="noopener">WhatsApp {{ site.Params.whatsapp }}</a></p>
+  </div>
+</div>
+{{ end }}

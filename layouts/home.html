@@ -89,7 +89,7 @@
       </div>
       <div class="voce-numero">
         <div class="numero"><span data-conta="{{ len $zone }}">0</span></div>
-        <div class="etichetta">comuni serviti ogni giorno</div>
+        <div class="etichetta">comuni serviti</div>
       </div>
     </div>
   </div>
@@ -111,17 +111,18 @@
     <h2 data-split="words">Per chi lavoriamo</h2>
     <p data-anim="fade-up">Serviamo realtà di ogni tipo, a Roma e nei Castelli Romani: contratti continuativi per aziende ed enti, interventi singoli per condomìni e privati.</p>
     <ul class="settori" data-anim-group>
-      <li><a href="{{ "servizi/pulizie-uffici/" | relURL }}">Uffici e aziende</a></li>
-      <li><a href="{{ "servizi/pulizie-condomini/" | relURL }}">Condomìni</a></li>
-      <li>Scuole</li>
+      <li><a href="{{ "per-chi/aziende-uffici/" | relURL }}">Uffici e aziende</a></li>
+      <li><a href="{{ "per-chi/amministratori-condominio/" | relURL }}">Condomìni</a></li>
+      <li><a href="{{ "per-chi/enti-pubblici-scuole/" | relURL }}">Scuole</a></li>
       <li>Palestre e centri sportivi</li>
       <li>Ospedali e case di cura</li>
       <li>Aziende alimentari</li>
-      <li>Enti pubblici</li>
+      <li><a href="{{ "per-chi/enti-pubblici-scuole/" | relURL }}">Enti pubblici</a></li>
       <li><a href="{{ "servizi/valorizzazione-immobili/" | relURL }}">Agenzie immobiliari e aste giudiziarie</a></li>
       <li>Negozi e centri commerciali</li>
       <li>Privati</li>
     </ul>
+    <p class="rimando" data-anim="fade-up"><a class="bottone" href="{{ "per-chi/" | relURL }}">Che cosa ci chiedono condomìni, aziende ed enti</a></p>
   </div>
 </section>
 
@@ -133,11 +134,6 @@
       {{ range $zone }}
       <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
       {{ end }}
-      <li>Rocca di Papa</li>
-      <li>Grottaferrata</li>
-      <li>Nemi</li>
-      <li>Lanuvio</li>
-      <li>Lariano</li>
     </ul>
     <p class="rimando" data-anim="fade-up"><a class="bottone" href="{{ "zone/" | relURL }}">Tutte le zone servite</a></p>
   </div>
