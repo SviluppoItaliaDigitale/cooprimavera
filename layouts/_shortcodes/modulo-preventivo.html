@@ -1,0 +1,169 @@
+{{- /* Modulo «Richiedi un preventivo»: invia la richiesta a info@ tramite static/invia-preventivo.php,
+       con foto allegate. I servizi della tendina vengono dalle pagine in content/servizi/ (sempre allineati);
+       ?servizio=<slug o nome> nell'indirizzo sceglie già il servizio. Se l'invio non riesce propone
+       WhatsApp, telefono ed email con la richiesta già scritta. */ -}}
+{{- $servizi := (site.GetPage "/servizi").Pages.ByWeight }}
+{{- $conSopralluogo := slice "pulizie-professionali" "pulizie-uffici" "pulizie-condomini" "giardinaggio" "valorizzazione-immobili" "disinfestazioni" }}
+<form class="modulo-preventivo" id="modulo-preventivo" action="{{ "invia-preventivo.php" | relURL }}" method="post" enctype="multipart/form-data" data-anim="fade-up" novalidate>
+  <div class="campo">
+    <label for="mp-servizio">Di che cosa hai bisogno? *</label>
+    <select id="mp-servizio" name="servizio" required>
+      <option value="">Scegli un servizio</option>
+      {{- range $servizi }}
+      <option value="{{ .Title }}" data-slug="{{ .File.ContentBaseName }}"{{ if in $conSopralluogo .File.ContentBaseName }} data-sopralluogo{{ end }}>{{ .Title }}</option>
+      {{- end }}
+      <option value="Altro / più servizi" data-slug="altro">Altro o più servizi insieme</option>
+    </select>
+    <p class="campo-nota" id="mp-nota-sopralluogo" hidden>Per questo servizio il sopralluogo è obbligatorio e gratuito: ti chiamiamo per fissarlo.</p>
+  </div>
+  <div class="campo">
+    <label for="mp-comune">Comune dell'intervento *</label>
+    <input type="text" id="mp-comune" name="comune" required autocomplete="address-level2" placeholder="es. Genzano di Roma">
+  </div>
+  <div class="campo">
+    <label for="mp-messaggio">Descrivi il lavoro *</label>
+    <textarea id="mp-messaggio" name="messaggio" rows="4" required placeholder="Ambienti, metri quadri indicativi, ogni quanto, entro quando"></textarea>
+  </div>
+  <div class="campo">
+    <label for="mp-nome">Nome e cognome o azienda *</label>
+    <input type="text" id="mp-nome" name="nome" required autocomplete="name">
+  </div>
+  <div class="campo-coppia">
+    <div class="campo">
+      <label for="mp-telefono">Telefono</label>
+      <input type="tel" id="mp-telefono" name="telefono" autocomplete="tel" inputmode="tel">
+    </div>
+    <div class="campo">
+      <label for="mp-email">Email</label>
+      <input type="email" id="mp-email" name="email" autocomplete="email">
+    </div>
+  </div>
+  <p class="campo-nota" id="mp-nota-recapito">Lasciaci almeno un recapito: telefono o email.</p>
+  <div class="campo">
+    <label for="mp-foto">Foto degli ambienti (facoltative)</label>
+    <input type="file" id="mp-foto" name="foto[]" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf" multiple>
+    <p class="campo-nota">Fino a 3 foto o PDF (i PDF fino a 5 MB). Ci aiutano a preparare il sopralluogo.</p>
+  </div>
+  <div class="campo campo-trappola" aria-hidden="true">
+    <label for="mp-sito">Non compilare questo campo</label>
+    <input type="text" id="mp-sito" name="sito_web" tabindex="-1" autocomplete="off">
+  </div>
+  <input type="hidden" name="inizio" id="mp-inizio" value="">
+  <input type="hidden" name="pagina" id="mp-pagina" value="">
+  <p class="campo-nota">Inviando accetti il trattamento dei dati per rispondere alla richiesta (<a href="{{ "privacy/" | relURL }}">privacy policy</a>).</p>
+  <div class="modulo-azioni">
+    <button type="submit" class="bottone" id="mp-invia">Invia la richiesta</button>
+    <a class="bottone bottone-chiaro" href="tel:{{ site.Params.telefono_uff_link }}">Oppure chiamaci: {{ site.Params.telefono_uff }}</a>
+    <a class="bottone bottone-chiaro" href="{{ site.Params.whatsapp_link }}?text=Salve%2C%20vorrei%20richiedere%20un%20preventivo." rel="noopener">Scrivici su WhatsApp</a>
+  </div>
+  <div class="modulo-esito" id="mp-esito" role="status" aria-live="polite" tabindex="-1" hidden></div>
+</form>
+<script>
+(function () {
+  var form = document.getElementById("modulo-preventivo");
+  if (!form || !window.fetch || !window.FormData) return;
+  var servizio = document.getElementById("mp-servizio");
+  var nota = document.getElementById("mp-nota-sopralluogo");
+  var esito = document.getElementById("mp-esito");
+  var invia = document.getElementById("mp-invia");
+  var wa = {{ site.Params.whatsapp_link }};
+  var tel = {{ site.Params.telefono_uff_link }};
+  var telVisto = {{ site.Params.telefono_uff }};
+  var email = {{ site.Params.email }};
+  document.getElementById("mp-inizio").value = String(Date.now());
+  document.getElementById("mp-pagina").value = location.pathname;
+
+  function aggiornaNota() {
+    var o = servizio.options[servizio.selectedIndex];
+    nota.hidden = !(o && o.hasAttribute("data-sopralluogo"));
+  }
+  servizio.addEventListener("change", aggiornaNota);
+
+  // ?servizio=giardinaggio oppure ?servizio=Giardinaggio sceglie già il servizio
+  var scelto = new URLSearchParams(location.search).get("servizio");
+  if (scelto) {
+    var s = scelto.toLowerCase();
+    for (var i = 0; i < servizio.options.length; i++) {
+      var o = servizio.options[i];
+      if (o.value && (o.getAttribute("data-slug") === s || o.value.toLowerCase() === s)) { servizio.selectedIndex = i; break; }
+    }
+  }
+  aggiornaNota();
+
+  function testoRichiesta() {
+    return "Richiesta di preventivo dal sito cooprimavera.com\n"
+      + "Servizio: " + form.servizio.value + "\nComune: " + form.comune.value + "\n"
+      + "Nome: " + form.nome.value + "\n"
+      + (form.telefono.value ? "Telefono: " + form.telefono.value + "\n" : "")
+      + (form.email.value ? "Email: " + form.email.value + "\n" : "")
+      + "Esigenza: " + form.messaggio.value;
+  }
+  function mostra(classe, html) {
+    esito.className = "modulo-esito " + classe;
+    esito.innerHTML = html;
+    esito.hidden = false;
+    esito.focus();
+  }
+  function riserva(motivo) {
+    var t = encodeURIComponent(testoRichiesta());
+    mostra("modulo-esito-errore", "<p><strong>La richiesta non è partita.</strong> " + motivo + "</p>"
+      + "<p>Mandacela in un attimo con il testo già scritto: "
+      + "<a href=\"" + wa + "?text=" + t + "\" rel=\"noopener\">su WhatsApp</a>, "
+      + "<a href=\"mailto:" + email + "?subject=" + encodeURIComponent("Richiesta preventivo: " + form.servizio.value) + "&body=" + t + "\">via email</a> "
+      + "o chiamaci al <a href=\"tel:" + tel + "\">" + telVisto + "</a>.</p>");
+  }
+
+  // Le foto si rimpiccioliscono nel browser (lato lungo 1600 px, JPEG): arrivano leggere anche
+  // quando il server accetta file piccoli. Se il browser non sa leggerle (es. HEIC) partono come sono.
+  function rimpicciolisci(file) {
+    if (!/^image\/(jpeg|png|webp|heic|heif)$/.test(file.type) || !window.createImageBitmap) return Promise.resolve(file);
+    return createImageBitmap(file).then(function (img) {
+      var lato = Math.max(img.width, img.height), f = lato > 1600 ? 1600 / lato : 1;
+      var c = document.createElement("canvas");
+      c.width = Math.round(img.width * f); c.height = Math.round(img.height * f);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      return new Promise(function (ok) { c.toBlob(function (b) { ok(b && b.size < file.size ? new File([b], file.name.replace(/\.[^.]+$/, "") + ".jpg", { type: "image/jpeg" }) : file); }, "image/jpeg", 0.82); });
+    }).catch(function () { return file; });
+  }
+  function preparaDati(foto) {
+    var dati = new FormData(form);
+    dati.delete("foto[]");
+    var lista = [];
+    for (var q = 0; q < foto.length; q++) lista.push(rimpicciolisci(foto[q]));
+    return Promise.all(lista).then(function (files) {
+      files.forEach(function (f) { dati.append("foto[]", f, f.name); });
+      return dati;
+    });
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var recapito = form.telefono.value.trim() || form.email.value.trim();
+    form.telefono.setCustomValidity(recapito ? "" : "Lasciaci un telefono o un'email");
+    var foto = document.getElementById("mp-foto").files;
+    var fotoMsg = "";
+    if (foto.length > 3) fotoMsg = "Puoi allegare al massimo 3 file.";
+    for (var k = 0; k < foto.length && !fotoMsg; k++) if (foto[k].type === "application/pdf" && foto[k].size > 5242880) fotoMsg = "Ogni PDF può pesare al massimo 5 MB.";
+    document.getElementById("mp-foto").setCustomValidity(fotoMsg);
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    invia.disabled = true;
+    invia.textContent = "Invio in corso…";
+    var fine = function () { invia.disabled = false; invia.textContent = "Invia la richiesta"; };
+    preparaDati(foto)
+      .then(function (dati) { return fetch(form.action, { method: "POST", body: dati, headers: { "Accept": "application/json" } }); })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (r) {
+        fine();
+        if (r.ok && r.d && r.d.esito === "ok") {
+          form.querySelectorAll(".campo, .campo-coppia, #mp-nota-recapito, .modulo-azioni").forEach(function (el) { el.hidden = true; });
+          mostra("modulo-esito-ok", "<p><strong>Richiesta ricevuta, grazie!</strong></p><p>Ti ricontattiamo in orario d'ufficio ("
+            + {{ site.Params.orari }} + "). Se è urgente chiamaci al <a href=\"tel:" + tel + "\">" + telVisto + "</a>.</p>");
+        } else {
+          riserva((r.d && r.d.messaggio) || "");
+        }
+      })
+      .catch(function () { fine(); riserva("Il collegamento non ha funzionato."); });
+  });
+})();
+</script>

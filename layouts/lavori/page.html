@@ -28,7 +28,7 @@
   <div class="cta-finale" data-anim="fade-up">
     <h2>Ti serve un lavoro così?</h2>
     <p>{{ with $servizi }}Lo facciamo nel servizio {{ range $i, $s := . }}{{ if $i }} e {{ end }}<a href="{{ $s.RelPermalink }}">{{ lower $s.Title }}</a>{{ end }}. {{ end }}Sopralluogo e preventivo sono gratuiti.</p>
-    <p class="eroe-azioni"><a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo</a> <a class="bottone bottone-chiaro" href="{{ "lavori/" | relURL }}">Tutti i lavori</a></p>
+    <p class="eroe-azioni"><a class="bottone" href="{{ "preventivo/" | relURL }}{{ with index $servizi 0 }}?servizio={{ .File.ContentBaseName }}{{ end }}">Richiedi un preventivo{{ with index $servizi 0 }} per {{ lower .Title }}{{ end }}</a> <a class="bottone bottone-chiaro" href="{{ "lavori/" | relURL }}">Tutti i lavori</a></p>
   </div>
 </div>
 {{ end }}

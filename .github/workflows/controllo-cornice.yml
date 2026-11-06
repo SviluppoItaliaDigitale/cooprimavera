@@ -36,6 +36,11 @@ jobs:
       - name: Prova dei parametri inviati a Facebook e Instagram (rete finta)
         run: python3 scripts/prova_gestione_social.py
 
+      # Modulo «Richiedi un preventivo»: invio con foto, controlli dei campi, campo trappola e
+      # invio rapido che deve arrivare comunque (static/invia-preventivo.php), con PHP e posta finta.
+      - name: Prova del modulo preventivo (posta finta)
+        run: bash scripts/prova-modulo-preventivo.sh
+
       # Il cellulare 331 777 1888 non è più attivo dal 06/11/2026 (Alessandro): non deve
       # tornare nel sito, nelle grafiche o nei video. Restano solo i file di governo (.claude/) e questo controllo.
       - name: Nessun recapito dismesso (cellulare 331 777 1888)

@@ -1,0 +1,66 @@
+{{- /* Pagine «Per chi lavoriamo»: un tipo di cliente, che cosa ci chiede
+       (voci `richieste` del front matter), servizi e lavori collegati,
+       domande frequenti e contatti con il servizio già scelto nel preventivo. */ -}}
+{{ define "main" }}
+<div class="contenitore pagina">
+  {{ partial "briciole.html" . }}
+  <h1 class="entra entra-su">{{ .Title }}</h1>
+  {{ with .Params.sottotitolo }}<p class="sottotitolo entra entra-su entra-r1">{{ . }}</p>{{ end }}
+  {{ with .Params.immagine }}
+  <div class="pagina-immagine foto-zoom entra entra-zoom entra-r1">{{ partial "immagine.html" (dict "percorso" . "alt" ($.Params.alt_immagine | default (printf "%s — Cooprimavera, Castelli Romani" $.Title)) "larghezza" 1100 "qualita" 76 "sizes" "(min-width: 1140px) 1060px, 92vw" "ancora" $.Params.ritaglio_ancora "prioritaria" true) }}</div>
+  {{ end }}
+  <div class="prosa entra entra-su entra-r2">{{ .Content }}</div>
+
+  {{ with .Params.richieste }}
+  <section class="richieste-cliente" data-anim="fade-up">
+    <h2>{{ $.Params.titolo_richieste | default "Che cosa ci chiedete, e come lo facciamo" }}</h2>
+    <dl class="richieste">
+      {{ range . }}
+      <div class="richiesta">
+        <dt>{{ .voce }}</dt>
+        <dd>{{ .risposta | markdownify }}</dd>
+      </div>
+      {{ end }}
+    </dl>
+  </section>
+  {{ end }}
+
+  {{- $lavori := slice }}
+  {{- range .Params.lavori }}{{ with site.GetPage . }}{{ $lavori = $lavori | append . }}{{ end }}{{ end }}
+  {{- with $lavori }}
+  <section class="lavori-servizio" data-anim="fade-up">
+    <h2>Alcuni lavori fatti</h2>
+    {{ partial "registro-lavori.html" (dict "pagine" .) }}
+    <p class="rimando"><a href="{{ "lavori/" | relURL }}">Tutto il registro dei lavori</a></p>
+  </section>
+  {{- end }}
+
+  {{ with .Params.servizi }}
+  <nav class="altri-servizi" aria-label="Servizi collegati">
+    <h2>I servizi in dettaglio</h2>
+    <ul class="settori">
+      {{ range . }}{{ with site.GetPage (printf "/servizi/%s" .) }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}{{ end }}
+    </ul>
+  </nav>
+  {{ end }}
+
+  {{ partial "faq.html" . }}
+
+  <div class="cta-finale" data-anim="fade-up">
+    <h2>{{ .Params.titolo_cta | default "Richiedi un preventivo" }}</h2>
+    <p>Gratuito e senza impegno: raccontaci l'esigenza e, dove serve, fissiamo il sopralluogo. L'ufficio risponde {{ site.Params.orari }}; fuori orario scrivici su WhatsApp.</p>
+    <p class="eroe-azioni"><a class="bottone" href="{{ "preventivo/" | relURL }}{{ with .Params.servizio_preventivo }}?servizio={{ . | urlquery }}{{ end }}">Richiedi un preventivo</a> <a class="bottone bottone-chiaro" href="tel:{{ site.Params.telefono_uff_link }}">Chiama {{ site.Params.telefono_uff }}</a> <a class="bottone bottone-chiaro" href="{{ site.Params.whatsapp_link }}" rel="noopener">WhatsApp {{ site.Params.whatsapp }}</a></p>
+  </div>
+
+  {{- $altre := where .CurrentSection.Pages.ByWeight "RelPermalink" "!=" .RelPermalink }}
+  {{- with $altre }}
+  <nav class="altri-servizi" aria-label="Altri clienti">
+    <h2>Lavoriamo anche per</h2>
+    <ul class="settori">
+      {{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
+      <li><a href="{{ $.CurrentSection.RelPermalink }}">Tutti i nostri clienti</a></li>
+    </ul>
+  </nav>
+  {{- end }}
+</div>
+{{ end }}

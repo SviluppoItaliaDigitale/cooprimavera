@@ -707,3 +707,36 @@ main:has(> .sezione-verde:last-child, > .sezione-alterna:last-child) + .pie { ma
 .notizia .prosa p { margin-top: 0; }
 .notizia-social { color: var(--grigio); font-size: .95rem; }
 @media (max-width: 760px) { .notizia { grid-template-columns: 1fr; } }
+
+/* Modulo preventivo: telefono ed email affiancati, campo trappola nascosto, esito dell'invio */
+.campo-coppia { display: grid; gap: 0 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 575.98px) { .campo-coppia { grid-template-columns: 1fr; } }
+.modulo-preventivo .campo-coppia .campo { margin-bottom: .4rem; }
+#mp-nota-recapito { margin: 0 0 1rem; }
+.modulo-preventivo input[type="file"] { background: transparent; border-style: dashed; }
+.campo-trappola { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.modulo-esito { margin-top: 1rem; padding: .9rem 1rem; border-radius: 8px; border-left: 4px solid var(--verde); background: #fff; }
+.modulo-esito p { margin: 0 0 .4rem; }
+.modulo-esito p:last-child { margin-bottom: 0; }
+.modulo-esito-errore { border-left-color: #b3261e; }
+
+/* Per chi lavoriamo: richieste del cliente come voci di capitolato, indice a righe */
+.richieste { margin: 1rem 0 0; max-width: 60rem; border-top: 2px solid var(--inchiostro); }
+.richiesta {
+  display: grid; grid-template-columns: minmax(12rem, 1fr) 2.2fr; gap: .4rem 2rem;
+  padding: 1rem 0; border-bottom: 1px solid var(--bordo);
+}
+.richiesta dt { font-weight: 700; color: var(--verde-testo); }
+.richiesta dd { margin: 0; }
+.richiesta dd p { margin: 0; }
+@media (max-width: 640px) { .richiesta { grid-template-columns: 1fr; } }
+.clienti { list-style: none; margin: 2rem 0 0; padding: 0; max-width: 60rem; counter-reset: cliente; }
+.cliente { counter-increment: cliente; padding: 1.4rem 0 1.4rem 3.2rem; border-top: 1px solid var(--bordo); position: relative; }
+.cliente::before {
+  content: counter(cliente, decimal-leading-zero); position: absolute; left: 0; top: 1.5rem;
+  font-weight: 800; font-size: 1.3rem; color: var(--verde-scuro);
+}
+.cliente-titolo { margin: 0 0 .3rem; }
+.cliente-titolo a { color: inherit; }
+.cliente p { margin: .2rem 0; }
+.cliente-voci { color: var(--grigio); font-size: .95rem; }

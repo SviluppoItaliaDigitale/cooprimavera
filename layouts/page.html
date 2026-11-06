@@ -61,7 +61,7 @@
   <div class="cta-finale" data-anim="fade-up">
     <h2>Richiedi un preventivo per questo servizio</h2>
     <p>Gratuito e senza impegno: raccontaci l'esigenza e, dove serve, fissiamo il sopralluogo. Interveniamo a Roma e in tutti i Castelli Romani.</p>
-    <p class="eroe-azioni"><a class="bottone" href="{{ "preventivo/" | relURL }}">Richiedi un preventivo</a> <a class="bottone bottone-chiaro" href="tel:{{ site.Params.telefono_uff_link }}">Chiama {{ site.Params.telefono_uff }}</a></p>
+    <p class="eroe-azioni"><a class="bottone" href="{{ "preventivo/" | relURL }}?servizio={{ .File.ContentBaseName }}">Richiedi un preventivo</a> <a class="bottone bottone-chiaro" href="tel:{{ site.Params.telefono_uff_link }}">Chiama {{ site.Params.telefono_uff }}</a></p>
   </div>
   {{- /* Collegamenti tra servizi: aiuta l'utente e la scansione del sito */ -}}
   {{- $altri := where (where .CurrentSection.Pages.ByWeight "Params.secondaria" "!=" true) "RelPermalink" "!=" .RelPermalink }}
