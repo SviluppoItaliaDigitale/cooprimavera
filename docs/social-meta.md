@@ -124,7 +124,14 @@ disegno o una scritta). Le grafiche dei post già usciti restano come sono.
 Ogni post del calendario ha il campo **`alt`**, il testo alternativo della
 grafica: che cosa mostra la foto, scritto guardandola, e che cosa c'è scritto,
 preso dagli stessi campi con cui `genera.js` la disegna; al massimo 1000
-caratteri, mai «Immagine di…», mai nomi di strumenti. `gestione_social.py` lo
+caratteri, mai «Immagine di…», mai nomi di strumenti. Dal 22/10/2026 i 1000
+caratteri si contano in unità UTF-16, dove un'emoji vale 2. È una scelta
+prudente nostra: la documentazione di Meta dice «up to 1000 character» senza
+dire come li conta, e questo è il modo di contare più severo, quindi il limite
+non si supera comunque si contino i caratteri. Contano allo stesso modo
+`scripts/genera-immagini-social.py` di `sito-pc-genzano`,
+`scripts/social_coda_lib.py` di `social-pc-genzano` e
+`scripts/pubblica_social.py` di `sito-misericordia-ariccia`. `gestione_social.py` lo
 manda a Instagram in `alt_text` (solo immagini, fino a 1000 caratteri) e a
 Facebook in `alt_text_custom` sulle foto, anche programmate; per i video e i
 Reel non si manda. Senza il campo si pubblica come prima. Se Meta rifiuta la

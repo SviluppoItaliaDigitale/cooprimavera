@@ -150,10 +150,19 @@ def con_alt(percorso: str, campo: str, alt: str, **param) -> dict:
     return r
 
 
+def lunghezza_alt(alt: str) -> int:
+    """Lunghezza del testo alternativo in unità UTF-16 (22/10/2026), come la contano i sistemi della Protezione
+    Civile di Genzano e della Misericordia: è il conteggio più severo, perché un carattere fuori dal piano di base
+    (un'emoji) vale 2. Meta non dice in che unità conta i 1000 caratteri; così il limite non si supera in nessun
+    modo di contare."""
+    return len(alt.encode("utf-16-le")) // 2
+
+
 def alt_ig(alt: str) -> str:
     """Instagram accetta il testo alternativo fino a 1000 caratteri: oltre non lo si invia."""
-    if alt and len(alt) > LIMITE_ALT_IG:
-        scrivi(f"Testo alternativo di {len(alt)} caratteri, oltre il limite di {LIMITE_ALT_IG} di Instagram: non lo invio.")
+    if alt and lunghezza_alt(alt) > LIMITE_ALT_IG:
+        scrivi(f"Testo alternativo di {lunghezza_alt(alt)} caratteri, oltre il limite di {LIMITE_ALT_IG} di Instagram: "
+               "non lo invio.")
         return ""
     return alt
 
