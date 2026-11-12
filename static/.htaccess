@@ -11,6 +11,20 @@ AddDefaultCharset UTF-8
   RewriteEngine On
   RewriteCond %{HTTP:X-Forwarded-Proto} =http
   RewriteRule ^ https://www.cooprimavera.com%{REQUEST_URI} [L,R=301]
+
+  # File e cartelle nascosti (.git, .env, lo stato che lo strumento di
+  # pubblicazione lascia sul server…) non si servono mai. Resta aperta solo
+  # .well-known, che serve ai certificati.
+  RewriteRule (^|/)\.(?!well-known(/|$)) - [F,L]
+
+  # Copie di lavoro, archivi e registri non sono pagine del sito.
+  RewriteRule \.(bak|old|orig|save|swp|sql|log|ini|env|sh|py|inc)$ - [F,L,NC]
+
+  # Una cartella senza pagina indice risponde «vietato» invece di elencare
+  # i file che contiene.
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.html !-f
+  RewriteRule ^ - [F,L]
 </IfModule>
 
 # Pagina di errore personalizzata
@@ -76,6 +90,9 @@ Redirect 301 /assunzioni.html https://www.cooprimavera.com/lavora-con-noi/
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
   Header always set Strict-Transport-Security "max-age=31536000"
+  # Limiti che non toccano gli script della pagina: il sito non si incornicia
+  # altrove, i moduli inviano solo al sito, niente <base> né plugin.
+  Header always set Content-Security-Policy "frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
 </IfModule>
 
 # Compressione testo (entrambi i tipi MIME per il JavaScript)

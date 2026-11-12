@@ -6,6 +6,9 @@ name: Verifica collegamento FTP
 on:
   workflow_dispatch:
 
+# Il token di GitHub ha solo ciò che serve a questo lavoro.
+permissions: {}
+
 jobs:
   verifica:
     runs-on: ubuntu-latest

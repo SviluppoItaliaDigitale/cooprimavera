@@ -1,7 +1,11 @@
 <?php
 // Riceve il modulo «Richiedi un preventivo» del sito e lo invia via email a info@cooprimavera.com,
 // con le foto allegate. Risponde in JSON; il modulo, se l'invio non riesce, propone WhatsApp e telefono.
-// Protezioni: campo trappola, invii troppo rapidi segnalati nell'oggetto, limite di invii per indirizzo, controllo dei file.
+// Protezioni: campo trappola, invii troppo rapidi segnalati nell'oggetto, limite di invii per indirizzo e
+// in tutto (prenotati sotto blocco prima dell'invio), controllo dell'origine e dei file.
+
+// Un errore del server non deve mai mostrare percorsi o dettagli a chi visita.
+ini_set('display_errors', '0');
 
 date_default_timezone_set('Europe/Rome');
 header('Content-Type: application/json; charset=utf-8');
@@ -14,6 +18,34 @@ const MAX_FILE = 3;
 const MAX_BYTE_FILE = 5242880;   // 5 MB per foto
 const MAX_BYTE_TOTALE = 12582912; // 12 MB in tutto
 const MAX_INVII_ORA = 5;
+const MAX_INVII_ORA_TUTTI = 40;  // tetto complessivo: oltre, la casella non si riempie
+const ORIGINI = array('https://www.cooprimavera.com', 'https://cooprimavera.com');
+
+// Prenota un invio nel registro, sotto blocco esclusivo: lettura, controllo e scrittura sono un'unica
+// operazione, così molte richieste in parallelo non passano tutte insieme sotto il limite.
+// Restituisce false se il limite dell'ultima ora è già raggiunto. Se il registro non si può aprire
+// la richiesta passa: un cliente vero non va perso per un problema del server.
+function prenota($registro, $massimo, $ora) {
+    $fh = @fopen($registro, 'c+');
+    if (!$fh) { return true; }
+    @chmod($registro, 0600);
+    if (!flock($fh, LOCK_EX)) { fclose($fh); return true; }
+    $invii = array();
+    foreach (explode("\n", (string) stream_get_contents($fh)) as $t) {
+        if ($t !== '' && ($ora - (int) $t) < 3600) { $invii[] = (int) $t; }
+    }
+    $libero = count($invii) < $massimo;
+    if ($libero) {
+        $invii[] = $ora;
+        ftruncate($fh, 0);
+        rewind($fh);
+        fwrite($fh, implode("\n", $invii));
+        fflush($fh);
+    }
+    flock($fh, LOCK_UN);
+    fclose($fh);
+    return $libero;
+}
 
 function rispondi($codice, $esito, $messaggio) {
     http_response_code($codice);
@@ -38,6 +70,13 @@ function intestazione_utf8($testo) {
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     rispondi(405, 'errore', 'Usa il modulo della pagina Preventivo.');
+}
+
+// Il modulo si invia solo dalle pagine del sito: una pagina di un altro sito non può farlo spedire
+// al browser di un visitatore. Un programma senza intestazione Origin passa (ci sono gli altri limiti).
+$origine = isset($_SERVER['HTTP_ORIGIN']) ? (string) $_SERVER['HTTP_ORIGIN'] : '';
+if ($origine !== '' && !in_array($origine, ORIGINI, true)) {
+    rispondi(403, 'errore', 'Usa il modulo della pagina Preventivo.');
 }
 
 // Campo trappola: le persone non lo vedono, i programmi automatici lo riempiono.
@@ -66,16 +105,6 @@ $ora = time();
 foreach ((array) glob($cartella . '/cooprimavera-preventivi-*.txt') as $vecchio) {
     if (is_file($vecchio) && ($ora - (int) @filemtime($vecchio)) > 3600) { @unlink($vecchio); }
 }
-$invii = array();
-if (is_readable($registro)) {
-    foreach (explode("\n", (string) @file_get_contents($registro)) as $t) {
-        if ($t !== '' && ($ora - (int) $t) < 3600) { $invii[] = (int) $t; }
-    }
-}
-if (count($invii) >= MAX_INVII_ORA) {
-    rispondi(429, 'errore', 'Hai già inviato diverse richieste: scrivici su WhatsApp o chiamaci.');
-}
-
 $nome = una_riga(pulisci(isset($_POST['nome']) ? $_POST['nome'] : '', 120));
 $servizio = una_riga(pulisci(isset($_POST['servizio']) ? $_POST['servizio'] : '', 120));
 $comune = una_riga(pulisci(isset($_POST['comune']) ? $_POST['comune'] : '', 120));
@@ -124,7 +153,8 @@ if (isset($_FILES['foto']) && is_array($_FILES['foto']['name'])) {
             $tipo = (string) finfo_file($fi, $percorso);
             finfo_close($fi);
         } else {
-            $tipo = (string) $_FILES['foto']['type'][$i];
+            // Senza il controllo sul contenuto non ci si fida del tipo dichiarato da chi invia.
+            rispondi(422, 'errore', 'Qui non riusciamo a ricevere allegati: mandali su WhatsApp.');
         }
         if (!isset($tipi[$tipo])) {
             rispondi(422, 'errore', 'Puoi allegare foto (JPG, PNG, WEBP, HEIC) o PDF.');
@@ -170,11 +200,18 @@ if (count($allegati) === 0) {
     $corpo .= "--$confine--\r\n";
 }
 
+// Il posto si prenota prima di inviare, per indirizzo e in tutto.
+$registro_tutti = $cartella . '/cooprimavera-preventivi-tutti.txt';
+if (!prenota($registro, MAX_INVII_ORA, $ora)) {
+    rispondi(429, 'errore', 'Hai già inviato diverse richieste: scrivici su WhatsApp o chiamaci.');
+}
+if (!prenota($registro_tutti, MAX_INVII_ORA_TUTTI, $ora)) {
+    rispondi(429, 'errore', 'In questo momento riceviamo troppe richieste: scrivici su WhatsApp o chiamaci.');
+}
+
 $inviata = @mail(DESTINATARIO, intestazione_utf8($oggetto), $corpo, $intestazioni, '-f' . MITTENTE);
 if (!$inviata) {
     rispondi(502, 'errore', 'Il server di posta non ha accettato la richiesta.');
 }
 
-$invii[] = $ora;
-@file_put_contents($registro, implode("\n", $invii), LOCK_EX);
 rispondi(200, 'ok', 'Richiesta ricevuta.');
