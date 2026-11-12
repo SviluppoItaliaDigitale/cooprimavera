@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Prova static/invia-preventivo.php (modulo «Richiedi un preventivo») con un server PHP locale e un
 # finto programma di posta: richiesta valida con foto, campi mancanti, email errata, file non ammesso,
-# campo trappola, invio rapido segnalato. Non spedisce nulla. Uso: bash scripts/prova-modulo-preventivo.sh
+# campo trappola, invio rapido segnalato, limiti di invii (anche in parallelo e complessivo), origine. Non spedisce nulla. Uso: bash scripts/prova-modulo-preventivo.sh
 set -euo pipefail
 cd "$(dirname "$0")/.."
 T=$(mktemp -d)
@@ -43,5 +43,18 @@ grep -l 'W2RhIHZlcmlmaWNhcmVd' "$T"/posta/* >/dev/null || { echo "ERRORE: l'invi
 # Limite di invii: il primo elemento di X-Forwarded-For lo sceglie chi invia, conta l'ultimo (proxy)
 for i in 1 2 3 4 5; do curl -s -o /dev/null -X POST "${CAMPI[@]}" -F telefono=061234567 -H "X-Forwarded-For: 10.0.0.$i, 203.0.113.9" "$U"; done
 prova "limite di invii non aggirabile" 429 'diverse richieste' "${CAMPI[@]}" -F telefono=061234567 -H "X-Forwarded-For: 10.0.0.99, 203.0.113.9"
+# Invii in parallelo dallo stesso indirizzo: il posto si prenota sotto blocco, ne passano al massimo 5
+PRIMA=$(lettere)
+PIDS=()
+for i in $(seq 1 15); do curl -s -o /dev/null -X POST "${CAMPI[@]}" -F telefono=061234567 -H "X-Forwarded-For: 198.51.100.7" "$U" & PIDS+=($!); done
+wait "${PIDS[@]}"   # solo le richieste: un `wait` senza argomenti aspetterebbe anche il server
+PASSATI=$(( $(lettere) - PRIMA ))
+if (( PASSATI == 5 )); then echo "ok   invii in parallelo: ne passano 5 su 15"; else echo "ERRORE invii in parallelo: passati $PASSATI su 15 (attesi 5)"; errori=$((errori+1)); fi
+# Origine: una pagina di un altro sito non può far spedire il modulo; il sito sì
+prova "origine estranea rifiutata" 403 'Usa il modulo' "${CAMPI[@]}" -F telefono=061234567 -H "Origin: https://esempio.invalid" -H "X-Forwarded-For: 198.51.100.8"
+prova "origine del sito accettata" 200 '"ok"' "${CAMPI[@]}" -F telefono=061234567 -H "Origin: https://www.cooprimavera.com" -H "X-Forwarded-For: 198.51.100.8"
+# Tetto complessivo: 40 invii l'ora da indirizzi diversi, poi basta
+for i in $(seq 1 45); do curl -s -o /dev/null -X POST "${CAMPI[@]}" -F telefono=061234567 -H "X-Forwarded-For: 192.0.2.$i" "$U"; done
+prova "tetto complessivo di invii" 429 'troppe richieste' "${CAMPI[@]}" -F telefono=061234567 -H "X-Forwarded-For: 192.0.2.200"
 if (( errori )); then echo "$errori prove fallite"; exit 1; fi
 echo "Modulo preventivo: tutte le prove passate."

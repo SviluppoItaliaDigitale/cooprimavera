@@ -11,6 +11,7 @@ Variabili: GH_REPO (proprietario/nome), GH_TOKEN, ESCLUDI (percorso del workflow
 """
 import hashlib
 import json
+import re
 import os
 import subprocess
 import sys
@@ -35,10 +36,17 @@ def api(percorso):
     return json.loads(gh("api", f"repos/{REPO}/{percorso}"))
 
 
+def pulito(testo):
+    """Nome di workflow o di ramo ridotto a caratteri innocui: la issue la legge
+    anche chi ripara in automatico, e non deve poter contenere testo scelto da
+    altri che sembri un'istruzione o un link."""
+    return re.sub(r"[^\w ./()-]", "", str(testo or ""))[:80]
+
+
 def riga(run, perche):
     ora = run["created_at"].replace("T", " ")[:16]
-    return (f"- **{run['name']}** — {perche} (ramo `{run['head_branch']}`, {run['event']}, "
-            f"{ora} UTC): [log]({run['html_url']})")
+    return (f"- **{pulito(run['name'])}** — {perche} (ramo `{pulito(run['head_branch'])}`, "
+            f"{pulito(run['event'])}, {ora} UTC): [log]({run['html_url']})")
 
 
 def guasti():
@@ -57,6 +65,10 @@ def guasti():
     recenti = [json.loads(x) for x in uscita.splitlines() if x.strip()]
     for r in recenti:
         if r["path"] == ESCLUDI or r["conclusion"] not in FALLITO:
+            continue
+        # I run delle pull request che arrivano da un altro repository (fork)
+        # non sono automazioni nostre: nome e ramo li sceglie chi le apre.
+        if (r.get("head_repository") or {}).get("full_name") != REPO:
             continue
         superato = any(a["path"] == r["path"] and a["head_branch"] == r["head_branch"]
                        and a["created_at"] > r["created_at"] and a["conclusion"] == "success"

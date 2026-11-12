@@ -7,6 +7,9 @@ name: Pulizia file del vecchio sito (una tantum)
 on:
   workflow_dispatch:
 
+# Il token di GitHub ha solo ciò che serve a questo lavoro.
+permissions: {}
+
 jobs:
   pulizia:
     runs-on: ubuntu-latest
