@@ -1,4 +1,4 @@
-# Stato dei lavori (aggiornato al 21 ottobre 2026)
+# Stato dei lavori (aggiornato al 14 novembre 2026)
 
 Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
 
@@ -13,7 +13,7 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
   `docs/social-meta.md`): elenco, statistiche, pubblica (anche programmata su
   Facebook con `quando`), esporta, elimina-tutti, programma-calendario,
   pubblica-oggi.
-- **Calendario ottobre 2026–gennaio 2027**: `social/calendario.json` (24 post,
+- **Calendario ottobre 2026–febbraio 2027**: `social/calendario.json` (24 post,
   testi Facebook e Instagram approvati), grafiche in `static/social/`,
   generatore `social/grafiche/genera.js`. Anteprima con i testi da copiare:
   https://claude.ai/artifact/8DGf18RvQA9KQwPL3wpecJ (privata, di Alessandro).
@@ -44,9 +44,9 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
   fonti citate nel post e articolo per il sito con fonti linkate.
 - Verifiche delle fonti fatte il 16/10 per materiali, metodi, stanze, DPI,
   disinfestazioni, verde, giardinaggio, progettazione, manutenzioni e servizi;
-  per il 2027 restano argomenti di stagione: rose e olivo (febbraio), prato in
-  primavera, irrigazione, blatte, rampicanti, giardino che beve poco, diserbo,
-  ringhiere, tinteggiature esterne, pannelli, salvavita, idraulica.
+  per il 2027 restano argomenti di stagione: prato in primavera, irrigazione,
+  giardino che beve poco, diserbo, tinteggiature esterne, pannelli, idraulica
+  (rose, rampicanti, blatte, ringhiere e salvavita fatti a gennaio e febbraio).
 - **Gennaio 2027 (preparati il 14/11/2026, da approvare)**: n. 56-63, due a
   settimana, lunedì e giovedì alle 9 (4, 7, 11, 14, 18, 21, 25 e 28 gennaio):
   termosifoni (ENEA), zanzara tigre d'inverno (ISS), processionaria del pino
@@ -56,6 +56,17 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
   2025). Rose e olivo restano anche tra i temi di febbraio: l'olivo di gennaio
   dice solo di aspettare la fine delle gelate. Sul ramo `ccr-5cc69fca-exdeos`,
   senza PR finché Alessandro non dà l'«approvo».
+- **Febbraio 2027 (preparati il 14/11/2026, da approvare)**: n. 64-71, lunedì e
+  giovedì alle 9 (1, 4, 8, 11, 15, 18, 22 e 25 febbraio): potatura delle rose (RHS),
+  salvavita e tasto T (ABB con la guida CEI 23-98, Vimar, DM 37/2008), glicine (RHS),
+  zerbino d'ingresso nei giorni di pioggia (Health and Safety Authority irlandese),
+  ringhiere e cancelli da riverniciare (scheda tecnica Boero, DM 37/2008 per
+  l'automazione), condensa sui vetri (Ministero della Salute, UFSP svizzero), forsizia
+  e arbusti a fioritura precoce (RHS), frigorifero dell'ufficio (Ministero della
+  Salute). Il salvavita chiude con «Impianti elettrici? Impresa abilitata.» perché la
+  cooperativa non lavora sugli impianti. Grondaie, muffa nel bagno e scale bagnate
+  non ci sono: erano già i n. 16, 18, 20, 33 e 55; l'olivo resta al n. 63. Sul ramo
+  `ccr-5cc69fca-exdeos`, senza PR finché Alessandro non dà l'«approvo».
 - Sostituisce la rubrica «Il consiglio del martedì» (PR #40, chiusa).
 
 ## Cornice di microtesto e testo alternativo (dal 21/10/2026)
