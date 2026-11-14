@@ -13,7 +13,7 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
   `docs/social-meta.md`): elenco, statistiche, pubblica (anche programmata su
   Facebook con `quando`), esporta, elimina-tutti, programma-calendario,
   pubblica-oggi.
-- **Calendario ottobre–dicembre 2026**: `social/calendario.json` (24 post,
+- **Calendario ottobre 2026–gennaio 2027**: `social/calendario.json` (24 post,
   testi Facebook e Instagram approvati), grafiche in `static/social/`,
   generatore `social/grafiche/genera.js`. Anteprima con i testi da copiare:
   https://claude.ai/artifact/8DGf18RvQA9KQwPL3wpecJ (privata, di Alessandro).
@@ -47,6 +47,15 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
   per il 2027 restano argomenti di stagione: rose e olivo (febbraio), prato in
   primavera, irrigazione, blatte, rampicanti, giardino che beve poco, diserbo,
   ringhiere, tinteggiature esterne, pannelli, salvavita, idraulica.
+- **Gennaio 2027 (preparati il 14/11/2026, da approvare)**: n. 56-63, due a
+  settimana, lunedì e giovedì alle 9 (4, 7, 11, 14, 18, 21, 25 e 28 gennaio):
+  termosifoni (ENEA), zanzara tigre d'inverno (ISS), processionaria del pino
+  (Regione Emilia-Romagna, DM 6/12/2021), tende ed etichetta (GINETEX, ISO 3758),
+  piante d'appartamento (RHS), blatte (UFAM), prato d'inverno (RHS), potatura
+  dell'olivo dopo le gelate (Regione Lazio, Disciplinare di produzione integrata
+  2025). Rose e olivo restano anche tra i temi di febbraio: l'olivo di gennaio
+  dice solo di aspettare la fine delle gelate. Sul ramo `ccr-5cc69fca-exdeos`,
+  senza PR finché Alessandro non dà l'«approvo».
 - Sostituisce la rubrica «Il consiglio del martedì» (PR #40, chiusa).
 
 ## Cornice di microtesto e testo alternativo (dal 21/10/2026)
