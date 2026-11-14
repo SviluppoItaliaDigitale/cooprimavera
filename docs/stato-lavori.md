@@ -65,8 +65,10 @@ Nota di consegna: serve a riprendere il lavoro da una sessione nuova.
   e arbusti a fioritura precoce (RHS), frigorifero dell'ufficio (Ministero della
   Salute). Il salvavita chiude con «Impianti elettrici? Impresa abilitata.» perché la
   cooperativa non lavora sugli impianti. Grondaie, muffa nel bagno e scale bagnate
-  non ci sono: erano già i n. 16, 18, 20, 33 e 55; l'olivo resta al n. 63. Sul ramo
-  `ccr-5cc69fca-exdeos`, senza PR finché Alessandro non dà l'«approvo».
+  non ci sono: erano già i n. 16, 18, 20, 33 e 55; l'olivo resta al n. 63. Il 14/11
+  Alessandro ha approvato gli otto testi e chiesto due foto nuove: per il n. 65 un vero
+  differenziale con il tasto T (Pixabay 1167327), per il n. 71 un frigorifero aperto con
+  i ripiani (Pexels 38853682). Sul ramo `ccr-5cc69fca-exdeos`, senza PR.
 - Sostituisce la rubrica «Il consiglio del martedì» (PR #40, chiusa).
 
 ## Cornice di microtesto e testo alternativo (dal 21/10/2026)
