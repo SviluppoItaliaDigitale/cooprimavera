@@ -23,6 +23,15 @@ Indicazioni di Alessandro (presidente) per post, grafiche e pagine.
   (ufficio e magazzino, via Giuseppe Lugli 2/4). Citarle entrambe.
 - **Approvazione**: ogni grafica e testo si fa vedere ad Alessandro prima di
   programmare o pubblicare. Ogni PR si unisce solo dopo il suo «approvo».
+- **Articolo sul sito = post sui social** (Alessandro, 14/11/2026: «Ogni
+  articolo che fai sul sito deve essere corredato dai post sui social, salvo mie
+  diverse disposizioni»). Ogni articolo pubblicato in `notizie/` esce anche su
+  Instagram e Facebook. Se un giorno il post non parte (routine saltata, errore
+  di Meta), si recupera lo stesso giorno o il primo giorno utile, in un orario
+  libero del pomeriggio (per esempio le 18), con gli stessi testo, grafica e
+  testo alternativo del calendario; non si salta e non si aspetta una conferma.
+  Ogni mattina si controlla che i post dei giorni passati siano usciti
+  (`gestione-social.yml`, azione `elenco`).
 - **Dati sensibili**: dai documenti della cooperativa (visura, statuto,
   bilanci) si usano solo date e fatti pubblici; mai codici fiscali, nomi dei
   soci, cifre di bilancio.
