@@ -1,5 +1,5 @@
 {
- "_nota": "Calendario social Cooprimavera ottobre-dicembre 2026. Ore in ora italiana. Le grafiche si rigenerano con social/grafiche/genera.js e finiscono in static/social/ (online su cooprimavera.com/social/). Con \"video\" il post esce come Reel su Instagram (e video su Facebook se non già programmato): i video si generano con social/video/genera.js. Stato del lavoro: docs/stato-lavori.md.",
+ "_nota": "Calendario social Cooprimavera ottobre 2026-gennaio 2027. Ore in ora italiana. Le grafiche si rigenerano con social/grafiche/genera.js e finiscono in static/social/ (online su cooprimavera.com/social/). Con \"video\" il post esce come Reel su Instagram (e video su Facebook se non già programmato): i video si generano con social/video/genera.js. Stato del lavoro: docs/stato-lavori.md.",
  "post": [
   {
    "data": "2026-10-05",
@@ -2126,6 +2126,246 @@
    },
    "fb": "Il 2026 è stato l'anno dei nostri vent'anni: sito nuovo, una pagina ripartita da zero, il registro dei lavori, nuovi servizi per comuni, scuole e strutture.\n\nGrazie a clienti, soci e lavoratori. Buon 2027 da Cooprimavera.\n\ncooprimavera.com",
    "ig": "Grazie per l'anno dei nostri vent'anni. Buon 2027 da Cooprimavera.\n\n#buonanno #Cooprimavera #CastelliRomani"
+  },
+  {
+   "data": "2027-01-04",
+   "ora": "09:00",
+   "titolo": "Termosifoni: liberi e a 20 gradi",
+   "titolo_seo": "Termosifoni: come usarli bene e scaldare senza sprechi | Cooprimavera",
+   "descrizione": "Termosifoni senza mobili né panni sopra, pannello riflettente, 19-20 gradi in casa e manutenzione della caldaia: i consigli ENEA per scaldare meglio.",
+   "pagina_sito": "/servizi/piccole-manutenzioni/",
+   "immagine": "https://www.cooprimavera.com/social/2027-01-04-termosifoni-liberi-e-a-20-gradi.jpg",
+   "file": "2027-01-04-termosifoni-liberi-e-a-20-gradi.jpg",
+   "alt": "Foto: una mano regola la valvola termostatica di un termosifone bianco. Sulla foto «Consigli da professionisti» e, in basso a destra, il numero 56. Titolo: «Termosifoni: liberi e a 20 gradi». Quattro punti numerati: 1. Niente mobili né panni sopra. 2. Pannello riflettente dietro. 3. In casa bastano 19-20 gradi. 4. Caldaia: controllo dal tecnico. In fondo «Non hai tempo? Ci pensiamo noi.» e il logo di Cooprimavera con cooprimavera.com e 06 63 46 70.",
+   "grafica": {
+    "tipo": "consiglio",
+    "tema": "Consigli da professionisti",
+    "numero": "56",
+    "titolo": "Termosifoni: liberi e a 20 gradi",
+    "righe": [
+     "Niente mobili né panni sopra",
+     "Pannello riflettente dietro",
+     "In casa bastano 19-20 gradi",
+     "Caldaia: controllo dal tecnico"
+    ],
+    "chiusa": "Non hai tempo? Ci pensiamo noi.",
+    "foto": "assets/img/consigli/pexels-12644994-termosifone-valvola.jpg",
+    "fuoco": "center 45%",
+    "fonte_foto": "Pexels, foto 12644994 di BOOM Photography (licenza Pexels)"
+   },
+   "fb": "Consigli da professionisti n. 56: termosifoni, come scaldare meglio senza sprechi.\n\n1. Non mettere mobili o tende davanti ai termosifoni e non usarli per asciugare i panni: il calore non si diffonde nella stanza e si spreca.\n2. Tra muro e termosifone metti un pannello riflettente: riduce le dispersioni di calore, soprattutto se il termosifone è incassato nella parete. Anche un foglio di carta stagnola aiuta.\n3. La legge prevede in casa 20 gradi, con 2 di tolleranza, ma 19 gradi bastano. Ogni grado in meno fa risparmiare dal 5 al 10% di combustibile.\n4. La caldaia va tenuta pulita e regolata, con la manutenzione periodica: per l'impianto rivolgiti a un'impresa abilitata. Chi non fa la manutenzione rischia una multa a partire da 500 euro.\n\nDi notte chiudi persiane, tapparelle o tende pesanti: si disperde meno calore.\n\nPannelli riflettenti da montare e piccoli lavori in casa o in ufficio? Ci pensiamo noi, a Roma e nei Castelli Romani, da Genzano di Roma e Ariccia. Telefono e WhatsApp 06 63 46 70 · cooprimavera.com/servizi/piccole-manutenzioni\n\nFonti: ENEA, «Riscaldamenti, 10 consigli per risparmiare e tutelare l'ambiente»; DPR 74/2013.",
+   "ig": "Consigli da professionisti n. 56: termosifoni, come scaldare meglio senza sprechi.\n\n1. Non mettere mobili o tende davanti ai termosifoni e non usarli per asciugare i panni: il calore non si diffonde nella stanza e si spreca.\n2. Tra muro e termosifone metti un pannello riflettente: riduce le dispersioni di calore, soprattutto se il termosifone è incassato nella parete. Anche un foglio di carta stagnola aiuta.\n3. La legge prevede in casa 20 gradi, con 2 di tolleranza, ma 19 gradi bastano. Ogni grado in meno fa risparmiare dal 5 al 10% di combustibile.\n4. La caldaia va tenuta pulita e regolata, con la manutenzione periodica: per l'impianto rivolgiti a un'impresa abilitata. Chi non fa la manutenzione rischia una multa a partire da 500 euro.\n\nDi notte chiudi persiane, tapparelle o tende pesanti: si disperde meno calore.\n\nPannelli riflettenti da montare e piccoli lavori in casa o in ufficio? Ci pensiamo noi: telefono e WhatsApp 06 63 46 70, link in bio.\n\nFonti: ENEA, «Riscaldamenti, 10 consigli per risparmiare e tutelare l'ambiente»; DPR 74/2013.\n\n#riscaldamento #termosifoni #risparmioenergetico #casa #inverno #Cooprimavera #GenzanodiRoma #Ariccia #CastelliRomani",
+   "articolo": "D'inverno i termosifoni scaldano meglio se restano liberi, con un pannello riflettente dietro e la casa a 19-20 gradi. E la caldaia va controllata con regolarità da un tecnico. Sono i consigli dell'ENEA, l'Agenzia nazionale per le nuove tecnologie, l'energia e lo sviluppo economico sostenibile.\n\n## Niente davanti e niente sopra\n\nTende o mobili davanti ai termosifoni, o i panni stesi ad asciugare sopra, ostacolano la diffusione del calore nella stanza e sono **causa di sprechi**, ricorda l'ENEA. Anche le finestre: per cambiare l'aria bastano pochi minuti, poi si richiudono.\n\n## Il pannello riflettente\n\nTra muro e termosifone si può mettere un **pannello riflettente**: è una soluzione semplice che limita le dispersioni di calore, soprattutto quando il termosifone è incassato nella parete e il muro dietro è più sottile. Secondo l'ENEA può bastare anche un foglio di carta stagnola.\n\n## Quanti gradi in casa?\n\nLa legge prevede **20 gradi più 2 di tolleranza**, ma per l'ENEA **19 gradi** sono più che sufficienti. Ogni grado in meno fa risparmiare dal 5 al 10% sui consumi di combustibile. Non conviene nemmeno tenere l'impianto acceso giorno e notte: le ore massime di accensione dipendono per legge dalla zona climatica del Comune.\n\n## La manutenzione della caldaia\n\nÈ la prima regola per sicurezza, risparmio e ambiente: un impianto pulito, senza calcare e regolato bene consuma e inquina meno. Chi non fa la manutenzione rischia una **multa a partire da 500 euro** (DPR 74/2013). Caldaia e impianto sono lavori per un tecnico: **rivolgiti a un'impresa abilitata**.\n\n## Di notte, finestre schermate\n\nChiudere persiane e tapparelle, o tirare tende pesanti, riduce le dispersioni di calore verso l'esterno. Le tende però non vanno davanti ai termosifoni.\n\n## Ci pensiamo noi\n\nCooprimavera si occupa di [piccole manutenzioni](/servizi/piccole-manutenzioni/) in case, uffici e condomini, e di [pulizie professionali](/servizi/pulizie-professionali/) a Roma e nei Castelli Romani, dalle sedi di Genzano di Roma e Ariccia. Per caldaia e impianto termico serve un'impresa abilitata. Sopralluogo e [preventivo gratuiti](/preventivo/): telefono e WhatsApp 06 63 46 70.\n\n### Fonti\n\n- ENEA, [Riscaldamenti, 10 consigli per risparmiare e tutelare l'ambiente](https://www.efficienzaenergetica.enea.it/vi-segnaliamo/riscaldamenti-10-consigli-per-risparmiare-e-tutelare-l-ambiente.html) (21 ottobre 2021): manutenzione, temperatura, ore di accensione, pannelli riflettenti, finestre, ostacoli davanti ai termosifoni.\n- [DPR 16 aprile 2013, n. 74](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:2013-04-16;74): esercizio, conduzione, controllo e manutenzione degli impianti termici.\n"
+  },
+  {
+   "data": "2027-01-07",
+   "ora": "09:00",
+   "titolo": "Zanzara tigre: uova d'inverno",
+   "titolo_seo": "Zanzara tigre d'inverno: le uova resistono, ecco cosa fare | Cooprimavera",
+   "descrizione": "D'inverno le uova della zanzara tigre restano sulle pareti dei contenitori e reggono fino a -10 °C. Cosa fare adesso, secondo l'ISS.",
+   "pagina_sito": "/servizi/disinfestazioni/",
+   "immagine": "https://www.cooprimavera.com/social/2027-01-07-zanzara-tigre-uova-d-inverno.jpg",
+   "file": "2027-01-07-zanzara-tigre-uova-d-inverno.jpg",
+   "alt": "Foto: una zanzara tigre femmina, nera con macchie bianche e zampe a bande bianche, posata sulla pelle mentre punge, vista da vicino. Sulla foto «Consigli da professionisti» e, in basso a destra, il numero 57. Titolo: «Zanzara tigre: uova d'inverno». Quattro punti numerati: 1. Le uova reggono fino a -10 °C. 2. Stanno sulle pareti dei contenitori. 3. Niente contenitori lasciati fuori. 4. Grondaie e canalette sempre libere. In fondo «Non hai tempo? Ci pensiamo noi.» e il logo di Cooprimavera con cooprimavera.com e 06 63 46 70.",
+   "grafica": {
+    "tipo": "consiglio",
+    "tema": "Consigli da professionisti",
+    "numero": "57",
+    "titolo": "Zanzara tigre: uova d'inverno",
+    "righe": [
+     "Le uova reggono fino a -10 °C",
+     "Stanno sulle pareti dei contenitori",
+     "Niente contenitori lasciati fuori",
+     "Grondaie e canalette sempre libere"
+    ],
+    "chiusa": "Non hai tempo? Ci pensiamo noi.",
+    "foto": "assets/img/consigli/cdc-phil-1969-gathany-zanzara-tigre.jpg",
+    "fuoco": "center 35%",
+    "fonte_foto": "CDC Public Health Image Library, foto 1969 di James Gathany (pubblico dominio), da Wikimedia Commons"
+   },
+   "fb": "Consigli da professionisti n. 57: zanzara tigre, d'inverno le uova aspettano la primavera.\n\n1. In autunno la zanzara tigre depone uova resistenti, che si schiudono in primavera: in Europa è stato dimostrato che sopravvivono fino a -10 °C. Il freddo da solo non basta.\n2. Le uova stanno sulle pareti umide di tombini e piccoli contenitori, poco sopra il livello dell'acqua: secchi, annaffiatoi, sottovasi, lattine.\n3. Non lasciare all'aperto oggetti che possono raccogliere l'acqua piovana. I recipienti che servono, come i bidoni per l'acqua, vanno coperti bene, con una zanzariera.\n4. Tieni libere grondaie e canalette, dove l'acqua può ristagnare.\n\nNelle vasche e nelle fontane del giardino l'ISS suggerisce i pesci rossi, che mangiano le larve.\n\nCortili, giardini e tombini da trattare in primavera? Ci pensiamo noi, a Roma e nei Castelli Romani, da Genzano di Roma e Ariccia. Telefono e WhatsApp 06 63 46 70 · cooprimavera.com/servizi/disinfestazioni\n\nFonti: Istituto Superiore di Sanità, EpiCentro (zanzara tigre: informazioni e prevenzione).",
+   "ig": "Consigli da professionisti n. 57: zanzara tigre, d'inverno le uova aspettano la primavera.\n\n1. In autunno la zanzara tigre depone uova resistenti, che si schiudono in primavera: in Europa è stato dimostrato che sopravvivono fino a -10 °C. Il freddo da solo non basta.\n2. Le uova stanno sulle pareti umide di tombini e piccoli contenitori, poco sopra il livello dell'acqua: secchi, annaffiatoi, sottovasi, lattine.\n3. Non lasciare all'aperto oggetti che possono raccogliere l'acqua piovana. I recipienti che servono, come i bidoni per l'acqua, vanno coperti bene, con una zanzariera.\n4. Tieni libere grondaie e canalette, dove l'acqua può ristagnare.\n\nNelle vasche e nelle fontane del giardino l'ISS suggerisce i pesci rossi, che mangiano le larve.\n\nCortili, giardini e tombini da trattare in primavera? Ci pensiamo noi: telefono e WhatsApp 06 63 46 70, link in bio.\n\nFonti: Istituto Superiore di Sanità, EpiCentro (zanzara tigre: informazioni e prevenzione).\n\n#zanzaratigre #zanzare #giardino #disinfestazione #prevenzione #Cooprimavera #GenzanodiRoma #Ariccia #CastelliRomani",
+   "articolo": "La zanzara tigre d'inverno non si vede, ma c'è: le sue uova restano sulle pareti di tombini e contenitori e aspettano la primavera. Per questo l'inverno è il momento giusto per togliere di mezzo i posti dove l'acqua si ferma. Lo spiega l'Istituto Superiore di Sanità (ISS) nelle pagine di EpiCentro.\n\n## Le uova passano l'inverno\n\nNelle zone a clima temperato, in autunno, la diminuzione delle ore di luce fa deporre alla zanzara tigre uova resistenti, che si schiuderanno in primavera, con pioggia, temperatura e ore di luce adatte. In Europa è stato dimostrato che queste uova possono sopravvivere **fino a -10 °C**.\n\n## Dove stanno le uova\n\nLe femmine depongono le uova su superfici umide, **poco sopra il livello dell'acqua**: in città, le pareti di tombini e di piccoli contenitori. Bastano secchi, annaffiatoi, sottovasi e lattine.\n\n## Cosa fare adesso\n\nLe indicazioni dell'ISS per i cittadini:\n\n- non lasciare all'aperto oggetti e materiali che possono raccogliere l'acqua piovana;\n- eliminare l'acqua da sottovasi, annaffiatoi, bidoni e copertoni;\n- tenere libere canalette e grondaie;\n- coprire bene, con una zanzariera, i recipienti per raccogliere l'acqua, se servono;\n- nelle vasche e nelle fontane del giardino, introdurre pesci rossi, che mangiano le larve.\n\nQuando la stagione riparte, l'ISS indica di trattare ogni 7-10 giorni con prodotti larvicidi per uso domestico i tombini e i recipienti all'aperto che non si possono spostare, seguendo l'etichetta.\n\n## Ci pensiamo noi\n\nCooprimavera fa [disinfestazioni](/servizi/disinfestazioni/) contro zanzare e insetti volanti, con trattamenti larvicidi preventivi nei focolai (tombini, ristagni, aree verdi), per condomini, aziende ed enti a Roma e nei Castelli Romani, dalle sedi di Genzano di Roma e Ariccia. Sopralluogo e [preventivo gratuiti](/preventivo/): telefono e WhatsApp 06 63 46 70.\n\n### Fonti\n\n- Istituto Superiore di Sanità, EpiCentro, [Zanzara tigre: informazioni generali](https://www.epicentro.iss.it/zanzara/): uova resistenti, -10 °C, dove vengono deposte.\n- Istituto Superiore di Sanità, EpiCentro, [Zanzara tigre: prevenzione](https://www.epicentro.iss.it/zanzara/prevenzione): cosa possono fare i cittadini.\n"
+  },
+  {
+   "data": "2027-01-11",
+   "ora": "09:00",
+   "titolo": "Processionaria: i nidi d'inverno",
+   "titolo_seo": "Processionaria del pino: nidi d'inverno, cosa fare | Cooprimavera",
+   "descrizione": "Processionaria del pino: d'inverno i nidi si vedono sui rami. Peli urticanti, rimozione con le protezioni giuste e quando c'è l'obbligo di intervenire.",
+   "pagina_sito": "/servizi/giardinaggio/",
+   "immagine": "https://www.cooprimavera.com/social/2027-01-11-processionaria-i-nidi-d-inverno.jpg",
+   "file": "2027-01-11-processionaria-i-nidi-d-inverno.jpg",
+   "alt": "Foto: un ramo di pino con aghi lunghi e una pigna, in controluce. Sulla foto «Consigli da professionisti» e, in basso a destra, il numero 58. Titolo: «Processionaria: i nidi d'inverno». Quattro punti numerati: 1. I nidi sui rami si vedono adesso. 2. Peli urticanti: mai toccarli. 3. Si tagliano con le protezioni. 4. Obbligo? Dipende dal Comune. In fondo «Nidi alti o tanti? Ditta specializzata.» e il logo di Cooprimavera con cooprimavera.com e 06 63 46 70.",
+   "grafica": {
+    "tipo": "consiglio",
+    "tema": "Consigli da professionisti",
+    "numero": "58",
+    "titolo": "Processionaria: i nidi d'inverno",
+    "righe": [
+     "I nidi sui rami si vedono adesso",
+     "Peli urticanti: mai toccarli",
+     "Si tagliano con le protezioni",
+     "Obbligo? Dipende dal Comune"
+    ],
+    "chiusa": "Nidi alti o tanti? Ditta specializzata.",
+    "foto": "assets/img/consigli/pexels-34155320-pino.jpg",
+    "fuoco": "center 40%",
+    "fonte_foto": "Pexels, foto 34155320 di Nikolaos D. Nomikos (licenza Pexels)"
+   },
+   "fb": "Consigli da professionisti n. 58: processionaria del pino, i nidi si vedono adesso.\n\n1. Tra dicembre e l'inizio di febbraio i nidi della processionaria si vedono bene sulla chioma dei pini, soprattutto nelle parti esterne.\n2. Le larve hanno peli urticanti, pericolosi per le persone e per gli animali domestici. Il rischio più alto è poco prima che escano dal nido: non toccare nidi e larve.\n3. Tagliare e distruggere i nidi riduce l'infestazione, ma va fatto con la massima cautela e con protezioni adatte.\n4. La lotta non è più obbligatoria ovunque: lo è dove c'è un'ordinanza del Comune o dove lo prevede il regolamento del verde. Le infestazioni in aree frequentate vanno segnalate al Comune.\n\nNidi alti o tanti? Rivolgiti a una ditta specializzata nella lotta alla processionaria, che lavora con le protezioni e le attrezzature adatte.\n\nFonti: Regione Emilia-Romagna, Settore fitosanitario (processionaria del pino, scheda tecnica); DM 6 dicembre 2021.",
+   "ig": "Consigli da professionisti n. 58: processionaria del pino, i nidi si vedono adesso.\n\n1. Tra dicembre e l'inizio di febbraio i nidi della processionaria si vedono bene sulla chioma dei pini, soprattutto nelle parti esterne.\n2. Le larve hanno peli urticanti, pericolosi per le persone e per gli animali domestici. Il rischio più alto è poco prima che escano dal nido: non toccare nidi e larve.\n3. Tagliare e distruggere i nidi riduce l'infestazione, ma va fatto con la massima cautela e con protezioni adatte.\n4. La lotta non è più obbligatoria ovunque: lo è dove c'è un'ordinanza del Comune o dove lo prevede il regolamento del verde. Le infestazioni in aree frequentate vanno segnalate al Comune.\n\nNidi alti o tanti? Rivolgiti a una ditta specializzata nella lotta alla processionaria, che lavora con le protezioni e le attrezzature adatte.\n\nFonti: Regione Emilia-Romagna, Settore fitosanitario (processionaria del pino, scheda tecnica); DM 6 dicembre 2021.\n\n#processionaria #pini #giardino #alberi #verde #Cooprimavera #GenzanodiRoma #Ariccia #CastelliRomani",
+   "articolo": "D'inverno, sui rami dei pini, si vedono i nidi bianchi della processionaria del pino (Thaumetopoea pityocampa). È il periodo in cui ci si accorge dell'infestazione, ma anche quello che precede il momento più pericoloso: quando le larve escono dal nido. Le indicazioni del Settore fitosanitario della Regione Emilia-Romagna.\n\n## Quando si vedono i nidi\n\nIndicativamente tra **dicembre e l'inizio di febbraio** i nidi formati dalle larve sono ben visibili sulla chioma, soprattutto nelle parti esterne.\n\n## Perché non vanno toccati\n\nLe larve hanno **peli urticanti** che le rendono pericolose per le persone e per gli animali domestici, soprattutto quando escono dai nidi invernali. La massima pericolosità coincide con il periodo che precede l'apertura del nido: bisogna evitare ogni contatto con le larve.\n\n## Togliere i nidi\n\nDove si può, i nidi si tagliano e si distruggono, operando **con la massima cautela** e con protezioni adatte. Il taglio riduce l'infestazione ma non la elimina del tutto. A fine inverno, prima che le larve scendano dagli alberi, si possono montare sul tronco le trappole a collare, che le catturano durante la discesa.\n\n## C'è un obbligo?\n\nIl decreto ministeriale del 6 dicembre 2021, pubblicato nella Gazzetta Ufficiale del 5 gennaio 2022 e in vigore dal giorno dopo, ha abrogato la lotta obbligatoria nazionale del 2007. Da allora la lotta alla processionaria è obbligatoria **solo dove c'è un'ordinanza comunale** o dove lo prevede il regolamento del verde. Le ordinanze riguardano i proprietari di aree verdi e gli amministratori di condominio. Le infestazioni nelle aree frequentate dalle persone vanno segnalate al Sindaco del Comune dove si trovano le piante.\n\n## A chi rivolgersi\n\nSe i nidi sono alti o tanti, rivolgiti a una **ditta specializzata** nella lotta alla processionaria, che lavora con le protezioni e le attrezzature adatte. Se le piante infestate sono in un'area frequentata dalle persone, segnalalo al Comune.\n\n### Fonti\n\n- Regione Emilia-Romagna, Settore fitosanitario, [Processionaria del pino](https://agricoltura.regione.emilia-romagna.it/fitosanitario/avversita/schede/avversita-per-nome/processionaria-del-pino) e [scheda tecnica](https://agricoltura.regione.emilia-romagna.it/fitosanitario/avversita/schede/avversita-per-nome/processionaria-del-pino/processionaria-del-pino-scheda): periodo dei nidi, rischi, rimozione, obblighi.\n- Ministero delle politiche agricole, [decreto 6 dicembre 2021](https://www.protezionedellepiante.it/wp-content/uploads/2022/01/decreto-6-dicembre-2021_907693.pdf) (Gazzetta Ufficiale n. 3 del 5 gennaio 2022): abrogazione della lotta obbligatoria nazionale.\n"
+  },
+  {
+   "data": "2027-01-14",
+   "ora": "09:00",
+   "titolo": "Tende: prima leggi l'etichetta",
+   "titolo_seo": "Lavare le tende: come leggere l'etichetta di manutenzione | Cooprimavera",
+   "descrizione": "Prima di lavare le tende leggi l'etichetta: temperatura massima, ciclo delicato, lavaggio professionale. I simboli GINETEX della norma ISO 3758.",
+   "pagina_sito": "/servizi/pulizie-uffici/",
+   "immagine": "https://www.cooprimavera.com/social/2027-01-14-tende-prima-leggi-l-etichetta.jpg",
+   "file": "2027-01-14-tende-prima-leggi-l-etichetta.jpg",
+   "alt": "Foto: una tenda bianca leggera davanti a una finestra; fuori, un giardino con la neve. Sulla foto «Consigli da professionisti» e, in basso a destra, il numero 59. Titolo: «Tende: prima leggi l'etichetta». Quattro punti numerati: 1. I simboli seguono la norma ISO 3758. 2. Il numero: gradi massimi. 3. Trattino sotto: ciclo delicato. 4. Il cerchio: lavaggio professionale. In fondo «Non hai tempo? Ci pensiamo noi.» e il logo di Cooprimavera con cooprimavera.com e 06 63 46 70.",
+   "grafica": {
+    "tipo": "consiglio",
+    "tema": "Consigli da professionisti",
+    "numero": "59",
+    "titolo": "Tende: prima leggi l'etichetta",
+    "righe": [
+     "I simboli seguono la norma ISO 3758",
+     "Il numero: gradi massimi",
+     "Trattino sotto: ciclo delicato",
+     "Il cerchio: lavaggio professionale"
+    ],
+    "chiusa": "Non hai tempo? Ci pensiamo noi.",
+    "foto": "assets/img/consigli/pexels-15226283-tenda.jpg",
+    "fuoco": "center 40%",
+    "fonte_foto": "Pexels, foto 15226283 di Designecologist (licenza Pexels)"
+   },
+   "fb": "Consigli da professionisti n. 59: tende, prima di lavarle leggi l'etichetta.\n\n1. L'etichetta di manutenzione dice come lavare le tende senza rovinarle: i simboli sono quelli della norma internazionale ISO 3758.\n2. Il numero nella vaschetta è la temperatura massima di lavaggio in gradi: non va superata.\n3. Un trattino sotto la vaschetta vuol dire ciclo delicato, due trattini ciclo molto delicato. La mano nella vaschetta: lavaggio a mano. La vaschetta barrata: non si lava in acqua.\n4. Il cerchio indica il lavaggio professionale, a secco o ad acqua, fatto in lavanderia con macchine e prodotti che in casa non ci sono.\n\nD'inverno, di notte, le tende pesanti tirate aiutano a tenere il calore in casa. Ma non vanno mai davanti ai termosifoni.\n\nTende, tappeti e moquette da pulire in ufficio? Ci pensiamo noi, a Roma e nei Castelli Romani, da Genzano di Roma e Ariccia. Telefono e WhatsApp 06 63 46 70 · cooprimavera.com/servizi/pulizie-uffici\n\nFonti: GINETEX, simboli di manutenzione (ISO 3758:2023); ENEA.",
+   "ig": "Consigli da professionisti n. 59: tende, prima di lavarle leggi l'etichetta.\n\n1. L'etichetta di manutenzione dice come lavare le tende senza rovinarle: i simboli sono quelli della norma internazionale ISO 3758.\n2. Il numero nella vaschetta è la temperatura massima di lavaggio in gradi: non va superata.\n3. Un trattino sotto la vaschetta vuol dire ciclo delicato, due trattini ciclo molto delicato. La mano nella vaschetta: lavaggio a mano. La vaschetta barrata: non si lava in acqua.\n4. Il cerchio indica il lavaggio professionale, a secco o ad acqua, fatto in lavanderia con macchine e prodotti che in casa non ci sono.\n\nD'inverno, di notte, le tende pesanti tirate aiutano a tenere il calore in casa. Ma non vanno mai davanti ai termosifoni.\n\nTende, tappeti e moquette da pulire in ufficio? Ci pensiamo noi: telefono e WhatsApp 06 63 46 70, link in bio.\n\nFonti: GINETEX, simboli di manutenzione (ISO 3758:2023); ENEA.\n\n#tende #pulizie #bucato #casa #ufficio #Cooprimavera #GenzanodiRoma #Ariccia #CastelliRomani",
+   "articolo": "Prima di lavare le tende si legge l'etichetta di manutenzione: dice la temperatura massima, se serve un ciclo delicato e se il lavaggio va fatto da una lavanderia professionale. I simboli sono quelli del sistema GINETEX, l'associazione internazionale per l'etichettatura dei tessili, adottato dalla norma ISO 3758 (ultima edizione del 2023).\n\n## La vaschetta: lavaggio in acqua\n\nIl simbolo della vaschetta dice se il tessuto si può lavare in acqua, a mano o in lavatrice. **Il numero dentro la vaschetta** è la temperatura massima di lavaggio, in gradi, da non superare. La **mano** nella vaschetta indica il lavaggio a mano; la **vaschetta barrata** vuol dire che il tessuto non va lavato in acqua.\n\n## I trattini sotto la vaschetta\n\n**Un trattino** sotto la vaschetta indica un ciclo delicato, con meno azione meccanica; **due trattini** un ciclo molto delicato, come per la lana lavabile in lavatrice.\n\n## Il cerchio: lavanderia professionale\n\nIl **cerchio** indica il lavaggio professionale, a secco o ad acqua, fatto in lavanderia con macchine, prodotti e finiture che una lavatrice di casa non ha. Le lettere dentro il cerchio dicono al professionista quale procedimento usare; il cerchio barrato vuol dire che il lavaggio a secco non è ammesso.\n\n## Tende e riscaldamento\n\nL'ENEA ricorda che d'inverno, di notte, chiudere persiane e tapparelle o tirare **tende pesanti** riduce le dispersioni di calore. Le tende però non vanno davanti ai termosifoni, perché frenano il calore.\n\n## Ci pensiamo noi\n\nNelle [pulizie degli uffici](/servizi/pulizie-uffici/) Cooprimavera si occupa anche della pulizia di tende, tappeti e moquette, a Roma e nei Castelli Romani, dalle sedi di Genzano di Roma e Ariccia. Sopralluogo e [preventivo gratuiti](/preventivo/): telefono e WhatsApp 06 63 46 70.\n\n### Fonti\n\n- GINETEX, [Care symbols](https://www.ginetex.net/gb/labelling/care-symbols.asp): i simboli di manutenzione della norma ISO 3758:2023.\n- ENEA, [Riscaldamenti, 10 consigli per risparmiare e tutelare l'ambiente](https://www.efficienzaenergetica.enea.it/vi-segnaliamo/riscaldamenti-10-consigli-per-risparmiare-e-tutelare-l-ambiente.html): tende di notte e niente ostacoli davanti ai termosifoni.\n"
+  },
+  {
+   "data": "2027-01-18",
+   "ora": "09:00",
+   "titolo": "Piante in casa: cura d'inverno",
+   "titolo_seo": "Piante d'appartamento in inverno: acqua, luce e termosifoni | Cooprimavera",
+   "descrizione": "Piante d'appartamento in inverno: meno acqua, niente acqua ferma nel coprivaso, lontano dai termosifoni e più luce. I consigli della RHS.",
+   "pagina_sito": "/servizi/giardinaggio/",
+   "immagine": "https://www.cooprimavera.com/social/2027-01-18-piante-in-casa-cura-d-inverno.jpg",
+   "file": "2027-01-18-piante-in-casa-cura-d-inverno.jpg",
+   "alt": "Foto: piante verdi in vaso, tra cui una monstera, sul davanzale di una finestra luminosa. Sulla foto «Consigli da professionisti» e, in basso a destra, il numero 60. Titolo: «Piante in casa: cura d'inverno». Quattro punti numerati: 1. Meno acqua: d'inverno crescono poco. 2. Niente acqua ferma nel coprivaso. 3. Lontano da termosifoni e camini. 4. Più luce, mai dietro le tende. In fondo «Non hai tempo? Ci pensiamo noi.» e il logo di Cooprimavera con cooprimavera.com e 06 63 46 70.",
+   "grafica": {
+    "tipo": "consiglio",
+    "tema": "Consigli da professionisti",
+    "numero": "60",
+    "titolo": "Piante in casa: cura d'inverno",
+    "righe": [
+     "Meno acqua: d'inverno crescono poco",
+     "Niente acqua ferma nel coprivaso",
+     "Lontano da termosifoni e camini",
+     "Più luce, mai dietro le tende"
+    ],
+    "chiusa": "Non hai tempo? Ci pensiamo noi.",
+    "foto": "assets/img/consigli/pexels-13366224-piante-davanzale.jpg",
+    "fuoco": "center 45%",
+    "fonte_foto": "Pexels, foto 13366224 di Elena Golovchenko (licenza Pexels)"
+   },
+   "fb": "Consigli da professionisti n. 60: piante d'appartamento, come curarle d'inverno.\n\n1. Con meno luce e meno caldo le piante crescono meno, quindi vogliono meno acqua. Prima di annaffiare controlla che il terriccio sia asciutto.\n2. Attenzione alle piante che restano nell'acqua: se usi un coprivaso, dieci minuti dopo aver annaffiato butta via l'acqua in più.\n3. Troppo vicino ai termosifoni o al camino le foglie si seccano e diventano marroni ai bordi.\n4. D'inverno la luce è poca: sposta le piante dagli angoli bui verso un posto più luminoso. Non lasciarle dietro le tende chiuse, dove fa molto freddo.\n\nAnnaffia con acqua a temperatura ambiente e, fino a primavera, concima al massimo una volta al mese.\n\nGiardini, terrazzi e aree verdi da curare? Ci pensiamo noi, a Roma e nei Castelli Romani, da Genzano di Roma e Ariccia. Telefono e WhatsApp 06 63 46 70 · cooprimavera.com/servizi/giardinaggio\n\nFonti: RHS (Royal Horticultural Society).",
+   "ig": "Consigli da professionisti n. 60: piante d'appartamento, come curarle d'inverno.\n\n1. Con meno luce e meno caldo le piante crescono meno, quindi vogliono meno acqua. Prima di annaffiare controlla che il terriccio sia asciutto.\n2. Attenzione alle piante che restano nell'acqua: se usi un coprivaso, dieci minuti dopo aver annaffiato butta via l'acqua in più.\n3. Troppo vicino ai termosifoni o al camino le foglie si seccano e diventano marroni ai bordi.\n4. D'inverno la luce è poca: sposta le piante dagli angoli bui verso un posto più luminoso. Non lasciarle dietro le tende chiuse, dove fa molto freddo.\n\nAnnaffia con acqua a temperatura ambiente e, fino a primavera, concima al massimo una volta al mese.\n\nGiardini, terrazzi e aree verdi da curare? Ci pensiamo noi: telefono e WhatsApp 06 63 46 70, link in bio.\n\nFonti: RHS (Royal Horticultural Society).\n\n#piante #pianteinterno #inverno #casa #verde #Cooprimavera #GenzanodiRoma #Ariccia #CastelliRomani",
+   "articolo": "D'inverno le piante d'appartamento crescono poco: vogliono meno acqua, più luce e un posto lontano dai termosifoni. Sono i consigli della Royal Horticultural Society (RHS), la società orticola britannica.\n\n## Meno acqua\n\nCon meno luce e temperature più basse le piante crescono meno, quindi hanno bisogno di **meno acqua**. Non si annaffia a calendario: prima si controlla che il vaso sia asciutto (un vaso asciutto pesa meno di uno bagnato). Le piante in una stanza fresca vogliono acqua meno spesso di quelle in una stanza calda; il riscaldamento, però, secca l'aria e asciuga prima i vasi.\n\n## Niente acqua ferma\n\nAttenzione alle piante che restano a bagno. Se il vaso di plastica sta dentro un **coprivaso** decorativo, dieci minuti dopo aver annaffiato si butta via l'acqua in più. L'acqua va usata a temperatura ambiente: secondo la RHS quella fredda, d'inverno, può danneggiare la pianta.\n\n## Lontano dai termosifoni\n\nTroppo vicino ai termosifoni o al camino le foglie si disidratano e **diventano marroni ai bordi**. Anche il freddo fa danni: secondo la RHS lo spazio tra il vetro e le tende chiuse, d'inverno, può diventare molto freddo.\n\n## Più luce\n\nD'inverno la luce è debole: le piante tenute negli angoli bui stanno meglio in un posto più luminoso, e molte gradiscono anche il sole pieno, che in questa stagione è poco intenso. Il concime serve poco: fino a primavera **al massimo una volta al mese**.\n\n## Ci pensiamo noi\n\nCooprimavera si occupa di [giardinaggio e manutenzione del verde](/servizi/giardinaggio/) per condomini, aziende, enti e privati a Roma e nei Castelli Romani, dalle sedi di Genzano di Roma e Ariccia. Sopralluogo e [preventivo gratuiti](/preventivo/): telefono e WhatsApp 06 63 46 70.\n\n### Fonti\n\n- RHS (Royal Horticultural Society, Regno Unito), [Winter houseplants and care tips](https://www.rhs.org.uk/plants/types/houseplants/winter-interest-houseplants-care): acqua, coprivaso, termosifoni, luce.\n- RHS, [How to grow houseplants](https://www.rhs.org.uk/plants/types/houseplants/growing-guide): luce d'inverno, tende chiuse, acqua a temperatura ambiente, concime.\n"
+  },
+  {
+   "data": "2027-01-21",
+   "ora": "09:00",
+   "titolo": "Blatte: amano le case calde",
+   "titolo_seo": "Blatte e scarafaggi in casa: come entrano e come riconoscerli | Cooprimavera",
+   "descrizione": "Blatte e scarafaggi vivono negli edifici riscaldati ed entrano con merci e oggetti usati. I segnali da riconoscere e perché le trappole non bastano.",
+   "pagina_sito": "/servizi/disinfestazioni/",
+   "immagine": "https://www.cooprimavera.com/social/2027-01-21-blatte-amano-le-case-calde.jpg",
+   "file": "2027-01-21-blatte-amano-le-case-calde.jpg",
+   "alt": "Foto: una blatta marrone, vista da vicino, su cristalli di zucchero. Sulla foto «Consigli da professionisti» e, in basso a destra, il numero 61. Titolo: «Blatte: amano le case calde». Quattro punti numerati: 1. Vivono negli edifici riscaldati. 2. Entrano con merci e oggetti usati. 3. Segnale: escrementi come caffè. 4. Le trappole servono a scoprirle. In fondo «Non hai tempo? Ci pensiamo noi.» e il logo di Cooprimavera con cooprimavera.com e 06 63 46 70.",
+   "grafica": {
+    "tipo": "consiglio",
+    "tema": "Consigli da professionisti",
+    "numero": "61",
+    "titolo": "Blatte: amano le case calde",
+    "righe": [
+     "Vivono negli edifici riscaldati",
+     "Entrano con merci e oggetti usati",
+     "Segnale: escrementi come caffè",
+     "Le trappole servono a scoprirle"
+    ],
+    "chiusa": "Non hai tempo? Ci pensiamo noi.",
+    "foto": "assets/img/consigli/pexels-27033323-blatta.jpg",
+    "fuoco": "center 50%",
+    "fonte_foto": "Pexels, foto 27033323 di Erik Karits (licenza Pexels)"
+   },
+   "fb": "Consigli da professionisti n. 61: blatte, perché le troviamo in casa anche d'inverno.\n\n1. Le blatte che infestano le case vivono soprattutto negli edifici riscaldati o nelle fognature. Non dipende dalla pulizia: trovano da mangiare anche nelle case più pulite, tra briciole e residui di grasso.\n2. Entrano soprattutto con le merci, i bagagli e gli oggetti usati: mobili, elettrodomestici e vestiti di seconda mano vanno controllati prima di portarli in casa.\n3. Escono di notte e si vedono poco. I segnali: escrementi simili a polvere di caffè vicino ai nascondigli, involucri delle uova, resti della muta.\n4. Le trappole in commercio servono solo a capire se ci sono. Per eliminarle serve un'impresa di disinfestazione che riconosca la specie.\n\nIn condominio, se il problema riguarda più appartamenti, avvisa l'amministratore: si interviene su tutto l'edificio.\n\nBlatte in casa, in ufficio o in condominio? Ci pensiamo noi, a Roma e nei Castelli Romani, da Genzano di Roma e Ariccia. Telefono e WhatsApp 06 63 46 70 · cooprimavera.com/servizi/disinfestazioni\n\nFonti: Ufficio federale dell'ambiente svizzero (UFAM), «Scarafaggi».",
+   "ig": "Consigli da professionisti n. 61: blatte, perché le troviamo in casa anche d'inverno.\n\n1. Le blatte che infestano le case vivono soprattutto negli edifici riscaldati o nelle fognature. Non dipende dalla pulizia: trovano da mangiare anche nelle case più pulite, tra briciole e residui di grasso.\n2. Entrano soprattutto con le merci, i bagagli e gli oggetti usati: mobili, elettrodomestici e vestiti di seconda mano vanno controllati prima di portarli in casa.\n3. Escono di notte e si vedono poco. I segnali: escrementi simili a polvere di caffè vicino ai nascondigli, involucri delle uova, resti della muta.\n4. Le trappole in commercio servono solo a capire se ci sono. Per eliminarle serve un'impresa di disinfestazione che riconosca la specie.\n\nIn condominio, se il problema riguarda più appartamenti, avvisa l'amministratore: si interviene su tutto l'edificio.\n\nBlatte in casa, in ufficio o in condominio? Ci pensiamo noi: telefono e WhatsApp 06 63 46 70, link in bio.\n\nFonti: Ufficio federale dell'ambiente svizzero (UFAM), «Scarafaggi».\n\n#blatte #scarafaggi #disinfestazione #casa #condominio #Cooprimavera #GenzanodiRoma #Ariccia #CastelliRomani",
+   "articolo": "Le blatte che infestano le case vivono soprattutto negli edifici riscaldati: per questo si trovano anche d'inverno. Non sono un segno di sporcizia, entrano con merci e oggetti, e per eliminarle serve un intervento professionale. Le indicazioni dell'Ufficio federale dell'ambiente svizzero (UFAM).\n\n## Dove vivono\n\nLe specie che infestano le abitazioni, come il mangiapane delle cucine (*Blattella germanica*), lo scarafaggio nero (*Blatta orientalis*) e la blatta dei mobili (*Supella longipalpa*), vivono soprattutto **negli edifici riscaldati** o nella rete fognaria, e all'esterno si vedono solo in piena estate. Il mangiapane delle cucine cerca umidità: dietro il frigorifero, in bagno. La blatta dei mobili si nasconde anche in stampanti e fotocopiatrici.\n\n## Non è questione di pulizia\n\nLa presenza di blatte non ha a che fare con la mancanza di pulizia: anche nelle case più pulite trovano briciole e residui di grasso di cui nutrirsi.\n\n## Come entrano\n\nSoprattutto con il **trasporto di merci** e con i bagagli. Prima di portare in casa vestiti, mobili, elettrodomestici o altri oggetti di seconda mano conviene controllarli. I tessuti usati vanno lavati ad almeno 60 °C o tenuti qualche giorno nel congelatore a -18 °C prima di metterli nell'armadio.\n\n## I segnali\n\nLe blatte temono la luce e si muovono di notte, quindi si vedono poco. I segni di un'infestazione sono **escrementi simili a polvere di caffè**, di solito vicino ai nascondigli, gli involucri delle uova (ooteche) e i resti della muta.\n\n## Le trappole non bastano\n\nLe trappole in commercio servono solo a **scoprire** se ci sono blatte. Le specie tropicali non si eliminano senza prodotti chimici: serve un'impresa di disinfestazione, che riconosca la specie e valuti quanto è estesa l'infestazione. Se riguarda più appartamenti, si avvisa l'amministrazione dell'immobile e si interviene su tutto l'edificio.\n\n## Ci pensiamo noi\n\nCooprimavera fa [disinfestazioni](/servizi/disinfestazioni/) contro blatte e scarafaggi in case, condomini, attività commerciali e aziende, con gel ed esche nei punti critici trovati durante il sopralluogo, a Roma e nei Castelli Romani, dalle sedi di Genzano di Roma e Ariccia. Sopralluogo e [preventivo gratuiti](/preventivo/): telefono e WhatsApp 06 63 46 70.\n\n### Fonti\n\n- Ufficio federale dell'ambiente (UFAM, Svizzera), [Scarafaggi](https://www.bafu.admin.ch/it/scarafaggi) (28 aprile 2021): specie, dove vivono, prevenzione, segnali, lotta.\n"
+  },
+  {
+   "data": "2027-01-25",
+   "ora": "09:00",
+   "titolo": "Prato d'inverno: passi leggeri",
+   "titolo_seo": "Prato in inverno: brina, semina e ristagni d'acqua | Cooprimavera",
+   "descrizione": "Prato in inverno: non camminare sulla brina, la semina aspetta la primavera, i ristagni si curano con la forca. I consigli della RHS per gennaio.",
+   "pagina_sito": "/servizi/giardinaggio/",
+   "immagine": "https://www.cooprimavera.com/social/2027-01-25-prato-d-inverno-passi-leggeri.jpg",
+   "file": "2027-01-25-prato-d-inverno-passi-leggeri.jpg",
+   "alt": "Foto: fili d'erba coperti di brina in una mattina d'inverno, visti da vicino. Sulla foto «Consigli da professionisti» e, in basso a destra, il numero 62. Titolo: «Prato d'inverno: passi leggeri». Quattro punti numerati: 1. Brina? Non camminarci sopra. 2. Seminare? Aspetta la primavera. 3. Acqua ferma: buchi con la forca. 4. Passaggio fisso? Pietre a raso. In fondo «Non hai tempo? Ci pensiamo noi.» e il logo di Cooprimavera con cooprimavera.com e 06 63 46 70.",
+   "grafica": {
+    "tipo": "consiglio",
+    "tema": "Consigli da professionisti",
+    "numero": "62",
+    "titolo": "Prato d'inverno: passi leggeri",
+    "righe": [
+     "Brina? Non camminarci sopra",
+     "Seminare? Aspetta la primavera",
+     "Acqua ferma: buchi con la forca",
+     "Passaggio fisso? Pietre a raso"
+    ],
+    "chiusa": "Non hai tempo? Ci pensiamo noi.",
+    "foto": "assets/img/consigli/pexels-34875688-prato-brina.jpg",
+    "fuoco": "center 50%",
+    "fonte_foto": "Pexels, foto 34875688 di Lara Bellens (licenza Pexels)"
+   },
+   "fb": "Consigli da professionisti n. 62: il prato d'inverno, con passi leggeri.\n\n1. Non camminare sul prato coperto di brina: col freddo i fili d'erba diventano fragili e si rompono. Possono restare impronte marroni per qualche settimana.\n2. A gennaio fa troppo freddo per seminare il prato: aspetta la primavera. Le chiazze rovinate si possono riparare con zolle, nelle giornate miti.\n3. Dopo le piogge controlla se l'acqua ristagna: buca il prato con una forca da giardino e riempi i fori con un miscuglio di sabbia e terriccio.\n4. Se sul prato si passa spesso quando è bagnato, metti delle pietre da calpestare a livello del terreno: niente fango e niente intralci al tosaerba.\n\nPrati e giardini da curare? Ci pensiamo noi, a Roma e nei Castelli Romani, da Genzano di Roma e Ariccia. Telefono e WhatsApp 06 63 46 70 · cooprimavera.com/servizi/giardinaggio\n\nFonti: RHS (Royal Horticultural Society).",
+   "ig": "Consigli da professionisti n. 62: il prato d'inverno, con passi leggeri.\n\n1. Non camminare sul prato coperto di brina: col freddo i fili d'erba diventano fragili e si rompono. Possono restare impronte marroni per qualche settimana.\n2. A gennaio fa troppo freddo per seminare il prato: aspetta la primavera. Le chiazze rovinate si possono riparare con zolle, nelle giornate miti.\n3. Dopo le piogge controlla se l'acqua ristagna: buca il prato con una forca da giardino e riempi i fori con un miscuglio di sabbia e terriccio.\n4. Se sul prato si passa spesso quando è bagnato, metti delle pietre da calpestare a livello del terreno: niente fango e niente intralci al tosaerba.\n\nPrati e giardini da curare? Ci pensiamo noi: telefono e WhatsApp 06 63 46 70, link in bio.\n\nFonti: RHS (Royal Horticultural Society).\n\n#prato #giardino #giardinaggio #inverno #verde #Cooprimavera #GenzanodiRoma #Ariccia #CastelliRomani",
+   "articolo": "D'inverno il prato riposa e si cura con poco: non ci si cammina sopra quando c'è la brina, la semina aspetta la primavera e, dopo le piogge, si controllano i ristagni d'acqua. Sono i consigli della Royal Horticultural Society (RHS), la società orticola britannica, per gennaio.\n\n## Brina: non calpestare\n\nIl prato coperto di brina **non va calpestato**: col freddo i fili d'erba diventano fragili e si danneggiano. Possono restare impronte marroni che spariscono solo dopo qualche settimana.\n\n## Semina e riparazioni\n\nA gennaio fa **troppo freddo per seminare**: meglio aspettare la primavera. Le chiazze rovinate, soprattutto lungo i bordi, si possono riparare con zolle, nelle giornate miti. Anche buche e gobbe si sistemano sollevando il tappeto erboso, aggiungendo o togliendo terra e riappoggiandolo.\n\n## Ristagni d'acqua\n\nDopo le piogge invernali conviene controllare se l'acqua ristagna. Per migliorare il drenaggio si buca il prato con una **forca da giardino** o un arieggiatore e si spazzola nei fori un miscuglio di sabbia e terriccio. Alghe e licheni compaiono dove il drenaggio è scarso o c'è molta ombra.\n\n## Dove si passa spesso\n\nSe sul prato si cammina spesso quando è bagnato, la RHS suggerisce delle **pietre da calpestare**, messe a livello del terreno: si evitano chiazze di fango e non intralciano il tosaerba.\n\nLe indicazioni della RHS sono pensate per il clima britannico: nei Castelli Romani le gelate sono meno frequenti, ma le regole per i giorni di brina restano le stesse.\n\n## Ci pensiamo noi\n\nCooprimavera si occupa di [giardinaggio e manutenzione del verde](/servizi/giardinaggio/), prati compresi, per condomini, aziende, enti e privati a Roma e nei Castelli Romani, dalle sedi di Genzano di Roma e Ariccia. Sopralluogo e [preventivo gratuiti](/preventivo/): telefono e WhatsApp 06 63 46 70.\n\n### Fonti\n\n- RHS (Royal Horticultural Society, Regno Unito), [January: lawns](https://www.rhs.org.uk/advice/in-month/january/lawns): brina, semina, riparazioni, drenaggio, pietre da calpestare.\n"
+  },
+  {
+   "data": "2027-01-28",
+   "ora": "09:00",
+   "titolo": "Olivo: potalo dopo le gelate",
+   "titolo_seo": "Quando potare l'olivo: dopo le gelate, a fine inverno | Cooprimavera",
+   "descrizione": "Quando potare l'olivo: d'inverno o a inizio primavera, dopo le gelate, perché il freddo danneggia i tagli. Le indicazioni della Regione Lazio.",
+   "pagina_sito": "/servizi/giardinaggio/",
+   "immagine": "https://www.cooprimavera.com/social/2027-01-28-olivo-potalo-dopo-le-gelate.jpg",
+   "file": "2027-01-28-olivo-potalo-dopo-le-gelate.jpg",
+   "alt": "Foto: olivi in un campo al sole, con l'erba secca e il cielo azzurro. Sulla foto «Consigli da professionisti» e, in basso a destra, il numero 63. Titolo: «Olivo: potalo dopo le gelate». Quattro punti numerati: 1. D'inverno o a inizio primavera. 2. Il freddo rovina i tagli freschi. 3. Gelate tardive? Meglio aspettare. 4. Ogni anno, né troppo né poco. In fondo «Non hai tempo? Ci pensiamo noi.» e il logo di Cooprimavera con cooprimavera.com e 06 63 46 70.",
+   "grafica": {
+    "tipo": "consiglio",
+    "tema": "Consigli da professionisti",
+    "numero": "63",
+    "titolo": "Olivo: potalo dopo le gelate",
+    "righe": [
+     "D'inverno o a inizio primavera",
+     "Il freddo rovina i tagli freschi",
+     "Gelate tardive? Meglio aspettare",
+     "Ogni anno, né troppo né poco"
+    ],
+    "chiusa": "Non hai tempo? Ci pensiamo noi.",
+    "foto": "assets/img/consigli/pexels-13085071-oliveto.jpg",
+    "fuoco": "center 45%",
+    "fonte_foto": "Pexels, foto 13085071 di Helena Jankovičová Kováčová (licenza Pexels)"
+   },
+   "fb": "Consigli da professionisti n. 63: l'olivo si pota dopo le gelate.\n\n1. L'olivo si pota d'inverno o all'inizio della primavera, ma dopo il periodo delle gelate.\n2. Con le basse temperature i tessuti messi a nudo dal taglio muoiono o cicatrizzano più lentamente, e le ferite si allargano.\n3. Dove ci sono gelate tardive conviene aspettare: la pianta si difende meglio dal freddo e i tagli cicatrizzano prima.\n4. La potatura si fa ogni anno, con la giusta intensità: troppo forte riduce la produzione, troppo leggera lascia la chioma in ombra.\n\nA fine gennaio conviene programmarla e aspettare che il rischio di gelo sia passato.\n\nOlivi, alberi e giardini da potare? Ci pensiamo noi, a Roma e nei Castelli Romani, da Genzano di Roma e Ariccia. Telefono e WhatsApp 06 63 46 70 · cooprimavera.com/servizi/giardinaggio\n\nFonti: Regione Lazio, Disciplinare di produzione integrata 2025 (olivo).",
+   "ig": "Consigli da professionisti n. 63: l'olivo si pota dopo le gelate.\n\n1. L'olivo si pota d'inverno o all'inizio della primavera, ma dopo il periodo delle gelate.\n2. Con le basse temperature i tessuti messi a nudo dal taglio muoiono o cicatrizzano più lentamente, e le ferite si allargano.\n3. Dove ci sono gelate tardive conviene aspettare: la pianta si difende meglio dal freddo e i tagli cicatrizzano prima.\n4. La potatura si fa ogni anno, con la giusta intensità: troppo forte riduce la produzione, troppo leggera lascia la chioma in ombra.\n\nA fine gennaio conviene programmarla e aspettare che il rischio di gelo sia passato.\n\nOlivi, alberi e giardini da potare? Ci pensiamo noi: telefono e WhatsApp 06 63 46 70, link in bio.\n\nFonti: Regione Lazio, Disciplinare di produzione integrata 2025 (olivo).\n\n#olivo #potatura #giardinaggio #alberi #inverno #Cooprimavera #GenzanodiRoma #Ariccia #CastelliRomani",
+   "articolo": "L'olivo si pota durante l'inverno o all'inizio della primavera, ma **dopo il periodo delle gelate**: il freddo danneggia i tagli appena fatti. A gennaio, quindi, conviene programmarla e aspettare che il rischio di gelo sia passato. Lo indica la Regione Lazio nel Disciplinare di produzione integrata 2025, la guida tecnica per gli agricoltori.\n\n## Quando potare\n\nDi norma la potatura dell'olivo si fa **in inverno o all'inizio della primavera**, preferibilmente dopo il periodo delle gelate.\n\n## Perché il freddo fa male ai tagli\n\nLe basse temperature fanno morire i tessuti che servono a cicatrizzare, messi a nudo dal taglio, oppure ne rallentano la cicatrizzazione: le ferite si allargano.\n\n## Gelate tardive\n\nNelle zone dove c'è il pericolo di gelate tardive conviene **ritardare la potatura**: la pianta si difende meglio dalle basse temperature e i tagli cicatrizzano più in fretta. Nelle piante vigorose, secondo il Disciplinare, la potatura si può ritardare fino a quando i grappoli dei fiori (le mignole) sono ben visibili; in quelle deboli è meglio potare prima.\n\n## Ogni anno, con misura\n\nLa potatura di produzione andrebbe fatta **tutti gli anni**, con la giusta intensità: una potatura troppo forte riduce la produzione, una troppo leggera lascia in ombra l'interno della chioma e fa consumare più acqua, con più rischio di malattie e parassiti. Si tolgono i succhioni e i rami esauriti, si diradano quelli troppo fitti, si accorciano quelli troppo lunghi.\n\n## Ci pensiamo noi\n\nCooprimavera si occupa di [giardinaggio e manutenzione del verde](/servizi/giardinaggio/), potature comprese, per condomini, aziende, enti e privati a Roma e nei Castelli Romani, dalle sedi di Genzano di Roma e Ariccia. Sopralluogo e [preventivo gratuiti](/preventivo/): telefono e WhatsApp 06 63 46 70.\n\n### Fonti\n\n- Regione Lazio, Direzione regionale Agricoltura, [Disciplinare di produzione integrata 2025](https://www.regione.lazio.it/sites/default/files/2026-01/Disciplinare-Produzione-Integrata-2025-Allegato2-3.pdf), norme tecniche dell'olivo, potatura (p. 121 del documento).\n"
   }
  ]
 }
