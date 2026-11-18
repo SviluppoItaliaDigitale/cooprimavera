@@ -1,0 +1,186 @@
+{{- /* Candidatura online: prima selezione con un assistente virtuale a domande fisse (nessuna AI, nessun
+       servizio esterno). Le risposte partono a info@ tramite static/invia-candidatura.php; decide sempre una
+       persona, dopo il colloquio di persona. ?lavoro=pulizie oppure ?lavoro=giardinaggio sceglie già il lavoro.
+       Se l'invio non riesce propone WhatsApp, email e telefono con le risposte già scritte. */ -}}
+{{ define "main" }}
+<div class="contenitore pagina">
+  {{ partial "briciole.html" . }}
+  <h1 class="entra entra-su">{{ .Title }}</h1>
+  <div class="prosa intro entra entra-su entra-r1">{{ .Content }}</div>
+
+  <section class="candidatura" aria-label="Assistente virtuale per la candidatura">
+    <p class="candidatura-testata"><strong>Assistente virtuale Cooprimavera</strong> · prima selezione automatica, poi colloquio di persona</p>
+    <div class="candidatura-chat" id="cc-chat" aria-live="polite"></div>
+    <form class="candidatura-barra" id="cc-barra" hidden>
+      <label class="visivamente-nascosto" for="cc-testo">La tua risposta</label>
+      <input id="cc-testo" type="text" autocomplete="off">
+      <button class="bottone" type="submit">Invia</button>
+    </form>
+    <noscript>
+      <p class="modulo-esito">Per usare l'assistente serve JavaScript. Puoi candidarti mandando il curriculum a
+        <a href="mailto:{{ site.Params.email }}?subject=Candidatura">{{ site.Params.email }}</a> o scrivendoci su
+        <a href="{{ site.Params.whatsapp_link }}" rel="noopener">WhatsApp</a>.</p>
+    </noscript>
+  </section>
+
+  <div class="prosa">
+    <p><em>Preferisci mandare il curriculum? Scrivi a <a href="mailto:{{ site.Params.email }}?subject=Candidatura">{{ site.Params.email }}</a>. I dati delle candidature sono trattati come spiegato nella <a href="{{ "privacy/" | relURL }}">privacy policy</a>.</em></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var chat = document.getElementById("cc-chat");
+  var barra = document.getElementById("cc-barra");
+  var testo = document.getElementById("cc-testo");
+  if (!chat || !window.fetch || !window.FormData) return;
+  var invio = {{ "invia-candidatura.php" | relURL }};
+  var privacy = {{ "privacy/" | relURL }};
+  var wa = {{ site.Params.whatsapp_link }};
+  var tel = {{ site.Params.telefono_uff_link }};
+  var telVisto = {{ site.Params.telefono_uff }};
+  var email = {{ site.Params.email }};
+  var orari = {{ site.Params.orari }};
+  var inizio = Date.now();
+  var attesa = null;
+
+  function scorri(el) { try { el.scrollIntoView({ block: "nearest", behavior: "smooth" }); } catch (e) { el.scrollIntoView(false); } }
+  function dice(t, chi, html) {
+    var d = document.createElement("div");
+    d.className = "cc-msg " + (chi === "io" ? "cc-io" : "cc-bot");
+    if (html) d.innerHTML = t; else d.textContent = t;
+    chat.appendChild(d); scorri(d); return d;
+  }
+  function aggiungi(el) { chat.appendChild(el); scorri(el); return el; }
+  function scrivi(facoltativa, tipo) {
+    barra.hidden = false; testo.value = ""; testo.type = tipo || "text";
+    testo.setAttribute("inputmode", tipo === "tel" ? "tel" : tipo === "email" ? "email" : "text");
+    if (facoltativa) {
+      var b = document.createElement("div"); b.className = "cc-scelte cc-salta";
+      b.innerHTML = '<button type="button" class="bottone bottone-chiaro">Salta</button>';
+      b.firstChild.onclick = function () { rispondi("—"); };
+      aggiungi(b);
+    }
+    try { testo.focus({ preventScroll: true }); } catch (e) { testo.focus(); }
+  }
+  barra.addEventListener("submit", function (e) { e.preventDefault(); var v = testo.value.trim(); if (v) rispondi(v); });
+  function rispondi(v) {
+    var s = chat.querySelectorAll(".cc-salta"); for (var i = 0; i < s.length; i++) s[i].remove();
+    barra.hidden = true; dice(v, "io");
+    if (attesa) { var f = attesa; attesa = null; f(v); }
+  }
+
+  var haP = function (a) { return /Pulizie|Tutte/.test(a.lavoro || ""); };
+  var haM = function (a) { return /Manutenzione|Tutte/.test(a.lavoro || ""); };
+  var domande = [
+    { k: "privacy", t: "scelta", html: true, q: "Prima di cominciare: i dati che ci dai servono solo per valutare la tua candidatura e li conserviamo per il tempo necessario alla selezione (<a href=\"" + privacy + "\">privacy policy</a>). Le risposte le legge una persona della cooperativa: nessuna decisione viene presa in automatico. Se il profilo è in linea, ti chiamiamo per un colloquio di persona.", o: ["Ho capito, continuo", "Non voglio continuare"] },
+    { k: "nome", t: "testo", q: "Come ti chiami? (nome e cognome)" },
+    { k: "lavoro", t: "scelta", q: "Per quale lavoro ti candidi?", o: ["Pulizie e sanificazione", "Manutenzione e giardinaggio", "Tutte e due"] },
+    { k: "esperienza", t: "scelta", q: "Quanta esperienza hai in questo lavoro?", o: ["Nessuna, voglio imparare", "Meno di 1 anno", "Da 1 a 3 anni", "Più di 3 anni"] },
+    { k: "ambienti", t: "multi", se: haP, q: "Dove hai già fatto pulizie? Puoi sceglierne più di uno.", o: ["Uffici", "Condomini", "Scuole", "Strutture sanitarie", "Case private", "Capannoni e industrie", "Mai finora"] },
+    { k: "macchine", t: "multi", se: haP, q: "Quali macchine sai usare?", o: ["Lavasciuga", "Monospazzola", "Aspiraliquidi", "Idropulitrice", "Nessuna"] },
+    { k: "sanificazione", t: "scelta", se: haP, q: "Hai già fatto sanificazioni, con prodotti e procedure specifiche?", o: ["Sì", "Solo pulizie ordinarie", "No"] },
+    { k: "manutenzione", t: "multi", se: haM, q: "Quali di questi lavori sai fare?", o: ["Taglio erba", "Potature", "Decespugliatore", "Motosega", "Imbiancatura", "Piccola muratura", "Piccola idraulica", "Nessuno finora"] },
+    { k: "attestati", t: "testo", facoltativa: true, q: "Hai attestati o corsi? Per esempio sicurezza sul lavoro, uso della motosega, primo soccorso." },
+    { k: "patente", t: "scelta", q: "Hai la patente?", o: ["Patente B e auto mia", "Solo patente B", "Non ho la patente"] },
+    { k: "comune", t: "testo", q: "In che comune abiti? Ci serve per capire gli spostamenti." },
+    { k: "disponibilita", t: "multi", q: "Quando sei disponibile?", o: ["Mattina presto", "Mattina", "Pomeriggio", "Sera", "Sabato", "Domenica e festivi"] },
+    { k: "orario", t: "scelta", q: "Che orario cerchi?", o: ["Tempo pieno", "Part time", "Va bene tutto"] },
+    { k: "avvio", t: "scelta", q: "Quando potresti iniziare?", o: ["Subito", "Entro un mese", "Più avanti"] },
+    { k: "telefono", t: "testo", tipo: "tel", q: "Il tuo numero di telefono, per richiamarti.", v: function (x) { return /^[+0-9][0-9 .\/()-]{5,}$/.test(x) && x.replace(/\D/g, "").length >= 6 || "Mi sembra incompleto: scrivi solo il numero, per esempio 333 1234567."; } },
+    { k: "email", t: "testo", tipo: "email", facoltativa: true, q: "La tua email (se ce l'hai).", v: function (x) { return x === "—" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(x) || "Controlla l'email: manca qualcosa."; } },
+    { k: "note", t: "testo", facoltativa: true, q: "Vuoi aggiungere qualcosa su di te o sul lavoro che cerchi?" }
+  ];
+  var etichette = { nome: "Nome", lavoro: "Lavoro", esperienza: "Esperienza", ambienti: "Ambienti pulizie", macchine: "Macchine", sanificazione: "Sanificazione", manutenzione: "Lavori di manutenzione", attestati: "Attestati e corsi", patente: "Patente", comune: "Comune", disponibilita: "Disponibilità", orario: "Orario", avvio: "Inizio", telefono: "Telefono", email: "Email", note: "Note" };
+
+  // ?lavoro=pulizie | giardinaggio | entrambi sceglie già il lavoro (dai pulsanti di «Lavora con noi»)
+  var scelto = (new URLSearchParams(location.search).get("lavoro") || "").toLowerCase();
+  var lavoroDato = scelto === "pulizie" ? "Pulizie e sanificazione" : scelto === "giardinaggio" ? "Manutenzione e giardinaggio" : scelto === "entrambi" ? "Tutte e due" : "";
+
+  function avvia() {
+    chat.innerHTML = ""; barra.hidden = true; attesa = null; inizio = Date.now();
+    var a = {}, i = 0;
+    dice("Ciao! Sono l'assistente virtuale di Cooprimavera per le candidature. Ti faccio qualche domanda: ci vogliono circa 5 minuti.");
+    function avanti() {
+      while (i < domande.length) {
+        if (domande[i].se && !domande[i].se(a)) { i++; continue; }
+        if (domande[i].k === "lavoro" && lavoroDato) { a.lavoro = lavoroDato; dice("Ti candidi per: " + lavoroDato + "."); i++; continue; }
+        break;
+      }
+      if (i >= domande.length) return concludi(a);
+      var d = domande[i];
+      dice(d.q, "bot", d.html);
+      if (d.t === "testo") {
+        attesa = function (v) {
+          var ok = d.v ? d.v(v) : true;
+          if (ok !== true) { dice(ok); return setTimeout(avanti, 200); }
+          a[d.k] = v; i++; setTimeout(avanti, 250);
+        };
+        return scrivi(d.facoltativa, d.tipo);
+      }
+      var multi = d.t === "multi";
+      var box = document.createElement("div"); box.className = "cc-scelte";
+      box.innerHTML = d.o.map(function (o) { return '<button type="button" class="cc-scelta" aria-pressed="false"></button>'; }).join("")
+        + (multi ? '<button type="button" class="bottone" disabled>Conferma</button>' : "");
+      var bottoni = box.querySelectorAll(".cc-scelta");
+      for (var n = 0; n < bottoni.length; n++) bottoni[n].textContent = d.o[n];
+      var conferma = box.querySelector(".bottone");
+      Array.prototype.forEach.call(bottoni, function (b) {
+        b.onclick = function () {
+          if (!multi) {
+            box.remove(); dice(b.textContent, "io");
+            if (d.k === "privacy" && b.textContent.indexOf("Non") === 0) {
+              dice("Va bene: non abbiamo salvato niente. Se cambi idea puoi ricominciare quando vuoi, oppure mandarci il curriculum a " + email + ".");
+              return ricomincia();
+            }
+            a[d.k] = b.textContent; i++; return setTimeout(avanti, 250);
+          }
+          b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") === "true" ? "false" : "true");
+          conferma.disabled = !box.querySelector('[aria-pressed="true"]');
+        };
+      });
+      if (conferma) conferma.onclick = function () {
+        var v = Array.prototype.filter.call(bottoni, function (b) { return b.getAttribute("aria-pressed") === "true"; }).map(function (b) { return b.textContent; }).join(", ");
+        box.remove(); dice(v, "io"); a[d.k] = v; i++; setTimeout(avanti, 250);
+      };
+      aggiungi(box);
+    }
+    avanti();
+  }
+
+  function riepilogo(a) {
+    return Object.keys(etichette).filter(function (k) { return a[k] !== undefined; }).map(function (k) { return etichette[k] + ": " + a[k]; }).join("\n");
+  }
+  function concludi(a) {
+    var stato = dice("Sto inviando la tua candidatura…");
+    var dati = new FormData();
+    Object.keys(etichette).forEach(function (k) { if (a[k] !== undefined && a[k] !== "—") dati.append(k, a[k]); });
+    dati.append("sito_web", "");
+    dati.append("inizio", String(inizio));
+    dati.append("pagina", location.pathname);
+    fetch(invio, { method: "POST", body: dati, headers: { "Accept": "application/json" } })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (r) {
+        if (r.ok && r.d && r.d.esito === "ok") {
+          stato.textContent = "Grazie, " + a.nome + "! La tua candidatura è arrivata. Una persona della cooperativa la leggerà e, se il profilo è in linea con le nostre ricerche, ti chiamerà per un colloquio di persona.";
+          dice("Ti ricontattiamo in orario d'ufficio (" + orari + "). Per qualsiasi cosa puoi chiamarci al " + telVisto + ".");
+        } else { riserva(stato, a, (r.d && r.d.messaggio) || ""); }
+      })
+      .catch(function () { riserva(stato, a, "Il collegamento non ha funzionato."); });
+  }
+  function riserva(stato, a, motivo) {
+    var t = encodeURIComponent("Candidatura dal sito cooprimavera.com\n" + riepilogo(a));
+    stato.innerHTML = "<strong>La candidatura non è partita.</strong> " + motivo.replace(/[<>&]/g, "")
+      + " Mandacela in un attimo con le risposte già scritte: <a href=\"" + wa + "?text=" + t + "\" rel=\"noopener\">su WhatsApp</a>, "
+      + "<a href=\"mailto:" + email + "?subject=" + encodeURIComponent("Candidatura: " + (a.lavoro || "")) + "&body=" + t + "\">via email</a> "
+      + "o chiamaci al <a href=\"tel:" + tel + "\">" + telVisto + "</a>.";
+  }
+  function ricomincia() {
+    var b = document.createElement("div"); b.className = "cc-scelte";
+    b.innerHTML = '<button type="button" class="bottone bottone-chiaro">Ricomincia</button>';
+    b.firstChild.onclick = avvia; aggiungi(b);
+  }
+  avvia();
+})();
+</script>
+{{ end }}

@@ -741,3 +741,36 @@ main:has(> .sezione-verde:last-child, > .sezione-alterna:last-child) + .pie { ma
 .cliente-titolo a { color: inherit; }
 .cliente p { margin: .2rem 0; }
 .cliente-voci { color: var(--grigio); font-size: .95rem; }
+
+/* Candidatura online: assistente virtuale a domande fisse (layouts/candidatura.html) */
+.candidatura {
+  max-width: 40rem; margin: 1.5rem 0 2rem;
+  background: var(--verde-fondo); border: 1px solid var(--bordo);
+  border-radius: var(--raggio); padding: 1rem 1rem 0; box-shadow: var(--ombra);
+}
+.candidatura-testata { margin: 0 0 .6rem; font-size: .95rem; color: var(--verde-testo); }
+.candidatura-chat { display: flex; flex-direction: column; gap: .6rem; min-height: 16rem; padding-bottom: 1rem; }
+.cc-msg { max-width: 88%; padding: .65rem .9rem; border-radius: 16px; overflow-wrap: anywhere; white-space: pre-line; }
+.cc-bot { align-self: flex-start; background: #fff; border: 1px solid var(--bordo); border-bottom-left-radius: 4px; }
+.cc-io { align-self: flex-end; background: var(--verde-scuro); color: #fff; border-bottom-right-radius: 4px; }
+.cc-bot a { color: var(--verde-testo); }
+.cc-scelte { display: flex; flex-wrap: wrap; gap: .5rem; }
+.cc-scelta {
+  font: inherit; font-weight: 600; min-height: 44px; padding: .45rem .95rem; cursor: pointer;
+  border: 2px solid var(--verde-scuro); border-radius: 999px; background: #fff; color: var(--inchiostro);
+}
+.cc-scelta[aria-pressed="true"] { background: var(--verde); border-color: var(--verde-scuro); }
+.cc-scelta:focus-visible, .candidatura-barra input:focus { outline: 3px solid var(--verde); outline-offset: 2px; }
+.cc-scelte .bottone { border: 0; font: inherit; font-weight: 700; cursor: pointer; min-height: 44px; }
+.cc-scelte .bottone[disabled] { opacity: .5; cursor: not-allowed; }
+.cc-scelte .bottone-chiaro { border: 2px solid var(--verde-scuro); }
+.candidatura-barra {
+  position: sticky; bottom: 0; display: flex; gap: .5rem; padding: .7rem 0 1rem;
+  background: var(--verde-fondo); border-top: 1px solid var(--bordo);
+}
+.candidatura-barra[hidden] { display: none; }
+.candidatura-barra input {
+  flex: 1; min-width: 0; font: inherit; font-size: 16px; padding: .6rem .8rem;
+  border: 1px solid var(--bordo); border-radius: 8px; background: #fff; color: var(--inchiostro);
+}
+.candidatura-barra .bottone { border: 0; font: inherit; font-weight: 700; cursor: pointer; }
