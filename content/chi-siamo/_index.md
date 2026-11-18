@@ -11,7 +11,7 @@ layout: "page"
 
 Cooprimavera nasce il **5 ottobre 2006 a Lanuvio** come «Primavera Onlus», una cooperativa sociale con uno scopo preciso: dare lavoro a persone disabili, svantaggiate o emarginate, dentro un'impresa vera. Nel 2011 comincia l'attività con le pulizie; nel 2012 l'assemblea dei soci cambia nome e statuto e la cooperativa diventa Cooprimavera. Nel gennaio 2013 facciamo i primi colloqui al Centro per l'impiego di Frascati per le squadre delle pulizie.
 
-Negli anni il lavoro si allarga: dal 2014 le [sanificazioni e disinfestazioni](/servizi/sanificazioni/), la bonifica di un terreno sul lago di Nemi da cui nasce la nostra fattoria sociale, i primi grandi eventi con sedie, moquette e palchi, dal PalaTiziano al Foro Italico. Nel 2022 otteniamo l'idoneità per la manutenzione del verde pubblico e privato. Nel 2023 Alessandro Cuollo, nella cooperativa dai primi anni, ne diventa presidente, e apriamo ufficio e magazzino ad Ariccia.
+Negli anni il lavoro si allarga: dal 2014 le [sanificazioni e disinfestazioni](/servizi/sanificazioni/), la bonifica di un terreno sul lago di Nemi da cui nasce la nostra fattoria sociale, i primi grandi eventi con sedie, moquette e palchi, dal PalaTiziano al Foro Italico. Nel 2022 otteniamo l'idoneità per la manutenzione del verde pubblico e privato. Nel 2023 la cooperativa ha un nuovo presidente, che ci lavora dai primi anni, e apriamo ufficio e magazzino ad Ariccia.
 
 **[Vent'anni di Cooprimavera, anno per anno →](/chi-siamo/vent-anni/)**
 

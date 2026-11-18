@@ -56,7 +56,7 @@ tappe:
     testo: "Cominciamo a preparare i giardini di chi mette in vendita casa: è l'idea da cui nasce il servizio di valorizzazione degli immobili. Ad agosto otteniamo l'idoneità per la manutenzione del verde pubblico e privato prevista dalla legge 154/2016. I furgoni intanto girano per sagre e feste di paese."
   - anno: "2023"
     titolo: "Un nuovo presidente e la sede di Ariccia"
-    testo: "Ad agosto Alessandro Cuollo diventa presidente della cooperativa, dove lavora dai primi anni; a giugno 2026 il consiglio lo riconferma. A dicembre apriamo ufficio e magazzino in via Giuseppe Lugli, ad Ariccia: da lì partono ogni mattina le squadre."
+    testo: "Ad agosto la cooperativa ha un nuovo presidente, che ci lavora dai primi anni; a giugno 2026 il consiglio lo riconferma. A dicembre apriamo ufficio e magazzino in via Giuseppe Lugli, ad Ariccia: da lì partono ogni mattina le squadre."
     foto: { file: "img/lavori/2022-furgoni.jpg", alt: "Furgone Cooprimavera in un parcheggio all'alba prima di un allestimento" }
   - anno: "2026"
     titolo: "Vent'anni"
