@@ -125,7 +125,13 @@ $campi = array(
 );
 $r = array();
 foreach ($campi as $k => $c) {
-    $v = pulisci(isset($_POST[$k]) ? $_POST[$k] : '', $c[1]);
+    // Una risposta più lunga del previsto si rifiuta: tagliarla in silenzio farebbe perdere parte della candidatura.
+    $grezzo = isset($_POST[$k]) && is_string($_POST[$k]) ? trim($_POST[$k]) : '';
+    $lunghezza = function_exists('mb_strlen') ? mb_strlen($grezzo, 'UTF-8') : strlen($grezzo);
+    if ($lunghezza > $c[1]) {
+        rispondi(422, 'errore', 'La risposta «' . $c[0] . '» è troppo lunga (massimo ' . $c[1] . ' caratteri).');
+    }
+    $v = pulisci($grezzo, $c[1]);
     $r[$k] = $k === 'note' ? $v : una_riga($v);
 }
 $pagina = una_riga(pulisci(isset($_POST['pagina']) ? $_POST['pagina'] : '', 300));

@@ -52,8 +52,8 @@
     chat.appendChild(d); scorri(d); return d;
   }
   function aggiungi(el) { chat.appendChild(el); scorri(el); return el; }
-  function scrivi(facoltativa, tipo) {
-    barra.hidden = false; testo.value = ""; testo.type = tipo || "text";
+  function scrivi(facoltativa, tipo, max) {
+    barra.hidden = false; testo.value = ""; testo.type = tipo || "text"; testo.maxLength = max || 300;
     testo.setAttribute("inputmode", tipo === "tel" ? "tel" : tipo === "email" ? "email" : "text");
     if (facoltativa) {
       var b = document.createElement("div"); b.className = "cc-scelte cc-salta";
@@ -74,22 +74,22 @@
   var haM = function (a) { return /Manutenzione|Tutte/.test(a.lavoro || ""); };
   var domande = [
     { k: "privacy", t: "scelta", html: true, q: "Prima di cominciare: i dati che ci dai servono solo per valutare la tua candidatura e li conserviamo per il tempo necessario alla selezione (<a href=\"" + privacy + "\">privacy policy</a>). Le risposte le legge una persona della cooperativa: nessuna decisione viene presa in automatico. Se il profilo è in linea, ti chiamiamo per un colloquio di persona.", o: ["Ho capito, continuo", "Non voglio continuare"] },
-    { k: "nome", t: "testo", q: "Come ti chiami? (nome e cognome)" },
+    { k: "nome", t: "testo", max: 120, q: "Come ti chiami? (nome e cognome)" },
     { k: "lavoro", t: "scelta", q: "Per quale lavoro ti candidi?", o: ["Pulizie e sanificazione", "Manutenzione e giardinaggio", "Tutte e due"] },
     { k: "esperienza", t: "scelta", q: "Quanta esperienza hai in questo lavoro?", o: ["Nessuna, voglio imparare", "Meno di 1 anno", "Da 1 a 3 anni", "Più di 3 anni"] },
     { k: "ambienti", t: "multi", se: haP, q: "Dove hai già fatto pulizie? Puoi sceglierne più di uno.", o: ["Uffici", "Condomini", "Scuole", "Strutture sanitarie", "Case private", "Capannoni e industrie", "Mai finora"] },
     { k: "macchine", t: "multi", se: haP, q: "Quali macchine sai usare?", o: ["Lavasciuga", "Monospazzola", "Aspiraliquidi", "Idropulitrice", "Nessuna"] },
     { k: "sanificazione", t: "scelta", se: haP, q: "Hai già fatto sanificazioni, con prodotti e procedure specifiche?", o: ["Sì", "Solo pulizie ordinarie", "No"] },
     { k: "manutenzione", t: "multi", se: haM, q: "Quali di questi lavori sai fare?", o: ["Taglio erba", "Potature", "Decespugliatore", "Motosega", "Imbiancatura", "Piccola muratura", "Piccola idraulica", "Nessuno finora"] },
-    { k: "attestati", t: "testo", facoltativa: true, q: "Hai attestati o corsi? Per esempio sicurezza sul lavoro, uso della motosega, primo soccorso." },
+    { k: "attestati", t: "testo", max: 600, facoltativa: true, q: "Hai attestati o corsi? Per esempio sicurezza sul lavoro, uso della motosega, primo soccorso." },
     { k: "patente", t: "scelta", q: "Hai la patente?", o: ["Patente B e auto mia", "Solo patente B", "Non ho la patente"] },
-    { k: "comune", t: "testo", q: "In che comune abiti? Ci serve per capire gli spostamenti." },
+    { k: "comune", t: "testo", max: 120, q: "In che comune abiti? Ci serve per capire gli spostamenti." },
     { k: "disponibilita", t: "multi", q: "Quando sei disponibile?", o: ["Mattina presto", "Mattina", "Pomeriggio", "Sera", "Sabato", "Domenica e festivi"] },
     { k: "orario", t: "scelta", q: "Che orario cerchi?", o: ["Tempo pieno", "Part time", "Va bene tutto"] },
     { k: "avvio", t: "scelta", q: "Quando potresti iniziare?", o: ["Subito", "Entro un mese", "Più avanti"] },
-    { k: "telefono", t: "testo", tipo: "tel", q: "Il tuo numero di telefono, per richiamarti.", v: function (x) { return /^[+0-9][0-9 .\/()-]{5,}$/.test(x) && x.replace(/\D/g, "").length >= 6 || "Mi sembra incompleto: scrivi solo il numero, per esempio 333 1234567."; } },
-    { k: "email", t: "testo", tipo: "email", facoltativa: true, q: "La tua email (se ce l'hai).", v: function (x) { return x === "—" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(x) || "Controlla l'email: manca qualcosa."; } },
-    { k: "note", t: "testo", facoltativa: true, q: "Vuoi aggiungere qualcosa su di te o sul lavoro che cerchi?" }
+    { k: "telefono", t: "testo", max: 40, tipo: "tel", q: "Il tuo numero di telefono, per richiamarti.", v: function (x) { return /^[+0-9][0-9 .\/()-]{5,}$/.test(x) && x.replace(/\D/g, "").length >= 6 || "Mi sembra incompleto: scrivi solo il numero, per esempio 333 1234567."; } },
+    { k: "email", t: "testo", max: 160, tipo: "email", facoltativa: true, q: "La tua email (se ce l'hai).", v: function (x) { return x === "—" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(x) || "Controlla l'email: manca qualcosa."; } },
+    { k: "note", t: "testo", max: 2000, facoltativa: true, q: "Vuoi aggiungere qualcosa su di te o sul lavoro che cerchi?" }
   ];
   var etichette = { nome: "Nome", lavoro: "Lavoro", esperienza: "Esperienza", ambienti: "Ambienti pulizie", macchine: "Macchine", sanificazione: "Sanificazione", manutenzione: "Lavori di manutenzione", attestati: "Attestati e corsi", patente: "Patente", comune: "Comune", disponibilita: "Disponibilità", orario: "Orario", avvio: "Inizio", telefono: "Telefono", email: "Email", note: "Note" };
 
@@ -116,7 +116,7 @@
           if (ok !== true) { dice(ok); return setTimeout(avanti, 200); }
           a[d.k] = v; i++; setTimeout(avanti, 250);
         };
-        return scrivi(d.facoltativa, d.tipo);
+        return scrivi(d.facoltativa, d.tipo, d.max);
       }
       var multi = d.t === "multi";
       var box = document.createElement("div"); box.className = "cc-scelte";

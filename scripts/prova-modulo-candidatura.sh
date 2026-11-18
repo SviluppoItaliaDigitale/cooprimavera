@@ -41,6 +41,8 @@ done
 prova "telefono mancante" 422 'obbligatorie' -F nome=Maria -F lavoro=Pulizie -F comune=Ariccia -H "X-Forwarded-For: 198.51.100.1"
 prova "comune mancante" 422 'obbligatorie' -F nome=Maria -F lavoro=Pulizie -F telefono=3331234567 -H "X-Forwarded-For: 198.51.100.1"
 prova "telefono errato" 422 'telefono non sembra' -F nome=Maria -F lavoro=Pulizie -F comune=Ariccia -F telefono=abc -H "X-Forwarded-For: 198.51.100.1"
+LUNGA=$(python3 -c 'print("a"*2001)')
+prova "nota troppo lunga rifiutata" 422 'troppo lunga' "${CAMPI[@]}" -F note="$LUNGA" -H "X-Forwarded-For: 198.51.100.1"
 prova "email errata" 422 'email non sembra' "${CAMPI[@]}" -F email=sbagliata -H "X-Forwarded-For: 198.51.100.1"
 if [[ "$(curl -s -o /dev/null -w '%{http_code}' "$U")" == 405 ]]; then echo "ok   metodo GET"; else echo "ERRORE metodo GET"; errori=$((errori+1)); fi
 prova "campo trappola" 200 '"ok"' "${CAMPI[@]}" -F sito_web=spam -H "X-Forwarded-For: 198.51.100.2"
