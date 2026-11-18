@@ -32,6 +32,11 @@ Indicazioni di Alessandro (presidente) per post, grafiche e pagine.
   testo alternativo del calendario; non si salta e non si aspetta una conferma.
   Ogni mattina si controlla che i post dei giorni passati siano usciti
   (`gestione-social.yml`, azione `elenco`).
+- **Nessun nome e cognome** (Alessandro, 18/11/2026: «Nel sito togli il mio nome e
+  cognome come presidente… Non mettere nomi e cognomi»): sul sito e nei post non si
+  scrivono nomi e cognomi delle persone della cooperativa (presidente, soci,
+  dipendenti, collaboratori); si scrive il ruolo («il presidente», «una nostra
+  operatrice»).
 - **Dati sensibili**: dai documenti della cooperativa (visura, statuto,
   bilanci) si usano solo date e fatti pubblici; mai codici fiscali, nomi dei
   soci, cifre di bilancio.
