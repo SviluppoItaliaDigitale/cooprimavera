@@ -23,7 +23,7 @@ faq:
   - domanda: "Dove si lavora?"
     risposta: "Negli appalti presso i clienti a **Roma e nei Castelli Romani** (Ariccia, Albano, Genzano, Marino, Ciampino, Frascati, Velletri e dintorni), con base operativa ad Ariccia."
   - domanda: "Come invio la candidatura?"
-    risposta: "Premi **\"Candidati ora\"** sulla posizione che ti interessa e invia il curriculum a info@cooprimavera.com: l'oggetto dell'email si compila da solo. Rispondiamo ai profili in linea con le ricerche attive."
+    risposta: "Premi **\"Candidati online\"** sulla posizione che ti interessa: un assistente virtuale ti fa alcune domande (circa 5 minuti) e le risposte arrivano alla cooperativa. È una prima selezione automatica: le candidature le legge una persona e, se il profilo è in linea con le ricerche attive, ti chiamiamo per un colloquio di persona. Se preferisci, puoi mandare il curriculum a info@cooprimavera.com."
 ---
 
-Siamo alla ricerca costante di nuovo personale da inserire nel nostro organico. Scegli la posizione, premi **"Candidati ora"** e inviaci il tuo curriculum aggiornato: l'oggetto dell'email si compila da solo.
+Siamo alla ricerca costante di nuovo personale da inserire nel nostro organico. Scegli la posizione e premi **"Candidati online"**: un assistente virtuale fa una prima selezione con poche domande, poi ti chiamiamo per il colloquio di persona. Se preferisci, puoi anche inviarci il curriculum per email.

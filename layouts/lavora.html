@@ -18,7 +18,9 @@
         <p>{{ .descrizione }}</p>
         <p class="posizione-contratto"><strong>Contratto:</strong> {{ .contratto }}</p>
         <p class="posizione-contratto"><strong>Zona di lavoro:</strong> {{ .zona | default "Roma e Castelli Romani" }}</p>
-        <p class="posizione-cta"><a class="bottone" href="mailto:{{ site.Params.email }}?subject={{ printf "Candidatura — %s" .titolo }}">Candidati ora</a></p>
+        {{- $lavoro := cond (in (lower .settore) "pulizie") "pulizie" "giardinaggio" }}
+        <p class="posizione-cta"><a class="bottone" href="{{ "lavora-con-noi/candidatura/" | relURL }}?lavoro={{ $lavoro }}">Candidati online</a></p>
+        <p class="posizione-cta"><a href="mailto:{{ site.Params.email }}?subject={{ printf "Candidatura — %s" .titolo }}">Oppure invia il curriculum per email</a></p>
       </div>
     </article>
     {{ end }}
