@@ -312,6 +312,15 @@ class Prova(unittest.TestCase):
         (c,) = r.post(f"{IG}/media")
         self.assertEqual(len(c["alt_text"]), 1000)
 
+    def test_instagram_alt_con_emoji_si_conta_in_unita_utf16(self):
+        # 22/10/2026: 504 caratteri, 497 dei quali emoji, sono 1001 unità UTF-16: oltre il limite.
+        r = self.rete()
+        gs.a_pubblica(rete="ig", testo="Testo", immagine=FOTO, alt="Prato. " + "🙂" * 497)
+        (c,) = r.post(f"{IG}/media")
+        self.assertNotIn("alt_text", c)
+        self.assertIn("1001 caratteri, oltre il limite di 1000", self.log())
+        self.assertEqual(gs.lunghezza_alt("a🙂b"), 4)
+
     # --- calendario ----------------------------------------------------------
 
     def calendario(self, post: list[dict]) -> None:
