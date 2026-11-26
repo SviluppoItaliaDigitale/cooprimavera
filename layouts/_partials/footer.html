@@ -12,6 +12,14 @@
         <li><a href="{{ site.Params.social.x }}" rel="noopener">X</a></li>
       </ul>
       <p><a href="{{ "notizie/" | relURL }}">Notizie</a> · <a href="{{ "lavori/" | relURL }}">Registro dei lavori</a></p>
+      {{- /* Logo ufficiale di Confcooperative, file originale non modificato: blu su fondo
+             chiaro, quindi sta su una targhetta bianca e non sul fondo scuro del piè */ -}}
+      {{ with resources.Get "img/confcooperative.png" }}{{ $l := .Resize "452x webp q90" }}
+      <p class="pie-adesione">Aderente a
+        <a class="pie-adesione-logo" href="https://www.confcooperative.it/" rel="noopener">
+          <img src="{{ $l.RelPermalink }}" width="{{ $l.Width }}" height="{{ $l.Height }}" alt="Confcooperative, Confederazione Cooperative Italiane" loading="lazy" decoding="async">
+        </a>
+      </p>{{ end }}
     </div>
     <nav aria-label="Servizi">
       <h2 class="pie-titolo"><a href="{{ "servizi/" | relURL }}">Servizi</a></h2>
