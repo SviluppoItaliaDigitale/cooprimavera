@@ -19,7 +19,7 @@ Negli anni il lavoro si allarga: dal 2014 le [sanificazioni e disinfestazioni](/
 
 ## Come lavoriamo
 
-Siamo una cooperativa di produzione e lavoro: la cooperativa è dei soci lavoratori, e le squadre restano le stesse sullo stesso appalto, così conoscono la sede e le abitudini del cliente. Il cliente ha un solo referente per pulizie, verde, sanificazioni ed eventi, e prima di ogni preventivo facciamo il sopralluogo.
+Siamo una cooperativa di produzione e lavoro, aderente a [Confcooperative](https://www.confcooperative.it/), la Confederazione Cooperative Italiane: la cooperativa è dei soci lavoratori, e le squadre restano le stesse sullo stesso appalto, così conoscono la sede e le abitudini del cliente. Il cliente ha un solo referente per pulizie, verde, sanificazioni ed eventi, e prima di ogni preventivo facciamo il sopralluogo.
 
 Oggi facciamo [pulizie professionali](/servizi/pulizie-professionali/), anche straordinarie e su pavimenti delicati; [sanificazioni](/servizi/sanificazioni/) e [disinfestazioni](/servizi/disinfestazioni/); [giardinaggio](/servizi/giardinaggio/), con l'idoneità per il verde pubblico e lo smaltimento degli sfalci; [portierato](/servizi/portierato/); [piccole manutenzioni](/servizi/piccole-manutenzioni/); [servizi ausiliari](/servizi/servizi-ausiliari/) per scuole, strutture e alberghi; [servizi per comuni ed enti](/servizi/servizi-comuni-enti/), dallo spazzamento allo sgombero neve; [allestimenti per eventi](/servizi/allestimenti-eventi/), con service audio, luci e video e accoglienza in sala.
 
